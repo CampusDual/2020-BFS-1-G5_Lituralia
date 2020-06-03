@@ -1,0 +1,76 @@
+endpoints:
+   api:
+      enabled: true
+logging:
+   level:
+      root: info
+ontimize:
+   corsfilter:
+      enabled: true
+   globalcors:
+      corsConfigurations:
+         '[/**]':
+            allowedOrigins: "*"
+            allowedHeaders: "*"
+            exposedHeaders: ["X-Auth-Token","Content-disposition","X-Requested-With"]
+            allowedMethods:
+            - GET
+            - POST
+            - PUT
+            - OPTIONS
+            - DELETE
+   jdbc:
+      nameConvention: upper
+      sqlhandler: oracle
+      sqlConditionProcessor:
+         uppperString: true
+         upperLike: true
+   security:
+      mode: default
+      roleInformationService:
+         roleRepository: UserRoleDao
+         roleNameColumn: ROLENAME
+         serverPermissionQueryId: serverPermissions
+         serverPermissionNameColumn: PERMISSION_NAME
+         clientPermissionQueryId: clientPermissions
+         clientPermissionColumn: XMLCLIENTPERMISSION
+      userInformationService:
+         userRepository: UserDao
+         userLoginColumn: USER_
+         userPasswordColumn: PASSWORD
+         queryId: login
+         otherData:
+            - NAME
+            - SURNAME
+            - EMAIL
+            - NIF
+            - USERBLOCKED
+            - LASTPASSWORDUPDATE
+            - FIRSTLOGIN
+      userRoleInformationService:
+         userRoleRepository: UserRoleDao
+         queryId: userRole
+         roleLoginColumn: USER_
+         roleNameColumn: ROLENAME
+server:
+   port: 33333
+   tomcat:
+      uri-encoding: UTF-8
+   compression:
+      enabled: true
+      mime-types: application/json, application/xml
+spring:
+   datasource:
+      driver-class-name: org.hsqldb.jdbcDriver
+      jdbcUrl: jdbc:hsqldb:hsql://localhost:9013/templateDB
+      username: SA
+      password:
+      initialSize: 10
+      testOnBorrow: true
+   main:
+      banner-mode: 'off'
+   session:
+      store-type: none
+   autoconfigure:
+      exclude: |
+         org.springframework.boot.autoconfigure.security.SecurityAutoConfiguration, org.springframework.boot.actuate.autoconfigure.ManagementWebSecurityAutoConfiguration, org.springframework.boot.autoconfigure.security.FallbackWebSecurityAutoConfiguration
