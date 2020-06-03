@@ -8,8 +8,8 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <name>Basic project api</name>
-    <description>Basic project api code.</description>
+    <name>Lituralia api</name>
+    <description>Lituralia api code.</description>
     <artifactId>lituralia-api</artifactId>
     <packaging>jar</packaging>
 

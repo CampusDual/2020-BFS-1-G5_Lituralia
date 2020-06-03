@@ -7,8 +7,8 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>lituralia-ws</artifactId>
-	<name>Basic project ws</name>
-	<description>Basic project webservice</description>
+	<name>Lituralia ws</name>
+	<description>Lituralia webservice</description>
 	<dependencies>
 		<dependency>
 			<groupId>com.campusdual.lituralia</groupId>
