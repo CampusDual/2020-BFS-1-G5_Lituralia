@@ -1,0 +1,226 @@
+{
+	"info": {
+		"_postman_id": "50e230da-4667-44b1-851c-b44ae7eb8621",
+		"name": "Lituralia Ontimize",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Libros",
+			"item": [
+				{
+					"name": "libro -C",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"isbn\": \"123456789-0\",\n        \"titulo\": \"Postman Creation 5\",\n        \"sinopsis\": \"Dull\",\n        \"fecha_publicacion\": 1551654000000,\n        \"portada\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAF1SURBVBgZpcGxalRBFMfh35yZGwK72mrrO2yxoIXFvIBNGksrsbISFGuxMRDIGwhiCtttrq9hCgWxSLtVsor3nvN3RwxcggTCfl+SxC7So+cfnz14uHi73mgmAREoAg9HIUKB3AkJueMR3N4bLk5Pz158endwXBb3F0fd/szu7HMTs4uNHwHHZTPINutzburnIKN5+f6r/ufVh2+6zpM3n7VFkYJmtVrRdR21VqbW57/wUfgoXMFvF/fu3sLDaQoSTdd11Fq5quRCSk7KIodRRtHE6DTFw7nU9z1NrZVL2cBSpiTwJNyCJjxoTCGa5XJJU2tlKicwA8uQS2IvZ5oIp7EIZ6rve6ZSMYpBNigZLPNXRNCUcRiYqrUyZWyZkQGXsCSacRhpTB5M9X3PlKWEpQQpkc3IKdEogqZEBM18PqfWylU5JZrMPznThERTzr7/OHl6OByEO+GBuxMR+DDw+PUXQkLhyEUoUAQRNCdsJUnswtjRH6iT+f+z/UsKAAAAAElFTkSuQmCC\",\n        \"id_editorial\": 1\n    },\n    \"sqltypes\": {\n        \"sinopsis\": 12,\n        \"fecha_publicacion\": 91,\n        \"titulo\": 12,\n        \"isbn\": 12,\n        \"portada\": 12,\n        \"id_editorial\": 4\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:33333/libros/libro",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"libros",
+								"libro"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "libro -R",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "demouser",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "demo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:33333/libros/libro?columns=id_libro,isbn,titulo,sinopsis,fecha_publicacion,id_editorial",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"libros",
+								"libro"
+							],
+							"query": [
+								{
+									"key": "columns",
+									"value": "id_libro,isbn,titulo,sinopsis,fecha_publicacion,id_editorial"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "libro -R (complex)",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "demouser",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "demo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"filter\": {\n    \t\"id_libro\": 405\n    },\n    \"columns\": [\n        \"id_libro\",\n        \"isbn\",\n        \"titulo\",\n        \"sinopsis\",\n        \"fecha_publicacion\",\n        \"portada\",\n        \"id_editorial\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:33333/libros/libro/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"libros",
+								"libro",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "libro -U",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"filter\": {\n\t\t\"id_libro\": 405\n\t},\n    \"data\": {\n        \"titulo\": \"Postman Mod 5.1\"\n    },\n    \"sqltypes\": {\n        \"sinopsis\": 12,\n        \"fecha_publicacion\": 91,\n        \"titulo\": 12,\n        \"isbn\": 12,\n        \"portada\": 12,\n        \"id_editorial\": 4\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:33333/libros/libro",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"libros",
+								"libro"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "libro -D",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"filter\" :{\n\t\t\"id_libro\": 405\n\t}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:33333/libros/libro",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"libros",
+								"libro"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "demouser",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "demo",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "a6966bee-39bc-4d1d-a67a-6c7a3f84bd86",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "c3f6ef75-9d91-4100-a371-27d267279277",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
