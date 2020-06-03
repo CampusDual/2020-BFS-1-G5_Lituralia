@@ -39,5 +39,5 @@ build/
 /model/target/
 /ws/target/
 */target/
-/frontend/src/main/resources/webapp/
+/frontend/src/main/resources/webapp/node_modules
 /model/src/main/db/
