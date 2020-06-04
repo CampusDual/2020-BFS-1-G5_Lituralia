@@ -20,7 +20,7 @@ public class RelationalDataAccessApplication implements CommandLineRunner {
 
         log.info("Querying DB");
         boolean emptyString = jdbcTemplate.queryForList(
-            "SELECT id_libro FROM lituralia.libros LIMIT 1").isEmpty();
+            "SELECT book_id FROM lituralia.books LIMIT 1").isEmpty();
         if (emptyString)
             log.warn("DB [FAIL]");
         else

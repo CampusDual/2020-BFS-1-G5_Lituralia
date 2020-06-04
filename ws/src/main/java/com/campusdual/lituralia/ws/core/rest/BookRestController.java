@@ -1,6 +1,6 @@
 package com.campusdual.lituralia.ws.core.rest;
 
-import com.campusdual.lituralia.api.core.service.ILibroService;
+import com.campusdual.lituralia.api.core.service.IBookService;
 import com.ontimize.jee.server.rest.ORestController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
@@ -8,15 +8,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/libros")
-@ComponentScan(basePackageClasses = {com.campusdual.lituralia.api.core.service.ILibroService.class})
-public class LibroRestController extends ORestController<ILibroService> {
+@RequestMapping("/books")
+@ComponentScan(basePackageClasses = { com.campusdual.lituralia.api.core.service.IBookService.class })
+public class BookRestController extends ORestController<IBookService> {
 
     @Autowired
-    private ILibroService libroService;
+    private IBookService bookService;
 
     @Override
-    public ILibroService getService() {
-        return this.libroService;
+    public IBookService getService() {
+        return this.bookService;
     }
 }
