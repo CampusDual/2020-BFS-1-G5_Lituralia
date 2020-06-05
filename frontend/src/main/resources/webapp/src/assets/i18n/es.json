@@ -13,5 +13,10 @@
   "ERROR_SESSION_EXPIRED": "La sesión ha caducado",
   "ERROR_USER_REQUIRED": "Nombre de usuario incorrecto.",
   "ERROR_PASS_REQUIRED": "Contraseña incorrecta.",
-  "ERROR_USER_PASS_INCORRECT": "Usuario o contraseña incorrecta."
+  "ERROR_USER_PASS_INCORRECT": "Usuario o contraseña incorrecta.",
+
+  "BOOKS": "Libros",
+  "COVER": "Portada",
+  "TITLE": "Titulo",
+  "PUBLISHER_ID": "ID Editorial"
 }

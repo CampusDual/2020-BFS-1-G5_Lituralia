@@ -13,5 +13,10 @@
   "ERROR_SESSION_EXPIRED": "Session expired.",
   "ERROR_USER_REQUIRED": "Incorrect username.",
   "ERROR_PASS_REQUIRED": "Incorrect password.",
-  "ERROR_USER_PASS_INCORRECT": "Invalid username or password."
+  "ERROR_USER_PASS_INCORRECT": "Invalid username or password.",
+
+  "BOOKS": "Books",
+  "COVER": "Cover",
+  "TITLE": "Title",
+  "PUBLISHER_ID": "Publisher ID"
 }

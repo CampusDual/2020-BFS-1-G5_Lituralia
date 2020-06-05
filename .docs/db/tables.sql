@@ -159,7 +159,7 @@ create table lituralia.books
     title        varchar,
     synopsis     varchar,
     publish_date date,
-    cover        text,
+    cover        bytea,
     publisher_id integer,
     constraint books_pkey
         primary key (book_id),
