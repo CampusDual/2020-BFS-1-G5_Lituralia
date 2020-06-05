@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "strictPropertyInitialization": false,
+    "types": [
+      "node"
+    ],
+    "target": "es5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "strictNullChecks": false,
+    "noImplicitAny": false,
+    "sourceMap": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "lib": [
+      "dom",
+      "es6"
+    ],
+    "baseUrl": "tmp-src",
+    "typeRoots": [
+      "node_modules/@types"
+    ]
+  },
+  "compileOnSave": false,
+  "buildOnSave": false,
+  "angularCompilerOptions": {
+    "outDir": "tmp-src",
+    "preserveWhitespaces": false
+  }
+}

@@ -5,11 +5,11 @@
     <parent>
         <groupId>com.campusdual.lituralia</groupId>
         <artifactId>lituralia</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>0.0.2-SNAPSHOT</version>
     </parent>
 
-    <name>Basic project api</name>
-    <description>Basic project api code.</description>
+    <name>Lituralia api</name>
+    <description>Lituralia api code.</description>
     <artifactId>lituralia-api</artifactId>
     <packaging>jar</packaging>
 

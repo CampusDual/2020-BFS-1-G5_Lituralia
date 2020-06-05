@@ -1,82 +1,83 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+  <modelVersion>4.0.0</modelVersion>
 
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.1.9.RELEASE</version>
-	</parent>
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.1.9.RELEASE</version>
+  </parent>
 
-	<groupId>com.campusdual.lituralia</groupId>
-	<artifactId>lituralia</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<packaging>pom</packaging>
+  <groupId>com.campusdual.lituralia</groupId>
+  <artifactId>lituralia</artifactId>
+  <version>0.0.2-SNAPSHOT</version>
+  <packaging>pom</packaging>
 
-	<properties>
-		<ontimize.boot.version>2.0.0</ontimize.boot.version>
-		<ontimize.jee.version>2.0.0</ontimize.jee.version>
-		<basicproject.version>0.0.1</basicproject.version>
-		<hsqldatabase.path>src/main/db</hsqldatabase.path>
-		<database.url>jdbc:hsqldb:hsql://localhost:9013/templateDB</database.url>
-		<hsqldb.version>2.3.4</hsqldb.version>
-	</properties>
+  <properties>
+    <ontimize.boot.version>2.0.0</ontimize.boot.version>
+    <ontimize.jee.version>2.0.0</ontimize.jee.version>
+    <lituralia.version>0.0.2-SNAPSHOT</lituralia.version>
+    <hsqldatabase.path>src/main/db</hsqldatabase.path>
+<!--    <database.url>jdbc:hsqldb:hsql://localhost:9013/templateDB</database.url>-->
+    <hsqldb.version>2.3.4</hsqldb.version>
+  </properties>
 
-	<dependencyManagement>
-		<dependencies>
+  <dependencyManagement>
+    <dependencies>
 
-			<dependency>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-starter-web</artifactId>
-			</dependency>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+      </dependency>
 
-			<dependency>
-				<groupId>com.ontimize.boot</groupId>
-				<artifactId>ontimize-boot-dependencies</artifactId>
-				<version>${ontimize.boot.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
+      <dependency>
+        <groupId>com.ontimize.boot</groupId>
+        <artifactId>ontimize-boot-dependencies</artifactId>
+        <version>${ontimize.boot.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
 
-			<dependency>
-				<groupId>com.campusdual.lituralia</groupId>
-				<artifactId>lituralia-api</artifactId>
-				<version>0.0.1-SNAPSHOT</version>
-			</dependency>
+      <dependency>
+        <groupId>com.campusdual.lituralia</groupId>
+        <artifactId>lituralia-api</artifactId>
+        <version>0.0.2-SNAPSHOT</version>
+      </dependency>
 
-			<dependency>
-				<groupId>com.campusdual.lituralia</groupId>
-				<artifactId>lituralia-boot</artifactId>
-				<version>0.0.1-SNAPSHOT</version>
-			</dependency>
+      <dependency>
+        <groupId>com.campusdual.lituralia</groupId>
+        <artifactId>lituralia-boot</artifactId>
+        <version>0.0.2-SNAPSHOT</version>
+      </dependency>
 
-			<dependency>
-				<groupId>com.campusdual.lituralia</groupId>
-				<artifactId>lituralia-frontend</artifactId>
-				<version>0.0.1-SNAPSHOT</version>
-			</dependency>
+      <dependency>
+        <groupId>com.campusdual.lituralia</groupId>
+        <artifactId>lituralia-frontend</artifactId>
+        <version>0.0.2-SNAPSHOT</version>
+      </dependency>
 
-			<dependency>
-				<groupId>com.campusdual.lituralia</groupId>
-				<artifactId>lituralia-model</artifactId>
-				<version>0.0.1-SNAPSHOT</version>
-			</dependency>
-			
-			<dependency>
-				<groupId>com.campusdual.lituralia</groupId>
-				<artifactId>lituralia-ws</artifactId>
-				<version>0.0.1-SNAPSHOT</version>
-			</dependency>
+      <dependency>
+        <groupId>com.campusdual.lituralia</groupId>
+        <artifactId>lituralia-model</artifactId>
+        <version>0.0.2-SNAPSHOT</version>
+      </dependency>
 
-			<dependency>
-				<groupId>org.hsqldb</groupId>
-				<artifactId>hsqldb</artifactId>
-				<version>${hsqldb.version}</version>
-			</dependency>
+      <dependency>
+        <groupId>com.campusdual.lituralia</groupId>
+        <artifactId>lituralia-ws</artifactId>
+        <version>0.0.2-SNAPSHOT</version>
+      </dependency>
 
-		</dependencies>
-	</dependencyManagement>
-<modules>  <module>api</module>
+<!--      <dependency>-->
+<!--        <groupId>org.hsqldb</groupId>-->
+<!--        <artifactId>hsqldb</artifactId>-->
+<!--        <version>${hsqldb.version}</version>-->
+<!--      </dependency>-->
+
+    </dependencies>
+  </dependencyManagement>
+  <modules>
+    <module>api</module>
     <module>frontend</module>
     <module>boot</module>
     <module>model</module>

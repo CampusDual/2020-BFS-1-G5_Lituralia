@@ -14,14 +14,14 @@ ontimize:
             allowedHeaders: "*"
             exposedHeaders: ["X-Auth-Token","Content-disposition","X-Requested-With"]
             allowedMethods:
-            - GET
-            - POST
-            - PUT
-            - OPTIONS
-            - DELETE
+               - GET
+               - POST
+               - PUT
+               - OPTIONS
+               - DELETE
    jdbc:
-      nameConvention: upper
-      sqlhandler: oracle
+      nameConvention: lower
+      sqlhandler: postgres
       sqlConditionProcessor:
          uppperString: true
          upperLike: true
@@ -60,11 +60,15 @@ server:
       enabled: true
       mime-types: application/json, application/xml
 spring:
+   jpa:
+      database: POSTGRESQL
+      show-sql: true
    datasource:
-      driver-class-name: org.hsqldb.jdbcDriver
-      jdbcUrl: jdbc:hsqldb:hsql://localhost:9013/templateDB
-      username: SA
-      password:
+      platform: postgres
+      driver-class-name: org.postgresql.Driver
+      jdbcUrl: jdbc:postgresql://45.84.210.174:65432/cd05
+      username: cd05
+      password: cd05_P4$$!
       initialSize: 10
       testOnBorrow: true
    main:
