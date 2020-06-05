@@ -10,13 +10,13 @@
 
   <groupId>com.campusdual.lituralia</groupId>
   <artifactId>lituralia</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.0.2-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <properties>
     <ontimize.boot.version>2.0.0</ontimize.boot.version>
     <ontimize.jee.version>2.0.0</ontimize.jee.version>
-    <basicproject.version>0.0.1</basicproject.version>
+    <lituralia.version>0.0.2-SNAPSHOT</lituralia.version>
     <hsqldatabase.path>src/main/db</hsqldatabase.path>
 <!--    <database.url>jdbc:hsqldb:hsql://localhost:9013/templateDB</database.url>-->
     <hsqldb.version>2.3.4</hsqldb.version>
@@ -41,31 +41,31 @@
       <dependency>
         <groupId>com.campusdual.lituralia</groupId>
         <artifactId>lituralia-api</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>0.0.2-SNAPSHOT</version>
       </dependency>
 
       <dependency>
         <groupId>com.campusdual.lituralia</groupId>
         <artifactId>lituralia-boot</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>0.0.2-SNAPSHOT</version>
       </dependency>
 
       <dependency>
         <groupId>com.campusdual.lituralia</groupId>
         <artifactId>lituralia-frontend</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>0.0.2-SNAPSHOT</version>
       </dependency>
 
       <dependency>
         <groupId>com.campusdual.lituralia</groupId>
         <artifactId>lituralia-model</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>0.0.2-SNAPSHOT</version>
       </dependency>
 
       <dependency>
         <groupId>com.campusdual.lituralia</groupId>
         <artifactId>lituralia-ws</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>0.0.2-SNAPSHOT</version>
       </dependency>
 
 <!--      <dependency>-->
