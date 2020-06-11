@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "50e230da-4667-44b1-851c-b44ae7eb8621",
+		"_postman_id": "5b6162eb-266e-491e-8b64-131749f2f54f",
 		"name": "Lituralia Ontimize",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -186,7 +186,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "b0b8381b-2986-446b-8427-b4d1f503bb6d",
+						"id": "8a104948-c35a-496d-ae13-391f6a23eaa5",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -196,7 +196,208 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "f37db87c-6dec-43cf-9a71-055d455050ff",
+						"id": "35efefb7-57ee-4632-ad57-6cc0739581f7",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Authors",
+			"item": [
+				{
+					"name": "book -C",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"isbn\": \"123456789-0\",\n        \"title\": \"Postman Creation 1\",\n        \"synopsis\": \"Dull\",\n        \"publish_date\": 1551654000000,\n        \"cover\": \"iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAF1SURBVBgZpcGxalRBFMfh35yZGwK72mrrO2yxoIXFvIBNGksrsbISFGuxMRDIGwhiCtttrq9hCgWxSLtVsor3nvN3RwxcggTCfl+SxC7So+cfnz14uHi73mgmAREoAg9HIUKB3AkJueMR3N4bLk5Pz158endwXBb3F0fd/szu7HMTs4uNHwHHZTPINutzburnIKN5+f6r/ufVh2+6zpM3n7VFkYJmtVrRdR21VqbW57/wUfgoXMFvF/fu3sLDaQoSTdd11Fq5quRCSk7KIodRRtHE6DTFw7nU9z1NrZVL2cBSpiTwJNyCJjxoTCGa5XJJU2tlKicwA8uQS2IvZ5oIp7EIZ6rve6ZSMYpBNigZLPNXRNCUcRiYqrUyZWyZkQGXsCSacRhpTB5M9X3PlKWEpQQpkc3IKdEogqZEBM18PqfWylU5JZrMPznThERTzr7/OHl6OByEO+GBuxMR+DDw+PUXQkLhyEUoUAQRNCdsJUnswtjRH6iT+f+z/UsKAAAAAElFTkSuQmCC\",\n        \"publisher_id\": 1\n    },\n    \"sqltypes\": {\n        \"publisher_id\": 4,\n        \"synopsis\": 12,\n        \"book_id\": 4,\n        \"isbn\": 12,\n        \"cover\": 12,\n        \"publish_date\": 91,\n        \"title\": 12\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:33333/books/book",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"books",
+								"book"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "book  -R",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "demouser",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "demo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:33333/books/book?columns=book_id,isbn,title,synopsis,publish_date,publisher_id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"books",
+								"book"
+							],
+							"query": [
+								{
+									"key": "columns",
+									"value": "book_id,isbn,title,synopsis,publish_date,publisher_id"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "book  -R (complex)",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "demouser",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "demo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"filter\": {\n    \t\"book_id\": 401\n    },\n    \"columns\": [\n        \"book_id\",\n        \"isbn\",\n        \"title\",\n        \"synopsis\",\n        \"publish_date\",\n        \"cover\",\n        \"publisher_id\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:33333/books/book/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"books",
+								"book",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "book  -U",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"filter\": {\n\t\t\"book_id\": 401\n\t},\n    \"data\": {\n        \"title\": \"Postman Mod 1.1\"\n    },\n    \"sqltypes\": {\n        \"publisher_id\": 4,\n        \"synopsis\": 12,\n        \"book_id\": 4,\n        \"isbn\": 12,\n        \"cover\": 12,\n        \"publish_date\": 91,\n        \"title\": 12\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:33333/books/book",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"books",
+								"book"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "book  -D",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"filter\" :{\n\t\t\"book_id\": 401\n\t}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:33333/books/book",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"books",
+								"book"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "22060468-f945-46b6-90f9-b611192bc710",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "6de72a95-e170-4067-817e-5f832b2a6518",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -226,7 +427,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "a6966bee-39bc-4d1d-a67a-6c7a3f84bd86",
+				"id": "ef5b537e-5f4d-42ef-9f95-ff938acf93de",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -236,7 +437,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "c3f6ef75-9d91-4100-a371-27d267279277",
+				"id": "abddc0e9-22f1-4092-bca5-aa1302c14a99",
 				"type": "text/javascript",
 				"exec": [
 					""
