@@ -406,6 +406,207 @@
 				}
 			],
 			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Genres",
+			"item": [
+				{
+					"name": "genres -C",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n            \"genre_name\": \"Programming\",\n            \"genre_desc\": \"Programming Books.\"\n        \n    },\n    \"sqltypes\": {\n        \"genre_name\": 12,\n        \"genre_desc\": 12\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:33333/genres/genre",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"genres",
+								"genre"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "genres -R",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "demouser",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "demo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:33333/genres/genre?columns=genre_id,genre_name,genre_desc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"genres",
+								"genre"
+							],
+							"query": [
+								{
+									"key": "columns",
+									"value": "genre_id,genre_name,genre_desc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "genres -R (complex)",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "demouser",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "demo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"filter\": {\n    \t\"genre_id\": 11\n    },\n    \"columns\": [\n        \"genre_id\",\n        \"genre_name\",\n        \"genre_desc\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:33333/genres/genre/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"genres",
+								"genre",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "genres -U",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"filter\": {\n\t\t\"genre_id\": 11\n\t},\n    \"data\": {\n            \"genre_name\": \"Programming Moded\",\n            \"genre_desc\": \"Programming Books. Moded\"        \n    },\n    \"sqltypes\": {\n        \"genre_name\": 12,\n        \"genre_desc\": 12\n    }\n}\n\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:33333/genres/genre",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"genres",
+								"genre"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "genres -D",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"filter\" :{\n\t\t\"genre_id\": 11\n\t}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:33333/genres/genre",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"genres",
+								"genre"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "8e52bf53-e07d-42f9-8870-941a331ae8f8",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "24380c19-8f18-48e5-9744-2b45f8f55ab8",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
 		}
 	],
 	"auth": {
