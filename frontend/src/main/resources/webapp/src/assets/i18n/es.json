@@ -18,5 +18,9 @@
   "BOOKS": "Libros",
   "COVER": "Portada",
   "TITLE": "Titulo",
-  "PUBLISHER_ID": "ID Editorial"
+  "PUBLISHER_ID": "ID Editorial",
+  "PUBLISH_DATE": "Publicacion",
+  "PUBLISHER_NAME": "Editorial",
+  "AUTHOR_NAMES": "Autores",
+  "GENRE_NAMES": "Generos"
 }

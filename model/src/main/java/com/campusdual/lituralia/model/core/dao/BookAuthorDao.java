@@ -10,8 +10,6 @@ import org.springframework.stereotype.Repository;
 @ConfigurationFile(configurationFile = "dao/BookAuthorDao.xml", configurationFilePlaceholder = "dao/placeholders.properties")
 public class BookAuthorDao extends OntimizeJdbcDaoSupport {
 
-    public static final String QUERY_VBOOKAUTHOR = "BOOKAUTHOR";
-
     public static final String ATTR_BOOK_AUTHOR_ID = "book_author_id";
     public static final String ATTR_BOOK_ID = "book_id";
     public static final String ATTR_AUTHOR_ID = "author_id";

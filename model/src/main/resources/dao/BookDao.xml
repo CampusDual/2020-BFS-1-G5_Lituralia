@@ -12,4 +12,18 @@
     <Column>book_id</Column>
   </UpdateKeys>
   <GeneratedKey>book_id</GeneratedKey>
+  <Queries>
+    <Query id="BOOKDETAILS">
+      <Sentence>
+        <![CDATA[
+               SELECT
+                  #COLUMNS#
+               FROM
+                  ${mainschema}.v_book_details
+               #WHERE#
+               #ORDER#
+            ]]>
+      </Sentence>
+    </Query>
+  </Queries>
 </JdbcEntitySetup>

@@ -1,16 +1,15 @@
 <div fxFlex>
-  <o-table fxFlex attr="booksTable" service="books" entity="vBookAuthor" keys="book_id"
-           columns="book_id;isbn;cover;title;publisher_id;author_id"
-           visible-columns="isbn;cover;title;publisher_id;author_id" query-rows="20">
-    <o-table-column attr="isbn" title="ISBN" width="100px"></o-table-column>
-    <o-table-column attr="cover" title="COVER" width="150px" orderable="no" searchable="no" type="image" avatar="no"
-                    empty-image="assets/images/no-image.png" image-type="base64"></o-table-column>
+  <o-table fxFlex attr="booksTable" service="books" entity="vBookDetails" keys="book_id"
+           columns="book_id;isbn;cover;title;publish_date;publisher_name;author_names;genre_names"
+           visible-columns="isbn;cover;title;publish_date;publisher_name;author_names;genre_names" query-rows="20">
+    <o-table-column attr="isbn" title="ISBN" width="80px"></o-table-column>
+<!--    <o-table-column attr="cover" title="COVER" width="50px" orderable="no" searchable="no">-->
+<!--      <o-table-cell-renderer-image image-type="base64" empty-image="assets/images/no-image.png" avatar="yes"></o-table-cell-renderer-image>-->
+<!--    </o-table-column>-->
     <o-table-column attr="title" title="TITLE"></o-table-column>
-    <o-table-column attr="publisher_id" title="PUBLISHER_ID"></o-table-column>
-    <o-table-column attr="author_id" title="AUTHOR_ID">
-<!--      <o-table-cell-renderer-service service="authors" entity="author" columns="author_id;author_name"-->
-<!--                                     parent-keys="author_id" value-column="AUTHOR_NAME">-->
-<!--      </o-table-cell-renderer-service>-->
-    </o-table-column>
+    <o-table-column attr="publish_date" title="PUBLISH_DATE" type="date" format="MM/DD/YYYY"></o-table-column>
+    <o-table-column attr="publisher_name" title="PUBLISHER_NAME"></o-table-column>
+    <o-table-column attr="author_names" title="AUTHOR_NAMES"></o-table-column>
+    <o-table-column attr="genre_names" title="GENRE_NAMES"></o-table-column>
   </o-table>
 </div>

@@ -74,12 +74,6 @@ public class BookService implements IBookService {
         return this.daoHelper.delete(this.bookAuthorDao, keyValues);
     }
 
-    @Override
-    public EntityResult vBookAuthorQuery(Map<String, Object> keysValues, List<String> attributes)
-        throws OntimizeJEERuntimeException {
-        return this.daoHelper.query(this.bookAuthorDao, keysValues, attributes, BookAuthorDao.QUERY_VBOOKAUTHOR);
-    }
-
     // ---- BOOK AUTHOR ----
 
     @Override
@@ -105,9 +99,9 @@ public class BookService implements IBookService {
     }
 
     @Override
-    public EntityResult vBookGenreQuery(Map<String, Object> keysValues, List<String> attributes)
+    public EntityResult vBookDetailsQuery(Map<String, Object> keysValues, List<String> attributes)
         throws OntimizeJEERuntimeException {
-        return this.daoHelper.query(this.bookGenreDao, keysValues, attributes, BookGenreDao.QUERY_VBOOKGENRE);
+        return this.daoHelper.query(this.bookDao, keysValues, attributes, BookDao.QUERY_VBOOKDETAILS);
     }
 
 }
