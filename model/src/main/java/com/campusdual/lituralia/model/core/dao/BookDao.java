@@ -17,4 +17,6 @@ public class BookDao extends OntimizeJdbcDaoSupport {
     public static final String ATTR_PUBLISH_DATE = "publish_date";
     public static final String ATTR_COVER = "cover";
     public static final String ATTR_PUBLISHER_ID = "publisher_id";
+
+    public static final String QUERY_VBOOKDETAILS = "BOOKDETAILS";
 }

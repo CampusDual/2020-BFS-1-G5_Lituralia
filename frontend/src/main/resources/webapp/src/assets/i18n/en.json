@@ -18,5 +18,9 @@
   "BOOKS": "Books",
   "COVER": "Cover",
   "TITLE": "Title",
-  "PUBLISHER_ID": "Publisher ID"
+  "PUBLISHER_ID": "Publisher ID",
+  "PUBLISH_DATE": "Publish Date",
+  "PUBLISHER_NAME": "Publisher",
+  "AUTHOR_NAMES": "Authors",
+  "GENRE_NAMES": "Genres"
 }
