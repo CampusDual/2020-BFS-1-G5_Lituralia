@@ -12,6 +12,7 @@ GROUP BY b.book_id;
 
 SELECT * FROM book_authors AS ba
     INNER JOIN books b on ba.book_id = b.book_id
-    INNER JOIN authors a on ba.author_id = a.author_id;
+    INNER JOIN authors a on ba.author_id = a.author_id
+WHERE b.book_id =300;
 
 
