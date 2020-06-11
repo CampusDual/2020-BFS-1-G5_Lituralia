@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "5b6162eb-266e-491e-8b64-131749f2f54f",
-		"name": "Lituralia Ontimize",
+		"_postman_id": "d20cb07e-470a-4376-a388-7df45a40fd40",
+		"name": "Lituralia",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -186,7 +186,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "8a104948-c35a-496d-ae13-391f6a23eaa5",
+						"id": "9c811ab0-7e37-4dce-93ed-4393b31bb5ef",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -196,7 +196,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "35efefb7-57ee-4632-ad57-6cc0739581f7",
+						"id": "ecf9f782-1dfd-4f2f-899f-8abdc84c4de7",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -210,13 +210,13 @@
 			"name": "Authors",
 			"item": [
 				{
-					"name": "book -C",
+					"name": "author-C",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"data\": {\n        \"isbn\": \"123456789-0\",\n        \"title\": \"Postman Creation 1\",\n        \"synopsis\": \"Dull\",\n        \"publish_date\": 1551654000000,\n        \"cover\": \"iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAF1SURBVBgZpcGxalRBFMfh35yZGwK72mrrO2yxoIXFvIBNGksrsbISFGuxMRDIGwhiCtttrq9hCgWxSLtVsor3nvN3RwxcggTCfl+SxC7So+cfnz14uHi73mgmAREoAg9HIUKB3AkJueMR3N4bLk5Pz158endwXBb3F0fd/szu7HMTs4uNHwHHZTPINutzburnIKN5+f6r/ufVh2+6zpM3n7VFkYJmtVrRdR21VqbW57/wUfgoXMFvF/fu3sLDaQoSTdd11Fq5quRCSk7KIodRRtHE6DTFw7nU9z1NrZVL2cBSpiTwJNyCJjxoTCGa5XJJU2tlKicwA8uQS2IvZ5oIp7EIZ6rve6ZSMYpBNigZLPNXRNCUcRiYqrUyZWyZkQGXsCSacRhpTB5M9X3PlKWEpQQpkc3IKdEogqZEBM18PqfWylU5JZrMPznThERTzr7/OHl6OByEO+GBuxMR+DDw+PUXQkLhyEUoUAQRNCdsJUnswtjRH6iT+f+z/UsKAAAAAElFTkSuQmCC\",\n        \"publisher_id\": 1\n    },\n    \"sqltypes\": {\n        \"publisher_id\": 4,\n        \"synopsis\": 12,\n        \"book_id\": 4,\n        \"isbn\": 12,\n        \"cover\": 12,\n        \"publish_date\": 91,\n        \"title\": 12\n    }\n}",
+							"raw": "{\n    \"data\": {\n        \"author_death\": 174265200000,\n            \"author_id\": 100,\n            \"author_name\": \"Faustina Dransfield\",\n            \"author_birth\": 525564000000\n    },\n    \"sqltypes\": {\n        \"author_death\": 91,\n        \"author_id\": 4,\n        \"author_name\": 12,\n        \"author_birth\": 91\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -224,22 +224,22 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:33333/books/book",
+							"raw": "http://localhost:33333/authors/author",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "33333",
 							"path": [
-								"books",
-								"book"
+								"authors",
+								"author"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "book  -R",
+					"name": "author  -R",
 					"request": {
 						"auth": {
 							"type": "basic",
@@ -259,20 +259,20 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:33333/books/book?columns=book_id,isbn,title,synopsis,publish_date,publisher_id",
+							"raw": "http://localhost:33333/authors/author?columns=author_id,author_name,author_birth,author_death",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "33333",
 							"path": [
-								"books",
-								"book"
+								"authors",
+								"author"
 							],
 							"query": [
 								{
 									"key": "columns",
-									"value": "book_id,isbn,title,synopsis,publish_date,publisher_id"
+									"value": "author_id,author_name,author_birth,author_death"
 								}
 							]
 						}
@@ -280,7 +280,7 @@
 					"response": []
 				},
 				{
-					"name": "book  -R (complex)",
+					"name": "author  -R (complex)",
 					"request": {
 						"auth": {
 							"type": "basic",
@@ -301,7 +301,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"filter\": {\n    \t\"book_id\": 401\n    },\n    \"columns\": [\n        \"book_id\",\n        \"isbn\",\n        \"title\",\n        \"synopsis\",\n        \"publish_date\",\n        \"cover\",\n        \"publisher_id\"\n    ]\n}",
+							"raw": "{\n    \"filter\": {\n    \t\"author_id\": 20\n    },\n    \"columns\": [\n        \"author_id\",\n        \"author_name\",\n        \"author_birth\",\n        \"author_death\"\n    ]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -309,15 +309,15 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:33333/books/book/search",
+							"raw": "http://localhost:33333/authors/author/search",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "33333",
 							"path": [
-								"books",
-								"book",
+								"authors",
+								"author",
 								"search"
 							]
 						}
@@ -325,13 +325,13 @@
 					"response": []
 				},
 				{
-					"name": "book  -U",
+					"name": "author-U",
 					"request": {
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"filter\": {\n\t\t\"book_id\": 401\n\t},\n    \"data\": {\n        \"title\": \"Postman Mod 1.1\"\n    },\n    \"sqltypes\": {\n        \"publisher_id\": 4,\n        \"synopsis\": 12,\n        \"book_id\": 4,\n        \"isbn\": 12,\n        \"cover\": 12,\n        \"publish_date\": 91,\n        \"title\": 12\n    }\n}",
+							"raw": "{\n\t\"filter\": {\n\t\t\"author_id\": 500\n\t},\n    \"data\": {\n        \"author_name\": \"Autor creado\"\n    },\n    \"sqltypes\": {\n       \"author_death\": 91,\n        \"author_id\": 4,\n        \"author_name\": 12,\n        \"author_birth\": 91\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -339,28 +339,28 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:33333/books/book",
+							"raw": "http://localhost:33333/authors/author",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "33333",
 							"path": [
-								"books",
-								"book"
+								"authors",
+								"author"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "book  -D",
+					"name": "author-D",
 					"request": {
 						"method": "DELETE",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"filter\" :{\n\t\t\"book_id\": 401\n\t}\n}",
+							"raw": "{\n\t\"filter\" :{\n\t\t\"author_id\": 101\n\t}\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -368,15 +368,15 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:33333/books/book",
+							"raw": "http://localhost:33333/authors/author",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "33333",
 							"path": [
-								"books",
-								"book"
+								"authors",
+								"author"
 							]
 						}
 					},
@@ -387,7 +387,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "22060468-f945-46b6-90f9-b611192bc710",
+						"id": "56429a0e-62da-4b12-89b9-e9082a08a364",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -397,7 +397,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "6de72a95-e170-4067-817e-5f832b2a6518",
+						"id": "68f22540-80b5-4ece-944f-1fcd1751e57d",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -427,7 +427,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "ef5b537e-5f4d-42ef-9f95-ff938acf93de",
+				"id": "b7693e79-8f3a-4c9f-bd0b-fbe3f3bccb7f",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -437,7 +437,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "abddc0e9-22f1-4092-bca5-aa1302c14a99",
+				"id": "07770c4e-a4a7-415d-a630-5132ca0e68d6",
 				"type": "text/javascript",
 				"exec": [
 					""
