@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "d20cb07e-470a-4376-a388-7df45a40fd40",
+		"_postman_id": "2f61a127-f939-4a2b-8ef3-ff69ec4d4046",
 		"name": "Lituralia",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -272,7 +272,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "9c811ab0-7e37-4dce-93ed-4393b31bb5ef",
+						"id": "425400fb-4f0d-43a2-b8a7-fdaa277f2715",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -282,7 +282,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "ecf9f782-1dfd-4f2f-899f-8abdc84c4de7",
+						"id": "84e9ce1e-b015-4ab7-b90a-1e34fc7eafa8",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -473,7 +473,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "cb319d5e-3663-4b66-a176-ac22f97ffd71",
+						"id": "0fa8e5d6-993d-47e7-beff-74f0196baf51",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -483,7 +483,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "fca421dd-d3fb-4f0a-965b-75a68e9dae4f",
+						"id": "4051c0b9-aeef-4533-83c7-4cf321396607",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -674,7 +674,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "8f93f15d-f706-4b53-ab11-433b1adb58ce",
+						"id": "4de4548f-4c4e-4ca5-aa7b-369658dd4d7e",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -684,7 +684,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "71382458-f7dd-47d0-900a-b2c42b1ad9b0",
+						"id": "e64619ba-8f19-4195-984e-75b613f75669",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -875,7 +875,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "56429a0e-62da-4b12-89b9-e9082a08a364",
+						"id": "4597f649-ba11-4d6f-ab0e-f1b3a4913c67",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -885,7 +885,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "68f22540-80b5-4ece-944f-1fcd1751e57d",
+						"id": "308b7f51-ff82-4a70-b4c5-184bf39d7bac",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1076,7 +1076,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "8e52bf53-e07d-42f9-8870-941a331ae8f8",
+						"id": "2bcec20b-be90-44ba-bd1f-f340dc02e0f7",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1086,7 +1086,209 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "24380c19-8f18-48e5-9744-2b45f8f55ab8",
+						"id": "cb02cbeb-e9d8-443c-98bf-12430af22fdb",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Publisher",
+			"item": [
+				{
+					"name": "publishers -C",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \n            \"publisher_name\": \"New Editorial Lara\",\n            \"publisher_desc\": \"New publisher proof, spanish\",\n            \"publisher_logo\":\"\"\n    },\n    \"sqltypes\": {\n            \"publisher_name\": 25,\n            \"publisher_desc\": 100,\n            \"publisher_logo\": 300\n       \n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:33333/publishers/publisher",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"publishers",
+								"publisher"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "publishers-R",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "demouser",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "demo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:33333/publishers/publisher?columns=publisher_id,publisher_name,publisher_desc,publisher_logo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"publishers",
+								"publisher"
+							],
+							"query": [
+								{
+									"key": "columns",
+									"value": "publisher_id,publisher_name,publisher_desc,publisher_logo"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "publishers -R (complex)",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "demouser",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "demo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"filter\": {\n    \t\"publisher_id\": 20\n    },\n    \"columns\": [\n        \"publisher_id\",\n        \"publisher_name\",\n        \"publisher_desc\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:33333/publishers/publisher/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"publishers",
+								"publisher",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "publishers -U",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"filter\": {\n\t\t\"publisher_id\": 13\n\t},\n    \"data\": {\n            \"publisher_name\": \"Programming Books.\",\n            \"publisher_desc\": \"Programming Books. Moded proof\"        \n    },\n    \"sqltypes\": {\n        \"publisher_name\": 12,\n        \"publisher_desc\": 12\n    }\n}\n\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:33333/publishers/publisher/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"publishers",
+								"publisher",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "publishers -D",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"filter\" :{\n\t\t\"publisher_id\": 20\n\t}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:33333/publishers/publisher",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"publishers",
+								"publisher"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "cba6adb7-daf0-4632-8b8a-f4090433b115",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "1fa29706-9a0d-41e6-9847-775eabdb72c9",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1116,7 +1318,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "b7693e79-8f3a-4c9f-bd0b-fbe3f3bccb7f",
+				"id": "7e25779b-27fb-4384-ba44-de27cec867b6",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -1126,7 +1328,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "07770c4e-a4a7-415d-a630-5132ca0e68d6",
+				"id": "4bc0fb6c-220c-4b27-94c9-0ba21bd83294",
 				"type": "text/javascript",
 				"exec": [
 					""
