@@ -1,4 +1,4 @@
--- BD Lituralia V-0.0.2
+-- BD Lituralia V-0.0.3
 
 drop schema lituralia cascade;
 create schema lituralia;
@@ -159,7 +159,7 @@ create table lituralia.books
     title        varchar,
     synopsis     varchar,
     publish_date date,
-    cover        bytea,
+    cover        varchar,
     publisher_id integer,
     constraint books_pkey
         primary key (book_id),
@@ -282,3 +282,35 @@ create table lituralia.user_book_statuses
         foreign key (book_id) references lituralia.books
 );
 
+CREATE VIEW lituralia.v_book_details AS
+(
+select b.*,
+       p.publisher_name,
+       gn.genre_ids,
+       gn.genre_names,
+       an.author_ids,
+       an.author_names
+from books b,
+     publishers p,
+     (select b.book_id,
+             string_agg(cast(a.author_id as text), ',')   as author_ids,
+             string_agg(a.author_name, ',') as author_names
+      from books b
+               LEFT JOIN book_authors ba
+                         on b.book_id = ba.book_id
+               LEFT JOIN authors a
+                         on ba.author_id = a.author_id
+      GROUP BY b.book_id) as an,
+     (select b.book_id,
+             string_agg(cast(g.genre_id as text), ',')   as genre_ids,
+             string_agg(g.genre_name, ',') as genre_names
+      from books b
+               LEFT JOIN book_genres bg
+                         on b.book_id = bg.book_id
+               LEFT JOIN genres g
+                         on bg.genre_id = g.genre_id
+      GROUP BY b.book_id) as gn
+where b.publisher_id = p.publisher_id
+  and b.book_id = an.book_id
+  and b.book_id = gn.book_id
+    );

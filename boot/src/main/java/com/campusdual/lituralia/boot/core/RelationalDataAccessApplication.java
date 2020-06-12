@@ -19,11 +19,11 @@ public class RelationalDataAccessApplication implements CommandLineRunner {
     public void run(String... strings) throws Exception {
 
         log.info("Querying DB");
-        boolean emptyString = jdbcTemplate.queryForList(
-            "SELECT book_id FROM lituralia.books LIMIT 1").isEmpty();
-        if (emptyString)
+        int books = jdbcTemplate.queryForList(
+            "SELECT * FROM lituralia.books").size();
+        if (books==0)
             log.warn("DB [FAIL]");
         else
-            log.info("DB: [OK]");
+            log.info("DB: [OK] -> " + books);
     }
 }

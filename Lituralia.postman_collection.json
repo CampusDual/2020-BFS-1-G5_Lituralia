@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "50e230da-4667-44b1-851c-b44ae7eb8621",
-		"name": "Lituralia Ontimize",
+		"_postman_id": "1648cd9b-3cc9-49af-a181-7d9e6a3d5251",
+		"name": "Lituralia",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -79,6 +79,47 @@
 					"response": []
 				},
 				{
+					"name": "book  -R (details)",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "demouser",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "demo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:33333/books/vBookDetails?columns=book_id,isbn,title,synopsis,publish_date,publisher_id,publisher_name,author_ids,author_names,author_ids,genre_names",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"books",
+								"vBookDetails"
+							],
+							"query": [
+								{
+									"key": "columns",
+									"value": "book_id,isbn,title,synopsis,publish_date,publisher_id,publisher_name,author_ids,author_names,author_ids,genre_names"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "book  -R (complex)",
 					"request": {
 						"auth": {
@@ -117,6 +158,51 @@
 							"path": [
 								"books",
 								"book",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "book  -R (details) Author",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "demouser",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "demo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"filter\": {\n    \t\"book_id\": 50\n    },\n    \"columns\": [\n        \"book_id\",\n        \"isbn\",\n        \"title\",\n        \"synopsis\",\n        \"publish_date\",\n        \"cover\",\n        \"publisher_id\",\n        \"publisher_name\",\n        \"author_ids\",\n        \"author_names\",\n        \"author_ids\",\n        \"genre_names\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:33333/books/vBookDetails/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"books",
+								"vBookDetails",
 								"search"
 							]
 						}
@@ -186,7 +272,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "b0b8381b-2986-446b-8427-b4d1f503bb6d",
+						"id": "e8e4be0d-a29e-46af-b360-f9b2aa8e29bd",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -196,7 +282,1013 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "f37db87c-6dec-43cf-9a71-055d455050ff",
+						"id": "ea72aee4-2a4b-4a2e-b737-6d19174c8539",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Book-Author",
+			"item": [
+				{
+					"name": "book-author -C",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"book_id\": 10,\n        \"author_id\": 10\n    },\n    \"sqltypes\": {\n        \"book_id\": 4,\n        \"author_id\": 4\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:33333/books/bookAuthor",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"books",
+								"bookAuthor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "book-author -R",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "demouser",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "demo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:33333/books/bookAuthor?columns=book_author_id,book_id,author_id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"books",
+								"bookAuthor"
+							],
+							"query": [
+								{
+									"key": "columns",
+									"value": "book_author_id,book_id,author_id"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "book-author  -R (complex)",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "demouser",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "demo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"filter\": {\n    \t\"book_author_id\": 601\n    },\n    \"columns\": [\n        \"book_author_id\",\n        \"book_id\",\n        \"author_id\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:33333/books/bookAuthor/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"books",
+								"bookAuthor",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "book-author -U",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"filter\": {\n    \t\"book_author_id\": 601\n    },\n    \"data\": {\n    \t\"book_author_id\": 601,\n        \"book_id\": 11,\n        \"author_id\": 11\n    },\n    \"sqltypes\": {\n        \"book_author_id\": 4,\n        \"author_id\": 4,\n        \"book_id\": 4\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:33333/books/bookAuthor",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"books",
+								"bookAuthor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "book-author -D",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"filter\" :{\n\t\t\"book_author_id\": 601\n\t}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:33333/books/bookAuthor",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"books",
+								"bookAuthor"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "a08c4396-fe20-4467-8162-6e209f96c455",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "77181cb4-c71e-4879-8bc5-88b46bed8dee",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Book-Genre",
+			"item": [
+				{
+					"name": "book-genre -C",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"book_id\": 10,\n        \"genre_id\": 5\n    },\n    \"sqltypes\": {\n        \"book_id\": 4,\n        \"genre_id\": 4\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:33333/books/bookGenre",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"books",
+								"bookGenre"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "book-genre -R",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "demouser",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "demo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:33333/books/bookGenre?columns=book_genre_id,book_id,genre_id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"books",
+								"bookGenre"
+							],
+							"query": [
+								{
+									"key": "columns",
+									"value": "book_genre_id,book_id,genre_id"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "book-genre  -R (complex)",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "demouser",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "demo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"filter\": {\n    \t\"book_genre_id\": 601\n    },\n    \"columns\": [\n        \"book_genre_id\",\n        \"book_id\",\n        \"genre_id\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:33333/books/bookGenre/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"books",
+								"bookGenre",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "book-genre -U",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"filter\": {\n    \t\"book_genre_id\": 601\n    },\n    \"data\": {\n    \t\"book_genre_id\": 601,\n        \"book_id\": 11,\n        \"genre_id\": 1\n    },\n    \"sqltypes\": {\n        \"book_genre_id\": 4,\n        \"author_id\": 4,\n        \"genre_id\": 4\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:33333/books/bookGenre",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"books",
+								"bookGenre"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "book-genre -D",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"filter\" :{\n\t\t\"book_genre_id\": 601\n\t}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:33333/books/bookGenre",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"books",
+								"bookGenre"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "47b71811-fccd-481b-8bb3-644b600db4b8",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "ed5b8c8d-6e2f-4fe4-9469-77ad1779340e",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Authors",
+			"item": [
+				{
+					"name": "author-C",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"author_death\": 174265200000,\n            \"author_id\": 100,\n            \"author_name\": \"Faustina Dransfield\",\n            \"author_birth\": 525564000000\n    },\n    \"sqltypes\": {\n        \"author_death\": 91,\n        \"author_id\": 4,\n        \"author_name\": 12,\n        \"author_birth\": 91\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:33333/authors/author",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"authors",
+								"author"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "author  -R",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "demouser",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "demo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:33333/authors/author?columns=author_id,author_name,author_birth,author_death",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"authors",
+								"author"
+							],
+							"query": [
+								{
+									"key": "columns",
+									"value": "author_id,author_name,author_birth,author_death"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "author  -R (complex)",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "demouser",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "demo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"filter\": {\n    \t\"author_id\": 20\n    },\n    \"columns\": [\n        \"author_id\",\n        \"author_name\",\n        \"author_birth\",\n        \"author_death\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:33333/authors/author/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"authors",
+								"author",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "author-U",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"filter\": {\n\t\t\"author_id\": 500\n\t},\n    \"data\": {\n        \"author_name\": \"Autor creado\"\n    },\n    \"sqltypes\": {\n       \"author_death\": 91,\n        \"author_id\": 4,\n        \"author_name\": 12,\n        \"author_birth\": 91\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:33333/authors/author",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"authors",
+								"author"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "author-D",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"filter\" :{\n\t\t\"author_id\": 101\n\t}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:33333/authors/author",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"authors",
+								"author"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "edc5ce11-92ff-497c-9f03-5d1ac5e91a44",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "45118904-91f0-4e42-af74-b6edd36fde7c",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Genres",
+			"item": [
+				{
+					"name": "genres -C",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n            \"genre_name\": \"Programming\",\n            \"genre_desc\": \"Programming Books.\"\n        \n    },\n    \"sqltypes\": {\n        \"genre_name\": 12,\n        \"genre_desc\": 12\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:33333/genres/genre",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"genres",
+								"genre"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "genres -R",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "demouser",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "demo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:33333/genres/genre?columns=genre_id,genre_name,genre_desc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"genres",
+								"genre"
+							],
+							"query": [
+								{
+									"key": "columns",
+									"value": "genre_id,genre_name,genre_desc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "genres -R (complex)",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "demouser",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "demo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"filter\": {\n    \t\"genre_id\": 11\n    },\n    \"columns\": [\n        \"genre_id\",\n        \"genre_name\",\n        \"genre_desc\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:33333/genres/genre/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"genres",
+								"genre",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "genres -U",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"filter\": {\n\t\t\"genre_id\": 11\n\t},\n    \"data\": {\n            \"genre_name\": \"Programming Moded\",\n            \"genre_desc\": \"Programming Books. Moded\"        \n    },\n    \"sqltypes\": {\n        \"genre_name\": 12,\n        \"genre_desc\": 12\n    }\n}\n\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:33333/genres/genre",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"genres",
+								"genre"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "genres -D",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"filter\" :{\n\t\t\"genre_id\": 11\n\t}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:33333/genres/genre",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"genres",
+								"genre"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "d50b3b8b-4fa0-454c-b0bc-666af08888b7",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4dcbd51-4dda-4d3a-9a07-ce942db5ff4b",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Publisher",
+			"item": [
+				{
+					"name": "publishers -C",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n            \"publisher_name\": \"New Editorial Lara\",\n            \"publisher_desc\": \"New publisher proof, spanish.\",\n            \"publisher_logo\": \"R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==\"\n        \n    },\n    \"sqltypes\": {\n        \"publisher_name\": 12,\n        \"publisher_desc\": 12,\n        \"publisher_logo\": 12\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:33333/publishers/publisher",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"publishers",
+								"publisher"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "publishers-R",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "demouser",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "demo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:33333/publishers/publisher?columns=publisher_id,publisher_name,publisher_desc,publisher_logo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"publishers",
+								"publisher"
+							],
+							"query": [
+								{
+									"key": "columns",
+									"value": "publisher_id,publisher_name,publisher_desc,publisher_logo"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "publishers -R (complex)",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "demouser",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "demo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"filter\": {\n    \t\"publisher_id\": 20\n    },\n    \"columns\": [\n        \"publisher_id\",\n        \"publisher_name\",\n        \"publisher_desc\",\n        \"publisher_logo\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:33333/publishers/publisher/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"publishers",
+								"publisher",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "publishers -U",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"filter\": {\n\t\t\"publisher_id\": 13\n\t},\n    \"data\": {\n            \"publisher_name\": \"Programming Books.\",\n            \"publisher_desc\": \"Programming Books. Moded proof\"        \n    },\n    \"sqltypes\": {\n        \"publisher_name\": 12,\n        \"publisher_desc\": 12\n    }\n}\n\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:33333/publishers/publisher/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"publishers",
+								"publisher",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "publishers -D",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"filter\" :{\n\t\t\"publisher_id\": 20\n\t}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:33333/publishers/publisher",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"publishers",
+								"publisher"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "c1a00032-331d-40fa-b11f-0fbcc0d301a1",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "3152978e-acb1-4a85-abf1-542557a7f442",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -226,7 +1318,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "a6966bee-39bc-4d1d-a67a-6c7a3f84bd86",
+				"id": "66ec77e3-32b3-460f-8ae6-029dd2177fae",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -236,7 +1328,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "c3f6ef75-9d91-4100-a371-27d267279277",
+				"id": "a03cf59e-5e69-4f50-9c9f-03c4568b6e9a",
 				"type": "text/javascript",
 				"exec": [
 					""

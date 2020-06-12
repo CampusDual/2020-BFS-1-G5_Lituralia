@@ -1,107 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>com.campusdual.lituralia</groupId>
-		<artifactId>lituralia</artifactId>
-		<version>0.0.2-SNAPSHOT</version>
-	</parent>
-	<artifactId>lituralia-model</artifactId>
-	<name>Lituralia model</name>
-	<description>Lituralia models</description>
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<java.version>1.8</java.version>
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.campusdual.lituralia</groupId>
+    <artifactId>lituralia</artifactId>
+    <version>0.0.3-SNAPSHOT</version>
+  </parent>
+  <artifactId>lituralia-model</artifactId>
+  <name>Lituralia model</name>
+  <description>Lituralia models</description>
 
-	</properties>
+  <dependencies>
 
-	<dependencies>
-		<dependency>
-			<groupId>org.hsqldb</groupId>
-			<artifactId>hsqldb</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.campusdual.lituralia</groupId>
-			<artifactId>lituralia-api</artifactId>
-		</dependency>
+    <dependency>
+      <groupId>com.campusdual.lituralia</groupId>
+      <artifactId>lituralia-api</artifactId>
+    </dependency>
 
-		<dependency>
-			<groupId>com.campusdual.lituralia</groupId>
-			<artifactId>lituralia-frontend</artifactId>
-		</dependency>
+    <dependency>
+      <groupId>com.campusdual.lituralia</groupId>
+      <artifactId>lituralia-frontend</artifactId>
+    </dependency>
 
-		<dependency>
-			<groupId>com.ontimize.boot</groupId>
-			<artifactId>ontimize-boot-starter-jdbc</artifactId>
-		</dependency>
+    <dependency>
+      <groupId>com.ontimize.boot</groupId>
+      <artifactId>ontimize-boot-starter-jdbc</artifactId>
+    </dependency>
 
-		<dependency>
-			<groupId>com.ontimize.boot</groupId>
-			<artifactId>ontimize-boot-starter-rest</artifactId>
-		</dependency>
+    <dependency>
+      <groupId>com.ontimize.boot</groupId>
+      <artifactId>ontimize-boot-starter-rest</artifactId>
+    </dependency>
 
-		<dependency>
-			<groupId>org.postgresql</groupId>
-			<artifactId>postgresql</artifactId>
-		</dependency>
+    <dependency>
+      <groupId>org.postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+    </dependency>
 
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<scope>provided</scope>
-		</dependency>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <scope>provided</scope>
+    </dependency>
 
-	</dependencies>
-
-	<build>
-		<finalName>${project.artifactId}</finalName>
-
-	</build>
-<!--	<profiles>-->
-<!--		<profile>-->
-<!--			<id>run_database</id>-->
-<!--			<build>-->
-<!--				<plugins>-->
-<!--					<plugin>-->
-<!--						<groupId>org.apache.maven.plugins</groupId>-->
-<!--						<artifactId>maven-antrun-plugin</artifactId>-->
-<!--						<version>1.7</version>-->
-<!--						<executions>-->
-<!--							<execution>-->
-<!--								<id>configure_database</id>-->
-<!--								<phase>validate</phase>-->
-<!--								<goals>-->
-<!--									<goal>run</goal>-->
-<!--								</goals>-->
-<!--								<configuration>-->
-<!--									<target>-->
-<!--										<available file="${hsqldatabase.path}/templateDB.script" property="database.exist" />-->
-<!--										<echo message="${hsqldatabase.path}/templateDB.script" />-->
-<!--										<copy tofile="${hsqldatabase.path}/templateDB.script" file="${hsqldatabase.path}/templateDB.txt" />-->
-<!--									</target>-->
-<!--								</configuration>-->
-<!--							</execution>-->
-<!--						</executions>-->
-<!--					</plugin>-->
-<!--					<plugin>-->
-<!--						<groupId>org.codehaus.mojo</groupId>-->
-<!--						<artifactId>exec-maven-plugin</artifactId>-->
-<!--						<version>1.2.1</version>-->
-<!--						<configuration>-->
-<!--							<mainClass>org.hsqldb.Server</mainClass>-->
-<!--							<arguments>-->
-<!--								<argument>-port</argument>-->
-<!--								<argument>9013</argument>-->
-<!--								<argument>-database.0</argument>-->
-<!--								<argument>${hsqldatabase.path}/templateDB</argument>-->
-<!--								<argument>-dbname.0</argument>-->
-<!--								<argument>templateDB</argument>-->
-<!--							</arguments>-->
-<!--						</configuration>-->
-<!--					</plugin>-->
-<!--				</plugins>-->
-<!--			</build>-->
-<!--		</profile>-->
-<!--	</profiles>-->
+  </dependencies>
 </project>

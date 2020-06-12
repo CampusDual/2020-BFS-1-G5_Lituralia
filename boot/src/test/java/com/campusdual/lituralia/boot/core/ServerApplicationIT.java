@@ -9,7 +9,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
-class ServerApplicationTest {
+class ServerApplicationIT {
 
     @Test
     @DisplayName("Spring Boot Initialization")
