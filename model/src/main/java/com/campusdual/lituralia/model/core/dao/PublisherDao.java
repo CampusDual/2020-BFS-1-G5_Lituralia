@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository("PublisherDao")
 @Lazy
-@ConfigurationFile(configurationFile = "dao/AuthorDao.xml", configurationFilePlaceholder = "dao/placeholders.properties")
+@ConfigurationFile(configurationFile = "dao/PublisherDao.xml", configurationFilePlaceholder = "dao/placeholders.properties")
 public class PublisherDao extends OntimizeJdbcDaoSupport {
 
     public static final String ATTR_PUBLISHER_ID = "publisher_id";
