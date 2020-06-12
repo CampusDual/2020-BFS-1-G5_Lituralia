@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "2f61a127-f939-4a2b-8ef3-ff69ec4d4046",
+		"_postman_id": "1648cd9b-3cc9-49af-a181-7d9e6a3d5251",
 		"name": "Lituralia",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -272,7 +272,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "425400fb-4f0d-43a2-b8a7-fdaa277f2715",
+						"id": "e8e4be0d-a29e-46af-b360-f9b2aa8e29bd",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -282,7 +282,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "84e9ce1e-b015-4ab7-b90a-1e34fc7eafa8",
+						"id": "ea72aee4-2a4b-4a2e-b737-6d19174c8539",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -473,7 +473,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "0fa8e5d6-993d-47e7-beff-74f0196baf51",
+						"id": "a08c4396-fe20-4467-8162-6e209f96c455",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -483,7 +483,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "4051c0b9-aeef-4533-83c7-4cf321396607",
+						"id": "77181cb4-c71e-4879-8bc5-88b46bed8dee",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -674,7 +674,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "4de4548f-4c4e-4ca5-aa7b-369658dd4d7e",
+						"id": "47b71811-fccd-481b-8bb3-644b600db4b8",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -684,7 +684,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "e64619ba-8f19-4195-984e-75b613f75669",
+						"id": "ed5b8c8d-6e2f-4fe4-9469-77ad1779340e",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -875,7 +875,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "4597f649-ba11-4d6f-ab0e-f1b3a4913c67",
+						"id": "edc5ce11-92ff-497c-9f03-5d1ac5e91a44",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -885,7 +885,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "308b7f51-ff82-4a70-b4c5-184bf39d7bac",
+						"id": "45118904-91f0-4e42-af74-b6edd36fde7c",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1076,7 +1076,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "2bcec20b-be90-44ba-bd1f-f340dc02e0f7",
+						"id": "d50b3b8b-4fa0-454c-b0bc-666af08888b7",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1086,7 +1086,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "cb02cbeb-e9d8-443c-98bf-12430af22fdb",
+						"id": "b4dcbd51-4dda-4d3a-9a07-ce942db5ff4b",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1106,7 +1106,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"data\": {\n        \n            \"publisher_name\": \"New Editorial Lara\",\n            \"publisher_desc\": \"New publisher proof, spanish\",\n            \"publisher_logo\":\"\"\n    },\n    \"sqltypes\": {\n            \"publisher_name\": 25,\n            \"publisher_desc\": 100,\n            \"publisher_logo\": 300\n       \n    }\n}",
+							"raw": "{\n    \"data\": {\n            \"publisher_name\": \"New Editorial Lara\",\n            \"publisher_desc\": \"New publisher proof, spanish.\",\n            \"publisher_logo\": \"R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==\"\n        \n    },\n    \"sqltypes\": {\n        \"publisher_name\": 12,\n        \"publisher_desc\": 12,\n        \"publisher_logo\": 12\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1191,7 +1191,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"filter\": {\n    \t\"publisher_id\": 20\n    },\n    \"columns\": [\n        \"publisher_id\",\n        \"publisher_name\",\n        \"publisher_desc\"\n    ]\n}",
+							"raw": "{\n    \"filter\": {\n    \t\"publisher_id\": 20\n    },\n    \"columns\": [\n        \"publisher_id\",\n        \"publisher_name\",\n        \"publisher_desc\",\n        \"publisher_logo\"\n    ]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1278,7 +1278,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "cba6adb7-daf0-4632-8b8a-f4090433b115",
+						"id": "c1a00032-331d-40fa-b11f-0fbcc0d301a1",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1288,7 +1288,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "1fa29706-9a0d-41e6-9847-775eabdb72c9",
+						"id": "3152978e-acb1-4a85-abf1-542557a7f442",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1318,7 +1318,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "7e25779b-27fb-4384-ba44-de27cec867b6",
+				"id": "66ec77e3-32b3-460f-8ae6-029dd2177fae",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -1328,7 +1328,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "4bc0fb6c-220c-4b27-94c9-0ba21bd83294",
+				"id": "a03cf59e-5e69-4f50-9c9f-03c4568b6e9a",
 				"type": "text/javascript",
 				"exec": [
 					""
