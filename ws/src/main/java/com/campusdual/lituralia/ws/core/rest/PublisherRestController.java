@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/publishers")
-@ComponentScan(basePackageClasses = {IPublisherService.class})
+@ComponentScan(basePackageClasses = {com.campusdual.lituralia.api.core.service.IPublisherService.class})
 public class PublisherRestController extends ORestController<IPublisherService> {
 
     @Autowired
