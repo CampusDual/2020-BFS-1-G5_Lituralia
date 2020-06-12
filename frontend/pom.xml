@@ -5,7 +5,7 @@
   <parent>
     <groupId>com.campusdual.lituralia</groupId>
     <artifactId>lituralia</artifactId>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>0.0.3-SNAPSHOT</version>
   </parent>
 
   <name>Lituralia frontend</name>
@@ -14,67 +14,76 @@
   <packaging>jar</packaging>
 
   <build>
-    <finalName>${project.artifactId}</finalName>
-
-		<resources>
-			<resource>
-				<directory>src/main/resources</directory>
-				<excludes>
-					<exclude>webapp/</exclude>
-				</excludes>
-			</resource>
-		</resources>
-
-    <plugins>
-      <plugin>
-        <groupId>com.github.eirslett</groupId>
-        <artifactId>frontend-maven-plugin</artifactId>
-        <version>1.10.0</version>
-        <configuration>
-          <nodeVersion>v10.21.0</nodeVersion>
-          <workingDirectory>src/main/resources/webapp</workingDirectory>
-        </configuration>
-        <executions>
-          <execution>
-            <id>install node and npm</id>
-            <goals>
-              <goal>install-node-and-npm</goal>
-            </goals>
-            <phase>generate-resources</phase>
-          </execution>
-          <execution>
-            <id>npm install</id>
-            <goals>
-              <goal>npm</goal>
-            </goals>
-            <!-- Optional configuration which provides for running any npm command -->
-            <configuration>
-              <arguments>install</arguments>
-            </configuration>
-          </execution>
-
-          <execution>
-            <id>npm run build</id>
-            <goals>
-              <goal>npm</goal>
-            </goals>
-            <configuration>
-              <arguments>run build</arguments>
-            </configuration>
-          </execution>
-
-          <!--              <execution>-->
-          <!--                <id>aot-production</id>-->
-          <!--                <goals>-->
-          <!--                  <goal>npm</goal>-->
-          <!--                </goals>-->
-          <!--                <configuration>-->
-          <!--                  <arguments>run production-aot</arguments>-->
-          <!--                </configuration>-->
-          <!--                <phase>generate-resources</phase>-->
-          <!--              </execution>-->
-        </executions>
-      </plugin>
-    </plugins>
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <excludes>
+          <exclude>webapp/</exclude>
+        </excludes>
+      </resource>
+    </resources>
   </build>
+
+  <profiles>
+    <profile>
+      <id>build_frontend</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>com.github.eirslett</groupId>
+            <artifactId>frontend-maven-plugin</artifactId>
+            <version>1.10.0</version>
+            <configuration>
+              <nodeVersion>v10.21.0</nodeVersion>
+              <workingDirectory>src/main/resources/webapp</workingDirectory>
+            </configuration>
+            <executions>
+              <execution>
+                <id>install node and npm</id>
+                <goals>
+                  <goal>install-node-and-npm</goal>
+                </goals>
+                <phase>generate-resources</phase>
+              </execution>
+              <execution>
+                <id>npm install</id>
+                <goals>
+                  <goal>npm</goal>
+                </goals>
+                <!-- Optional configuration which provides for running any npm command -->
+                <configuration>
+                  <arguments>install</arguments>
+                </configuration>
+              </execution>
+
+              <execution>
+                <id>npm run build</id>
+                <goals>
+                  <goal>npm</goal>
+                </goals>
+                <configuration>
+                  <arguments>run build</arguments>
+                </configuration>
+              </execution>
+              <!--              <execution>-->
+              <!--                <id>aot-production</id>-->
+              <!--                <goals>-->
+              <!--                  <goal>npm</goal>-->
+              <!--                </goals>-->
+              <!--                <configuration>-->
+              <!--                  <arguments>run production-aot</arguments>-->
+              <!--                </configuration>-->
+              <!--                <phase>generate-resources</phase>-->
+              <!--              </execution>-->
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+
+
 </project>
