@@ -1,0 +1,23 @@
+<o-form service="books" entity="book" keys="book_id" header-actions="R;I;U;D" show-header-navigation="no">
+  <o-text-input attr="book_id" sql-type="INTEGER" enabled="no"></o-text-input>
+  <o-row>
+    <o-column fxFlex="30">
+      <o-image id="book_cover" attr="cover" empty-image="assets/images/no-image.png" sql-type="OTHER" auto-fit="no"></o-image>
+    </o-column>
+    <o-column title-label="BOOK_INFORMATION" fxFlex="70">
+      <o-row>
+        <o-text-input class="input-padding" attr="title" fxFlex="60" required="yes"></o-text-input>
+        <o-date-input attr="publish_date" fxFlex="40"></o-date-input>
+      </o-row>
+      <o-row>
+        <o-text-input class="input-padding" attr="isbn" fxFlex="50" required="yes"></o-text-input>
+        <o-list-picker attr="publisher_id" class="input-padding" fxFlex="50" service="books"
+                       entity="bookPublisher" keys="publisher_id" columns="publisher_id;publisher_name"
+                       visible-columns="publisher_name" value-column="publisher_id"></o-list-picker>
+      </o-row>
+      <o-row>
+        <o-textarea-input attr="synopsis" fxFlex></o-textarea-input>
+      </o-row>
+    </o-column>
+  </o-row>
+</o-form>
