@@ -24,8 +24,8 @@
                   #COLUMNS#
                FROM
                   ${mainschema}.book_genres AS bg
-                  INNER JOIN ${mainschema}.books AS b ON ba.book_id = b.book_id
-                  INNER JOIN ${mainschema}.genres AS a ON ba.genre_id = a.genre_id
+                  INNER JOIN ${mainschema}.books AS b ON bg.book_id = b.book_id
+                  INNER JOIN ${mainschema}.genres AS a ON bg.genre_id = a.genre_id
                #WHERE#
                #ORDER#
             ]]>

@@ -1,5 +1,5 @@
 <o-form service="books" entity="book" keys="book_id" header-actions="R;I;U;D" show-header-navigation="no">
-  <o-text-input attr="book_id" sql-type="INTEGER" enabled="no"></o-text-input>
+  <o-integer-input attr="book_id" sql-type="INTEGER" enabled="no"></o-integer-input>
   <o-row>
     <o-column fxFlex="30">
       <o-image id="book_cover" attr="cover" empty-image="assets/images/no-image.png" sql-type="OTHER" auto-fit="no"></o-image>
@@ -17,6 +17,24 @@
       </o-row>
       <o-row>
         <o-textarea-input attr="synopsis" fxFlex></o-textarea-input>
+      </o-row>
+      <o-row>
+        <o-table fxFlex="65" class="input-padding" attr="authorsTable" service="books" entity="vBookAuthor"
+                 parent-keys="book_id" keys="book_id" columns="author_id;author_name;author_birth;author_death"
+                 visible-columns="author_name;author_birth;author_death" query-rows="5"
+                 insert-button="no" detail-mode="none">
+<!--          //TODO:insert author            insert-form-route="author/new"           -->
+          <o-table-column attr="author_name" title="author_name" class="o-table-column-centered"></o-table-column>
+          <o-table-column attr="author_birth" author_birth="NAME" class="o-table-column-centered" type="date" format="MM/DD/YYYY"></o-table-column>
+          <o-table-column attr="author_death" title="author_death" class="o-table-column-centered" type="date" format="MM/DD/YYYY"></o-table-column>
+        </o-table>
+        <o-table fxFlex="35" class="input-padding" attr="genresTable" service="books" entity="vBookGenre"
+                 parent-keys="book_id" keys="book_id" columns="genre_id;genre_name"
+                 visible-columns="genre_name" query-rows="5"
+                 insert-button="no" detail-mode="none">
+          <!--          //TODO:insert genre            insert-form-route="genre/new"           -->
+          <o-table-column attr="genre_name" title="genre_name" class="o-table-column-centered"></o-table-column>
+        </o-table>
       </o-row>
     </o-column>
   </o-row>

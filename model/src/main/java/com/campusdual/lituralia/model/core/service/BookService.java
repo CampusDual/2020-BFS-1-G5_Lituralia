@@ -77,6 +77,19 @@ public class BookService implements IBookService {
         return this.daoHelper.delete(this.bookAuthorDao, keyValues);
     }
 
+    // ---- V BOOK AUTHORS
+
+    @Override
+    public EntityResult vBookAuthorQuery(Map<String, Object> keysValues, List<String> attributes)
+        throws OntimizeJEERuntimeException {
+        return this.daoHelper.query(this.bookAuthorDao, keysValues, attributes,BookAuthorDao.QUERY_VBOOKAUTHOR);
+    }
+
+    @Override
+    public EntityResult vBookAuthorDelete(Map<String, Object> keyValues) throws OntimizeJEERuntimeException {
+        return this.daoHelper.delete(this.bookAuthorDao, keyValues);
+    }
+
     // ---- BOOK GENRES ----
 
     @Override
@@ -101,7 +114,21 @@ public class BookService implements IBookService {
         return this.daoHelper.delete(this.bookGenreDao, keyValues);
     }
 
-    // ---- BOOK PUBLISHER ----publisherDao
+
+    // ---- V BOOK GENRE
+
+    @Override
+    public EntityResult vBookGenreQuery(Map<String, Object> keysValues, List<String> attributes)
+        throws OntimizeJEERuntimeException {
+        return this.daoHelper.query(this.bookGenreDao, keysValues, attributes,BookGenreDao.QUERY_VBOOKGENRE);
+    }
+
+    @Override
+    public EntityResult vBookGenreDelete(Map<String, Object> keyValues) throws OntimizeJEERuntimeException {
+        return this.daoHelper.delete(this.bookGenreDao, keyValues);
+    }
+
+    // ---- BOOK PUBLISHER ----
 
     @Override
     public EntityResult bookPublisherQuery(Map<String, Object> keysValues, List<String> attributes) throws OntimizeJEERuntimeException {
@@ -129,9 +156,20 @@ public class BookService implements IBookService {
     // ---- BOOK DETAILS VIEW ----
 
     @Override
-    public EntityResult vBookDetailsQuery(Map<String, Object> keysValues, List<String> attributes)
-        throws OntimizeJEERuntimeException {
+    public EntityResult vBookDetailsQuery(Map<String, Object> keysValues, List<String> attributes) throws OntimizeJEERuntimeException {
         return this.daoHelper.query(this.bookDao, keysValues, attributes, BookDao.QUERY_VBOOKDETAILS);
     }
+
+    @Override
+    public EntityResult vBookDetailsUpdate(Map<?, ?> attrMap, Map<?, ?> keyMap) {
+        return this.daoHelper.update(bookDao, attrMap, keyMap);
+    }
+
+    @Override
+    public EntityResult vBookDetailsDelete(Map<?, ?> keyMap) {
+        return this.daoHelper.delete(this.bookDao, keyMap);
+    }
+
+
 
 }

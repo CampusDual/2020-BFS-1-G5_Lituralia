@@ -10,6 +10,10 @@ const routes: Routes = [{
   {
     path: ":book_id",
     component: BooksDetailComponent
+  },
+  {
+    path: "new",
+    component: BooksDetailComponent
   }];
 
 @NgModule({
