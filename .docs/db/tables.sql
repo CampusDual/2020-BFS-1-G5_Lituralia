@@ -293,8 +293,8 @@ select b.*,
 from books b,
      publishers p,
      (select b.book_id,
-             string_agg(cast(a.author_id as text), ',')   as author_ids,
-             string_agg(a.author_name, ',') as author_names
+             string_agg(cast(a.author_id as text), ',') as author_ids,
+             string_agg(a.author_name, ',')             as author_names
       from books b
                LEFT JOIN book_authors ba
                          on b.book_id = ba.book_id
@@ -302,8 +302,8 @@ from books b,
                          on ba.author_id = a.author_id
       GROUP BY b.book_id) as an,
      (select b.book_id,
-             string_agg(cast(g.genre_id as text), ',')   as genre_ids,
-             string_agg(g.genre_name, ',') as genre_names
+             string_agg(cast(g.genre_id as text), ',') as genre_ids,
+             string_agg(g.genre_name, ',')             as genre_names
       from books b
                LEFT JOIN book_genres bg
                          on b.book_id = bg.book_id
@@ -314,3 +314,21 @@ where b.publisher_id = p.publisher_id
   and b.book_id = an.book_id
   and b.book_id = gn.book_id
     );
+
+
+CREATE VIEW lituralia.v_book_value AS
+(
+SELECT
+       book_id,
+       AVG(o.rating),
+       COUNT(*)
+from
+     opinions o
+group by
+         book_id
+order by
+         book_id
+    );
+
+
+
