@@ -8,24 +8,42 @@ import java.util.Map;
 public interface IBookService {
 
     // ---- BOOK ----
+
     EntityResult bookQuery(Map<?, ?> keyMap, List<?> attrList);
     EntityResult bookInsert(Map<?, ?> attrMap);
     EntityResult bookUpdate(Map<?, ?> attrMap, Map<?, ?> keyMap);
     EntityResult bookDelete(Map<?, ?> keyMap);
 
-    // ---- BOOK AUTHOR ----
+    // ---- BOOK AUTHORS ----
+
     EntityResult bookAuthorQuery(Map<String, Object> keysValues, List<String> attributes) throws OntimizeJEERuntimeException;
     EntityResult bookAuthorInsert(Map<String, Object> attributes) throws OntimizeJEERuntimeException;
     EntityResult bookAuthorUpdate(Map<String, Object> attributes, Map<String, Object> KeyValues) throws OntimizeJEERuntimeException;
     EntityResult bookAuthorDelete(Map<String, Object> keyValues) throws OntimizeJEERuntimeException;
 
-    // ---- BOOK GENRE ----
+    EntityResult vBookAuthorQuery(Map<String, Object> keysValues, List<String> attributes) throws OntimizeJEERuntimeException;
+    EntityResult vBookAuthorDelete(Map<String, Object> keyValues) throws OntimizeJEERuntimeException;
+
+    // ---- BOOK GENRES ----
 
     EntityResult bookGenreQuery(Map<String, Object> keysValues, List<String> attributes) throws OntimizeJEERuntimeException;
     EntityResult bookGenreInsert(Map<String, Object> attributes) throws OntimizeJEERuntimeException;
     EntityResult bookGenreUpdate(Map<String, Object> attributes, Map<String, Object> KeyValues) throws OntimizeJEERuntimeException;
     EntityResult bookGenreDelete(Map<String, Object> keyValues) throws OntimizeJEERuntimeException;
 
-    // ---- V BOOK AUTHOR GENRE PUBLISHER NAMES ----
+    EntityResult vBookGenreQuery(Map<String, Object> keysValues, List<String> attributes) throws OntimizeJEERuntimeException;
+    EntityResult vBookGenreDelete(Map<String, Object> keyValues) throws OntimizeJEERuntimeException;
+
+    // ---- BOOK PUBLISHER ----
+
+    EntityResult bookPublisherQuery(Map<String, Object> keysValues, List<String> attributes) throws OntimizeJEERuntimeException;
+    EntityResult bookPublisherInsert(Map<String, Object> attributes) throws OntimizeJEERuntimeException;
+    EntityResult bookPublisherUpdate(Map<String, Object> attributes, Map<String, Object> KeyValues) throws OntimizeJEERuntimeException;
+    EntityResult bookPublisherDelete(Map<String, Object> keyValues) throws OntimizeJEERuntimeException;
+
+    // ---- BOOK DETAILS VIEW ----
+
     EntityResult vBookDetailsQuery(Map<String, Object> keysValues, List<String> attributes) throws OntimizeJEERuntimeException;
+    EntityResult vBookDetailsUpdate(Map<?, ?> attrMap, Map<?, ?> keyMap);
+    EntityResult vBookDetailsDelete(Map<?, ?> keyMap);
 }

@@ -17,13 +17,16 @@ public class RelationalDataAccessApplication implements CommandLineRunner {
 
     @Override
     public void run(String... strings) throws Exception {
-
-        log.info("Querying DB");
-        int books = jdbcTemplate.queryForList(
-            "SELECT * FROM lituralia.books").size();
-        if (books==0)
+        try {
+            log.info("Querying DB");
+            int books = jdbcTemplate.queryForList(
+                "SELECT * FROM lituralia.books").size();
+            if (books == 0)
+                log.warn("DB [FAIL]");
+            else
+                log.info("DB: [OK] -> " + books);
+        } catch (Exception e) {
             log.warn("DB [FAIL]");
-        else
-            log.info("DB: [OK] -> " + books);
+        }
     }
 }

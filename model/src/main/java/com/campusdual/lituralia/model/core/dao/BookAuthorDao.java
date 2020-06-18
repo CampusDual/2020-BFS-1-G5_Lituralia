@@ -14,6 +14,8 @@ public class BookAuthorDao extends OntimizeJdbcDaoSupport {
     public static final String ATTR_BOOK_ID = "book_id";
     public static final String ATTR_AUTHOR_ID = "author_id";
 
+    public static final String QUERY_VBOOKAUTHOR = "BOOKAUTHOR";
+
     public BookAuthorDao() {
         super();
     }
