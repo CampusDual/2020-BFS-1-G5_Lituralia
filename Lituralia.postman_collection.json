@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "1648cd9b-3cc9-49af-a181-7d9e6a3d5251",
+		"_postman_id": "a976c98c-3ac4-4d5f-b611-a897adbdb21d",
 		"name": "Lituralia",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -272,7 +272,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "e8e4be0d-a29e-46af-b360-f9b2aa8e29bd",
+						"id": "69390977-2660-44d0-bc0f-f494044f4596",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -282,7 +282,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "ea72aee4-2a4b-4a2e-b737-6d19174c8539",
+						"id": "c5bb3ab7-8f88-403e-8e13-45b1cb917f97",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -473,7 +473,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "a08c4396-fe20-4467-8162-6e209f96c455",
+						"id": "7ecfbdf3-be2f-4c03-b543-44950bf8b498",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -483,7 +483,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "77181cb4-c71e-4879-8bc5-88b46bed8dee",
+						"id": "26425cf1-6a31-4583-af21-9cf50eaac330",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -674,7 +674,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "47b71811-fccd-481b-8bb3-644b600db4b8",
+						"id": "4fa6482b-4bfa-4962-86f2-d2f412f3d5c8",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -684,7 +684,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "ed5b8c8d-6e2f-4fe4-9469-77ad1779340e",
+						"id": "381efed5-3c53-4f64-82a4-823b7f1ce0e6",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -875,7 +875,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "edc5ce11-92ff-497c-9f03-5d1ac5e91a44",
+						"id": "22480b5b-097b-4264-892d-cff6e28bae82",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -885,7 +885,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "45118904-91f0-4e42-af74-b6edd36fde7c",
+						"id": "e43ae9fa-3d30-47a1-82fa-b23d44453814",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1076,7 +1076,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "d50b3b8b-4fa0-454c-b0bc-666af08888b7",
+						"id": "03ff0639-6076-40a7-b481-b0cba724e9cb",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1086,7 +1086,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "b4dcbd51-4dda-4d3a-9a07-ce942db5ff4b",
+						"id": "4300c816-9e5b-479c-b696-e02f5d3562fb",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1278,7 +1278,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "c1a00032-331d-40fa-b11f-0fbcc0d301a1",
+						"id": "a3e64e4b-1545-42cf-861f-621f94f177b3",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1288,7 +1288,208 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "3152978e-acb1-4a85-abf1-542557a7f442",
+						"id": "2fe9b72d-66a5-4462-bdae-90513d3c3917",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Opinions",
+			"item": [
+				{
+					"name": "opinion -C",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n            \"rating\":\"4\",\n            \"review\":\"prueba de opinion review. \",\n            \"opion_create\":724719600000,\n            \"book_id\":100,\n            \"user_\":\"wguwer0\"\n        \n    },\n    \"sqltypes\": {\n        \"rating\":4,\n        \"review\":12,\n        \"opion_create\":91,\n        \"book_id\":4,\n         \"user_\":12\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:33333/opinions/opinion",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"opinions",
+								"opinion"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "opinion -R",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "demouser",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "demo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:33333/opinions/opinion?columns=opinion_id,rating,review,opinion_create,user_",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"opinions",
+								"opinion"
+							],
+							"query": [
+								{
+									"key": "columns",
+									"value": "opinion_id,rating,review,opinion_create,user_"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "opinion -R (complex)",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "demouser",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "demo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"filter\": {\n    \t\"opinion_id\":500\n    },\n    \"columns\": [\n        \"opinion_id\",\n        \"rating\",\n        \"review\",\n        \"opinion_create\",\n        \"user_\"\n        \n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:33333/opinions/opinion/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"opinions",
+								"opinion",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "opinion -U",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"filter\": {\n\t\t\"opinion_id\": 1001\n\t},\n    \"data\": {\n            \"rating\":5,\n            \"review\":\"prueba de opinion review. Modificada \",\n            \"opinion_update\" :1565992800000\n    },\n    \"sqltypes\": {\n         \"rating\":4,\n            \"review\":12,\n            \"opinion_update\" :91\n    }\n}\n\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:33333/opinions/opinion",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"opinions",
+								"opinion"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "opinion -D",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"filter\" :{\n\t\t\"opinion_id\": 1001\n\t}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:33333/opinions/opinion",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"opinions",
+								"opinion"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "37e10b3d-7721-421e-b9d9-b2eb45e5386f",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "f91ca084-b935-42eb-8132-033b201dae2c",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1318,7 +1519,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "66ec77e3-32b3-460f-8ae6-029dd2177fae",
+				"id": "9f884172-5206-4e36-90e1-2dd66e9712bd",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -1328,7 +1529,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "a03cf59e-5e69-4f50-9c9f-03c4568b6e9a",
+				"id": "2d8e7819-a6f1-4f3a-baa8-5bffd44ef550",
 				"type": "text/javascript",
 				"exec": [
 					""
