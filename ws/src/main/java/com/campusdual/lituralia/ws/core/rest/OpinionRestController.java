@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/opinions")
+@RequestMapping("/api/opinions")
 @ComponentScan(basePackageClasses = {IOpinionService.class})
 public class OpinionRestController extends ORestController<IOpinionService> {
 
