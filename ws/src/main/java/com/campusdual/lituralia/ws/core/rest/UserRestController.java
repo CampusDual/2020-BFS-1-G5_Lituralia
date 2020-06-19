@@ -1,6 +1,9 @@
 package com.campusdual.lituralia.ws.core.rest;
 
 
+import com.campusdual.lituralia.api.core.service.IUserService;
+import com.ontimize.db.EntityResult;
+import com.ontimize.jee.server.rest.ORestController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.HttpStatus;
@@ -10,13 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.campusdual.lituralia.api.core.service.IUserService;
-import com.ontimize.db.EntityResult;
-import com.ontimize.jee.server.rest.ORestController;
-
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/api/users")
 @ComponentScan(basePackageClasses={com.campusdual.lituralia.api.core.service.IUserService.class})
 public class UserRestController extends ORestController<IUserService> {
 
