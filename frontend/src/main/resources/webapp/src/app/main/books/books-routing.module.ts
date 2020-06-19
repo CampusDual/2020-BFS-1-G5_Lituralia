@@ -8,11 +8,11 @@ const routes: Routes = [{
   component: BooksHomeComponent
   },
   {
-    path: ":book_id",
+    path: "new",
     component: BooksDetailComponent
   },
   {
-    path: "new",
+    path: ":book_id",
     component: BooksDetailComponent
   }];
 
