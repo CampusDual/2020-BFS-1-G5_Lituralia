@@ -59,6 +59,8 @@ server:
    compression:
       enabled: true
       mime-types: application/json, application/xml
+   servlet:
+      context-path: '/api'
 spring:
    jpa:
       database: POSTGRESQL
