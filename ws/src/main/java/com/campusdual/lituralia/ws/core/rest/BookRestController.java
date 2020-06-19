@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/books")
+@RequestMapping("/api/books")
 @ComponentScan(basePackageClasses = { com.campusdual.lituralia.api.core.service.IBookService.class })
 public class BookRestController extends ORestController<IBookService> {
 

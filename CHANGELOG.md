@@ -1,3 +1,19 @@
+#### v 0.0.4-SNAPSHOT	====	19/06/2020
+
+- Front:
+    - Book detail: 
+        - Cover img
+        - Publisher dropdown
+        - Genres table
+        - Authors table
+        - Fix insert Book
+- Back:
+    - Endpoint moved to /api (url collision with front)
+    - Opinion service
+- Maven:
+    - Profile: 
+        build_frontend => cleans and rebuilds npm frontend
+
 #### v 0.0.3-SNAPSHOT	====	12/06/2020
 
 - SQL: 

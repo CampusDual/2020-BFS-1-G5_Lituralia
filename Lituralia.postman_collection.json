@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "1648cd9b-3cc9-49af-a181-7d9e6a3d5251",
+		"_postman_id": "6bb5d3c6-ce51-4bf9-a1ff-1b20e0dc3fff",
 		"name": "Lituralia",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -23,13 +23,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:33333/books/book",
+							"raw": "http://localhost:33333/api/books/book",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "33333",
 							"path": [
+								"api",
 								"books",
 								"book"
 							]
@@ -58,13 +59,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:33333/books/book?columns=book_id,isbn,title,synopsis,publish_date,publisher_id",
+							"raw": "http://localhost:33333/api/books/book?columns=book_id,isbn,title,synopsis,publish_date,publisher_id",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "33333",
 							"path": [
+								"api",
 								"books",
 								"book"
 							],
@@ -99,13 +101,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:33333/books/vBookDetails?columns=book_id,isbn,title,synopsis,publish_date,publisher_id,publisher_name,author_ids,author_names,author_ids,genre_names",
+							"raw": "http://localhost:33333/api/books/vBookDetails?columns=book_id,isbn,title,synopsis,publish_date,publisher_id,publisher_name,author_ids,author_names,author_ids,genre_names",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "33333",
 							"path": [
+								"api",
 								"books",
 								"vBookDetails"
 							],
@@ -149,13 +152,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:33333/books/book/search",
+							"raw": "http://localhost:33333/api/books/book/search",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "33333",
 							"path": [
+								"api",
 								"books",
 								"book",
 								"search"
@@ -194,13 +198,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:33333/books/vBookDetails/search",
+							"raw": "http://localhost:33333/api/books/vBookDetails/search",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "33333",
 							"path": [
+								"api",
 								"books",
 								"vBookDetails",
 								"search"
@@ -224,13 +229,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:33333/books/book",
+							"raw": "http://localhost:33333/api/books/book",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "33333",
 							"path": [
+								"api",
 								"books",
 								"book"
 							]
@@ -253,13 +259,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:33333/books/book",
+							"raw": "http://localhost:33333/api/books/book",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "33333",
 							"path": [
+								"api",
 								"books",
 								"book"
 							]
@@ -272,7 +279,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "e8e4be0d-a29e-46af-b360-f9b2aa8e29bd",
+						"id": "025723a8-3d8c-406e-8104-fe14ea1cc48f",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -282,7 +289,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "ea72aee4-2a4b-4a2e-b737-6d19174c8539",
+						"id": "28a899f3-a5df-4616-884c-8fbb42375f29",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -310,13 +317,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:33333/books/bookAuthor",
+							"raw": "http://localhost:33333/api/books/bookAuthor",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "33333",
 							"path": [
+								"api",
 								"books",
 								"bookAuthor"
 							]
@@ -345,13 +353,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:33333/books/bookAuthor?columns=book_author_id,book_id,author_id",
+							"raw": "http://localhost:33333/api/books/bookAuthor?columns=book_author_id,book_id,author_id",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "33333",
 							"path": [
+								"api",
 								"books",
 								"bookAuthor"
 							],
@@ -395,13 +404,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:33333/books/bookAuthor/search",
+							"raw": "http://localhost:33333/api/books/bookAuthor/search",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "33333",
 							"path": [
+								"api",
 								"books",
 								"bookAuthor",
 								"search"
@@ -425,13 +435,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:33333/books/bookAuthor",
+							"raw": "http://localhost:33333/api/books/bookAuthor",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "33333",
 							"path": [
+								"api",
 								"books",
 								"bookAuthor"
 							]
@@ -454,13 +465,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:33333/books/bookAuthor",
+							"raw": "http://localhost:33333/api/books/bookAuthor",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "33333",
 							"path": [
+								"api",
 								"books",
 								"bookAuthor"
 							]
@@ -473,7 +485,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "a08c4396-fe20-4467-8162-6e209f96c455",
+						"id": "58f52aac-1ddc-4d0b-8729-69e650154e99",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -483,7 +495,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "77181cb4-c71e-4879-8bc5-88b46bed8dee",
+						"id": "318a8471-75b6-457c-b70b-a4be39ff57df",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -511,13 +523,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:33333/books/bookGenre",
+							"raw": "http://localhost:33333/api/books/bookGenre",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "33333",
 							"path": [
+								"api",
 								"books",
 								"bookGenre"
 							]
@@ -546,13 +559,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:33333/books/bookGenre?columns=book_genre_id,book_id,genre_id",
+							"raw": "http://localhost:33333/api/books/bookGenre?columns=book_genre_id,book_id,genre_id",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "33333",
 							"path": [
+								"api",
 								"books",
 								"bookGenre"
 							],
@@ -596,13 +610,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:33333/books/bookGenre/search",
+							"raw": "http://localhost:33333/api/books/bookGenre/search",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "33333",
 							"path": [
+								"api",
 								"books",
 								"bookGenre",
 								"search"
@@ -626,13 +641,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:33333/books/bookGenre",
+							"raw": "http://localhost:33333/api/books/bookGenre",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "33333",
 							"path": [
+								"api",
 								"books",
 								"bookGenre"
 							]
@@ -655,13 +671,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:33333/books/bookGenre",
+							"raw": "http://localhost:33333/api/books/bookGenre",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "33333",
 							"path": [
+								"api",
 								"books",
 								"bookGenre"
 							]
@@ -674,7 +691,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "47b71811-fccd-481b-8bb3-644b600db4b8",
+						"id": "67b19bf1-643d-4f36-bd18-fd1fad0bf77d",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -684,7 +701,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "ed5b8c8d-6e2f-4fe4-9469-77ad1779340e",
+						"id": "be75f611-07dd-43cb-b478-a8f8ed6f9382",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -712,13 +729,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:33333/authors/author",
+							"raw": "http://localhost:33333/api/authors/author",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "33333",
 							"path": [
+								"api",
 								"authors",
 								"author"
 							]
@@ -747,13 +765,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:33333/authors/author?columns=author_id,author_name,author_birth,author_death",
+							"raw": "http://localhost:33333/api/authors/author?columns=author_id,author_name,author_birth,author_death",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "33333",
 							"path": [
+								"api",
 								"authors",
 								"author"
 							],
@@ -797,13 +816,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:33333/authors/author/search",
+							"raw": "http://localhost:33333/api/authors/author/search",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "33333",
 							"path": [
+								"api",
 								"authors",
 								"author",
 								"search"
@@ -827,13 +847,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:33333/authors/author",
+							"raw": "http://localhost:33333/api/authors/author",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "33333",
 							"path": [
+								"api",
 								"authors",
 								"author"
 							]
@@ -856,13 +877,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:33333/authors/author",
+							"raw": "http://localhost:33333/api/authors/author",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "33333",
 							"path": [
+								"api",
 								"authors",
 								"author"
 							]
@@ -875,7 +897,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "edc5ce11-92ff-497c-9f03-5d1ac5e91a44",
+						"id": "a40d24b6-c198-4ab3-b130-9341c9a5a866",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -885,7 +907,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "45118904-91f0-4e42-af74-b6edd36fde7c",
+						"id": "3242a401-43ec-48ab-a9c8-c18902b563b5",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -913,13 +935,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:33333/genres/genre",
+							"raw": "http://localhost:33333/api/genres/genre",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "33333",
 							"path": [
+								"api",
 								"genres",
 								"genre"
 							]
@@ -948,13 +971,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:33333/genres/genre?columns=genre_id,genre_name,genre_desc",
+							"raw": "http://localhost:33333/api/genres/genre?columns=genre_id,genre_name,genre_desc",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "33333",
 							"path": [
+								"api",
 								"genres",
 								"genre"
 							],
@@ -998,13 +1022,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:33333/genres/genre/search",
+							"raw": "http://localhost:33333/api/genres/genre/search",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "33333",
 							"path": [
+								"api",
 								"genres",
 								"genre",
 								"search"
@@ -1028,13 +1053,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:33333/genres/genre",
+							"raw": "http://localhost:33333/api/genres/genre",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "33333",
 							"path": [
+								"api",
 								"genres",
 								"genre"
 							]
@@ -1057,13 +1083,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:33333/genres/genre",
+							"raw": "http://localhost:33333/api/genres/genre",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "33333",
 							"path": [
+								"api",
 								"genres",
 								"genre"
 							]
@@ -1076,7 +1103,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "d50b3b8b-4fa0-454c-b0bc-666af08888b7",
+						"id": "6c26893b-879e-4fec-949d-9da2df0f204b",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1086,7 +1113,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "b4dcbd51-4dda-4d3a-9a07-ce942db5ff4b",
+						"id": "10cd4386-5bd5-4a8e-8505-cbcd8ad9190b",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1114,13 +1141,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:33333/publishers/publisher",
+							"raw": "http://localhost:33333/api/publishers/publisher",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "33333",
 							"path": [
+								"api",
 								"publishers",
 								"publisher"
 							]
@@ -1149,13 +1177,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:33333/publishers/publisher?columns=publisher_id,publisher_name,publisher_desc,publisher_logo",
+							"raw": "http://localhost:33333/api/publishers/publisher?columns=publisher_id,publisher_name,publisher_desc,publisher_logo",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "33333",
 							"path": [
+								"api",
 								"publishers",
 								"publisher"
 							],
@@ -1199,13 +1228,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:33333/publishers/publisher/search",
+							"raw": "http://localhost:33333/api/publishers/publisher/search",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "33333",
 							"path": [
+								"api",
 								"publishers",
 								"publisher",
 								"search"
@@ -1229,13 +1259,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:33333/publishers/publisher/",
+							"raw": "http://localhost:33333/api/publishers/publisher/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "33333",
 							"path": [
+								"api",
 								"publishers",
 								"publisher",
 								""
@@ -1259,13 +1290,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:33333/publishers/publisher",
+							"raw": "http://localhost:33333/api/publishers/publisher",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "33333",
 							"path": [
+								"api",
 								"publishers",
 								"publisher"
 							]
@@ -1278,7 +1310,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "c1a00032-331d-40fa-b11f-0fbcc0d301a1",
+						"id": "843548ea-a672-41ce-9029-622f96c33098",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1288,7 +1320,213 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "3152978e-acb1-4a85-abf1-542557a7f442",
+						"id": "a6278740-43f9-4106-8faf-972a7c94f0e0",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Opinions",
+			"item": [
+				{
+					"name": "opinion -C",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n            \"rating\":\"4\",\n            \"review\":\"prueba de opinion review. \",\n            \"opion_create\":724719600000,\n            \"book_id\":100,\n            \"user_\":\"wguwer0\"\n        \n    },\n    \"sqltypes\": {\n        \"rating\":4,\n        \"review\":12,\n        \"opion_create\":91,\n        \"book_id\":4,\n         \"user_\":12\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:33333/api/opinions/opinion",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"api",
+								"opinions",
+								"opinion"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "opinion -R",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "demouser",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "demo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:33333/api/opinions/opinion?columns=opinion_id,rating,review,opinion_create,user_",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"api",
+								"opinions",
+								"opinion"
+							],
+							"query": [
+								{
+									"key": "columns",
+									"value": "opinion_id,rating,review,opinion_create,user_"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "opinion -R (complex)",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "demouser",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "demo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"filter\": {\n    \t\"opinion_id\":500\n    },\n    \"columns\": [\n        \"opinion_id\",\n        \"rating\",\n        \"review\",\n        \"opinion_create\",\n        \"user_\"\n        \n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:33333/api/opinions/opinion/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"api",
+								"opinions",
+								"opinion",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "opinion -U",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"filter\": {\n\t\t\"opinion_id\": 1001\n\t},\n    \"data\": {\n            \"rating\":5,\n            \"review\":\"prueba de opinion review. Modificada \",\n            \"opinion_update\" :1565992800000\n    },\n    \"sqltypes\": {\n         \"rating\":4,\n            \"review\":12,\n            \"opinion_update\" :91\n    }\n}\n\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:33333/api/opinions/opinion",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"api",
+								"opinions",
+								"opinion"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "opinion -D",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"filter\" :{\n\t\t\"opinion_id\": 1001\n\t}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:33333/api/opinions/opinion",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"api",
+								"opinions",
+								"opinion"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "0c0c8f63-3584-48ae-ab53-e7c8ddd97968",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b489fb71-47f9-4368-9441-d846528c7305",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1318,7 +1556,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "66ec77e3-32b3-460f-8ae6-029dd2177fae",
+				"id": "5a945cfe-9113-48b6-bd9f-5c27302054c6",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -1328,7 +1566,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "a03cf59e-5e69-4f50-9c9f-03c4568b6e9a",
+				"id": "ad781352-e995-4261-ad96-42eed9ffb24d",
 				"type": "text/javascript",
 				"exec": [
 					""

@@ -4,6 +4,8 @@
 
 #### Proyecto en desarrollo
 
+## Comenzando 🚀
+
 En la rama [master](https://github.com/CampusDual/lituralia-2020/tree/master) conseguiras la ultima version "estable".
 
 En la rama [develop](https://github.com/CampusDual/lituralia-2020/tree/develop) conseguiras los ultimos cambios realizados.
@@ -20,11 +22,11 @@ Java 8
 
 Descarga el ejecutable (jar) en: [Releases](https://github.com/CampusDual/lituralia-2020/releases)
 
-Ultima Version: [0.0.3-SNAPSHOT](https://github.com/CampusDual/lituralia-2020/releases/tag/0.0.3)
+Ultima Version: [0.0.4-SNAPSHOT](https://github.com/CampusDual/lituralia-2020/releases/tag/0.0.4)
 
 ## Despliegue 📦
 
-_Ejecutamos el siguiente comando en la ruta del archivo: lituralia-0.0.3-SNAPSHOT.jar_
+_Ejecutamos el siguiente comando en la ruta del archivo: lituralia-0.0.4-SNAPSHOT.jar_
 
 Ejemplo:
 
@@ -89,7 +91,7 @@ Entra [aqui](CHANGELOG.md) para ver los cambios recientes.
 
 ## Versionado 📌
 
-Usamos [SemVer](http://semver.org/) para el versionado. Para todas las versiones disponibles, mira los [tags en este repositorio](tags/).
+Usamos [SemVer](http://semver.org/) para el versionado. Para todas las versiones disponibles, mira los [tags en este repositorio](https://github.com/CampusDual/lituralia-2020/tags/).
 
 Usamos [Git Flow](https://nvie.com/posts/a-successful-git-branching-model/) Herramienta de flujo de trabajo en equipo. 
 

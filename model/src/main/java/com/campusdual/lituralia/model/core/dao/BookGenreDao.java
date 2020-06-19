@@ -14,6 +14,8 @@ public class BookGenreDao extends OntimizeJdbcDaoSupport {
     public static final String ATTR_BOOK_ID = "book_id";
     public static final String ATTR_GENRE_ID = "genre_id";
 
+    public static final String QUERY_VBOOKGENRE = "BOOKGENRE";
+
     public BookGenreDao() {
         super();
     }
