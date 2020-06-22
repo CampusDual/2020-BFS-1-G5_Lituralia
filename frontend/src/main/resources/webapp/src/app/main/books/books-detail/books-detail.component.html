@@ -1,40 +1,49 @@
 <o-form service="books" entity="book" keys="book_id" header-actions="R;U;D" show-header-navigation="yes">
-  <o-integer-input attr="book_id" sql-type="INTEGER" enabled="no" class="display-none"></o-integer-input>
+  <o-integer-input attr="book_id" sql-type="INTEGER" label="Id" enabled="no" class="display-none"></o-integer-input>
   <o-row>
     <o-column fxFlex="20" class="col-padding">
-      <o-image id="book_cover" attr="cover" empty-image="assets/images/no-image.png" sql-type="OTHER" auto-fit="no"></o-image>
+      <o-image id="book_cover" attr="cover" label="COVER" empty-image="assets/images/no-image.png" sql-type="OTHER"
+               auto-fit="no"></o-image>
     </o-column>
-    <o-column title-label="BOOK_INFORMATION"  fxFlex="80">
+    <o-column title="{{ 'BOOK_INFORMATION' | oTranslate }}" fxFlex="80">
       <o-row>
-        <o-text-input class="input-padding" attr="title" fxFlex="60" required="yes"></o-text-input>
-        <o-date-input attr="publish_date" fxFlex="40"></o-date-input>
+        <o-text-input class="input-padding" attr="title" label="TITLE" fxFlex="60" required="yes"></o-text-input>
+        <o-date-input attr="publish_date" label="PUBLISH_DATE" fxFlex="40"></o-date-input>
       </o-row>
       <o-row>
-        <o-text-input class="input-padding" attr="isbn" fxFlex="50" required="yes"></o-text-input>
-        <o-list-picker attr="publisher_id" class="input-padding" fxFlex="50" service="books"
+        <o-text-input class="input-padding" attr="isbn" label="ISBN" fxFlex="50" required="yes"></o-text-input>
+        <o-list-picker attr="publisher_id" class="input-padding" label="PUBLISHER_NAME" fxFlex="50" service="books"
                        entity="bookPublisher" keys="publisher_id" columns="publisher_id;publisher_name"
                        visible-columns="publisher_name" value-column="publisher_id"></o-list-picker>
       </o-row>
       <o-row>
-        <o-textarea-input attr="synopsis" fxFlex></o-textarea-input>
+        <o-textarea-input attr="synopsis" label="SYNOPSIS" fxFlex></o-textarea-input>
       </o-row>
       <o-row>
-        <o-table fxFlex="70" class="input-padding" attr="authorsTable" service="books" entity="vBookAuthor"
-                 parent-keys="book_id" keys="book_id" columns="author_id;author_name;author_birth;author_death"
-                 visible-columns="author_name;author_birth;author_death" query-rows="5"
-                 insert-button="no" detail-mode="none">
-<!--          //TODO:insert author            insert-form-route="author/new"           -->
-          <o-table-column attr="author_name" title="author_name" class="o-table-column-centered"></o-table-column>
-          <o-table-column attr="author_birth" author_birth="NAME" class="o-table-column-centered" type="date" format="MM/DD/YYYY"></o-table-column>
-          <o-table-column attr="author_death" title="author_death" class="o-table-column-centered" type="date" format="MM/DD/YYYY"></o-table-column>
-        </o-table>
-        <o-table fxFlex="30" attr="genresTable" service="books" entity="vBookGenre"
-                 parent-keys="book_id" keys="book_id" columns="genre_id;genre_name"
-                 visible-columns="genre_name" query-rows="5"
-                 insert-button="no" detail-mode="none">
-          <!--          //TODO:insert genre            insert-form-route="genre/new"           -->
-          <o-table-column attr="genre_name" title="genre_name" class="o-table-column-centered"></o-table-column>
-        </o-table>
+        <o-column fxFlex="60"  title="{{ 'AUTHOR_NAMES' | oTranslate }}" >
+
+          <o-table class="input-padding" attr="authorsTable" service="books" entity="vBookAuthor"
+                   parent-keys="book_id" keys="book_id" columns="author_id;author_name;author_birth;author_death"
+                   visible-columns="author_name;author_birth;author_death" query-rows="5"
+                   insert-button="no" detail-mode="none">
+            <!--          //TODO:insert author            insert-form-route="author/new"           -->
+            <o-table-column attr="author_name" title="AUTHOR_NAME" label="AUTHOR_NAME"
+                            class="o-table-column-centered"></o-table-column>
+            <o-table-column attr="author_birth" title="AUTHOR_BIRTH" class="o-table-column-centered" type="date"
+                            format="MM/DD/YYYY" width="200px"></o-table-column>
+            <o-table-column attr="author_death" title="AUTHOR_BIRTH" class="o-table-column-centered" type="date"
+                            format="MM/DD/YYYY" width="200px"></o-table-column>
+          </o-table>
+        </o-column>
+        <o-column fxFlex="40" title="{{ 'GENRE_NAMES' | oTranslate }}" >
+          <o-table  attr="genresTable" service="books" entity="vBookGenre"
+                   parent-keys="book_id" keys="book_id" columns="genre_id;genre_name"
+                   visible-columns="genre_name" query-rows="5"
+                   insert-button="no" detail-mode="none">
+            <!--          //TODO:insert genre            insert-form-route="genre/new"           -->
+            <o-table-column attr="genre_name" title="GENRE_NAME" width="150px" class="o-table-column-centered"></o-table-column>
+          </o-table>
+        </o-column>
       </o-row>
     </o-column>
   </o-row>

@@ -282,15 +282,25 @@ create table lituralia.user_book_statuses
         foreign key (book_id) references lituralia.books
 );
 
-CREATE VIEW lituralia.v_book_details AS
+
+drop view lituralia.v_book_details;
+CREATE OR REPLACE VIEW lituralia.v_book_details AS
 (
 select b.*,
        p.publisher_name,
        gn.genre_ids,
        gn.genre_names,
        an.author_ids,
-       an.author_names
-from books b,
+       an.author_names,
+       v.avg_rating,
+       v.ratings
+from books b
+         LEFT OUTER JOIN
+     (SELECT book_id,
+             ROUND(AVG(o.rating), 2) as avg_rating,
+             COUNT(*)                as ratings
+      from opinions o
+      group by book_id) as v on v.book_id = b.book_id,
      publishers p,
      (select b.book_id,
              string_agg(cast(a.author_id as text), ',') as author_ids,
@@ -316,18 +326,15 @@ where b.publisher_id = p.publisher_id
     );
 
 
+
 CREATE VIEW lituralia.v_book_value AS
 (
-SELECT
-       book_id,
-       AVG(o.rating),
-       COUNT(*)
-from
-     opinions o
-group by
-         book_id
-order by
-         book_id
+SELECT book_id,
+       ROUND(AVG(o.rating), 2) as avg_rating,
+       COUNT(*)                as ratings
+from opinions o
+group by book_id
+order by book_id
     );
 
 
