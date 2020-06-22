@@ -17,10 +17,21 @@
 
   "BOOKS": "Libros",
   "COVER": "Portada",
-  "TITLE": "Titulo",
+  "TITLE": "Título",
   "PUBLISHER_ID": "ID Editorial",
-  "PUBLISH_DATE": "Publicacion",
+  "PUBLISH_DATE": "Publicación",
   "PUBLISHER_NAME": "Editorial",
   "AUTHOR_NAMES": "Autores",
-  "GENRE_NAMES": "Generos"
+  "GENRE_NAMES": "Géneros",
+  "AVG_RATING": "Valoración Media",
+  "RATINGS": "Valoraciones",
+
+  "BOOK_INFORMATION": "Detalles del Libro",
+  "SYNOPSIS": "Sinopsis",
+
+  "AUTHOR_NAME": "Autor",
+  "AUTHOR_BIRTH": "Fecha de Nacimiento",
+  "AUTHOR_DEATH": "Fecha de Defunción",
+
+  "GENRE_NAME": "Genero"
 }
