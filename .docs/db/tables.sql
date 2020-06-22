@@ -327,14 +327,13 @@ where b.publisher_id = p.publisher_id
 
 
 
-CREATE VIEW lituralia.v_book_value AS
+CREATE OR REPLACE VIEW lituralia.v_book_rating AS
 (
 SELECT book_id,
        ROUND(AVG(o.rating), 2) as avg_rating,
        COUNT(*)                as ratings
 from opinions o
 group by book_id
-order by book_id
     );
 
 

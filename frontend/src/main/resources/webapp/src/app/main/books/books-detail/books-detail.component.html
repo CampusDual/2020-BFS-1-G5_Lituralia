@@ -1,4 +1,4 @@
-<o-form service="books" entity="book" keys="book_id" header-actions="R;U;D" show-header-navigation="yes">
+<o-form service="books" entity="vBookDetails" keys="book_id" header-actions="R;U;D" show-header-navigation="yes">
   <o-integer-input attr="book_id" sql-type="INTEGER" label="Id" enabled="no" class="display-none"></o-integer-input>
   <o-row>
     <o-column fxFlex="20" class="col-padding">
@@ -15,6 +15,10 @@
         <o-list-picker attr="publisher_id" class="input-padding" label="PUBLISHER_NAME" fxFlex="50" service="books"
                        entity="bookPublisher" keys="publisher_id" columns="publisher_id;publisher_name"
                        visible-columns="publisher_name" value-column="publisher_id"></o-list-picker>
+      </o-row>
+      <o-row>
+        <o-text-input class="input-padding" attr="avg_rating" label="AVG_RATING"></o-text-input>
+        <o-text-input class="input-padding" attr="ratings" label="RATINGS"></o-text-input>
       </o-row>
       <o-row>
         <o-textarea-input attr="synopsis" label="SYNOPSIS" fxFlex></o-textarea-input>

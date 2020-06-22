@@ -26,4 +26,15 @@ from books b
 GROUP BY b.book_id;
 
 
-select * from v_book_details where book_id=110;
+select *
+from v_book_details
+where book_id = 110;
+
+
+
+select b.*,
+       vbr.avg_rating,
+       vbr.ratings
+from books b
+         left outer join v_book_rating vbr
+             on b.book_id = vbr.book_id;
