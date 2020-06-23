@@ -283,6 +283,30 @@ create table lituralia.user_book_statuses
 );
 
 
+
+CREATE OR REPLACE VIEW lituralia.v_book_ratings AS
+(
+SELECT book_id,
+       ROUND(AVG(o.rating), 2) as avg_rating,
+       COUNT(*)                as ratings
+FROM opinions o
+GROUP BY book_id
+    );
+
+
+
+CREATE OR REPLACE VIEW v_author_ratings AS
+(
+SELECT ba.author_id,
+       ROUND(AVG(rating), 2) avg_rating,
+       COUNT(*)              ratings
+FROM opinions o
+         LEFT OUTER JOIN book_authors ba on ba.book_id = o.book_id
+GROUP BY ba.author_id
+    );
+
+
+
 drop view lituralia.v_book_details;
 CREATE OR REPLACE VIEW lituralia.v_book_details AS
 (
@@ -296,11 +320,7 @@ select b.*,
        v.ratings
 from books b
          LEFT OUTER JOIN
-     (SELECT book_id,
-             ROUND(AVG(o.rating), 2) as avg_rating,
-             COUNT(*)                as ratings
-      from opinions o
-      group by book_id) as v on v.book_id = b.book_id,
+     v_book_ratings as v on v.book_id = b.book_id,
      publishers p,
      (select b.book_id,
              string_agg(cast(a.author_id as text), ',') as author_ids,
@@ -326,15 +346,20 @@ where b.publisher_id = p.publisher_id
     );
 
 
-
-CREATE OR REPLACE VIEW lituralia.v_book_rating AS
+CREATE OR REPLACE VIEW v_author_details AS
 (
-SELECT book_id,
-       ROUND(AVG(o.rating), 2) as avg_rating,
-       COUNT(*)                as ratings
-from opinions o
-group by book_id
+select a.*,
+       bc.books,
+       o.ratings,
+       o.avg_rating
+from authors a,
+     (select authors.author_id,
+             count(*) books
+      from authors
+               left outer join book_authors ba on authors.author_id = ba.author_id
+      group by authors.author_id) bc,
+     v_author_ratings o
+where a.author_id = bc.author_id
+  and a.author_id = o.author_id
+order by a.author_id
     );
-
-
-

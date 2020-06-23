@@ -1,17 +1,20 @@
 <div fxFlex >
     <o-table fxFlex attr="booksTable" service="books" entity="vBookDetails" keys="book_id"
              columns="book_id;isbn;cover;title;publish_date;publisher_name;author_names;genre_names;avg_rating;ratings"
-             visible-columns="isbn;cover;title;publish_date;publisher_name;author_names;genre_names;avg_rating;ratings" query-rows="20">
+             visible-columns="isbn;cover;title;publish_date;publisher_name;author_names;genre_names;avg_rating;ratings"
+             query-rows="20">
       <o-table-column attr="isbn" title="ISBN"></o-table-column>
-          <o-table-column attr="cover" title="COVER" width="64px" orderable="no" searchable="no" image-type="base64" type="image">
-            <o-table-cell-renderer-image image-type="base64" empty-image="assets/images/no-image.png" avatar="yes"></o-table-cell-renderer-image>
-          </o-table-column>
+      <o-table-column attr="cover" title="COVER" width="64px" orderable="no" searchable="no" image-type="base64"
+                      type="image">
+        <o-table-cell-renderer-image image-type="base64" empty-image="assets/images/no-image.png"
+                                     avatar="yes"></o-table-cell-renderer-image>
+      </o-table-column>
       <o-table-column attr="title" title="TITLE"></o-table-column>
       <o-table-column attr="publish_date" title="PUBLISH_DATE" type="date" format="MM/DD/YYYY"></o-table-column>
       <o-table-column attr="publisher_name" title="PUBLISHER_NAME"></o-table-column>
       <o-table-column attr="author_names" title="AUTHOR_NAMES"></o-table-column>
       <o-table-column attr="genre_names" title="GENRE_NAMES"></o-table-column>
-      <o-table-column attr="avg_rating" title="AVG_RATING" width="50px"></o-table-column>
-      <o-table-column attr="ratings" title="RATINGS" width="50px"></o-table-column>
+      <o-table-column attr="avg_rating" title="AVG_RATING" type="real" width="50px"></o-table-column>
+      <o-table-column attr="ratings" title="RATINGS" type="integer" width="50px"></o-table-column>
     </o-table>
   </div>

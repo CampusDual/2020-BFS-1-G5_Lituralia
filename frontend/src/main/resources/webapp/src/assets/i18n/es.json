@@ -25,13 +25,11 @@
   "GENRE_NAMES": "Géneros",
   "AVG_RATING": "Valoración Media",
   "RATINGS": "Valoraciones",
-
   "BOOK_INFORMATION": "Detalles del Libro",
   "SYNOPSIS": "Sinopsis",
-
+  "AUTHORS": "Autores",
   "AUTHOR_NAME": "Autor",
   "AUTHOR_BIRTH": "Fecha de Nacimiento",
   "AUTHOR_DEATH": "Fecha de Defunción",
-
   "GENRE_NAME": "Genero"
 }

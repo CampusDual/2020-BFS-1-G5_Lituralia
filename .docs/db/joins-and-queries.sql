@@ -26,15 +26,9 @@ from books b
 GROUP BY b.book_id;
 
 
-select *
-from v_book_details
-where book_id = 110;
+select authors.author_id,
+       count(*) books
+from authors
+         left outer join book_authors ba on authors.author_id = ba.author_id
+group by authors.author_id;
 
-
-
-select b.*,
-       vbr.avg_rating,
-       vbr.ratings
-from books b
-         left outer join v_book_rating vbr
-             on b.book_id = vbr.book_id;
