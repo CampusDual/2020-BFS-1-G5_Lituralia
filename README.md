@@ -31,7 +31,7 @@ _Ejecutamos el siguiente comando en la ruta del archivo: lituralia-0.0.4-SNAPSHO
 Ejemplo:
 
 ```
-java -jar lituralia-0.0.3-SNAPSHOT.jar
+java -jar lituralia-0.0.4-SNAPSHOT.jar
 ```
 
 ## Build 🔧
@@ -63,7 +63,7 @@ mvn clean install
 El empaquetado del proyecto estara en la ruta: 
 
 ```
-lituralia-2020/boot/target/lituralia-[version].jar
+lituralia-2020/boot/target/lituralia-0.0.4-SNAPSHOT.jar
 ```
 
 Este paquete despliega el backend y el frontend en el puerto 33333

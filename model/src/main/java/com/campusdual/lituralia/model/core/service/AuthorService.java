@@ -3,6 +3,7 @@ package com.campusdual.lituralia.model.core.service;
 import com.campusdual.lituralia.api.core.service.IAuthorService;
 import com.campusdual.lituralia.model.core.dao.AuthorDao;
 import com.ontimize.db.EntityResult;
+import com.ontimize.jee.common.exceptions.OntimizeJEERuntimeException;
 import com.ontimize.jee.server.dao.DefaultOntimizeDaoHelper;
 import java.util.List;
 import java.util.Map;
@@ -39,4 +40,23 @@ public class AuthorService implements IAuthorService {
     public EntityResult authorDelete(Map<?, ?> keyMap) {
         return this.daoHelper.delete(this.authorDao, keyMap);
     }
+
+    // ---- AUTHOR DETAILS VIEW ----
+
+    @Override
+    public EntityResult vAuthorDetailsQuery(Map<String, Object> keysValues, List<String> attributes) throws OntimizeJEERuntimeException {
+        return this.daoHelper.query(this.authorDao, keysValues, attributes, AuthorDao.QUERY_VAUTHORDETAILS);
+    }
+
+    @Override
+    public EntityResult vAuthorDetailsUpdate(Map<?, ?> attrMap, Map<?, ?> keyMap) {
+        return this.daoHelper.update(authorDao, attrMap, keyMap);
+    }
+
+    @Override
+    public EntityResult vAuthorDetailsDelete(Map<?, ?> keyMap) {
+        return this.daoHelper.delete(this.authorDao, keyMap);
+    }
+
+
 }
