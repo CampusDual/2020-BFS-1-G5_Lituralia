@@ -32,3 +32,23 @@ from authors
          left outer join book_authors ba on authors.author_id = ba.author_id
 group by authors.author_id;
 
+
+
+select *
+from books b
+         left outer join v_book_ratings r on b.book_id = r.book_id;
+
+
+
+SELECT book_id,
+       ratings,
+       avg_rating
+FROM lituralia.books AS b
+         LEFT OUTER JOIN lituralia.v_book_ratings AS r ON b.book_id = r.book_id
+WHERE book_id = 2
+
+
+select *
+from books
+         left outer join opinions o on books.book_id = o.book_id
+where o.book_id = 10

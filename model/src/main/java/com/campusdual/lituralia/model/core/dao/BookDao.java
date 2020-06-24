@@ -27,4 +27,11 @@ public class BookDao extends OntimizeJdbcDaoSupport {
     public static final String QUERY_VBOOKDETAILS_ATTR_AUTHOR_NAMES = "author_names";
     public static final String QUERY_VBOOKDETAILS_ATTR_AVG_RATING = "avg_rating";
     public static final String QUERY_VBOOKDETAILS_ATTR_RATINGS = "ratings";
+
+    public static final String QUERY_VBOOKRATINGS = "BOOKRATINGS";
+
+    public static final String QUERY_VBOOKRATINGS_ATTR_AVG_RATING = "avg_rating";
+    public static final String QUERY_VBOOKRATINGS_ATTR_RATINGS = "ratings";
+
+    public static final String QUERY_VBOOKOPINIONS = "BOOKOPINIONS";
 }

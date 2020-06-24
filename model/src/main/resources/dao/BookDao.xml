@@ -25,5 +25,37 @@
             ]]>
       </Sentence>
     </Query>
+    <Query id="BOOKRATINGS">
+      <AmbiguousColumns>
+        <AmbiguousColumn name="book_id" prefix="b" databaseName="book_id" />
+      </AmbiguousColumns>
+      <Sentence>
+        <![CDATA[
+               SELECT
+                  #COLUMNS#
+               FROM
+                  ${mainschema}.books AS b
+                  LEFT OUTER JOIN ${mainschema}.v_book_ratings AS r ON b.book_id = r.book_id
+               #WHERE#
+               #ORDER#
+            ]]>
+      </Sentence>
+    </Query>
+    <Query id="BOOKOPINIONS">
+      <AmbiguousColumns>
+        <AmbiguousColumn name="book_id" prefix="b" databaseName="book_id" />
+      </AmbiguousColumns>
+      <Sentence>
+        <![CDATA[
+               SELECT
+                  #COLUMNS#
+               FROM
+                  ${mainschema}.books AS b
+                  LEFT OUTER JOIN ${mainschema}.opinions AS o ON b.book_id = o.book_id
+               #WHERE#
+               #ORDER#
+            ]]>
+      </Sentence>
+    </Query>
   </Queries>
 </JdbcEntitySetup>

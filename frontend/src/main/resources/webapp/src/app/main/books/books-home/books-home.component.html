@@ -1,8 +1,9 @@
 <div fxFlex >
     <o-table fxFlex attr="booksTable" service="books" entity="vBookDetails" keys="book_id"
              columns="book_id;isbn;cover;title;publish_date;publisher_name;author_names;genre_names;avg_rating;ratings"
-             visible-columns="isbn;cover;title;publish_date;publisher_name;author_names;genre_names;avg_rating;ratings"
+             visible-columns="book_id;isbn;cover;title;publish_date;publisher_name;author_names;genre_names;avg_rating;ratings"
              query-rows="20">
+      <o-table-column attr="book_id" title="ID" type="integer"></o-table-column>
       <o-table-column attr="isbn" title="ISBN"></o-table-column>
       <o-table-column attr="cover" title="COVER" width="64px" orderable="no" searchable="no" image-type="base64"
                       type="image">
