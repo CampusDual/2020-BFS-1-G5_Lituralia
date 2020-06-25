@@ -135,10 +135,12 @@ create table lituralia.publishers
 
 create table lituralia.authors
 (
-    author_id    integer generated always as identity,
-    author_name  varchar,
-    author_birth date,
-    author_death date,
+    author_id       integer generated always as identity,
+    author_name     varchar,
+    author_birth    date,
+    author_death    date,
+    author_portrait varchar,
+    author_bio      varchar,
     constraint authors_pkey
         primary key (author_id)
 );
@@ -307,7 +309,6 @@ GROUP BY ba.author_id
 
 
 
-drop view lituralia.v_book_details;
 CREATE OR REPLACE VIEW lituralia.v_book_details AS
 (
 select b.*,

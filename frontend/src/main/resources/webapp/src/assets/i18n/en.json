@@ -28,8 +28,11 @@
   "BOOK_INFORMATION": "Book Information",
   "SYNOPSIS": "Synopsis",
   "AUTHORS": "Authors",
-  "AUTHOR_NAME": "Author Name",
-  "AUTHOR_BIRTH": "Author Birth Date",
-  "AUTHOR_DEATH": "Author Death Date",
-  "GENRE_NAME": "Genre"
+  "AUTHOR_NAME": "Name",
+  "AUTHOR_BIRTH": "Birth Date",
+  "AUTHOR_DEATH": "Death Date",
+  "GENRE_NAME": "Genre",
+  "AUTHOR_PORTRAIT": "Portrait",
+  "AUTHOR_BIO": "Biography",
+  "OPINIONS": "Reviews"
 }
