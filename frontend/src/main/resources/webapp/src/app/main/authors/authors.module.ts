@@ -4,13 +4,15 @@ import {CommonModule} from '@angular/common';
 import {AuthorsRoutingModule} from './authors-routing.module';
 import {AuthorsHomeComponent} from './authors-home/authors-home.component';
 import {AuthorsDetailComponent} from './authors-detail/authors-detail.component';
-import {OntimizeWebModule} from '../../../../node_modules/ontimize-web-ngx';
+import {OntimizeWebModule} from 'ontimize-web-ngx';
+import {SharedModule} from "../../shared/shared.module";
 
 @NgModule({
   imports: [
     CommonModule,
     OntimizeWebModule,
-    AuthorsRoutingModule
+    AuthorsRoutingModule,
+    SharedModule
   ],
   declarations: [
     AuthorsHomeComponent,
