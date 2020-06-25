@@ -31,5 +31,8 @@
   "AUTHOR_NAME": "Author Name",
   "AUTHOR_BIRTH": "Author Birth Date",
   "AUTHOR_DEATH": "Author Death Date",
-  "GENRE_NAME": "Genre"
+  "GENRES": "Genres",
+  "GENRE_ID":"Genre iD",
+  "GENRE_NAME": "Genre",
+  "GENRE_DESC": "Description"
 }
