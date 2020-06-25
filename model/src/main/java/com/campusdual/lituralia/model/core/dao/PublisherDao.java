@@ -16,4 +16,6 @@ public class PublisherDao extends OntimizeJdbcDaoSupport {
     public static final String ATTR_PUBLISHER_DESC = "publisher_desc";
     public static final String ATTR_PUBLISHER_LOGO = "publisher_logo";
 
+    public static final String QUERY_VPUBLISHERDETAILS = "PUBLISHERDETAILS";
+
 }

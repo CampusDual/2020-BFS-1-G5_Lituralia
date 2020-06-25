@@ -31,5 +31,10 @@
   "AUTHOR_NAME": "Autor",
   "AUTHOR_BIRTH": "Fecha de Nacimiento",
   "AUTHOR_DEATH": "Fecha de Defunción",
-  "GENRE_NAME": "Genero"
+  "GENRE_NAME": "Genero",
+  "ID": "ID",
+  "NAME": "Nombre",
+  "DESCRIPTION": "Descripcion",
+  "LOGO" : "Logo",
+  "PUBLISHERS" : "Editoriales"
 }

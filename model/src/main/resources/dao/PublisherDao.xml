@@ -12,18 +12,5 @@
         <Column>publisher_id</Column>
     </UpdateKeys>
     <GeneratedKey>publisher_id</GeneratedKey>
-    <Queries>
-        <Query id="PUBLISHERDETAILS">
-            <Sentence>
-                <![CDATA[
-               SELECT
-                  #COLUMNS#
-               FROM
-                  ${mainschema}.v_publisher_details
-               #WHERE#
-               #ORDER#
-            ]]>
-            </Sentence>
-        </Query>
-    </Queries>
+
 </JdbcEntitySetup>
