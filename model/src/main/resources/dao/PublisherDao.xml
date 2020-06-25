@@ -12,5 +12,5 @@
         <Column>publisher_id</Column>
     </UpdateKeys>
     <GeneratedKey>publisher_id</GeneratedKey>
-</JdbcEntitySetup>
 
+</JdbcEntitySetup>
