@@ -40,6 +40,7 @@ build/
 /ws/target/
 */target/
 /frontend/src/main/resources/webapp/node_modules
+/frontend/src/main/resources/webapp/node_modules*
 /frontend/src/main/resources/webapp/node
 /model/src/main/db/
 /boot/src/main/resources/static/

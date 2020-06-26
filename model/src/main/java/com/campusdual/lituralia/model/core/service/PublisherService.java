@@ -4,12 +4,11 @@ import com.campusdual.lituralia.api.core.service.IPublisherService;
 import com.campusdual.lituralia.model.core.dao.PublisherDao;
 import com.ontimize.db.EntityResult;
 import com.ontimize.jee.server.dao.DefaultOntimizeDaoHelper;
+import java.util.List;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
-import java.util.Map;
 
 
 @Service("PublisherService")
@@ -29,7 +28,6 @@ public class PublisherService implements IPublisherService {
 
     @Override
     public EntityResult publisherInsert(Map<?, ?> attrMap) {
-
         return this.daoHelper.insert(publisherDao, attrMap);
     }
 
@@ -40,7 +38,7 @@ public class PublisherService implements IPublisherService {
 
     @Override
     public EntityResult publisherDelete(Map<?, ?> keyMap) {
-
         return this.daoHelper.delete(this.publisherDao, keyMap);
     }
+
 }

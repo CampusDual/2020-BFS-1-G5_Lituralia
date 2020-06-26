@@ -13,4 +13,7 @@ export class BooksDetailComponent implements OnInit {
   ngOnInit() {
   }
 
+  void() {
+
+  }
 }

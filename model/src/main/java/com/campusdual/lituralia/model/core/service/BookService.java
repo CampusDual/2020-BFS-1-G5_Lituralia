@@ -170,6 +170,39 @@ public class BookService implements IBookService {
         return this.daoHelper.delete(this.bookDao, keyMap);
     }
 
+    // ---- BOOK RATINGS VIEW ----
+
+    @Override
+    public EntityResult vBookRatingsQuery(Map<String, Object> keysValues, List<String> attributes) throws OntimizeJEERuntimeException {
+        return this.daoHelper.query(this.bookDao, keysValues, attributes, BookDao.QUERY_VBOOKRATINGS);
+    }
+
+    @Override
+    public EntityResult vBookRatingsUpdate(Map<?, ?> attrMap, Map<?, ?> keyMap) {
+        return this.daoHelper.update(bookDao, attrMap, keyMap);
+    }
+
+    @Override
+    public EntityResult vBookRatingsDelete(Map<?, ?> keyMap) {
+        return this.daoHelper.delete(this.bookDao, keyMap);
+    }
+
+    // ---- BOOK OPINIONS VIEW ----
+
+    @Override
+    public EntityResult vBookOpinionsQuery(Map<String, Object> keysValues, List<String> attributes) throws OntimizeJEERuntimeException {
+        return this.daoHelper.query(this.bookDao, keysValues, attributes, BookDao.QUERY_VBOOKOPINIONS);
+    }
+
+    @Override
+    public EntityResult vBookOpinionsUpdate(Map<?, ?> attrMap, Map<?, ?> keyMap) {
+        return this.daoHelper.update(bookDao, attrMap, keyMap);
+    }
+
+    @Override
+    public EntityResult vBookOpinionsDelete(Map<?, ?> keyMap) {
+        return this.daoHelper.delete(this.bookDao, keyMap);
+    }
 
 
 }

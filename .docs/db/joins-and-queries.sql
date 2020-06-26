@@ -26,4 +26,19 @@ from books b
 GROUP BY b.book_id;
 
 
-select * from v_book_details where book_id=110;
+select authors.author_id,
+       count(*) books
+from authors
+         left outer join book_authors ba on authors.author_id = ba.author_id
+group by authors.author_id;
+
+
+
+select *
+from books b
+         left outer join v_book_ratings r on b.book_id = r.book_id;
+
+select *
+from lituralia.book_authors AS ba
+         INNER JOIN lituralia.v_book_details AS b ON ba.book_id = b.book_id
+         INNER JOIN lituralia.authors AS a ON ba.author_id = a.author_id

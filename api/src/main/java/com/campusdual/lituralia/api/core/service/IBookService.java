@@ -37,13 +37,33 @@ public interface IBookService {
     // ---- BOOK PUBLISHER ----
 
     EntityResult bookPublisherQuery(Map<String, Object> keysValues, List<String> attributes) throws OntimizeJEERuntimeException;
+
     EntityResult bookPublisherInsert(Map<String, Object> attributes) throws OntimizeJEERuntimeException;
+
     EntityResult bookPublisherUpdate(Map<String, Object> attributes, Map<String, Object> KeyValues) throws OntimizeJEERuntimeException;
+
     EntityResult bookPublisherDelete(Map<String, Object> keyValues) throws OntimizeJEERuntimeException;
 
     // ---- BOOK DETAILS VIEW ----
 
-    EntityResult vBookDetailsQuery(Map<String, Object> keysValues, List<String> attributes) throws OntimizeJEERuntimeException;
     EntityResult vBookDetailsUpdate(Map<?, ?> attrMap, Map<?, ?> keyMap);
+
     EntityResult vBookDetailsDelete(Map<?, ?> keyMap);
+
+    EntityResult vBookRatingsQuery(Map<String, Object> keysValues, List<String> attributes) throws OntimizeJEERuntimeException;
+
+    // ---- BOOK RATINGS VIEW ----
+
+    EntityResult vBookDetailsQuery(Map<String, Object> keysValues, List<String> attributes) throws OntimizeJEERuntimeException;
+
+    EntityResult vBookRatingsUpdate(Map<?, ?> attrMap, Map<?, ?> keyMap);
+
+    EntityResult vBookRatingsDelete(Map<?, ?> keyMap);
+
+    // ---- BOOK OPINIONS VIEW ----
+    EntityResult vBookOpinionsQuery(Map<String, Object> keysValues, List<String> attributes) throws OntimizeJEERuntimeException;
+
+    EntityResult vBookOpinionsUpdate(Map<?, ?> attrMap, Map<?, ?> keyMap);
+
+    EntityResult vBookOpinionsDelete(Map<?, ?> keyMap);
 }

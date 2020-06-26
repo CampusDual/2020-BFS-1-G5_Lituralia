@@ -19,4 +19,19 @@ public class BookDao extends OntimizeJdbcDaoSupport {
     public static final String ATTR_PUBLISHER_ID = "publisher_id";
 
     public static final String QUERY_VBOOKDETAILS = "BOOKDETAILS";
+
+    public static final String QUERY_VBOOKDETAILS_ATTR_PUBLISHER_NAME = "publisher_name";
+    public static final String QUERY_VBOOKDETAILS_ATTR_GENRE_IDS = "genre_ids";
+    public static final String QUERY_VBOOKDETAILS_ATTR_GENRE_NAMES = "genre_names";
+    public static final String QUERY_VBOOKDETAILS_ATTR_AUTHOR_IDS = "author_ids";
+    public static final String QUERY_VBOOKDETAILS_ATTR_AUTHOR_NAMES = "author_names";
+    public static final String QUERY_VBOOKDETAILS_ATTR_AVG_RATING = "avg_rating";
+    public static final String QUERY_VBOOKDETAILS_ATTR_RATINGS = "ratings";
+
+    public static final String QUERY_VBOOKRATINGS = "BOOKRATINGS";
+
+    public static final String QUERY_VBOOKRATINGS_ATTR_AVG_RATING = "avg_rating";
+    public static final String QUERY_VBOOKRATINGS_ATTR_RATINGS = "ratings";
+
+    public static final String QUERY_VBOOKOPINIONS = "BOOKOPINIONS";
 }

@@ -1,4 +1,4 @@
--- BD Lituralia V-0.0.4
+-- BD Lituralia V-0.0.5
 
 drop schema lituralia cascade;
 create schema lituralia;
@@ -135,10 +135,12 @@ create table lituralia.publishers
 
 create table lituralia.authors
 (
-    author_id    integer generated always as identity,
-    author_name  varchar,
-    author_birth date,
-    author_death date,
+    author_id       integer generated always as identity,
+    author_name     varchar,
+    author_birth    date,
+    author_death    date,
+    author_portrait varchar,
+    author_bio      varchar,
     constraint authors_pkey
         primary key (author_id)
 );
@@ -282,15 +284,44 @@ create table lituralia.user_book_statuses
         foreign key (book_id) references lituralia.books
 );
 
-CREATE VIEW lituralia.v_book_details AS
+
+
+CREATE OR REPLACE VIEW lituralia.v_book_ratings AS
+(
+SELECT book_id,
+       ROUND(AVG(o.rating), 2) as avg_rating,
+       COUNT(*)                as ratings
+FROM opinions o
+GROUP BY book_id
+    );
+
+
+
+CREATE OR REPLACE VIEW v_author_ratings AS
+(
+SELECT ba.author_id,
+       ROUND(AVG(rating), 2) avg_rating,
+       COUNT(*)              ratings
+FROM opinions o
+         LEFT OUTER JOIN book_authors ba on ba.book_id = o.book_id
+GROUP BY ba.author_id
+    );
+
+
+
+CREATE OR REPLACE VIEW lituralia.v_book_details AS
 (
 select b.*,
        p.publisher_name,
        gn.genre_ids,
        gn.genre_names,
        an.author_ids,
-       an.author_names
-from books b,
+       an.author_names,
+       v.avg_rating,
+       v.ratings
+from books b
+         LEFT OUTER JOIN
+     v_book_ratings as v on v.book_id = b.book_id,
      publishers p,
      (select b.book_id,
              string_agg(cast(a.author_id as text), ',') as author_ids,
@@ -316,19 +347,20 @@ where b.publisher_id = p.publisher_id
     );
 
 
-CREATE VIEW lituralia.v_book_value AS
+CREATE OR REPLACE VIEW v_author_details AS
 (
-SELECT
-       book_id,
-       AVG(o.rating),
-       COUNT(*)
-from
-     opinions o
-group by
-         book_id
-order by
-         book_id
+select a.*,
+       bc.books,
+       o.ratings,
+       o.avg_rating
+from authors a,
+     (select authors.author_id,
+             count(*) books
+      from authors
+               left outer join book_authors ba on authors.author_id = ba.author_id
+      group by authors.author_id) bc,
+     v_author_ratings o
+where a.author_id = bc.author_id
+  and a.author_id = o.author_id
+order by a.author_id
     );
-
-
-
