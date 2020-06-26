@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { GenresRoutingModule } from './genres-routing.module';
 import { GenresHomeComponent } from './genres-home/genres-home.component';
 import {OntimizeWebModule} from "ontimize-web-ngx";
+import { GenresDetailComponent } from './genres-detail/genres-detail.component';
 
 @NgModule({
     imports: [
@@ -12,7 +13,8 @@ import {OntimizeWebModule} from "ontimize-web-ngx";
         OntimizeWebModule
     ],
   declarations: [
-      GenresHomeComponent
+      GenresHomeComponent,
+      GenresDetailComponent
   ]
 })
 export class GenresModule { }
