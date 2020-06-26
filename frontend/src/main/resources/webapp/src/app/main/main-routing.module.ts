@@ -7,6 +7,7 @@ import {HomeModule} from './home/home.module';
 import {BooksModule} from "./books/books.module";
 import {AuthorsModule} from "./authors/authors.module";
 import {GenresModule} from "./genres/genres.module";
+import {PublishersModule} from "./publishers/publishers.module";
 
 export function loadHomeModule() {
     return HomeModule;
@@ -22,6 +23,10 @@ export function loadAuthorsModule() {
 
 export function loadGenreModule() {
     return GenresModule;
+}
+
+export function loadPublishersModule() {
+    return PublishersModule;
 }
 
 export const routes: Routes = [
@@ -46,6 +51,10 @@ export const routes: Routes = [
             {
                 path: 'genres',
                 loadChildren: loadGenreModule
+            },
+            {
+                path: 'publishers',
+                loadChildren: loadPublishersModule
             }
         ]
     }

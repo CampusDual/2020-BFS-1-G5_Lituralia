@@ -38,17 +38,7 @@ select *
 from books b
          left outer join v_book_ratings r on b.book_id = r.book_id;
 
-
-
-SELECT book_id,
-       ratings,
-       avg_rating
-FROM lituralia.books AS b
-         LEFT OUTER JOIN lituralia.v_book_ratings AS r ON b.book_id = r.book_id
-WHERE book_id = 2
-
-
 select *
-from books
-         left outer join opinions o on books.book_id = o.book_id
-where o.book_id = 10
+from lituralia.book_authors AS ba
+         INNER JOIN lituralia.v_book_details AS b ON ba.book_id = b.book_id
+         INNER JOIN lituralia.authors AS a ON ba.author_id = a.author_id

@@ -16,6 +16,16 @@ public class BookAuthorDao extends OntimizeJdbcDaoSupport {
 
     public static final String QUERY_VBOOKAUTHOR = "BOOKAUTHOR";
 
+    public static final String QUERY_VBOOKDETAILSAUTHOR = "BOOKDETAILSAUTHOR";
+
+    public static final String QUERY_VBOOKDETAILSAUTHOR_ATTR_PUBLISHER_NAME = "publisher_name";
+    public static final String QUERY_VBOOKDETAILSAUTHOR_ATTR_GENRE_IDS = "genre_ids";
+    public static final String QUERY_VBOOKDETAILSAUTHOR_ATTR_GENRE_NAMES = "genre_names";
+    public static final String QUERY_VBOOKDETAILSAUTHOR_ATTR_AUTHOR_IDS = "author_ids";
+    public static final String QUERY_VBOOKDETAILSAUTHOR_ATTR_AUTHOR_NAMES = "author_names";
+    public static final String QUERY_VBOOKDETAILSAUTHOR_ATTR_AVG_RATING = "avg_rating";
+    public static final String QUERY_VBOOKDETAILSAUTHOR_ATTR_RATINGS = "ratings";
+
     public BookAuthorDao() {
         super();
     }

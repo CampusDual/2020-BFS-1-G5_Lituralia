@@ -31,8 +31,17 @@
   "AUTHOR_NAME": "Author Name",
   "AUTHOR_BIRTH": "Author Birth Date",
   "AUTHOR_DEATH": "Author Death Date",
-  "GENRES": "Genres",
-  "GENRE_ID":"Genre iD",
   "GENRE_NAME": "Genre",
-  "GENRE_DESC": "Description"
+  "AUTHOR_PORTRAIT": "Portrait",
+  "AUTHOR_BIO": "Biography",
+  "OPINIONS": "Reviews",
+  "GENRES": "Genres",
+  "GENRE_ID": "Genre iD",
+  "GENRE_NAME": "Genre",
+  "GENRE_DESC": "Description",
+  "ID": "ID",
+  "NAME": "Name",
+  "DESCRIPTION": "Description",
+  "LOGO" : "Logo",
+  "PUBLISHERS": "Publishers"
 }

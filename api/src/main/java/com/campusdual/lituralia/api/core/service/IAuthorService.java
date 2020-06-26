@@ -22,4 +22,30 @@ public interface IAuthorService {
     EntityResult vAuthorDetailsUpdate(Map<?, ?> attrMap, Map<?, ?> keyMap);
 
     EntityResult vAuthorDetailsDelete(Map<?, ?> keyMap);
+
+    EntityResult vAuthorRatingsQuery(Map<String, Object> keysValues, List<String> attributes) throws OntimizeJEERuntimeException;
+
+    EntityResult vAuthorRatingsUpdate(Map<?, ?> attrMap, Map<?, ?> keyMap);
+
+    EntityResult vAuthorRatingsDelete(Map<?, ?> keyMap);
+
+    EntityResult authorBookQuery(Map<String, Object> keysValues, List<String> attributes)
+        throws OntimizeJEERuntimeException;
+
+    EntityResult authorBookInsert(Map<String, Object> attributes) throws OntimizeJEERuntimeException;
+
+    EntityResult authorBookUpdate(Map<String, Object> attributes, Map<String, Object> KeyValues)
+        throws OntimizeJEERuntimeException;
+
+    EntityResult authorBookDelete(Map<String, Object> keyValues) throws OntimizeJEERuntimeException;
+
+    EntityResult vAuthorBookQuery(Map<String, Object> keysValues, List<String> attributes)
+        throws OntimizeJEERuntimeException;
+
+    EntityResult vAuthorBookDelete(Map<String, Object> keyValues) throws OntimizeJEERuntimeException;
+
+    EntityResult vAuthorBookDetailsQuery(Map<String, Object> keysValues, List<String> attributes)
+        throws OntimizeJEERuntimeException;
+
+    EntityResult vAuthorBookDetailsDelete(Map<String, Object> keyValues) throws OntimizeJEERuntimeException;
 }

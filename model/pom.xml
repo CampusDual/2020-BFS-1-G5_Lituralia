@@ -19,7 +19,7 @@
 
     <dependency>
       <groupId>com.campusdual.lituralia</groupId>
-      <artifactId>lituralia-frontend</artifactId>f
+      <artifactId>lituralia-frontend</artifactId>
     </dependency>
 
     <dependency>

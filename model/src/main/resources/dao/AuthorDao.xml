@@ -13,9 +13,9 @@
     </UpdateKeys>
     <GeneratedKey>author_id</GeneratedKey>
     <Queries>
-        <Query id="AUTHORDETAILS">
-            <Sentence>
-                <![CDATA[
+      <Query id="AUTHORDETAILS">
+        <Sentence>
+          <![CDATA[
                SELECT
                   #COLUMNS#
                FROM
@@ -23,7 +23,23 @@
                #WHERE#
                #ORDER#
             ]]>
-            </Sentence>
-        </Query>
+        </Sentence>
+      </Query>
+      <Query id="AUTHORRATINGS">
+        <AmbiguousColumns>
+          <AmbiguousColumn name="author_id" prefix="a" databaseName="author_id" />
+        </AmbiguousColumns>
+        <Sentence>
+          <![CDATA[
+               SELECT
+                  #COLUMNS#
+               FROM
+                  ${mainschema}.authors AS a
+                  LEFT OUTER JOIN ${mainschema}.v_author_ratings AS r ON a.author_id = r.author_id
+               #WHERE#
+               #ORDER#
+            ]]>
+        </Sentence>
+      </Query>
     </Queries>
 </JdbcEntitySetup>

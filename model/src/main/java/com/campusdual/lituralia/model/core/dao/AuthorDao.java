@@ -20,4 +20,11 @@ public class AuthorDao extends OntimizeJdbcDaoSupport {
     public static final String QUERY_VAUTHORDETAILS_ATTR_BOOKS = "books";
     public static final String QUERY_VAUTHORDETAILS_ATTR_AVG_RATING = "avg_rating";
     public static final String QUERY_VAUTHORDETAILS_ATTR_RATINGS = "ratings";
+
+
+    public static final String QUERY_VAUTHORRATINGS = "AUTHORRATINGS";
+
+    public static final String QUERY_VAUTHORRATINGS_ATTR_AVG_RATING = "avg_rating";
+    public static final String QUERY_VAUTHORRATINGS_ATTR_RATINGS = "ratings";
+
 }
