@@ -1,4 +1,4 @@
--- BD Lituralia V-0.0.4
+-- BD Lituralia V-0.0.5
 
 drop schema lituralia cascade;
 create schema lituralia;
