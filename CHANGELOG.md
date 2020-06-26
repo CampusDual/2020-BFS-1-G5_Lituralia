@@ -1,3 +1,25 @@
+#### v 0.0.5-SNAPSHOT	====	26/06/2020
+
+-Front:
+    - Book detail
+        - List of reviews
+    - Author Home
+        - Average Rating of Books
+    - Author Detail
+        - Average Rating of Books
+        - List of Books
+    - Genres Home
+    - Publishers Home
+    - StarRating Pipe / Visual Ratings (star png)
+    - O Table Cell Renderer Image StarRating
+- SQL 
+    - Added Portrait and biography to Authors
+    - New View v_author_ratings
+    - New View v_author_details
+- Back 
+    - Sub-Services using new Views
+        
+
 #### v 0.0.4-SNAPSHOT	====	19/06/2020
 
 - Front:
