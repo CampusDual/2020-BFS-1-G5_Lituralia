@@ -18,8 +18,9 @@ export const routes: Routes = [
 ];
 
 const opt = {
-    enableTracing: false
-    // true if you want to print navigation routes
+    // enableTracing: true if you want to print navigation routes
+    enableTracing: false,
+    useHash: true
 };
 
 @NgModule({

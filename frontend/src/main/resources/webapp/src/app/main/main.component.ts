@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {LoginService} from "ontimize-web-ngx";
 
 @Component({
     selector: 'app-main',
@@ -7,10 +8,18 @@ import {Component, OnInit} from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-    constructor() {
+    user = "USERNAME";
+
+    constructor(public loginService: LoginService) {
     }
 
     ngOnInit() {
+        console.log(this.loginService.getSessionInfo())
+        this.user = this.loginService.getSessionInfo().user
     }
 
+
+    logout() {
+        this.loginService.logoutWithConfirmationAndRedirect()
+    }
 }

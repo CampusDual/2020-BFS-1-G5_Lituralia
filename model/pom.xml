@@ -23,13 +23,8 @@
     </dependency>
 
     <dependency>
-      <groupId>com.ontimize.boot</groupId>
-      <artifactId>ontimize-boot-starter-jdbc</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>com.ontimize.boot</groupId>
-      <artifactId>ontimize-boot-starter-rest</artifactId>
+      <groupId>com.ontimize.jee</groupId>
+      <artifactId>ontimize-jee-server-jdbc</artifactId>
     </dependency>
 
     <dependency>
