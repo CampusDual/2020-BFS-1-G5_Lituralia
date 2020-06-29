@@ -5,10 +5,9 @@
            query-rows="20">
     <o-table-column attr="book_id" title="ID" type="integer" width="50"></o-table-column>
     <o-table-column attr="isbn" title="ISBN"></o-table-column>
-    <o-table-column attr="cover" title="COVER" width="64px" orderable="no" searchable="no" image-type="base64"
-                    type="image">
-      <o-table-cell-renderer-image image-type="base64" empty-image="assets/images/no-image.png"
-                                   avatar="yes"></o-table-cell-renderer-image>
+    <o-table-column attr="cover" title="COVER" width="64px" orderable="no" searchable="no">
+      <o-table-cell-renderer-image image-type="base64" empty-image="assets/images/no-image.png" avatar="yes">
+      </o-table-cell-renderer-image>
     </o-table-column>
     <o-table-column attr="title" title="TITLE"></o-table-column>
     <o-table-column attr="publish_date" title="PUBLISH_DATE" type="date" format="MM/DD/YYYY"></o-table-column>

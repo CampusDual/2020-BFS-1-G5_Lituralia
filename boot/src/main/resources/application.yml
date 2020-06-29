@@ -27,6 +27,7 @@ ontimize:
          upperLike: true
    security:
       mode: default
+      ignorePaths: /api/books/**, /api/authors/**, /api/genres/**, /api/publishers/**, /api/opinion/**
       roleInformationService:
          roleRepository: UserRoleDao
          roleNameColumn: ROLENAME

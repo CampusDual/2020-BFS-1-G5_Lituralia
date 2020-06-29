@@ -1,8 +1,12 @@
 {
-  "APP_TITLE": "Quickstart",
+  "LANGUAGES": "Languages",
+  "LOCALE_en": "English",
+  "LOCALE_es": "Spanish",
+  "APP_TITLE": "Lituralia",
   "VERSION": "Version",
   "EXAMPLE_LOGIN_INFO": "Use this user and password for login",
   "USERNAME": "Username",
+  "USER": "User",
   "PASSWORD": "Password",
   "LOGIN": "Login",
   "LOGOUT": "Logout",
@@ -31,7 +35,6 @@
   "AUTHOR_NAME": "Author Name",
   "AUTHOR_BIRTH": "Author Birth Date",
   "AUTHOR_DEATH": "Author Death Date",
-  "GENRE_NAME": "Genre",
   "AUTHOR_PORTRAIT": "Portrait",
   "AUTHOR_BIO": "Biography",
   "OPINIONS": "Reviews",
@@ -39,9 +42,7 @@
   "GENRE_ID": "Genre iD",
   "GENRE_NAME": "Genre",
   "GENRE_DESC": "Description",
-  "ID": "ID",
-  "NAME": "Name",
-  "DESCRIPTION": "Description",
-  "LOGO" : "Logo",
+  "PUBLISHER_DESCRIPTION": "Description",
+  "PUBLISHER_LOGO": "Logo",
   "PUBLISHERS": "Publishers"
 }

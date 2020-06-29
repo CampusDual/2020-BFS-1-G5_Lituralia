@@ -16,8 +16,8 @@
 
   <dependencies>
     <dependency>
-      <groupId>com.ontimize.boot</groupId>
-      <artifactId>ontimize-boot-starter-jdbc</artifactId>
+      <groupId>com.ontimize.jee</groupId>
+      <artifactId>ontimize-jee-common</artifactId>
     </dependency>
   </dependencies>
 
