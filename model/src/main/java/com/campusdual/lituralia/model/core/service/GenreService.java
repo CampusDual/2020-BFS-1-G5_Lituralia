@@ -47,24 +47,24 @@ public class GenreService implements IGenreService {
 // ---- BOOKs GENRE ----
 
     @Override
-    public EntityResult booksGenreQuery(Map<String, Object> keysValues, List<String> attributes)
+    public EntityResult genreBookQuery(Map<String, Object> keysValues, List<String> attributes)
             throws OntimizeJEERuntimeException {
         return this.daoHelper.query(this.bookGenreDao, keysValues, attributes);
     }
 
     @Override
-    public EntityResult booksGenreInsert(Map<String, Object> attributes) throws OntimizeJEERuntimeException {
+    public EntityResult genreBookInsert(Map<String, Object> attributes) throws OntimizeJEERuntimeException {
         return this.daoHelper.insert(this.bookGenreDao, attributes);
     }
 
     @Override
-    public EntityResult booksGenreUpdate(Map<String, Object> attributes, Map<String, Object> KeyValues)
+    public EntityResult genreBookUpdate(Map<String, Object> attributes, Map<String, Object> KeyValues)
             throws OntimizeJEERuntimeException {
         return this.daoHelper.update(this.bookGenreDao, attributes, attributes);
     }
 
     @Override
-    public EntityResult booksGenreDelete(Map<String, Object> keyValues) throws OntimizeJEERuntimeException {
+    public EntityResult genreBookDelete(Map<String, Object> keyValues) throws OntimizeJEERuntimeException {
         return this.daoHelper.delete(this.bookGenreDao, keyValues);
     }
 
@@ -72,13 +72,13 @@ public class GenreService implements IGenreService {
     // ---- V BOOK GENRE
 
     @Override
-    public EntityResult vBooksGenreQuery(Map<String, Object> keysValues, List<String> attributes)
+    public EntityResult vGenreBookQuery(Map<String, Object> keysValues, List<String> attributes)
             throws OntimizeJEERuntimeException {
         return this.daoHelper.query(this.bookGenreDao, keysValues, attributes, BookGenreDao.QUERY_VBOOKGENRE);
     }
 
     @Override
-    public EntityResult vBooksGenreDelete(Map<String, Object> keyValues) throws OntimizeJEERuntimeException {
+    public EntityResult vGenreBookDelete(Map<String, Object> keyValues) throws OntimizeJEERuntimeException {
         return this.daoHelper.delete(this.bookGenreDao, keyValues);
     }
 }

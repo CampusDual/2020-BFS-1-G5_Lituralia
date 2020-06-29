@@ -21,14 +21,14 @@
 
         <o-row fxFlex>
             <o-column fxFlex title="{{ 'BOOKS' | oTranslate }}">
-                <o-table attr="booksTable" service="genres" entity="vBooksGenre"
+                <o-table attr="booksTable" service="genres" entity="vGenreBook"
                          parent-keys="genre_id" keys="genre_id"
-                         columns="genre_id;book_id;isbn;cover;title;publish_date;publisher_name;author_names;avg_rating"
-                         visible-columns="genre_id;book_id;isbn;cover;title;publish_date;publisher_name;author_names;avg_rating"
+                         columns="genre_id;book_id;isbn;cover;title;publish_date"
+                         visible-columns="genre_id;book_id;isbn;cover;title;publish_date"
                          query-rows="10"
                          insert-button="no"
                          detail-mode="none">
-                    <o-table-column attr="genre_id" title="ID" type="integer"></o-table-column>
+                    <o-table-column attr="genre_id" title="IDGenre" type="integer"></o-table-column>
                     <o-table-column attr="book_id" title="ID" type="integer"></o-table-column>
                     <o-table-column attr="isbn" title="ISBN"></o-table-column>
                     <o-table-column attr="cover" title="COVER" width="64px" orderable="no" searchable="no"
@@ -37,18 +37,18 @@
                         <o-table-cell-renderer-image image-type="base64" empty-image="assets/images/no-image.png"
                                                      avatar="yes"></o-table-cell-renderer-image>
                     </o-table-column>
-                    <o-table-column attr="title" title="TITLE"></o-table-column>
-                    <o-table-column attr="publish_date" title="PUBLISH_DATE" type="date"
-                                    format="MM/DD/YYYY"></o-table-column>
-                    <o-table-column attr="publisher_name" title="PUBLISHER_NAME"></o-table-column>
-                    <o-table-column attr="author_names" title="AUTHOR_NAMES"></o-table-column>
-                    <o-table-column attr="genre_names" title="GENRE_NAMES"></o-table-column>
-                    <o-table-column attr="avg_rating" title="AVG_RATING" width="150px"
-                                    orderable="no" searchable="no" type="image">
-                        <o-table-column-renderer-star-rating image-type="base64"
-                                                             empty-image="assets/images/no-image.png"
-                                                             avatar="yes"></o-table-column-renderer-star-rating>
-                    </o-table-column>
+<!--                    <o-table-column attr="title" title="TITLE"></o-table-column>-->
+<!--                    <o-table-column attr="publish_date" title="PUBLISH_DATE" type="date"-->
+<!--                                    format="MM/DD/YYYY"></o-table-column>-->
+<!--                    <o-table-column attr="publisher_name" title="PUBLISHER_NAME"></o-table-column>-->
+<!--                    <o-table-column attr="author_names" title="AUTHOR_NAMES"></o-table-column>-->
+<!--                    <o-table-column attr="genre_names" title="GENRE_NAMES"></o-table-column>-->
+<!--                    <o-table-column attr="avg_rating" title="AVG_RATING" width="150px"-->
+<!--                                    orderable="no" searchable="no" type="image">-->
+<!--                        <o-table-column-renderer-star-rating image-type="base64"-->
+<!--                                                             empty-image="assets/images/no-image.png"-->
+<!--                                                             avatar="yes"></o-table-column-renderer-star-rating>-->
+<!--                    </o-table-column>-->
                 </o-table>
             </o-column>
         </o-row>

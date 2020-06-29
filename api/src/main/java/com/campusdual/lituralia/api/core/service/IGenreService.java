@@ -14,12 +14,12 @@ public interface IGenreService {
     EntityResult genreDelete(Map<?, ?> keyMap);
     // ---- BOOK GENRES ----
 
-    EntityResult booksGenreQuery(Map<String, Object> keysValues, List<String> attributes) throws OntimizeJEERuntimeException;
-    EntityResult booksGenreInsert(Map<String, Object> attributes) throws OntimizeJEERuntimeException;
-    EntityResult booksGenreUpdate(Map<String, Object> attributes, Map<String, Object> KeyValues) throws OntimizeJEERuntimeException;
-    EntityResult booksGenreDelete(Map<String, Object> keyValues) throws OntimizeJEERuntimeException;
+    EntityResult genreBookQuery(Map<String, Object> keysValues, List<String> attributes) throws OntimizeJEERuntimeException;
+    EntityResult genreBookInsert(Map<String, Object> attributes) throws OntimizeJEERuntimeException;
+    EntityResult genreBookUpdate(Map<String, Object> attributes, Map<String, Object> KeyValues) throws OntimizeJEERuntimeException;
+    EntityResult genreBookDelete(Map<String, Object> keyValues) throws OntimizeJEERuntimeException;
 
-    EntityResult vBooksGenreQuery(Map<String, Object> keysValues, List<String> attributes) throws OntimizeJEERuntimeException;
-    EntityResult vBooksGenreDelete(Map<String, Object> keyValues) throws OntimizeJEERuntimeException;
+    EntityResult vGenreBookQuery(Map<String, Object> keysValues, List<String> attributes) throws OntimizeJEERuntimeException;
+    EntityResult vGenreBookDelete(Map<String, Object> keyValues) throws OntimizeJEERuntimeException;
 
 }
