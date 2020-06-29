@@ -1,11 +1,20 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {GenresHomeComponent} from "./genres-home/genres-home.component";
+import {GenresDetailComponent} from "./genres-detail/genres-detail.component";
+import {AuthorsDetailComponent} from "../authors/authors-detail/authors-detail.component";
 
 const routes: Routes = [
   {
-    path:'',
+    path: '',
     component: GenresHomeComponent
+  },
+  {
+    path: "new",
+    component: GenresDetailComponent
+  }, {
+    path: ":genre_id",
+    component: GenresDetailComponent
   }
 ];
 

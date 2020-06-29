@@ -45,7 +45,7 @@
       </o-column>
       <o-column fxFlex="40" title="{{ 'GENRE_NAMES' | oTranslate }}">
         <o-table attr="genresTable" service="books" entity="vBookGenre"
-                 parent-keys="book_id" keys="book_id" columns="genre_id;genre_name"
+                 parent-keys="book_id" keys="book_id"columns="genre_id;genre_name"
                  visible-columns="genre_name" query-rows="5"
                  insert-button="no" detail-mode="none">
           <!--          //TODO:insert genre            insert-form-route="genre/new"           -->
