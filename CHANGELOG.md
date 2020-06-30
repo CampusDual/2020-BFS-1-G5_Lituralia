@@ -1,6 +1,20 @@
+#### v 1.0.0-RC     	====	17/07/2020
+
+#### v 0.0.7-SNAPSHOT	====	10/07/2020
+
+#### v 0.0.6-SNAPSHOT	====	03/07/2020
+
+- Front: 
+    - No login required for navigation
+    - Genres Detail
+    - CRUD logged-in-user book-opinion
+- SQL:
+    - Default value for opinion creation date
+
+
 #### v 0.0.5-SNAPSHOT	====	26/06/2020
 
--Front:
+- Front:
     - Book detail
         - List of reviews
     - Author Home

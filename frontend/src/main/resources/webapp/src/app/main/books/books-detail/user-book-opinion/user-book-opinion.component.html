@@ -1,0 +1,27 @@
+<mat-card *ngIf="hasOpinion()" class="opinion-card">
+  <mat-card-header>
+    <mat-card-title>{{'Your Review:' | oTranslate}}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <o-form editable-detail="no" show-header="no" class="">
+      <o-list-picker #activeRating label="Rating" [static-data]="getRatingValues()" [data]="activeEditRating"
+                     required="true" read-only="false" filter="no" text-input-enabled="no" value-column="key"
+                     columns="key;value" visible-columns="value"></o-list-picker>
+<!--      <o-integer-input class="input-padding" attr="rating" label="RATING" [data]="activeRating" required="yes"-->
+<!--                       read-only="no"></o-integer-input>-->
+      <o-textarea-input #activeReview attr="review" label="REVIEW" fxFlex [data]="activeEditReview" required="no"
+                        read-only="no"></o-textarea-input>
+    </o-form>
+  </mat-card-content>
+
+  <mat-card-footer>
+    <div class="opinion-create">Created: {{opinion.opinion_create | date}}</div>
+    <div *ngIf="isUpdated()" class="opinion-update">Last modification: {{opinion.opinion_update | date}}</div>
+  </mat-card-footer>
+  <mat-card-actions>
+    <button mat-stroked-button (click)="updateOpinion()">
+      <mat-icon>update</mat-icon>
+      <span>Update Opinion</span>
+    </button>
+  </mat-card-actions>
+</mat-card>
