@@ -1,24 +1,56 @@
+<!--<div fxFlex>-->
+<!--  <o-table fxFlex attr="booksTable" service="books" entity="vBookDetails" keys="book_id"-->
+<!--           columns="book_id;isbn;cover;title;publish_date;publisher_name;author_names;genre_names;avg_rating;ratings"-->
+<!--           visible-columns="book_id;isbn;cover;title;publish_date;publisher_name;author_names;genre_names;avg_rating;ratings"-->
+<!--           query-rows="20">-->
+<!--    <o-table-column attr="book_id" title="ID" type="integer" width="50"></o-table-column>-->
+<!--    <o-table-column attr="isbn" title="ISBN"></o-table-column>-->
+<!--    <o-table-column attr="cover" title="COVER" width="64px" orderable="no" searchable="no">-->
+<!--      <o-table-cell-renderer-image image-type="base64" empty-image="assets/images/no-image.png" avatar="yes">-->
+<!--      </o-table-cell-renderer-image>-->
+<!--    </o-table-column>-->
+<!--    <o-table-column attr="title" title="TITLE"></o-table-column>-->
+<!--    <o-table-column attr="publish_date" title="PUBLISH_DATE" type="date" format="MM/DD/YYYY"></o-table-column>-->
+<!--    <o-table-column attr="publisher_name" title="PUBLISHER_NAME"></o-table-column>-->
+<!--    <o-table-column attr="author_names" title="AUTHOR_NAMES"></o-table-column>-->
+<!--    <o-table-column attr="genre_names" title="GENRE_NAMES"></o-table-column>-->
+<!--    <o-table-column attr="avg_rating" title="AVG_RATING" width="150px"-->
+<!--                    orderable="no" searchable="no" type="image">-->
+<!--      <o-table-column-renderer-star-rating image-type="base64" empty-image="assets/images/no-image.png"-->
+<!--                                           avatar="yes"></o-table-column-renderer-star-rating>-->
+<!--    </o-table-column>-->
+<!--    <o-table-column attr="ratings" title="RATINGS" type="integer" width="50px"></o-table-column>-->
+<!--  </o-table>-->
+<!--</div>-->
 <div fxFlex>
-  <o-table fxFlex attr="booksTable" service="books" entity="vBookDetails" keys="book_id"
-           columns="book_id;isbn;cover;title;publish_date;publisher_name;author_names;genre_names;avg_rating;ratings"
-           visible-columns="book_id;isbn;cover;title;publish_date;publisher_name;author_names;genre_names;avg_rating;ratings"
-           query-rows="20">
-    <o-table-column attr="book_id" title="ID" type="integer" width="50"></o-table-column>
-    <o-table-column attr="isbn" title="ISBN"></o-table-column>
-    <o-table-column attr="cover" title="COVER" width="64px" orderable="no" searchable="no">
-      <o-table-cell-renderer-image image-type="base64" empty-image="assets/images/no-image.png" avatar="yes">
-      </o-table-cell-renderer-image>
-    </o-table-column>
-    <o-table-column attr="title" title="TITLE"></o-table-column>
-    <o-table-column attr="publish_date" title="PUBLISH_DATE" type="date" format="MM/DD/YYYY"></o-table-column>
-    <o-table-column attr="publisher_name" title="PUBLISHER_NAME"></o-table-column>
-    <o-table-column attr="author_names" title="AUTHOR_NAMES"></o-table-column>
-    <o-table-column attr="genre_names" title="GENRE_NAMES"></o-table-column>
-    <o-table-column attr="avg_rating" title="AVG_RATING" width="150px"
-                    orderable="no" searchable="no" type="image">
-      <o-table-column-renderer-star-rating image-type="base64" empty-image="assets/images/no-image.png"
-                                           avatar="yes"></o-table-column-renderer-star-rating>
-    </o-table-column>
-    <o-table-column attr="ratings" title="RATINGS" type="integer" width="50px"></o-table-column>
-  </o-table>
+    <o-grid class="grid-container" #grid attr="booksGrid" service="books" entity="vBookDetails"
+            columns="book_id;isbn;cover;title;synopsis;author_names;genre_names;avg_rating;ratings"
+            orderable="yes" quick-filter="no" grid-item-height="300" sortable-columns="title"
+            keys="book_id" [cols]="2" pageable="no" query-rows="16">
+        <o-grid-item  *ngFor="let item of grid.dataArray" class="container-item">
+            <o-column>
+                <div class="cover">
+                    <img [src]="getImageSrc(item.cover)">
+                </div>
+            </o-column>
+            <o-column>
+                <div class="title">{{ item.title}}</div>
+                <div class="authors">{{item.author_names}}</div>
+                <div class="sypnosis">{{item.synopsis}}</div>
+                <div class="rating"><strong>RATING: </strong>{{item.ratings}}. {{item.avg_ratings}}</div>
+<!--                <div class="isbn"><strong>ISBN:</strong> {{ item.isbn}}</div>-->
+<!--                <div class="genre"><strong>gen.:</strong> {{ item.genre_names}}</div>-->
+<!--                <o-row>-->
+<!--                    <div class="title">{{ item.title}}</div>-->
+<!--                    -->
+<!--                </o-row>-->
+<!--                <o-row>-->
+<!--                    <div class="author">{{item.authorName}}</div> -->
+<!--                </o-row>-->
+<!--                <o-row>-->
+<!--                    <div class="isbn"><strong>ISBN:</strong> {{ item.isbn}}</div>-->
+<!--                </o-row>-->
+            </o-column>
+        </o-grid-item>
+    </o-grid>
 </div>

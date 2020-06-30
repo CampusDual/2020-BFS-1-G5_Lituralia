@@ -1,3 +1,34 @@
 o-table-column {
   height: 50px;
 }
+
+.grid-container {
+  display: grid;
+  grid-row-gap: 50px;
+  margin: 20px;
+}
+
+.container-item{
+  border-color: #7f7f7f;
+  border-width: medium;
+  border-style: solid;
+
+}
+
+.cover {
+  width: 60%;
+  height: 60%;
+  margin:2px;
+  //quitar scroll
+  overflow:hidden;
+}
+
+.title{
+font-size: x-large;
+  font-weight: bold;
+}
+.authors{
+  font-size: medium;
+  font-weight: bolder;
+  color:#2d2d2d;
+}
