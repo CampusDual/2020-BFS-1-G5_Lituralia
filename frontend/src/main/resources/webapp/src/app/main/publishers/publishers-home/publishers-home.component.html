@@ -1,17 +1,19 @@
-<div fxFlex >
-  <o-table fxFlex attr="publishersTable" service="publishers" entity="publisher" keys="publisher_id"
-           columns="publisher_id;publisher_name;publisher_desc;publisher_logo"
-           visible-columns="publisher_id;publisher_logo;publisher_name;publisher_desc"
-           query-rows="20">
-    <o-table-column attr="publisher_id" title="PUBLISHER_ID" type="integer"></o-table-column>
-    <o-table-column attr="publisher_logo" title="PUBLISHER_LOGO" width="64px" orderable="no" searchable="no"
-                    image-type="base64"
-                    type="image">
-      <o-table-cell-renderer-image image-type="base64" empty-image="assets/images/no-image.png"
-                                   avatar="yes"></o-table-cell-renderer-image>
-    </o-table-column>
-    <o-table-column attr="publisher_name" title="PUBLISHER_NAME"></o-table-column>
-    <o-table-column attr="publisher_desc" title="PUBLISHER_DESCRIPTION"></o-table-column>
+<o-form-layout-manager title="" separator=" " mode="tab" label-columns="">
+  <div fxFlex >
+    <o-table fxFlex attr="publishersTable" service="publishers" entity="publisher" keys="publisher_id"
+             columns="publisher_id;publisher_name;publisher_desc;publisher_logo"
+             visible-columns="publisher_id;publisher_logo;publisher_name;publisher_desc"
+             query-rows="20">
+      <o-table-column attr="publisher_id" title="PUBLISHER_ID" type="integer"></o-table-column>
+      <o-table-column attr="publisher_logo" title="PUBLISHER_LOGO" width="64px" orderable="no" searchable="no"
+                      image-type="base64"
+                      type="image">
+        <o-table-cell-renderer-image image-type="base64" empty-image="assets/images/no-image.png"
+                                     avatar="yes"></o-table-cell-renderer-image>
+      </o-table-column>
+      <o-table-column attr="publisher_name" title="PUBLISHER_NAME"></o-table-column>
+      <o-table-column attr="publisher_desc" title="PUBLISHER_DESCRIPTION"></o-table-column>
 
-  </o-table>
-</div>
+    </o-table>
+  </div>
+</o-form-layout-manager>

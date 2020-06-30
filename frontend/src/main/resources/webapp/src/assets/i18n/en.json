@@ -44,5 +44,6 @@
   "GENRE_DESC": "Description",
   "PUBLISHER_DESCRIPTION": "Description",
   "PUBLISHER_LOGO": "Logo",
-  "PUBLISHERS": "Publishers"
+  "PUBLISHERS": "Publishers",
+  "PUBLISHER_INFORMATION" : "Publisher information"
 }

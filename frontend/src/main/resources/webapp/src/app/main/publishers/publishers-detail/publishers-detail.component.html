@@ -1,0 +1,56 @@
+<div fxFlex>
+  <o-form
+          service="publishers"
+          entity="publisher"
+          keys="publisher_id"
+          header-actions="I;R;U;D"
+          show-header-navigation="yes">
+    <o-integer-input attr="publisher_id" sql-type="INTEGER" label="Id" enabled="no"
+                     class="display-none"></o-integer-input>
+    <o-row fxFlex>
+      <o-column title="{{ 'PUBLISHER_INFORMATION' | oTranslate }}" fxFlex="80">
+        <o-row>
+          <o-text-input class="input-padding" attr="publisher_name" label="PUBLISHER_NAME" fxFlex
+                        required="no"></o-text-input>
+        </o-row>
+        <o-row>
+          <o-textarea-input attr="publisher_desc" label="PUBLISHER_DESC" fxFlex></o-textarea-input>
+        </o-row>
+      </o-column>
+    </o-row>
+
+<!--    <o-row fxFlex>-->
+<!--      <o-column fxFlex title="{{ 'BOOKS' | oTranslate }}">-->
+<!--        <o-table attr="booksTable" service="genres" entity="vGenreBook"-->
+<!--                 parent-keys="genre_id" keys="genre_id"-->
+<!--                 columns="genre_id;book_id;isbn;cover;title;publish_date"-->
+<!--                 visible-columns="genre_id;book_id;isbn;cover;title;publish_date"-->
+<!--                 query-rows="10"-->
+<!--                 insert-button="no"-->
+<!--                 detail-mode="none">-->
+<!--          <o-table-column attr="genre_id" title="IDGenre" type="integer"></o-table-column>-->
+<!--          <o-table-column attr="book_id" title="ID" type="integer"></o-table-column>-->
+<!--          <o-table-column attr="isbn" title="ISBN"></o-table-column>-->
+<!--          <o-table-column attr="cover" title="COVER" width="64px" orderable="no" searchable="no"-->
+<!--                          image-type="base64"-->
+<!--                          type="image">-->
+<!--            <o-table-cell-renderer-image image-type="base64" empty-image="assets/images/no-image.png"-->
+<!--                                         avatar="yes"></o-table-cell-renderer-image>-->
+<!--          </o-table-column>-->
+<!--          &lt;!&ndash;                    <o-table-column attr="title" title="TITLE"></o-table-column>&ndash;&gt;-->
+<!--          &lt;!&ndash;                    <o-table-column attr="publish_date" title="PUBLISH_DATE" type="date"&ndash;&gt;-->
+<!--          &lt;!&ndash;                                    format="MM/DD/YYYY"></o-table-column>&ndash;&gt;-->
+<!--          &lt;!&ndash;                    <o-table-column attr="publisher_name" title="PUBLISHER_NAME"></o-table-column>&ndash;&gt;-->
+<!--          &lt;!&ndash;                    <o-table-column attr="author_names" title="AUTHOR_NAMES"></o-table-column>&ndash;&gt;-->
+<!--          &lt;!&ndash;                    <o-table-column attr="genre_names" title="GENRE_NAMES"></o-table-column>&ndash;&gt;-->
+<!--          &lt;!&ndash;                    <o-table-column attr="avg_rating" title="AVG_RATING" width="150px"&ndash;&gt;-->
+<!--          &lt;!&ndash;                                    orderable="no" searchable="no" type="image">&ndash;&gt;-->
+<!--          &lt;!&ndash;                        <o-table-column-renderer-star-rating image-type="base64"&ndash;&gt;-->
+<!--          &lt;!&ndash;                                                             empty-image="assets/images/no-image.png"&ndash;&gt;-->
+<!--          &lt;!&ndash;                                                             avatar="yes"></o-table-column-renderer-star-rating>&ndash;&gt;-->
+<!--          &lt;!&ndash;                    </o-table-column>&ndash;&gt;-->
+<!--        </o-table>-->
+<!--      </o-column>-->
+<!--    </o-row>-->
+  </o-form>
+</div>
