@@ -45,5 +45,7 @@
   "PUBLISHER_DESCRIPTION": "Descripción",
   "PUBLISHER_LOGO": "Logo",
   "PUBLISHERS": "Editoriales",
-  "PUBLISHER_INFORMATION": "Información de la editorial"
+  "PUBLISHER_INFORMATION": "Información de la editorial",
+  "PUBLISHER_DESC": "Decripción de la editorial",
+  "PUBLISHERS_BOOKS": "Libros de la editorial"
 }
