@@ -33,6 +33,24 @@ export class UserOpinionService extends OntimizeEEService {
     )
   }
 
+  createUserOpinion(user_:string, book_id:number, rating: number, review: string){
+    const data = {
+      "book_id": book_id,
+      "rating": parseInt(String(rating)),
+      "review": review,
+      "user_":user_
+    };
+    const sqlTypes = {
+      "book_id":4,
+      "rating":4,
+      "review":12,
+      "user_":12
+    };
+    return this.insert(data, 'opinion', sqlTypes).pipe(
+      tap(x => console.log(x))
+    )
+  }
+
   updateUserOpinion(opinion_id: number, rating: number, review: string) {
     const filter = {
       'opinion_id': opinion_id
@@ -48,6 +66,15 @@ export class UserOpinionService extends OntimizeEEService {
       "opinion_update": 91
     };
     return this.update(filter, data, 'opinion', sqlTypes).pipe(
+      tap(x => console.log(x))
+    )
+  }
+
+  deleteUserOpinion(opinion_id: number) {
+    const filter = {
+      'opinion_id': opinion_id
+    };
+    return this.delete(filter, 'opinion').pipe(
       tap(x => console.log(x))
     )
   }
