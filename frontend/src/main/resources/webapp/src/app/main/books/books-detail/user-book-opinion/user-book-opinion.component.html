@@ -1,12 +1,16 @@
 <mat-card class="opinion-card">
   <mat-card-header>
-    <mat-card-title>{{editMode ? 'Your Review:' : ('Review this book:' | oTranslate)}}</mat-card-title>
+    <mat-card-title>{{(editMode ? 'YOUR_REVIEW' : 'REVIEW_THIS_BOOK') | oTranslate}}</mat-card-title>
+    <mat-card-subtitle  *ngIf="editMode">
+      <div *ngIf="opinion" class="opinion-create">{{'OPINION_CREATED_DATE' |oTranslate}} {{opinion.opinion_create | date}}</div>
+      <div *ngIf="isUpdated()" class="opinion-update">{{'OPINION_UPDATED_DATE' |oTranslate}} {{opinion.opinion_update | date}}</div></mat-card-subtitle>
+<!--    <img mat-card-avatar> TODO star image rating-->
   </mat-card-header>
   <mat-card-content>
     <o-form editable-detail="no" show-header="no">
       <o-combo #activeRating
-               label="Rating"
-               attr="Rating"
+               label="BOOK_RATING"
+               attr="rating"
                [static-data]="getRatingValues()"
                [data]="activeEditRating"
                required="true"
@@ -15,22 +19,19 @@
                columns="rating"
                visible-columns="rating"
                null-selection="no"></o-combo>
-      <o-textarea-input #activeReview attr="review" label="REVIEW" fxFlex [data]="activeEditReview" required="no"
+      <o-textarea-input #activeReview attr="review" label="BOOK_REVIEW" fxFlex [data]="activeEditReview" required="no"
                         read-only="no"></o-textarea-input>
     </o-form>
   </mat-card-content>
-  <mat-card-footer *ngIf="editMode">
-    <div *ngIf="opinion" class="opinion-create">Created: {{opinion.opinion_create | date}}</div>
-    <div *ngIf="isUpdated()" class="opinion-update">Last modification: {{opinion.opinion_update | date}}</div>
-  </mat-card-footer>
+
   <mat-card-actions>
-    <button mat-stroked-button (click)="editMode ? updateOpinion() : createOpinion()">
+    <button mat-stroked-button (click)="editMode ? updateOpinion() : createOpinion()"  class="opinion-btn">
       <mat-icon>update</mat-icon>
-      <span>{{editMode ? 'Update Review' : 'Create Review'}}</span>
+      <span>{{(editMode ? 'UPDATE_REVIEW' : 'CREATE_REVIEW') | oTranslate}}</span>
     </button>
-    <button *ngIf="editMode" mat-stroked-button (click)="deleteOpinion()">
+    <button *ngIf="editMode" mat-stroked-button (click)="deleteOpinion()" class="opinion-btn">
       <mat-icon>delete</mat-icon>
-      <span>Delete Review</span>
+      <span>{{'DELETE_REVIEW' |oTranslate}}</span>
     </button>
   </mat-card-actions>
 </mat-card>

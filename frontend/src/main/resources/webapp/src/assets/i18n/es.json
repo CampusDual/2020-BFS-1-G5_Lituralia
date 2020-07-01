@@ -44,5 +44,25 @@
   "OPINIONS": "Opiniones",
   "PUBLISHER_DESCRIPTION": "Descripción",
   "PUBLISHER_LOGO": "Logo",
-  "PUBLISHERS": "Editoriales"
+  "PUBLISHERS": "Editoriales",
+
+  "OPINION_LOGIN_WARN": "Debes iniciar sesión para poder valorar libros.",
+  "YOUR_REVIEW":"Tu valoración:",
+  "REVIEW_THIS_BOOK": "Valora este libro",
+  "UPDATE_REVIEW": "Actualizar",
+  "CREATE_REVIEW": "Valorar",
+  "BOOK_RATING": "Valoración",
+  "BOOK_REVIEW": "Reseña",
+  "UPDATING_OPINION": "Actualizando Opinion",
+  "UPDATING_OPINION_OK": "Actualización OK",
+  "UPDATING_OPINION_ERROR": "Actualización Error",
+  "DELETING_OPINION": "Eliminando Opinion",
+  "DELETING_OPINION_OK": "Eliminación OK",
+  "DELETING_OPINION_ERROR": "Eliminación Error",
+  "CREATING_OPINION": "Creando Opinion",
+  "CREATING_OPINION_OK": "Creación OK",
+  "CREATING_OPINION_ERROR": "Creación Error",
+  "OPINION_CREATED_DATE": "Creada: ",
+  "OPINION_UPDATED_DATE": "Ultima modificación: ",
+  "DELETE_REVIEW": "Eliminar"
 }

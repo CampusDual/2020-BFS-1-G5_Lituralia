@@ -44,5 +44,27 @@
   "GENRE_DESC": "Description",
   "PUBLISHER_DESCRIPTION": "Description",
   "PUBLISHER_LOGO": "Logo",
-  "PUBLISHERS": "Publishers"
+  "PUBLISHERS": "Publishers",
+
+  "OPINION_LOGIN_WARN": "You must login to rate and review books.",
+  "YOUR_REVIEW":"Your review:",
+  "REVIEW_THIS_BOOK": "Review this book",
+  "UPDATE_REVIEW": "Update Review",
+  "CREATE_REVIEW": "Create Review",
+  "BOOK_RATING": "Book Rating",
+  "BOOK_REVIEW": "Book Review",
+  "UPDATING_OPINION": "Updating Opinion",
+  "UPDATING_OPINION_OK": "Update OK",
+  "UPDATING_OPINION_ERROR": "Update Error",
+  "CREATING_OPINION": "Creating Opinion",
+  "CREATING_OPINION_OK": "Create OK",
+  "CREATING_OPINION_ERROR": "Create Error",
+  "DELETING_OPINION": "Deleting Opinion",
+  "DELETING_OPINION_OK": "Delete OK",
+  "DELETING_OPINION_ERROR": "Delete Error",
+  "OPINION_CREATED_DATE": "Created:",
+  "OPINION_UPDATED_DATE": "Updated:",
+  "DELETE_REVIEW": "Delete"
+
+
 }

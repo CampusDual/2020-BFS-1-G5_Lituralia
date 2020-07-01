@@ -30,7 +30,7 @@
             <app-user-book-opinion class="user-opinion"></app-user-book-opinion>
           </div>
           <ng-template #loggedOut>
-            <div class="loggedOut">You must login to rate and review books.</div>
+            <div class="loggedOut">{{ 'OPINION_LOGIN_WARN' | oTranslate}}</div>
           </ng-template>
         </o-row>
       </o-column>

@@ -1,7 +1,7 @@
 import {Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
 import {UserOpinionService} from "../../../../shared/services/user-opinion.service";
 import {ActivatedRoute} from "@angular/router";
-import {DialogService, LoginService} from "ontimize-web-ngx";
+import {DialogService, LoginService, OTranslateService} from "ontimize-web-ngx";
 import {Opinion} from "../../../opinions/opinion";
 
 @Component({
@@ -30,7 +30,10 @@ export class UserBookOpinionComponent implements OnInit {
               private userOpinionService: UserOpinionService,
               private route: ActivatedRoute,
               private renderer: Renderer2,
-              private dialogService: DialogService) {
+              private dialogService: DialogService
+              ,private translate: OTranslateService
+                                                               ) {
+
   }
 
 
@@ -63,6 +66,18 @@ export class UserBookOpinionComponent implements OnInit {
   hasOpinion(): boolean {
     return this.opinion !== null && typeof this.opinion !== 'undefined'
   }
+  
+  private readonly UPDATING_OPINION = "UPDATING_OPINION";
+  private readonly UPDATING_OPINION_OK = "UPDATING_OPINION_OK";
+  private readonly UPDATING_OPINION_ERROR = "UPDATING_OPINION_ERROR";
+  
+  private readonly DELETING_OPINION = "DELETING_OPINION";
+  private readonly DELETING_OPINION_OK = "DELETING_OPINION_OK";
+  private readonly DELETING_OPINION_ERROR = "DELETING_OPINION_ERROR";
+  
+  private readonly CREATING_OPINION = "CREATING_OPINION";
+  private readonly CREATING_OPINION_OK = "CREATING_OPINION_OK";
+  private readonly CREATING_OPINION_ERROR = "CREATING_OPINION_ERROR";
 
   updateOpinion() {
     const reviewElement: any = this.aReview
@@ -71,8 +86,8 @@ export class UserBookOpinionComponent implements OnInit {
     const rating: string = ratingElement.value.value
     this.userOpinionService.updateUserOpinion(this.opinion.opinion_id, +rating, review)
     .subscribe(
-      value => this.dialogService.info("Updating Opinion", "Update OK"),
-      error => this.dialogService.error("Updating Opinion", "Update Error"),
+      value => this.dialogService.info(this.translate.get(this.UPDATING_OPINION), this.translate.get(this.UPDATING_OPINION_OK)),
+      error => this.dialogService.error(this.translate.get(this.UPDATING_OPINION), this.translate.get(this.UPDATING_OPINION_ERROR)),
       () => this.getUserOpinion()
     )
   }
@@ -84,8 +99,8 @@ export class UserBookOpinionComponent implements OnInit {
     const rating: string = ratingElement.value.value
     this.userOpinionService.createUserOpinion(this.loginService.getSessionInfo().user, this.book_id, +rating, review)
     .subscribe(
-      value => this.dialogService.info("Creating Opinion", "Creation OK"),
-      error => this.dialogService.error("Creating Opinion", "Creation Error"),
+      value => this.dialogService.info(this.translate.get(this.CREATING_OPINION), this.translate.get(this.CREATING_OPINION_OK)),
+      error => this.dialogService.error(this.translate.get(this.CREATING_OPINION), this.translate.get(this.CREATING_OPINION_ERROR)),
       () => this.getUserOpinion()
     )
   }
@@ -93,8 +108,8 @@ export class UserBookOpinionComponent implements OnInit {
   deleteOpinion() {
     this.userOpinionService.deleteUserOpinion(this.opinion.opinion_id)
     .subscribe(
-      value => this.dialogService.info("Deleting Opinion", "Removal OK"),
-      error => this.dialogService.error("Deleting Opinion", "Removal Error"),
+      value => this.dialogService.info(this.translate.get(this.DELETING_OPINION), this.translate.get(this.DELETING_OPINION_OK)),
+      error => this.dialogService.error(this.translate.get(this.DELETING_OPINION), this.translate.get(this.DELETING_OPINION_ERROR)),
       () => this.getUserOpinion()
     )
   }
