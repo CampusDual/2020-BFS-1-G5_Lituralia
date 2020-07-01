@@ -20,6 +20,7 @@
   "ERROR_USER_PASS_INCORRECT": "Invalid username or password.",
 
   "BOOKS": "Books",
+  "BOOK_ID": "Id Libro",
   "COVER": "Cover",
   "TITLE": "Title",
   "PUBLISHER_ID": "Publisher ID",
@@ -32,6 +33,7 @@
   "BOOK_INFORMATION": "Book Information",
   "SYNOPSIS": "Synopsis",
 
+  "AUTHOR_INFORMATION" : "Author information",
   "AUTHORS": "Authors",
   "AUTHOR_NAME": "Author Name",
   "AUTHOR_BIRTH": "Author Birth Date",
@@ -40,6 +42,7 @@
   "AUTHOR_BIO": "Biography",
   "OPINIONS": "Reviews",
 
+  "GENRE_INFORMATION" : "Genre information",
   "GENRES": "Genres",
   "GENRE_ID": "Genre iD",
   "GENRE_NAME": "Genre",
@@ -57,7 +60,7 @@
   "REVIEW_THIS_BOOK": "Review this book",
   "UPDATE_REVIEW": "Update Review",
   "CREATE_REVIEW": "Create Review",
-  "BOOK_RATING": "Book Rating",
+  "BOOK_RATING": "Average Rating",
   "BOOK_REVIEW": "Book Review",
   "UPDATING_OPINION": "Updating Opinion",
   "UPDATING_OPINION_OK": "Update OK",
@@ -70,5 +73,7 @@
   "DELETING_OPINION_ERROR": "Delete Error",
   "OPINION_CREATED_DATE": "Created:",
   "OPINION_UPDATED_DATE": "Updated:",
-  "DELETE_REVIEW": "Delete"
+  "DELETE_REVIEW": "Delete",
+  "USER_REVIEW": "User Reviews",
+  "ALL_REVIEWS": "All Review"
 }
