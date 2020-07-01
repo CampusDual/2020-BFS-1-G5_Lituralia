@@ -16,4 +16,7 @@ export class BooksHomeComponent implements OnInit {
     getImageSrc(cover: any) {
         return 'data:image/png;base64,' + cover;
     }
+    onClick(event:any) {
+
+    }
 }

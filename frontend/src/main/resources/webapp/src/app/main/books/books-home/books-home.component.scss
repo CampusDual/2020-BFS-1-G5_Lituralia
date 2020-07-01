@@ -5,9 +5,18 @@ o-table-column {
 .grid-container {
   display: grid;
   grid-row-gap: 50px;
-  margin: 20px;
+  margin: 50px;
+}
+.content {
+  padding: 16px;
 }
 
+.content > mat-card {
+  width: 550px;
+}
+.card{
+
+}
 .container-item{
   border-color: #7f7f7f;
   border-width: medium;
@@ -16,15 +25,15 @@ o-table-column {
 }
 
 .cover {
-  width: 60%;
-  height: 60%;
+  width: 250px;
+  height: 250px;
   margin:2px;
   //quitar scroll
   overflow:hidden;
 }
 
 .title{
-font-size: x-large;
+font-size:large;
   font-weight: bold;
 }
 .authors{

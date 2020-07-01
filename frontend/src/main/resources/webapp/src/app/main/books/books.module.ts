@@ -6,13 +6,15 @@ import {OntimizeWebModule} from "ontimize-web-ngx";
 import {BooksHomeComponent} from "./books-home/books-home.component";
 import {BooksDetailComponent} from './books-detail/books-detail.component';
 import {SharedModule} from "../../shared/shared.module";
+import {FlexLayoutModule} from "@angular/flex-layout";
 
 @NgModule({
     imports: [
         CommonModule,
         OntimizeWebModule,
         BooksRoutingModule,
-        SharedModule
+        SharedModule,
+        FlexLayoutModule
     ],
     declarations: [
         BooksHomeComponent,
