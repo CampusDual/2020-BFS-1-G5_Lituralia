@@ -44,5 +44,8 @@
   "GENRE_DESC": "Description",
   "PUBLISHER_DESCRIPTION": "Description",
   "PUBLISHER_LOGO": "Logo",
-  "PUBLISHERS": "Publishers"
+  "PUBLISHERS": "Publishers",
+  "PUBLISHER_INFORMATION" : "Publisher information",
+  "PUBLISHER_DESC" : "Publisher description",
+  "PUBLISHERS_BOOKS": "Publishers books"
 }

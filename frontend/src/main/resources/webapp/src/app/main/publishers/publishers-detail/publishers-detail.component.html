@@ -1,0 +1,50 @@
+<div fxFlex>
+  <o-form
+          service="publishers"
+          entity="publisher"
+          keys="publisher_id"
+          header-actions="I;R;U;D"
+          show-header-navigation="yes">
+    <o-integer-input attr="publisher_id" sql-type="INTEGER" label="Id" enabled="no"
+                     class="display-none"></o-integer-input>
+    <o-row fxFlex>
+      <o-column fxFlex="20" class="col-padding">
+        <o-image id="publisher_logo" attr="publisher_logo" label="PUBLISHER_LOGO"
+                 empty-image="assets/images/no-image.png" sql-type="OTHER"
+                 auto-fit="no"></o-image>
+      </o-column>
+      <o-column title="{{ 'PUBLISHER_INFORMATION' | oTranslate }}" fxFlex="80">
+        <o-row>
+          <o-text-input class="input-padding" attr="publisher_name" label="PUBLISHER_NAME" fxFlex
+                        required="no"></o-text-input>
+        </o-row>
+        <o-row>
+          <o-textarea-input attr="publisher_desc" label="PUBLISHER_DESC" fxFlex></o-textarea-input>
+        </o-row>
+      </o-column>
+    </o-row>
+    <o-row fxFlex>
+      <o-column fxFlex title="{{ 'PUBLISHERS_BOOKS' | oTranslate }}">
+        <o-table attr="booksTable" service="books" entity="book"
+                 parent-keys="publisher_id" keys="book_id"
+                 columns="isbn;cover;title;publish_date"
+                 visible-columns="publisher_id;book_id;isbn;cover;title;publish_date"
+                 query-rows="10"
+                 insert-button="no"
+                 detail-mode="none">
+          <o-table-column attr="isbn" title="ISBN"></o-table-column>
+          <o-table-column attr="cover" title="COVER" width="64px" orderable="no" searchable="no"
+                          image-type="base64"
+                          type="image">
+            <o-table-cell-renderer-image image-type="base64" empty-image="assets/images/no-image.png"
+                                         avatar="yes"></o-table-cell-renderer-image>
+
+          </o-table-column>
+          <o-table-column attr="title" title="TITLE"></o-table-column>
+          <o-table-column attr="publish_date" title="PUBLISH_DATE" type="date" format="MM/DD/YYYY"></o-table-column>
+        </o-table>
+      </o-column>
+    </o-row>
+
+  </o-form>
+</div>
