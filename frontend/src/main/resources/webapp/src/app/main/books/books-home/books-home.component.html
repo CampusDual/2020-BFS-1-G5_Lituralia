@@ -39,9 +39,10 @@
                     <!--                      *ngFor="let row of grid.dataArray" [o-list-item]="row">-->
                     <mat-card-header>
                         <div class="cover">
-                            <o-image attr="cover" [data]="dataBase64"  auto-fit="true" enabled="true" read-only="false" show-controls="false"
-                                     full-screen-button="false">{{getImageSrc(row.cover)}}</o-image>
-<!--                            <img [src]="getImageSrc(row.cover)" Flix/>-->
+<!--                            <o-image class="cover" attr="cover" id="cover" [data]="dataBase64" auto-fit="true" enabled="true"-->
+<!--                                     read-only="false" show-controls="false"-->
+<!--                                     full-screen-button="false">{{getImageSrc(row.cover)}}</o-image>-->
+                            <img width="150px" height="200px"  [src]="getImageSrc(row.cover)"/>
                         </div>
                         <div class="dates">
                             <mat-card-title class="title" (click)="onClick($event)">{{row.title}}</mat-card-title>
@@ -58,14 +59,14 @@
                             </mat-card-actions>
                         </div>
                     </mat-card-header>
-                    <div class="buttonsGroup">
-                        <mat-card-content>
-                            <o-button-toggle-group attr="toggleGroup" layout="row" multiple="no" value="">
-                                <o-button-toggle attr="toggle1" value="list" icon="bookmark_border"></o-button-toggle>
-                                <o-button-toggle attr="toggle2" value="review" icon="comment"></o-button-toggle>
-                            </o-button-toggle-group>
-                        </mat-card-content>
-                    </div>
+<!--                    <div class="buttonsGroup">-->
+<!--                        <mat-card-content>-->
+<!--                            <o-button-toggle-group attr="toggleGroup" layout="row" multiple="no" value="">-->
+<!--                                <o-button-toggle attr="toggle1" value="list" icon="bookmark_border"></o-button-toggle>-->
+<!--                                <o-button-toggle attr="toggle2" value="review" icon="comment"></o-button-toggle>-->
+<!--                            </o-button-toggle-group>-->
+<!--                        </mat-card-content>-->
+<!--                    </div>-->
                 </mat-card>
             </div>
             <!--    </o-list>-->
