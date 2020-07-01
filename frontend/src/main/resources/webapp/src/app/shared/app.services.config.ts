@@ -10,5 +10,8 @@ export const SERVICE_CONFIG: Object = {
   },
   'genres': {
     'path': '/genres'
+  },
+  'opinions': {
+    'path': '/opinions'
   }
 };

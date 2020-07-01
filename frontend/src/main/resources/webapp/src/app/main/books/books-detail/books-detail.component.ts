@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {LoginService} from "ontimize-web-ngx";
 
 @Component({
   selector: 'app-books-detail',
@@ -7,7 +8,7 @@ import {Component, OnInit} from '@angular/core';
 })
 export class BooksDetailComponent implements OnInit {
 
-  constructor() {
+  constructor(private loginService: LoginService) {
   }
 
   ngOnInit() {
@@ -16,4 +17,9 @@ export class BooksDetailComponent implements OnInit {
   void() {
 
   }
+
+  public isLoggedIn() {
+    return this.loginService.isLoggedIn()
+  }
+
 }
