@@ -103,28 +103,22 @@ export class UserBookOpinionComponent implements OnInit {
   getRatingValues() {
     const array: Array<Object> = [];
     array.push({
-      'key': 0,
-      'value': '0'
+      'rating': 0
     });
     array.push({
-      'key': 1,
-      'value': '1'
+      'rating': 1
     });
     array.push({
-      'key': 2,
-      'value': '2'
+      'rating': 2
     });
     array.push({
-      'key': 3,
-      'value': '3'
+      'rating': 3
     });
     array.push({
-      'key': 4,
-      'value': '4'
+      'rating': 4
     });
     array.push({
-      'key': 5,
-      'value': '5'
+      'rating': 5
     });
     return array;
   }

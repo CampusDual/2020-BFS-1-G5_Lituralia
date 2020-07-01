@@ -1,6 +1,5 @@
 import {Injectable, Injector} from '@angular/core';
 import {LoginService, OntimizeEEService} from "ontimize-web-ngx";
-import {tap} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -29,7 +28,7 @@ export class UserOpinionService extends OntimizeEEService {
       "user_"
     ];
     return this.query(filter, columns, 'opinion').pipe(
-      tap(x => console.log(x))
+      // tap(x => console.log(x))
     )
   }
 
@@ -47,7 +46,7 @@ export class UserOpinionService extends OntimizeEEService {
       "user_":12
     };
     return this.insert(data, 'opinion', sqlTypes).pipe(
-      tap(x => console.log(x))
+      // tap(x => console.log(x))
     )
   }
 
@@ -66,7 +65,7 @@ export class UserOpinionService extends OntimizeEEService {
       "opinion_update": 91
     };
     return this.update(filter, data, 'opinion', sqlTypes).pipe(
-      tap(x => console.log(x))
+      // tap(x => console.log(x))
     )
   }
 
@@ -75,7 +74,7 @@ export class UserOpinionService extends OntimizeEEService {
       'opinion_id': opinion_id
     };
     return this.delete(filter, 'opinion').pipe(
-      tap(x => console.log(x))
+      // tap(x => console.log(x))
     )
   }
 }

@@ -3,10 +3,18 @@
     <mat-card-title>{{editMode ? 'Your Review:' : ('Review this book:' | oTranslate)}}</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <o-form editable-detail="no" show-header="no" class="">
-      <o-list-picker #activeRating label="Rating" [static-data]="getRatingValues()" [data]="activeEditRating"
-                     required="true" read-only="false" filter="no" text-input-enabled="no" value-column="key"
-                     columns="key;value" visible-columns="value"></o-list-picker>
+    <o-form editable-detail="no" show-header="no">
+      <o-combo #activeRating
+               label="Rating"
+               attr="Rating"
+               [static-data]="getRatingValues()"
+               [data]="activeEditRating"
+               required="true"
+               read-only="false"
+               value-column="rating"
+               columns="rating"
+               visible-columns="rating"
+               null-selection="no"></o-combo>
       <o-textarea-input #activeReview attr="review" label="REVIEW" fxFlex [data]="activeEditReview" required="no"
                         read-only="no"></o-textarea-input>
     </o-form>
