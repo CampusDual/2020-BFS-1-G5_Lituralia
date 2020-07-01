@@ -5,7 +5,8 @@ o-table-column {
 .grid-container {
   display: grid;
   grid-row-gap: 50px;
-  margin: 50px;
+  margin-block: 50px 50px;
+
 }
 .content {
   padding: 16px;
@@ -14,20 +15,13 @@ o-table-column {
 .content > mat-card {
   width: 550px;
 }
-.card{
 
+.dates{
+ margin-left: 20px;
 }
-.container-item{
-  border-color: #7f7f7f;
-  border-width: medium;
-  border-style: solid;
-
-}
-
 .cover {
   width: 250px;
   height: 250px;
-  margin:2px;
   //quitar scroll
   overflow:hidden;
 }
@@ -40,4 +34,12 @@ font-size:large;
   font-size: medium;
   font-weight: bolder;
   color:#2d2d2d;
+}
+.search{
+  margin-left: 20px;
+
+}
+.buttonsGroup{
+  //float: right;
+  //padding: 10px;
 }

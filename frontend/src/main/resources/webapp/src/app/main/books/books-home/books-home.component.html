@@ -28,43 +28,45 @@
 <!--</div>-->
 
 <div fxFlex>
-
-    <!--    <o-list fxFlex #list attr="bookList" service="books" entity="vBookDetails" orderable="yes"-->
-    <!--            columns="book_id;isbn;cover;title;synopsis;author_names;genre_names;avg_rating;ratings"-->
-    <!--            quick-filter-columns="title">-->
-
     <o-grid class="grid-container" #grid attr="booksGrid" service="books" entity="vBookDetails"
             columns="book_id;isbn;cover;title;synopsis;author_names;genre_names;avg_rating;ratings"
             orderable="yes" quick-filter="no" grid-item-height="300" sortable-columns="title"
             keys="book_id" [cols]="2" pageable="no" query-rows="16">
-        <o-grid-item  *ngFor="let row of grid.dataArray" class="container-item">
-        <div class="content" layout="row" layout-wrap>
+        <o-grid-item *ngFor="let row of grid.dataArray" class="container-item">
+            <div class="content" layout="row" layout-wrap>
 
-            <mat-card class="card">
-<!--                      *ngFor="let row of grid.dataArray" [o-list-item]="row">-->
-                <mat-card-header>
-                    <div class="cover">
-                        <img [src]="getImageSrc(row.cover)" Flix/>
-                    </div>
-                    <div class="">
-                        <mat-card-title class="title" (click)="onClick($event)">{{row.title}}</mat-card-title>
-                        <mat-card-subtitle class="authors">{{row.author_names}}</mat-card-subtitle>
-                        <div class="sypnosis">{{row.synopsis}}</div>
-                        <div class="rating" attr="ratings" title="RATINGS" type="integer" width="50px"><strong>
-                            RATING: </strong>{{row.ratings}}</div>
-                        <!--                    <div class="">{{row.}}</div>-->
-                    </div>
-                    <div class="search">
-                        <mat-card-actions>
-                            <o-button attr="icon" type="ICON" icon="search" (click)="onClick($event)"></o-button>
-                        </mat-card-actions>
-                    </div>
-                </mat-card-header>
+                <mat-card class="card">
+                    <!--                      *ngFor="let row of grid.dataArray" [o-list-item]="row">-->
+                    <mat-card-header>
+                        <div class="cover">
+                            <img mar-card-image [src]="getImageSrc(row.cover)" Flix/>
+                        </div>
+                        <div class="dates">
+                            <mat-card-title class="title" (click)="onClick($event)">{{row.title}}</mat-card-title>
+                            <mat-card-subtitle class="authors">{{row.author_names}}</mat-card-subtitle>
+                            <div class="sypnosis">{{row.synopsis}}</div>
+                            <div >
+                                <img width="120px" src="{{row.avg_rating | starRating}}">({{(row.ratings?row.ratings:'-')}})
+                            </div>
 
-            </mat-card>
-        </div>
-        <!--    </o-list>-->
+                        </div>
+                        <div class="search">
+                            <mat-card-actions>
+                                <o-button attr="icon" type="ICON" icon="more" (click)="onClick($event)"></o-button>
+                            </mat-card-actions>
+                        </div>
+                    </mat-card-header>
+                    <div class="buttonsGroup">
+                        <mat-card-content>
+                            <o-button-toggle-group attr="toggleGroup" layout="row" multiple="no" value="">
+                                <o-button-toggle attr="toggle1" value="list" icon="bookmark_border"></o-button-toggle>
+                                <o-button-toggle attr="toggle2" value="review" icon="comment"></o-button-toggle>
+                            </o-button-toggle-group>
+                        </mat-card-content>
+                    </div>
+                </mat-card>
+            </div>
+            <!--    </o-list>-->
         </o-grid-item>
     </o-grid>
-
 </div>
