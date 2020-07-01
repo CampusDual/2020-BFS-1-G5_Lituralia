@@ -39,7 +39,9 @@
                     <!--                      *ngFor="let row of grid.dataArray" [o-list-item]="row">-->
                     <mat-card-header>
                         <div class="cover">
-                            <img mar-card-image [src]="getImageSrc(row.cover)" Flix/>
+                            <o-image attr="cover" [data]="dataBase64"  auto-fit="true" enabled="true" read-only="false" show-controls="false"
+                                     full-screen-button="false">{{getImageSrc(row.cover)}}</o-image>
+<!--                            <img [src]="getImageSrc(row.cover)" Flix/>-->
                         </div>
                         <div class="dates">
                             <mat-card-title class="title" (click)="onClick($event)">{{row.title}}</mat-card-title>

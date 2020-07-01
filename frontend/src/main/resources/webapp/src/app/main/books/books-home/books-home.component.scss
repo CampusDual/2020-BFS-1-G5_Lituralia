@@ -5,7 +5,7 @@ o-table-column {
 .grid-container {
   display: grid;
   grid-row-gap: 50px;
-  margin-block: 50px 50px;
+  //margin-block: 50px 50px;
 
 }
 .content {
@@ -14,14 +14,17 @@ o-table-column {
 
 .content > mat-card {
   width: 550px;
+  border-style: round(15);
 }
 
 .dates{
+  margin-top: 50px;
  margin-left: 20px;
 }
 .cover {
   width: 250px;
   height: 250px;
+  padding: 10px;
   //quitar scroll
   overflow:hidden;
 }
