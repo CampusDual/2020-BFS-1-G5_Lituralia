@@ -22,4 +22,7 @@ export class BooksDetailComponent implements OnInit {
     return this.loginService.isLoggedIn()
   }
 
+  getImageSrc(base64: any) {
+    return 'data:image/png;base64,'+base64;
+  }
 }

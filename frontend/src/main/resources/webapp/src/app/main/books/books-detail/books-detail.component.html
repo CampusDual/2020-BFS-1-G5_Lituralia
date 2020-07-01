@@ -4,7 +4,7 @@
     <o-row fxFlex>
       <o-column fxFlex="20" class="col-padding">
         <o-row>
-          <o-image id="book_cover" attr="cover" label="COVER" empty-image="assets/images/no-image.png" sql-type="OTHER"
+          <o-image id="book_cover" attr="cover" label="" empty-image="assets/images/no-image.png" sql-type="OTHER"
                    auto-fit="no"></o-image>
         </o-row>
           <o-row>
@@ -41,11 +41,15 @@
         <o-row>
           <o-column fxFlex="45" title="{{ 'AUTHOR_NAMES' | oTranslate }}">
             <o-list #authorList attr="authors" title="AUTHORS" service="books" entity="vBookAuthor" keys="author_id"
-                    parent-keys="book_id" columns="author_name" controls="no">
+                    parent-keys="book_id" columns="author_name,author_portrait" controls="no">
               <mat-card *ngFor="let author of authorList.dataArray" [o-list-item]="author" class="user-opinion" [routerLink]="['/main', 'authors', author.author_id]">
-                <mat-card-content>{{author.author_name}}</mat-card-content>
+                <mat-card-header>
+                  <mat-card-title>{{author.author_name}}</mat-card-title>
+                  <img mat-card-avatar src="{{getImageSrc(author.author_portrait)}}">
+                </mat-card-header>
               </mat-card>
             </o-list>
+
           </o-column>
           <o-column fxFlex="45" title="{{ 'GENRE_NAMES' | oTranslate }}">
             <o-list #genreList attr="genres" title="GENRES" service="books" entity="vBookGenre" keys="genre_id"
@@ -96,7 +100,7 @@
     </o-row>
     <o-row>
       <o-column fxFlex="80"  title="{{ 'ALL_REVIEWS' | oTranslate }}">
-        <o-list #list
+        <o-list #opinions
                 attr="opinionsList"
                 title="{{ 'OPINIONS' | oTranslate }}"
                 service="books"
@@ -106,14 +110,14 @@
                 columns="opinion_id;rating;review;opinion_create;opinion_update;book_id;user_"
                 controls="no"
                 detail-mode="none">
-          <mat-card class="user-opinion" *ngFor="let rowData of list.dataArray" [o-list-item]="rowData" class="user-opinion">
-            <img width="120px" src="{{rowData.rating | starRating}}">
+          <mat-card class="user-opinion" *ngFor="let opinion of opinions.dataArray" [o-list-item]="opinion" class="user-opinion">
+            <img width="120px" src="{{opinion.rating | starRating}}">
             <mat-card-header>
-              <mat-card-title>{{rowData.user_}}</mat-card-title>
-              <mat-card-subtitle>{{rowData.opinion_create | date}}</mat-card-subtitle>
+              <mat-card-title>{{opinion.user_}}</mat-card-title>
             </mat-card-header>
+            <mat-card-subtitle>{{opinion.opinion_create | date}}</mat-card-subtitle>
             <mat-card-content>
-              <p>{{rowData.review}}</p>
+              <p>{{opinion.review}}</p>
             </mat-card-content>
           </mat-card>
         </o-list>
