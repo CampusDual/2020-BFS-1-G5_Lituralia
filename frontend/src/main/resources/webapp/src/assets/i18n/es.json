@@ -20,6 +20,7 @@
   "ERROR_USER_PASS_INCORRECT": "Usuario o contraseña incorrecta.",
 
   "BOOKS": "Libros",
+  "BOOK_ID": "Id Libro",
   "COVER": "Portada",
   "TITLE": "Título",
   "PUBLISHER_ID": "ID Editorial",
@@ -32,6 +33,7 @@
   "BOOK_INFORMATION": "Detalles del Libro",
   "SYNOPSIS": "Sinopsis",
 
+  "AUTHOR_INFORMATION" : "Detales del Autor",
   "AUTHORS": "Autores",
   "AUTHOR_NAME": "Autor",
   "AUTHOR_BIRTH": "Fecha de Nacimiento",
@@ -39,6 +41,7 @@
   "AUTHOR_PORTRAIT": "Portrait",
   "AUTHOR_BIO": "Biografía",
 
+  "GENRE_INFORMATION" : "Detalles del Genero",
   "GENRES": "Generos",
   "GENRE_ID": "Genero ID",
   "GENRE_NAME": "Genero",
@@ -57,7 +60,7 @@
   "REVIEW_THIS_BOOK": "Valora este libro",
   "UPDATE_REVIEW": "Actualizar",
   "CREATE_REVIEW": "Valorar",
-  "BOOK_RATING": "Valoración",
+  "BOOK_RATING": "Valoración media",
   "BOOK_REVIEW": "Reseña",
   "UPDATING_OPINION": "Actualizando Opinion",
   "UPDATING_OPINION_OK": "Actualización OK",
@@ -70,5 +73,7 @@
   "CREATING_OPINION_ERROR": "Creación Error",
   "OPINION_CREATED_DATE": "Creada: ",
   "OPINION_UPDATED_DATE": "Ultima modificación: ",
-  "DELETE_REVIEW": "Eliminar"
+  "DELETE_REVIEW": "Delete",
+  "USER_REVIEW": "Tu valoración",
+  "ALL_REVIEWS": "Todas las valoraciones"
 }
