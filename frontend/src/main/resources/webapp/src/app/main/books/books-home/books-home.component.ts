@@ -1,15 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'app-books-home',
-  templateUrl: './books-home.component.html',
-  styleUrls: ['./books-home.component.scss']
+    selector: 'app-books-home',
+    templateUrl: './books-home.component.html',
+    styleUrls: ['./books-home.component.scss']
 })
 export class BooksHomeComponent implements OnInit {
 
-  constructor() { }
+    constructor() {
+    }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
 
+    getImageSrc(cover: any) {
+        return 'data:image/png;base64,' + cover;
+    }
+    onClick(event:any) {
+
+    }
 }
