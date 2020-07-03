@@ -1,25 +1,45 @@
-<div fxFlex class="row">
-    <o-list #list attr="genres" title="GENRES" service="genres" entity="genre"
-            keys="genre_id" columns="genre_id;genre_name">
-        <o-list-item *ngFor="let row of list.dataArray">
-            <o-list-item-text #item title="{{ row.genre_name }}">
-                <o-row>
-                    <o-table-column fxFlex title="{{ 'BOOKS' | oTranslate }}">
-                        <o-table attr="booksTable" service="genres" entity="vGenreBook"
-                                 parent-keys="genre_id" keys="genre_id"
-                                 columns="genre_id;book_id;isbn;cover;title;publish_date"
-                                 visible-columns="genre_id;book_id;isbn;cover;title;publish_date"
-                                 query-rows="5"
-                                 insert-button="no"
-                                 detail-mode="none">
-                            <o-table-column attr="genre_id" title="IDGenre" type="integer"></o-table-column>
-                            <o-table-column attr="book_id" title="ID" type="integer"></o-table-column>
-                            <o-table-column attr="isbn" title="ISBN"></o-table-column>
-                        </o-table>
-                    </o-table-column>
-                </o-row>
-            </o-list-item-text>
-        </o-list-item>
-    </o-list>
+<!--<div fxFlex class="row">-->
+<!--    <o-list #list attr="genres" title="GENRES" service="genres" entity="genre"-->
+<!--            keys="genre_id" columns="genre_id;genre_name">-->
+<!--        <o-list-item *ngFor="let row of list.dataArray">-->
+<!--            <o-list-item-text #item title="{{ row.genre_name }}">-->
+<!--                <o-row>-->
+<!--                    <o-table-column fxFlex title="{{ 'BOOKS' | oTranslate }}">-->
+<!--                        <o-table attr="booksTable" service="genres" entity="vGenreBook"-->
+<!--                                 parent-keys="genre_id" keys="genre_id"-->
+<!--                                 columns="genre_id;book_id;isbn;cover;title;publish_date"-->
+<!--                                 visible-columns="genre_id;book_id;isbn;cover;title;publish_date"-->
+<!--                                 query-rows="5"-->
+<!--                                 insert-button="no"-->
+<!--                                 detail-mode="none">-->
+<!--                            <o-table-column attr="genre_id" title="IDGenre" type="integer"></o-table-column>-->
+<!--                            <o-table-column attr="book_id" title="ID" type="integer"></o-table-column>-->
+<!--                            <o-table-column attr="isbn" title="ISBN"></o-table-column>-->
+<!--                        </o-table>-->
+<!--                    </o-table-column>-->
+<!--                </o-row>-->
+<!--            </o-list-item-text>-->
+<!--        </o-list-item>-->
+<!--    </o-list>-->
 
-</div>
+<!--</div>-->
+
+<button mat-button (click)="getGenreBooks(1)">getGenreBooks</button>
+
+
+<mat-card *ngFor="let genre of genres | async">
+  {{genre.genre_name}}
+  <ul>
+    <li *ngFor="let book of genre.books | async">
+      {{book.title}}
+    </li>
+  </ul>
+
+</mat-card>
+
+
+<!--  <mat-card *ngFor="let book of books | async">-->
+<!--    {{book.title}}-->
+<!--  </mat-card>-->
+
+

@@ -30,9 +30,8 @@ export class UserBookOpinionComponent implements OnInit {
               private userOpinionService: UserOpinionService,
               private route: ActivatedRoute,
               private renderer: Renderer2,
-              private dialogService: DialogService
-              ,private translate: OTranslateService
-                                                               ) {
+              private dialogService: DialogService,
+              private translate: OTranslateService) {
 
   }
 
@@ -66,15 +65,15 @@ export class UserBookOpinionComponent implements OnInit {
   hasOpinion(): boolean {
     return this.opinion !== null && typeof this.opinion !== 'undefined'
   }
-  
+
   private readonly UPDATING_OPINION = "UPDATING_OPINION";
   private readonly UPDATING_OPINION_OK = "UPDATING_OPINION_OK";
   private readonly UPDATING_OPINION_ERROR = "UPDATING_OPINION_ERROR";
-  
+
   private readonly DELETING_OPINION = "DELETING_OPINION";
   private readonly DELETING_OPINION_OK = "DELETING_OPINION_OK";
   private readonly DELETING_OPINION_ERROR = "DELETING_OPINION_ERROR";
-  
+
   private readonly CREATING_OPINION = "CREATING_OPINION";
   private readonly CREATING_OPINION_OK = "CREATING_OPINION_OK";
   private readonly CREATING_OPINION_ERROR = "CREATING_OPINION_ERROR";
