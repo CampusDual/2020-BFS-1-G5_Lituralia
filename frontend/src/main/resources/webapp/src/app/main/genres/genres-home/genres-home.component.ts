@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {OTableButtonComponent} from "ontimize-web-ngx";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-genre-home',
@@ -7,7 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GenresHomeComponent implements OnInit {
 
-  constructor() { }
+  // @ViewChild('genre_top')
+  // protected genre_top: OTableButtonComponent;
+  //
+  // ngAfterViewInit() {
+  //   this.genre_top.onClick.subscribe(event => {
+  //     this.router.navigate(['/main','/genres','/top'])
+  //   });
+  // }
+
+
+  constructor(private router: Router) {
+
+  }
 
   ngOnInit() {
   }
