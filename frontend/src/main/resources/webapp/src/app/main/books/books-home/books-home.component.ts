@@ -7,16 +7,15 @@ import {Component, OnInit} from '@angular/core';
 })
 export class BooksHomeComponent implements OnInit {
 
+    tableMode:boolean = false;
+
     constructor() {
     }
 
     ngOnInit() {
     }
 
-    getImageSrc(cover: any) {
-        return 'data:image/png;base64,' + cover;
-    }
-    onClick(event:any) {
-
+    switchMode() {
+        this.tableMode = !this.tableMode;
     }
 }

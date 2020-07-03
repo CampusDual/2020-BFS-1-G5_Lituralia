@@ -75,5 +75,10 @@
   "OPINION_UPDATED_DATE": "Ultima modificación: ",
   "DELETE_REVIEW": "Delete",
   "USER_REVIEW": "Tu valoración",
-  "ALL_REVIEWS": "Todas las valoraciones"
+  "ALL_REVIEWS": "Todas las valoraciones",
+
+  "AVG_RATING_SHORT": "Media",
+  "RATINGS_SHORT": "Total",
+  "TABLE_VIEW": "Ver Tabla",
+  "GRID_VIEW": "Ver Grid"
 }

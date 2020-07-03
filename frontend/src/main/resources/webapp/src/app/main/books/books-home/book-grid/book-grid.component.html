@@ -1,0 +1,23 @@
+<button mat-stroked-button label="TABLE_VIEW" icon="style" (click)="switchToTable()">
+  {{"TABLE_VIEW" |oTranslate}}
+</button>
+<o-grid #books
+        class="grid-container"
+        attr="booksGrid"
+        service="books"
+        entity="vBookDetails"
+        columns="book_id;isbn;cover;title;synopsis;author_names;genre_names;avg_rating;ratings"
+        orderable="yes"
+        quick-filter="yes"
+        grid-item-height="350"
+        gutter-size="8px"
+        sort-column="title"
+        sortable-columns="title;avg_rating:desc;ratings:desc"
+        keys="book_id"
+        pageable="no"
+        query-rows="16"
+        detail-mode="no">
+  <o-grid-item *ngFor="let book of books.dataArray" class="">
+    <app-book-card-medium [book]="book"></app-book-card-medium>
+  </o-grid-item>
+</o-grid>

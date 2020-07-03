@@ -5,3 +5,15 @@
 .col-padding{
   padding-right: 15px;
 }
+
+
+.cursor-pointer{cursor: pointer;}
+.cursor-croshair{cursor: crosshair;}
+.cursor-eresize{cursor: e-resize;}
+.cursor-move{cursor: move;}
+
+.card-horizontal {
+  display: flex;
+  flex: 1 1 auto;
+}
+

@@ -1,5 +1,5 @@
 import {Injectable, Injector} from '@angular/core';
-import {LoginService, OntimizeEEService} from "ontimize-web-ngx";
+import {OntimizeEEService} from "ontimize-web-ngx";
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +7,7 @@ import {LoginService, OntimizeEEService} from "ontimize-web-ngx";
 export class UserOpinionService extends OntimizeEEService {
 
 
-  constructor(protected injector: Injector, private loginService: LoginService) {
+  constructor(protected injector: Injector) {
     super(injector);
     const conf = this.getDefaultServiceConfiguration();
     conf['path'] = '/opinions';

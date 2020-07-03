@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {NgModule, ViewChild} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 
 import {MainComponent} from './main.component';
@@ -7,6 +7,7 @@ import {BooksModule} from "./books/books.module";
 import {AuthorsModule} from "./authors/authors.module";
 import {GenresModule} from "./genres/genres.module";
 import {PublishersModule} from "./publishers/publishers.module";
+
 
 export function loadHomeModule() {
     return HomeModule;
