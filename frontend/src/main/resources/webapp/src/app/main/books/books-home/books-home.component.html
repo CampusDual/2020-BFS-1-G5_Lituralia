@@ -1,14 +1,24 @@
-<!--<div fxFlex>-->
-<!--
+<div fxFlex>
 
 
 
- <o-table fxFlex attr="booksTable" service="books" entity="vBookDetails" keys="book_id"-->
+<!-- <o-table fxFlex -->
+<!--           attr="booksTable" -->
+<!--           service="books" -->
+<!--           entity="vBookDetails" -->
+<!--           keys="book_id"-->
 <!--           columns="book_id;isbn;cover;title;publish_date;publisher_name;author_names;genre_names;avg_rating;ratings"-->
 <!--           visible-columns="book_id;isbn;cover;title;publish_date;publisher_name;author_names;genre_names;avg_rating;ratings"-->
-<!--           query-rows="20">-->
+<!--           query-rows="20"-->
+<!--          show-filter-option="no"-->
+<!--          show-configuration-option="no"-->
+<!--          refresh-button="no"-->
+<!--          export-button="no"-->
+<!--          delete-button="no"-->
+<!--          insert-button="no"-->
+<!--          fixed-header="yes">-->
 <!--    <o-table-column attr="book_id" title="ID" type="integer" width="50"></o-table-column>-->
-<!--    <o-table-column attr="isbn" title="ISBN"></o-table-column>-->
+<!--    <o-table-column attr="isbn" title="ISBN" width="128px"></o-table-column>-->
 <!--    <o-table-column attr="cover" title="COVER" width="64px" orderable="no" searchable="no">-->
 <!--      <o-table-cell-renderer-image image-type="base64" empty-image="assets/images/no-image.png" avatar="yes">-->
 <!--      </o-table-cell-renderer-image>-->
@@ -27,7 +37,6 @@
 <!--  </o-table>-->
 <!--</div>-->
 
-<div fxFlex>
     <o-grid class="grid-container" #grid attr="booksGrid" service="books" entity="vBookDetails"
             columns="book_id;isbn;cover;title;synopsis;author_names;genre_names;avg_rating;ratings"
             orderable="yes" quick-filter="no" grid-item-height="300" sortable-columns="title"

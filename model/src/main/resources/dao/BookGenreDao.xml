@@ -31,5 +31,23 @@
             ]]>
          </Sentence>
       </Query>
+      <Query id="BOOKDETAILSGENRE">
+         <AmbiguousColumns>
+            <AmbiguousColumn name="book_id" prefix="ba" databaseName="book_id" />
+            <AmbiguousColumn name="genre_id" prefix="ba" databaseName="genre_id" />
+         </AmbiguousColumns>
+         <Sentence>
+            <![CDATA[
+               SELECT
+                  #COLUMNS#
+               FROM
+                  ${mainschema}.book_genres AS ba
+                  INNER JOIN ${mainschema}.v_book_details AS b ON ba.book_id = b.book_id
+                  INNER JOIN ${mainschema}.genres AS a ON ba.genre_id = a.genre_id
+               #WHERE#
+               #ORDER#
+            ]]>
+         </Sentence>
+      </Query>
    </Queries>
 </JdbcEntitySetup>
