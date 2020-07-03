@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-md-12 col-lg-6 col-xl-4" *ngFor="let genre of genres | async">
+    <div class="m-2">
+      <div class="card">
+        <h5 class="card-header cursor-pointer" [routerLink]="['/main', 'genres', genre.genre_id]">{{genre.genre_name}}</h5>
+        <div class="card-body">
+          <ul class="list-group list-group-flush">
+                <li class="list-group-item" *ngFor="let book of genre.books | async ">
+                  <app-book-card-small [book]="book"></app-book-card-small>
+                </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

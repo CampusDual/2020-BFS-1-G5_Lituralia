@@ -1,6 +1,32 @@
+#### v 1.0.0-RC     	====	17/07/2020
+
+#### v 0.0.7-SNAPSHOT	====	10/07/2020
+
+#### v 0.0.6-SNAPSHOT	====	03/07/2020
+
+- Front: 
+    - User Create Edit Delete Book Rating-Review
+    - No login required for navigation
+    - Genres Detail
+    - Publisher Detail
+    - Book Grid
+    - Top-5 Books By Genre
+    - Book Home table-grid switch
+    - Book Card small and medium
+    - Genre Ontimze Service
+    - Order Book Grid by avg Rating
+    - Fix all site navigation
+    - Lituralia logo on login
+    - Remove al C_UD operations from tables and forms
+- Back:
+    - genre-book service
+    - replace credentials with environment variables
+- SQL:
+    - Default value for opinion creation date
+
 #### v 0.0.5-SNAPSHOT	====	26/06/2020
 
--Front:
+- Front:
     - Book detail
         - List of reviews
     - Author Home

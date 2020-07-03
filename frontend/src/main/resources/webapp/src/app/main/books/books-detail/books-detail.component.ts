@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {LoginService, OComboComponent} from "ontimize-web-ngx";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-books-detail',
@@ -7,7 +9,8 @@ import {Component, OnInit} from '@angular/core';
 })
 export class BooksDetailComponent implements OnInit {
 
-  constructor() {
+  constructor(private loginService: LoginService,
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -15,5 +18,24 @@ export class BooksDetailComponent implements OnInit {
 
   void() {
 
+  }
+
+  public isLoggedIn() {
+    return this.loginService.isLoggedIn()
+  }
+
+  getImageSrc(base64: any) {
+    return 'data:image/png;base64,'+base64;
+  }
+
+
+  onPublisherClick(combo: OComboComponent) {
+    if(combo){
+      if(combo.value){
+        if(combo.value.value){
+          this.router.navigate(['/main', 'publishers', combo.value.value])
+        }
+      }
+    }
   }
 }

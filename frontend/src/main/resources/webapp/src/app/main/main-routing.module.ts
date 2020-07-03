@@ -1,6 +1,5 @@
-import {NgModule} from '@angular/core';
+import {NgModule, ViewChild} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {AuthGuardService} from 'ontimize-web-ngx';
 
 import {MainComponent} from './main.component';
 import {HomeModule} from './home/home.module';
@@ -8,6 +7,7 @@ import {BooksModule} from "./books/books.module";
 import {AuthorsModule} from "./authors/authors.module";
 import {GenresModule} from "./genres/genres.module";
 import {PublishersModule} from "./publishers/publishers.module";
+
 
 export function loadHomeModule() {
     return HomeModule;
@@ -33,7 +33,7 @@ export const routes: Routes = [
     {
         path: '',
         component: MainComponent,
-        canActivate: [AuthGuardService],
+        // canActivate: [AuthGuardService],
         children: [
             {path: '', redirectTo: 'home', pathMatch: 'full'},
             {

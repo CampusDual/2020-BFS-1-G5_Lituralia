@@ -1,0 +1,62 @@
+<div fxFlex>
+  <o-form
+      service="publishers"
+      entity="publisher"
+      keys="publisher_id"
+      header-actions="R"
+      show-header="no">
+    <o-integer-input attr="publisher_id" sql-type="INTEGER" label="Id" enabled="no"
+                     class="display-none" read-only="yes"></o-integer-input>
+    <o-row fxFlex>
+      <o-column fxFlex="20" class="col-padding">
+        <o-image id="publisher_logo" attr="publisher_logo" label="PUBLISHER_LOGO"
+                 empty-image="assets/images/no-image.png" sql-type="OTHER"
+                 auto-fit="no" show-controls="no" read-only="no"></o-image>
+      </o-column>
+      <o-column title="{{ 'PUBLISHER_INFORMATION' | oTranslate }}" fxFlex="80">
+        <o-row>
+          <o-text-input class="input-padding" attr="publisher_name" label="PUBLISHER_NAME" fxFlex
+                        required="yes" read-only="yes"></o-text-input>
+        </o-row>
+        <o-row>
+          <o-textarea-input attr="publisher_desc" label="PUBLISHER_DESC" fxFlex read-only="yes"></o-textarea-input>
+        </o-row>
+      </o-column>
+    </o-row>
+    <o-row fxFlex>
+      <o-column fxFlex title="{{ 'PUBLISHERS_BOOKS' | oTranslate }}">
+        <o-table attr="booksTable" service="books" entity="vBookDetails"
+                 parent-keys="publisher_id" keys="book_id"
+                 columns="isbn;cover;title;publish_date;publisher_id;author_names;genre_names;avg_rating;ratings"
+                 visible-columns="isbn;cover;title;publish_date;author_names;genre_names;avg_rating;ratings"
+                 query-rows="10"
+                 detail-form-route="/main/books/"
+                 show-filter-option="no"
+                 show-configuration-option="no"
+                 refresh-button="no"
+                 export-button="no"
+                 delete-button="no"
+                 insert-button="no"
+                 fixed-header="yes">
+          <o-table-column attr="isbn" title="ISBN" width="128px"></o-table-column>
+          <o-table-column attr="cover" title="COVER" width="64px" orderable="no" searchable="no">
+            <o-table-cell-renderer-image image-type="base64" empty-image="assets/images/no-image.png"
+                                         avatar="yes"></o-table-cell-renderer-image>
+          </o-table-column>
+          <o-table-column attr="title" title="TITLE"></o-table-column>
+          <o-table-column attr="publish_date" title="PUBLISH_DATE" type="date" format="MM/DD/YYYY"></o-table-column>
+          <!--          <o-table-column attr="publisher_name" title="PUBLISHER_NAME"></o-table-column>-->
+          <o-table-column attr="author_names" title="AUTHOR_NAMES"></o-table-column>
+          <o-table-column attr="genre_names" title="GENRE_NAMES"></o-table-column>
+          <o-table-column attr="avg_rating" title="AVG_RATING" width="150px"
+                          orderable="no" searchable="no" type="image">
+            <o-table-column-renderer-star-rating image-type="base64" empty-image="assets/images/no-image.png"
+                                                 avatar="yes"></o-table-column-renderer-star-rating>
+          </o-table-column>
+          <o-table-column attr="ratings" title="RATINGS" type="integer" width="50px"></o-table-column>
+        </o-table>
+      </o-column>
+    </o-row>
+
+  </o-form>
+</div>

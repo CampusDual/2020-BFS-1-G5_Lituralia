@@ -1,8 +1,10 @@
 package com.campusdual.lituralia.model.core.service;
 
 import com.campusdual.lituralia.api.core.service.IPublisherService;
+import com.campusdual.lituralia.model.core.dao.BookGenreDao;
 import com.campusdual.lituralia.model.core.dao.PublisherDao;
 import com.ontimize.db.EntityResult;
+import com.ontimize.jee.common.exceptions.OntimizeJEERuntimeException;
 import com.ontimize.jee.server.dao.DefaultOntimizeDaoHelper;
 import java.util.List;
 import java.util.Map;
@@ -20,6 +22,8 @@ public class PublisherService implements IPublisherService {
 
     @Autowired
     private DefaultOntimizeDaoHelper daoHelper;
+
+
 
     @Override
     public EntityResult publisherQuery(Map<?, ?> keyMap, List<?> attrList) {
@@ -40,5 +44,7 @@ public class PublisherService implements IPublisherService {
     public EntityResult publisherDelete(Map<?, ?> keyMap) {
         return this.daoHelper.delete(this.publisherDao, keyMap);
     }
+
+
 
 }

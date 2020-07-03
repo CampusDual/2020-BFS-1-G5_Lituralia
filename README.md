@@ -4,7 +4,7 @@
 
 #### Proyecto en desarrollo
 
-## Comenzando 🚀
+## Comenzando 🔧
 
 En la rama [master](https://github.com/CampusDual/lituralia-2020/tree/master) conseguiras la ultima version "estable".
 
@@ -22,19 +22,39 @@ Java 8
 
 Descarga el ejecutable (jar) en: [Releases](https://github.com/CampusDual/lituralia-2020/releases)
 
-Ultima Version: [0.0.5-SNAPSHOT](https://github.com/CampusDual/lituralia-2020/releases/tag/0.0.5)
+Ultima Version: [0.0.6-SNAPSHOT](https://github.com/CampusDual/lituralia-2020/releases/tag/0.0.6)
 
-## Despliegue 📦
+## Ejecución 🚀
+   
+_Por seguridad primero debemos establecer variables de entorno:_
 
-_Ejecutamos el siguiente comando en la ruta del archivo: lituralia-0.0.5-SNAPSHOT.jar_
+```
+PG_USER= usuario de postgres 
+PG_PASS= contraseña postgres 
+```
+   
+_Ejecutamos el siguiente comando en la ruta del archivo: lituralia-0.0.6-SNAPSHOT.jar_
 
 Ejemplo:
 
 ```
-java -jar lituralia-0.0.5-SNAPSHOT.jar
+java -jar lituralia-0.0.6-SNAPSHOT.jar
 ```
 
-## Build 🔧
+Este ejecutable despliega el backend y el frontend en el puerto 33333
+
+```
+http://localhost:33333
+```
+
+Los datos de inicio de sesión son:
+
+```
+Usuario    : demo
+Contraseña : demouser
+```
+
+## Build 📦
 
 _Requisitos:_
 
@@ -42,6 +62,7 @@ _Requisitos:_
 Java 8
 Maven 3.6+
 ```
+
 _Descarga el proyecto_
 
 ```
@@ -60,29 +81,16 @@ _Instala dependencias con maven_
 mvn clean install
 ```
 
-El empaquetado del proyecto estara en la ruta: 
+El ejecutable estará en la ruta: 
 
 ```
-lituralia-2020/boot/target/lituralia-0.0.5-SNAPSHOT.jar
+lituralia-2020/boot/target/lituralia-0.0.6-SNAPSHOT.jar
 ```
 
-Este paquete despliega el backend y el frontend en el puerto 33333
-
-```
-http://localhost:33333
-```
-
-El build del frontend lo encontraremos en:
+El directorio static del frontend lo encontraremos en:
 
 ```
 lituralia-2020/boot/src/main/resources/static
-```
-
-Los datos de inicio de sesión son:
-
-```
-Usuario    : demo
-Contraseña : demouser
 ```
 
 ## Changelog 𝌡

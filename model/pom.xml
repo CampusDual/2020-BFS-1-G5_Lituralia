@@ -4,7 +4,7 @@
   <parent>
     <groupId>com.campusdual.lituralia</groupId>
     <artifactId>lituralia</artifactId>
-    <version>0.0.5-SNAPSHOT</version>
+    <version>0.0.6-SNAPSHOT</version>
   </parent>
   <artifactId>lituralia-model</artifactId>
   <name>Lituralia model</name>
@@ -23,13 +23,8 @@
     </dependency>
 
     <dependency>
-      <groupId>com.ontimize.boot</groupId>
-      <artifactId>ontimize-boot-starter-jdbc</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>com.ontimize.boot</groupId>
-      <artifactId>ontimize-boot-starter-rest</artifactId>
+      <groupId>com.ontimize.jee</groupId>
+      <artifactId>ontimize-jee-server-jdbc</artifactId>
     </dependency>
 
     <dependency>

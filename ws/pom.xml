@@ -4,7 +4,7 @@
   <parent>
     <groupId>com.campusdual.lituralia</groupId>
     <artifactId>lituralia</artifactId>
-    <version>0.0.5-SNAPSHOT</version>
+    <version>0.0.6-SNAPSHOT</version>
   </parent>
   <artifactId>lituralia-ws</artifactId>
   <name>Lituralia ws</name>
@@ -13,6 +13,11 @@
     <dependency>
       <groupId>com.campusdual.lituralia</groupId>
       <artifactId>lituralia-model</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>com.ontimize.boot</groupId>
+      <artifactId>ontimize-boot-starter-rest</artifactId>
     </dependency>
   </dependencies>
 </project>
