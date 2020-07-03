@@ -174,7 +174,7 @@ create table lituralia.opinions
     opinion_id     integer generated always as identity,
     rating         integer,
     review         varchar,
-    opinion_create date,
+    opinion_create date default now() not null,
     opinion_update date,
     book_id        integer,
     user_          varchar,

@@ -13,6 +13,8 @@ public class AuthorDao extends OntimizeJdbcDaoSupport {
     public static final String ATTR_AUTHOR_ID = "author_id";
     public static final String ATTR_AUTHOR_NAME = "author_name";
     public static final String ATTR_AUTHOR_BIRTH = "author_birth";
+    public static final String ATTR_AUTHOR_BIO = "author_bio";
+    public static final String ATTR_AUTHOR_PORTRAIT = "author_portrait";
     public static final String ATTR_DEATH = "author_death";
 
     public static final String QUERY_VAUTHORDETAILS = "AUTHORDETAILS";

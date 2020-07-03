@@ -1,9 +1,20 @@
 <div fxFlex class="row">
-  <o-table fxFlex attr="authorsTable" service="authors" entity="vAuthorDetails" keys="author_id"
+  <o-table fxFlex
+           attr="authorsTable"
+           service="authors"
+           entity="vAuthorDetails"
+           keys="author_id"
            columns="author_id;author_portrait;author_name;author_birth;author_death;books;ratings;avg_rating"
-           visible-columns="author_id;author_portrait;author_name;author_birth;author_death;books;ratings;avg_rating"
-           query-rows="20">
-    <o-table-column attr="author_id" title="ID" type="integer" width="50"></o-table-column>
+           visible-columns="author_portrait;author_name;author_birth;author_death;books;ratings;avg_rating"
+           query-rows="20"
+           show-filter-option="no"
+           show-configuration-option="no"
+           refresh-button="no"
+           export-button="no"
+           delete-button="no"
+           insert-button="no"
+           fixed-header="yes">
+<!--    <o-table-column attr="author_id" title="ID" type="integer" width="50"></o-table-column>-->
     <o-table-column attr="author_portrait" title="AUTHOR_PORTRAIT" width="64px" orderable="no" searchable="no"
                     image-type="base64"
                     type="image">

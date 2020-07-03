@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "6bb5d3c6-ce51-4bf9-a1ff-1b20e0dc3fff",
+		"_postman_id": "1f7c9eae-4e2b-4fca-8e1b-a839e85226c6",
 		"name": "Lituralia",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -126,25 +126,13 @@
 					"name": "book  -R (complex)",
 					"request": {
 						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "demouser",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "demo",
-									"type": "string"
-								}
-							]
+							"type": "noauth"
 						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"filter\": {\n    \t\"book_id\": 401\n    },\n    \"columns\": [\n        \"book_id\",\n        \"isbn\",\n        \"title\",\n        \"synopsis\",\n        \"publish_date\",\n        \"cover\",\n        \"publisher_id\"\n    ]\n}",
+							"raw": "{\n    \"filter\": {\n    \t\"book_id\": 100\n    },\n    \"columns\": [\n        \"book_id\",\n        \"isbn\",\n        \"title\",\n        \"synopsis\",\n        \"publish_date\",\n        \"cover\",\n        \"publisher_id\"\n    ]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -279,7 +267,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "025723a8-3d8c-406e-8104-fe14ea1cc48f",
+						"id": "cdd1d265-0ffc-4db7-a0b1-f2399c8074e4",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -289,7 +277,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "28a899f3-a5df-4616-884c-8fbb42375f29",
+						"id": "1c319be6-f9d4-42ab-b8c4-9da95c51bd7a",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -485,7 +473,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "58f52aac-1ddc-4d0b-8729-69e650154e99",
+						"id": "cd4e9922-8cd7-46f2-b2d4-262f130197bb",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -495,7 +483,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "318a8471-75b6-457c-b70b-a4be39ff57df",
+						"id": "7761dba3-f56e-486e-b6d3-5474985577ab",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -691,7 +679,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "67b19bf1-643d-4f36-bd18-fd1fad0bf77d",
+						"id": "efba0808-0848-46b4-aaa2-9db8e0acaf1d",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -701,7 +689,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "be75f611-07dd-43cb-b478-a8f8ed6f9382",
+						"id": "a0bc9d3d-3f8c-459a-8ac5-3bed18c3b85d",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -897,7 +885,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "a40d24b6-c198-4ab3-b130-9341c9a5a866",
+						"id": "073e8355-cfca-4bce-8762-13c922d0c269",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -907,7 +895,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "3242a401-43ec-48ab-a9c8-c18902b563b5",
+						"id": "89a16b47-17e7-432f-881f-174ce1d6e9ba",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1103,7 +1091,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "6c26893b-879e-4fec-949d-9da2df0f204b",
+						"id": "a562f98d-049d-4803-a77c-bb602db7f6f9",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1113,7 +1101,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "10cd4386-5bd5-4a8e-8505-cbcd8ad9190b",
+						"id": "035b6de6-8cfa-4a50-95ba-073bd3289965",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1310,7 +1298,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "843548ea-a672-41ce-9029-622f96c33098",
+						"id": "45741536-8f3e-4f38-8801-6dedd1d71f38",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1320,7 +1308,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "a6278740-43f9-4106-8faf-972a7c94f0e0",
+						"id": "e08c042b-7734-448d-b566-4d307e0913f9",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1340,7 +1328,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"data\": {\n            \"rating\":\"4\",\n            \"review\":\"prueba de opinion review. \",\n            \"opion_create\":724719600000,\n            \"book_id\":100,\n            \"user_\":\"wguwer0\"\n        \n    },\n    \"sqltypes\": {\n        \"rating\":4,\n        \"review\":12,\n        \"opion_create\":91,\n        \"book_id\":4,\n         \"user_\":12\n    }\n}",
+							"raw": "{\n    \"data\": {\n            \"rating\":\"4\",\n            \"review\":\"prueba de opinion review. \",\n            \"opion_create\":724719600000,\n            \"book_id\":7,\n            \"user_\":\"demo\"\n        \n    },\n    \"sqltypes\": {\n        \"rating\":4,\n        \"review\":12,\n        \"opinion_create\":91,\n        \"book_id\":4,\n         \"user_\":12\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1427,7 +1415,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"filter\": {\n    \t\"opinion_id\":500\n    },\n    \"columns\": [\n        \"opinion_id\",\n        \"rating\",\n        \"review\",\n        \"opinion_create\",\n        \"user_\"\n        \n    ]\n}",
+							"raw": "{\n    \"filter\": {\n        \"book_id\": 7,\n        \"user_\": \"demo\"\n    },\n    \"columns\": [\n        \"book_id\",\n        \"opinion_id\",\n        \"rating\",\n        \"review\",\n        \"opinion_create\",\n        \"user_\"\n        \n    ]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1458,7 +1446,37 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"filter\": {\n\t\t\"opinion_id\": 1001\n\t},\n    \"data\": {\n            \"rating\":5,\n            \"review\":\"prueba de opinion review. Modificada \",\n            \"opinion_update\" :1565992800000\n    },\n    \"sqltypes\": {\n         \"rating\":4,\n            \"review\":12,\n            \"opinion_update\" :91\n    }\n}\n\n",
+							"raw": "{\n\t\"filter\": {\n\t\t\"opinion_id\": 1001\n\t},\n    \"data\": {\n            \"review\":\"prueba deDSDSDS \",\n            \"opinion_update\" :1565992800000\n    },\n    \"sqltypes\": {\n         \"rating\":4,\n            \"review\":12,\n            \"opinion_update\" :91\n    }\n}\n\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:33333/api/opinions/opinion",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"api",
+								"opinions",
+								"opinion"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "opinion -U Copy",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"filter\": {\n                \"user_\": \"demo\",\n                \"book_id\": 7\n        },\n        \"data\": {\n                \"review\": \"XXXXXXXXXXXX\"\n        }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1516,7 +1534,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "0c0c8f63-3584-48ae-ab53-e7c8ddd97968",
+						"id": "b2d7891a-32a2-42f3-8cd8-3bf370f8b996",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1526,7 +1544,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "b489fb71-47f9-4368-9441-d846528c7305",
+						"id": "dfec8ad5-52bc-48e6-9a1a-e0374d80b6eb",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1556,7 +1574,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "5a945cfe-9113-48b6-bd9f-5c27302054c6",
+				"id": "c70250d2-874d-42d8-adfe-5fcc5d5c5139",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -1566,7 +1584,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "ad781352-e995-4261-ad96-42eed9ffb24d",
+				"id": "38f2a460-0561-4348-81ea-806911feba73",
 				"type": "text/javascript",
 				"exec": [
 					""
