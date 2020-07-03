@@ -75,5 +75,9 @@
   "OPINION_UPDATED_DATE": "Updated:",
   "DELETE_REVIEW": "Delete",
   "USER_REVIEW": "User Reviews",
-  "ALL_REVIEWS": "All Review"
+  "ALL_REVIEWS": "All Review",
+  "AVG_RATING_SHORT": "Avg.",
+  "RATINGS_SHORT": "Total",
+  "TABLE_VIEW": "View Table",
+  "GRID_VIEW": "View Grid"
 }

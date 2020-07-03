@@ -12,18 +12,18 @@
           <o-image id="book_cover" attr="cover" label="COVER" empty-image="assets/images/no-image.png" sql-type="OTHER"
                    auto-fit="no" show-controls="no" read-only="yes"></o-image>
         </o-row>
-        <o-row>
+        <o-row title="{{ 'AVG_RATING_SHORT' | oTranslate }}">
+          <img *ngIf="rating.value" class="img-fluid" src="{{rating.value.value | starRating}}" alt=""
+               title="{{('AVG_RATING_SHORT'|oTranslate) +': '+ rating.value.value + ' ' + ('RATINGS_SHORT'|oTranslate) +': '+ ratingsEl.value.value}}">
+
+        </o-row>
+        <o-row >
           <o-text-input #rating class="col-padding" attr="avg_rating" label="AVG_RATING" read-only="yes"
-                        class="display-none"></o-text-input>
+                        class=""></o-text-input>
         </o-row>
-        <o-row>
+        <o-row >
           <o-text-input #ratingsEl class="input-padding" attr="ratings" label="RATINGS" read-only="yes"
-                        class="display-none"></o-text-input>
-        </o-row>
-        <o-row title="{{ 'BOOK_RATING' | oTranslate }}">
-          <img *ngIf="rating.value" height="35" src="{{rating.value.value | starRating}}" alt=""
-               title="{{'Rating: ' + rating.value.value}}">
-          <div *ngIf="ratingsEl.value">({{ratingsEl.value.value}})</div>
+                        class=""></o-text-input>
         </o-row>
       </o-column>
       <o-column title="{{ 'BOOK_INFORMATION' | oTranslate }}" fxFlex="80">

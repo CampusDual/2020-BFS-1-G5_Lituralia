@@ -2,8 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Observable} from "ontimize-web-ngx";
 import {GenreBookService} from "../../../shared/services/genre-book.service";
 import {Genre} from "../genre";
-import {map} from "rxjs/operators";
-import {Book} from "../../books/book";
+import {map, tap} from "rxjs/operators";
 
 @Component({
   selector: 'app-genres-top',
@@ -13,31 +12,25 @@ import {Book} from "../../books/book";
 export class GenresTopComponent implements OnInit {
 
   genres: Observable<Genre[]>
-
-  books: Observable<Book[]>
+  public TOP_N_BOOKS: number = 5
 
   constructor(private genreBookService: GenreBookService) {
   }
 
   ngOnInit() {
-    this.books= this.genreBookService.getGenreBooks(1).pipe(
-      map(value => value.data)
-    )
     this.genres = this.genreBookService.getGenres().pipe(
       map(value => {
         const genres: Genre[] = value.data
         for (const genre of genres) {
           genre.books = this.genreBookService.getGenreBooks(genre.genre_id).pipe(
-            map(value => value.data)
+            map(response => response.data),
+            map(data => data.filter(book => book.avg_rating)),
+            tap(x => x.sort((a, b) => a.avg_rating>b.avg_rating ? -1 : 1 )),
+            map(books => books.slice(0, this.TOP_N_BOOKS))
           )
         }
         return genres
       })
     )
   }
-
-  getGenreBooks(number: number) {
-    return
-  }
-
 }
