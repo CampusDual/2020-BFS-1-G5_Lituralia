@@ -8,7 +8,7 @@ import {Book} from "../../main/books/book";
 @Injectable({
   providedIn: 'root'
 })
-export class GenreBookService extends OntimizeEEService {
+export class GenreService extends OntimizeEEService {
 
   constructor(protected injector: Injector) {
     super(injector);

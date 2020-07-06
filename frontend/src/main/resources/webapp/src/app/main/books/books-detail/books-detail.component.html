@@ -103,28 +103,23 @@
     </o-row>
     <o-row>
       <o-column fxFlex="80" title="{{ 'ALL_REVIEWS' | oTranslate }}">
-        <o-list #opinions
-                attr="opinionsList"
-                title="{{ 'OPINIONS' | oTranslate }}"
-                service="books"
-                entity="vBookOpinions"
-                parent-keys="book_id"
-                keys="opinion_id"
-                columns="opinion_id;rating;review;opinion_create;opinion_update;book_id;user_"
-                controls="no"
-                detail-mode="none">
-          <mat-card class="user-opinion" *ngFor="let opinion of opinions.dataArray" [o-list-item]="opinion"
-                    class="user-opinion">
-            <img width="120px" src="{{opinion.rating | starRating}}">
-            <mat-card-header>
-              <mat-card-title>{{opinion.user_}}</mat-card-title>
-            </mat-card-header>
-            <mat-card-subtitle>{{opinion.opinion_create | date}}</mat-card-subtitle>
-            <mat-card-content>
-              <p>{{opinion.review}}</p>
-            </mat-card-content>
-          </mat-card>
-        </o-list>
+        <!--        <o-list #opinions-->
+        <!--                attr="opinionsList"-->
+        <!--                title="{{ 'OPINIONS' | oTranslate }}"-->
+        <!--                service="books"-->
+        <!--                entity="vBookOpinions"-->
+        <!--                parent-keys="book_id"-->
+        <!--                keys="opinion_id"-->
+        <!--                columns="opinion_id;rating;review;opinion_create;opinion_update;book_id;user_"-->
+        <!--                controls="yes"-->
+        <!--                detail-mode="none"-->
+        <!--                delete-button="no"-->
+        <!--                refresh-button="no"-->
+        <!--                insert-button-floatable="no"-->
+        <!--                dense="yes"-->
+        <!--                sort-columns="rating">-->
+        <app-opinion-display *ngFor="let opinion of opinions | async" [opinion]="opinion"></app-opinion-display>
+        <!--        </o-list>-->
       </o-column>
     </o-row>
   </o-form>

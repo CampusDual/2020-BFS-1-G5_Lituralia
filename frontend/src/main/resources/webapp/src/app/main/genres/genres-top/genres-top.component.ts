@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable} from "ontimize-web-ngx";
-import {GenreBookService} from "../../../shared/services/genre-book.service";
+import {GenreService} from "../../../shared/services/genre.service";
 import {Genre} from "../genre";
 import {map, tap} from "rxjs/operators";
 
@@ -14,15 +14,15 @@ export class GenresTopComponent implements OnInit {
   genres: Observable<Genre[]>
   public TOP_N_BOOKS: number = 5
 
-  constructor(private genreBookService: GenreBookService) {
+  constructor(private genreService: GenreService) {
   }
 
   ngOnInit() {
-    this.genres = this.genreBookService.getGenres().pipe(
+    this.genres = this.genreService.getGenres().pipe(
       map(value => {
         const genres: Genre[] = value.data
         for (const genre of genres) {
-          genre.books = this.genreBookService.getGenreBooks(genre.genre_id).pipe(
+          genre.books = this.genreService.getGenreBooks(genre.genre_id).pipe(
             map(response => response.data),
             map(data => data.filter(book => book.avg_rating)),
             tap(x => x.sort((a, b) => a.avg_rating>b.avg_rating ? -1 : 1 )),
