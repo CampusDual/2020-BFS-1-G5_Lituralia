@@ -1,10 +1,10 @@
 <div fxFlex>
   <o-form fxFlex
-      service="books"
-      entity="vBookRatings"
-      keys="book_id"
-      header-actions="R"
-      show-header="no">
+          service="books"
+          entity="vBookRatings"
+          keys="book_id"
+          header-actions="R"
+          show-header="no">
     <o-integer-input attr="book_id" sql-type="INTEGER" label="Id" enabled="no" class="display-none"></o-integer-input>
     <o-row fxFlex>
       <o-column fxFlex="20" class="col-padding">
@@ -13,16 +13,15 @@
                    auto-fit="no" show-controls="no" read-only="yes"></o-image>
         </o-row>
         <o-row title="{{ 'AVG_RATING_SHORT' | oTranslate }}">
-          <img *ngIf="rating.value" class="img-fluid" src="{{rating.value.value | starRating}}" alt=""
-               title="{{('AVG_RATING_SHORT'|oTranslate) +': '+ rating.value.value + ' ' + ('RATINGS_SHORT'|oTranslate) +': '+ ratingsEl.value.value}}">
-
+          <app-star-rating *ngIf="ratingElement.value" [fluid]="true" [rating]="ratingElement.value.value"
+                           [ratings]="ratingsElement.value.value"></app-star-rating>
         </o-row>
-        <o-row >
-          <o-text-input #rating class="col-padding" attr="avg_rating" label="AVG_RATING" read-only="yes"
+        <o-row>
+          <o-text-input #ratingElement class="col-padding" attr="avg_rating" label="AVG_RATING" read-only="yes"
                         class=""></o-text-input>
         </o-row>
-        <o-row >
-          <o-text-input #ratingsEl class="input-padding" attr="ratings" label="RATINGS" read-only="yes"
+        <o-row>
+          <o-text-input #ratingsElement class="input-padding" attr="ratings" label="RATINGS" read-only="yes"
                         class=""></o-text-input>
         </o-row>
       </o-column>
@@ -31,7 +30,8 @@
           <o-text-input class="input-padding" attr="title" label="TITLE" fxFlex read-only="yes"></o-text-input>
         </o-row>
         <o-row>
-          <o-text-input class="input-padding" attr="isbn" label="ISBN" fxFlex="33" required="no" read-only="yes"></o-text-input>
+          <o-text-input class="input-padding" attr="isbn" label="ISBN" fxFlex="33" required="no"
+                        read-only="yes"></o-text-input>
           <o-combo #combo fxFlex="33"
                    attr="publisher_id"
                    class="input-padding"
@@ -45,7 +45,8 @@
                    null-selection="no"
                    read-only="yes"
                    (click)="onPublisherClick(combo)"></o-combo>
-          <o-date-input attr="publish_date" label="PUBLISH_DATE" fxFlex="33" class="input-padding" read-only="yes"></o-date-input>
+          <o-date-input attr="publish_date" label="PUBLISH_DATE" fxFlex="33" class="input-padding"
+                        read-only="yes"></o-date-input>
         </o-row>
         <o-row>
           <o-textarea-input attr="synopsis" label="SYNOPSIS" fxFlex read-only="yes"></o-textarea-input>

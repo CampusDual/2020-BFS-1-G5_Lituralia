@@ -4,17 +4,19 @@
          entity="vBookDetails"
          keys="book_id"
          columns="book_id;isbn;cover;title;publish_date;publisher_name;author_names;genre_names;avg_rating;ratings"
-         visible-columns="book_id;isbn;cover;title;publish_date;publisher_name;author_names;genre_names;avg_rating;ratings"
+         visible-columns="isbn;cover;title;publish_date;publisher_name;author_names;genre_names;avg_rating"
          query-rows="20"
-         show-filter-option="no"
+         show-filter-option="yes"
+         quick-filter="yes"
          show-configuration-option="no"
          refresh-button="no"
          export-button="no"
          delete-button="no"
          insert-button="no"
          fixed-header="yes">
+  <o-table-columns-filter columns="avg_rating" ></o-table-columns-filter>
   <o-table-button #switchBtn attr="genre_top" label="GRID_VIEW" icon="style"></o-table-button>
-  <o-table-column attr="book_id" title="ID" type="integer" width="50"></o-table-column>
+<!--  <o-table-column attr="book_id" title="ID" type="integer" width="50"></o-table-column>-->
   <o-table-column attr="isbn" title="ISBN" width="128px"></o-table-column>
   <o-table-column attr="cover" title="COVER" width="64px" orderable="no" searchable="no">
     <o-table-cell-renderer-image image-type="base64" empty-image="assets/images/no-image.png" avatar="yes">
@@ -25,10 +27,7 @@
   <o-table-column attr="publisher_name" title="PUBLISHER_NAME"></o-table-column>
   <o-table-column attr="author_names" title="AUTHOR_NAMES"></o-table-column>
   <o-table-column attr="genre_names" title="GENRE_NAMES"></o-table-column>
-  <o-table-column attr="avg_rating" title="AVG_RATING" width="150px"
-                  orderable="no" searchable="no" type="image">
-    <o-table-column-renderer-star-rating image-type="base64" empty-image="assets/images/no-image.png"
-                                         avatar="yes"></o-table-column-renderer-star-rating>
+  <o-table-column attr="avg_rating" title="AVG_RATING" class="o-table-column-centered">
+        <o-table-cell-renderer-star-rating></o-table-cell-renderer-star-rating>
   </o-table-column>
-  <o-table-column attr="ratings" title="RATINGS" type="integer" width="50px"></o-table-column>
 </o-table>
