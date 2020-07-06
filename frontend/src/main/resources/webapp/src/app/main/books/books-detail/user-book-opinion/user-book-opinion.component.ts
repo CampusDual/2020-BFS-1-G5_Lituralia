@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
+import {Component, ElementRef, EventEmitter, OnInit, Output, Renderer2, ViewChild} from '@angular/core';
 import {OpinionService} from "../../../../shared/services/opinion.service";
 import {ActivatedRoute} from "@angular/router";
 import {DialogService, LoginService, OTranslateService} from "ontimize-web-ngx";
@@ -11,6 +11,7 @@ import {Opinion} from "../../../opinions/opinion";
 })
 export class UserBookOpinionComponent implements OnInit {
 
+  @Output() reloadBook = new EventEmitter<any>();
 
   @ViewChild("activeReview") aReview: ElementRef;
   @ViewChild("activeRating") aRating: ElementRef;
@@ -89,7 +90,10 @@ export class UserBookOpinionComponent implements OnInit {
     .subscribe(
       value => this.dialogService.info(this.translate.get(this.UPDATING_OPINION), this.translate.get(this.UPDATING_OPINION_OK)),
       error => this.dialogService.error(this.translate.get(this.UPDATING_OPINION), this.translate.get(this.UPDATING_OPINION_ERROR)),
-      () => this.getUserOpinion()
+      () =>{
+        this.getUserOpinion()
+        this.reloadBook.emit()
+      }
     )
   }
 
@@ -102,7 +106,10 @@ export class UserBookOpinionComponent implements OnInit {
     .subscribe(
       value => this.dialogService.info(this.translate.get(this.CREATING_OPINION), this.translate.get(this.CREATING_OPINION_OK)),
       error => this.dialogService.error(this.translate.get(this.CREATING_OPINION), this.translate.get(this.CREATING_OPINION_ERROR)),
-      () => this.getUserOpinion()
+      () => {
+        this.getUserOpinion()
+        this.reloadBook.emit()
+      }
     )
   }
 
@@ -111,7 +118,10 @@ export class UserBookOpinionComponent implements OnInit {
     .subscribe(
       value => this.dialogService.info(this.translate.get(this.DELETING_OPINION), this.translate.get(this.DELETING_OPINION_OK)),
       error => this.dialogService.error(this.translate.get(this.DELETING_OPINION), this.translate.get(this.DELETING_OPINION_ERROR)),
-      () => this.getUserOpinion()
+      () => {
+        this.getUserOpinion()
+        this.reloadBook.emit()
+      }
     )
   }
 

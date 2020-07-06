@@ -1,5 +1,5 @@
 <div fxFlex>
-  <o-form fxFlex
+  <o-form  #bookForm fxFlex
           service="books"
           entity="vBookRatings"
           keys="book_id"
@@ -94,7 +94,7 @@
     <o-row>
       <o-column fxFlex="80" title="{{ 'USER_REVIEW' | oTranslate }}">
         <div *ngIf="isLoggedIn(); else loggedOut" class="user-opinion">
-          <app-user-book-opinion class="user-opinion"></app-user-book-opinion>
+          <app-user-book-opinion class="user-opinion" (reloadBook)="this.reloadBook()"></app-user-book-opinion>
         </div>
         <ng-template #loggedOut>
           <div class="loggedOut">{{ 'OPINION_LOGIN_WARN' | oTranslate}}</div>
