@@ -18,4 +18,7 @@ public class OpinionDao extends OntimizeJdbcDaoSupport {
     public static final String ATTR_OPINION_UPDATE = "opinion_update";
     public static final String ATTR_USER_= "user_";
 
+
+    public static final String QUERY_V_AUTHOR_OPINIONS = "AUTHOR_OPINIONS";
+
 }

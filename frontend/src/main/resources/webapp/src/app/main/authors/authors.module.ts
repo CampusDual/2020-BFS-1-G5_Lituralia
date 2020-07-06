@@ -6,13 +6,15 @@ import {AuthorsHomeComponent} from './authors-home/authors-home.component';
 import {AuthorsDetailComponent} from './authors-detail/authors-detail.component';
 import {OntimizeWebModule} from 'ontimize-web-ngx';
 import {SharedModule} from "../../shared/shared.module";
+import {OpinionsModule} from "../opinions/opinions.module";
 
 @NgModule({
   imports: [
     CommonModule,
     OntimizeWebModule,
     AuthorsRoutingModule,
-    SharedModule
+    SharedModule,
+    OpinionsModule
   ],
   declarations: [
     AuthorsHomeComponent,
