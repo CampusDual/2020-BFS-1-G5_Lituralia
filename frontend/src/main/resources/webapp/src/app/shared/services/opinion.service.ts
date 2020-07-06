@@ -1,10 +1,13 @@
 import {Injectable, Injector} from '@angular/core';
-import {OntimizeEEService} from "ontimize-web-ngx";
+import {Observable, OntimizeEEService} from "ontimize-web-ngx";
+import {OntimizeResponse} from "./ontimizeResponse";
+import {Opinion} from "../../main/opinions/opinion";
+import {tap} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserOpinionService extends OntimizeEEService {
+export class OpinionService extends OntimizeEEService {
 
 
   constructor(protected injector: Injector) {
@@ -12,6 +15,23 @@ export class UserOpinionService extends OntimizeEEService {
     const conf = this.getDefaultServiceConfiguration();
     conf['path'] = '/opinions';
     this.configureService(conf)
+  }
+
+  getBookOpinions(book_id: number): Observable<OntimizeResponse<Opinion>> {
+    const filter = {
+      'book_id': book_id
+    };
+    const columns = [
+      "book_id",
+      "opinion_id",
+      "rating",
+      "review",
+      "opinion_create",
+      "user_"
+    ];
+    return this.query(filter, columns, 'opinion').pipe(
+      tap(x => console.log(x))
+    )
   }
 
   getUserOpinion(user_: string, book_id: number) {

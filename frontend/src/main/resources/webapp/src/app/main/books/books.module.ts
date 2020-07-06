@@ -11,14 +11,16 @@ import {BookCardMediumComponent} from './cards/book-card-medium/book-card-medium
 import {BookCardSmallComponent} from "./cards/book-card-small/book-card-small.component";
 import {BookTableComponent} from './books-home/book-table/book-table.component';
 import {BookGridComponent} from './books-home/book-grid/book-grid.component';
+import {OpinionsModule} from "../opinions/opinions.module";
 
 @NgModule({
-    imports: [
-        CommonModule,
-        OntimizeWebModule,
-        BooksRoutingModule,
-        SharedModule
-    ],
+  imports: [
+    CommonModule,
+    OntimizeWebModule,
+    BooksRoutingModule,
+    SharedModule,
+    OpinionsModule
+  ],
     exports: [
         BookCardSmallComponent
     ],

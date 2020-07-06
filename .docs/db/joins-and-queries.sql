@@ -42,3 +42,12 @@ select *
 from lituralia.book_authors AS ba
          INNER JOIN lituralia.v_book_details AS b ON ba.book_id = b.book_id
          INNER JOIN lituralia.authors AS a ON ba.author_id = a.author_id
+
+
+
+SELECT b.publisher_id,
+       ROUND(AVG(rating), 2) avg_rating,
+       COUNT(*)              ratings
+FROM opinions o
+         LEFT OUTER JOIN books AS b on o.book_id = b.book_id
+GROUP BY b.publisher_id;

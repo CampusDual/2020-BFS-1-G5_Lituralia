@@ -1,0 +1,10 @@
+<mat-card class="user-opinion" >
+  <app-star-rating [rating]="opinion.rating" [ratings]="1"  height="25" [fluid]="false"></app-star-rating>
+  <mat-card-header>
+    <mat-card-title>{{opinion.user_}}</mat-card-title>
+  </mat-card-header>
+  <mat-card-subtitle>{{opinion.opinion_create | date}}</mat-card-subtitle>
+  <mat-card-content>
+    <p>{{opinion.review}}</p>
+  </mat-card-content>
+</mat-card>
