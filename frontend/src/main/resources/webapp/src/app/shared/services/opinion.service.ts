@@ -34,6 +34,25 @@ export class OpinionService extends OntimizeEEService {
     )
   }
 
+  getAuthorOpinions(author_id: number): Observable<OntimizeResponse<Opinion>> {
+    const filter = {
+      'author_id': author_id
+    };
+    const columns = [
+      "author_id",
+      "book_id",
+      "title",
+      "opinion_id",
+      "rating",
+      "review",
+      "opinion_create",
+      "user_"
+    ];
+    return this.query(filter, columns, 'vAuthorOpinions').pipe(
+      tap(x => console.log(x))
+    )
+  }
+
   getUserOpinion(user_: string, book_id: number) {
     const filter = {
       'user_': user_,
@@ -95,6 +114,26 @@ export class OpinionService extends OntimizeEEService {
     };
     return this.delete(filter, 'opinion').pipe(
       // tap(x => console.log(x))
+    )
+  }
+
+
+  getPublisherOpinions(publisher_id: number): Observable<OntimizeResponse<Opinion>> {
+    const filter = {
+      'publisher_id': publisher_id
+    };
+    const columns = [
+      "publisher_id",
+      "book_id",
+      "title",
+      "opinion_id",
+      "rating",
+      "review",
+      "opinion_create",
+      "user_"
+    ];
+    return this.query(filter, columns, 'vPublisherOpinions').pipe(
+      tap(x => console.log(x))
     )
   }
 }
