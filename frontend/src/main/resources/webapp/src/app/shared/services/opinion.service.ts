@@ -116,4 +116,24 @@ export class OpinionService extends OntimizeEEService {
       // tap(x => console.log(x))
     )
   }
+
+
+  getPublisherOpinions(publisher_id: number): Observable<OntimizeResponse<Opinion>> {
+    const filter = {
+      'publisher_id': publisher_id
+    };
+    const columns = [
+      "publisher_id",
+      "book_id",
+      "title",
+      "opinion_id",
+      "rating",
+      "review",
+      "opinion_create",
+      "user_"
+    ];
+    return this.query(filter, columns, 'vPublisherOpinions').pipe(
+      tap(x => console.log(x))
+    )
+  }
 }

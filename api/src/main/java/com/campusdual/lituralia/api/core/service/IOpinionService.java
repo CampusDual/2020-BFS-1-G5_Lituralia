@@ -13,4 +13,6 @@ public interface IOpinionService {
     EntityResult opinionDelete(Map<?, ?> keyMap);
 
     EntityResult vAuthorOpinionsQuery(Map<String, Object> keysValues, List<String> attributes) throws OntimizeJEERuntimeException;
+
+    EntityResult vPublisherOpinionsQuery(Map<String, Object> keysValues, List<String> attributes) throws OntimizeJEERuntimeException;
 }

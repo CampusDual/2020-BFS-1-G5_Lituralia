@@ -25,6 +25,7 @@ export class UserBookOpinionComponent implements OnInit {
 
   editMode: boolean = false;
 
+  ratingValues: Array<Object>;
 
   constructor(private loginService: LoginService,
               private opinionService: OpinionService,
@@ -40,6 +41,7 @@ export class UserBookOpinionComponent implements OnInit {
     this.user = this.loginService.getSessionInfo().user
     this.book_id = +this.route.snapshot.paramMap.get('book_id');
     this.getUserOpinion();
+    this.ratingValues = this.genRatingValues()
   }
 
   private getUserOpinion() {
@@ -114,7 +116,7 @@ export class UserBookOpinionComponent implements OnInit {
   }
 
 
-  getRatingValues() {
+  genRatingValues() {
     const array: Array<Object> = [];
     array.push({
       'rating': 0

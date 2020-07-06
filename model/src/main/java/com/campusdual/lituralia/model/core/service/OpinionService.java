@@ -42,11 +42,18 @@ public class OpinionService implements IOpinionService {
         return this.daoHelper.delete(opinionDao, keyMap);
     }
 
-    // ---- BOOK OPINIONS VIEW ----
+    // ---- AUTHOR OPINIONS VIEW ----
 
     @Override
     public EntityResult vAuthorOpinionsQuery(Map<String, Object> keysValues, List<String> attributes) throws OntimizeJEERuntimeException {
         return this.daoHelper.query(this.opinionDao, keysValues, attributes, OpinionDao.QUERY_V_AUTHOR_OPINIONS);
+    }
+
+    // ---- PUBLISHER OPINIONS VIEW ----
+
+    @Override
+    public EntityResult vPublisherOpinionsQuery(Map<String, Object> keysValues, List<String> attributes) throws OntimizeJEERuntimeException {
+        return this.daoHelper.query(this.opinionDao, keysValues, attributes, OpinionDao.QUERY_V_PUBLISHER_OPINIONS);
     }
 
 }

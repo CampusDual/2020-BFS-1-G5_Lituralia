@@ -32,6 +32,24 @@
             ]]>
       </Sentence>
     </Query>
+    <Query id="PUBLISHER_OPINIONS">
+      <AmbiguousColumns>
+        <AmbiguousColumn name="book_id" prefix="b" databaseName="book_id" />
+        <AmbiguousColumn name="publisher_id" prefix="p" databaseName="publisher_id" />
+      </AmbiguousColumns>
+      <Sentence>
+        <![CDATA[
+               SELECT
+                  #COLUMNS#
+               FROM
+                  ${mainschema}.opinions o
+                                  LEFT OUTER JOIN ${mainschema}.books b on o.book_id = b.book_id
+                                  LEFT OUTER JOIN ${mainschema}.publishers p on b.publisher_id = p.publisher_id
+               #WHERE#
+               #ORDER#
+            ]]>
+      </Sentence>
+    </Query>
   </Queries>
 </JdbcEntitySetup>
 

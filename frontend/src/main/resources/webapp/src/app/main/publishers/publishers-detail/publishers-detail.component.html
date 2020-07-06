@@ -69,6 +69,10 @@
         </o-table>
       </o-column>
     </o-row>
-
+    <o-row>
+      <o-column fxFlex="80" title="{{ 'ALL_REVIEWS' | oTranslate }}">
+        <app-opinion-display *ngFor="let opinion of opinions | async" [opinion]="opinion"></app-opinion-display>
+      </o-column>
+    </o-row>
   </o-form>
 </div>

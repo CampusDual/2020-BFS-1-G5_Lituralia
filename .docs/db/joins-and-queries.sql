@@ -55,8 +55,8 @@ GROUP BY b.publisher_id;
 
 
 SELECT *
-from opinions
-         LEFT OUTER JOIN books b on opinions.book_id = b.book_id
+from opinions o
+         LEFT OUTER JOIN books b on o.book_id = b.book_id
          LEFT OUTER JOIN publishers p on b.publisher_id = p.publisher_id
 where b.publisher_id = 10;
 
