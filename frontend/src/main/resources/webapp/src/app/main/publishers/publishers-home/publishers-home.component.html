@@ -7,17 +7,17 @@
            columns="publisher_id;publisher_name;publisher_desc;publisher_logo;avg_rating;ratings"
            visible-columns="publisher_logo;publisher_name;publisher_desc;avg_rating"
            query-rows="20"
-           show-filter-option="no"
+           show-filter-option="yes"
+           quick-filter="yes"
            show-configuration-option="no"
            refresh-button="no"
            export-button="no"
            delete-button="no"
            insert-button="no"
            fixed-header="yes">
+    <o-table-columns-filter columns="avg_rating" ></o-table-columns-filter>
 <!--    <o-table-column attr="publisher_id" title="PUBLISHER_ID" type="integer"></o-table-column>-->
-    <o-table-column attr="publisher_logo" title="PUBLISHER_LOGO" width="64px" orderable="no" searchable="no"
-                    image-type="base64"
-                    type="image">
+    <o-table-column attr="publisher_logo" title="PUBLISHER_LOGO" width="64px" orderable="no" searchable="no">
       <o-table-cell-renderer-image image-type="base64" empty-image="assets/images/no-image.png"
                                    avatar="yes"></o-table-cell-renderer-image>
     </o-table-column>
