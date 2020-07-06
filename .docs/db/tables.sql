@@ -285,7 +285,6 @@ create table lituralia.user_book_statuses
 );
 
 
-
 CREATE OR REPLACE VIEW lituralia.v_book_ratings AS
 (
 SELECT book_id,
@@ -294,7 +293,6 @@ SELECT book_id,
 FROM opinions o
 GROUP BY book_id
     );
-
 
 
 CREATE OR REPLACE VIEW v_author_ratings AS
@@ -307,6 +305,17 @@ FROM opinions o
 GROUP BY ba.author_id
     );
 
+
+drop view if exists v_publisher_ratings;
+CREATE OR REPLACE VIEW v_publisher_ratings AS
+(
+SELECT b.publisher_id,
+       ROUND(AVG(rating), 2) avg_rating,
+       COUNT(*)              ratings
+FROM opinions o
+         LEFT OUTER JOIN books AS b on o.book_id = b.book_id
+GROUP BY b.publisher_id
+);
 
 
 CREATE OR REPLACE VIEW lituralia.v_book_details AS

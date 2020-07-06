@@ -1,7 +1,7 @@
 <div fxFlex>
   <o-form
       service="publishers"
-      entity="publisher"
+      entity="vPublisherRatings"
       keys="publisher_id"
       header-actions="R"
       show-header="no">
@@ -9,9 +9,23 @@
                      class="display-none" read-only="yes"></o-integer-input>
     <o-row fxFlex>
       <o-column fxFlex="20" class="col-padding">
-        <o-image id="publisher_logo" attr="publisher_logo" label="PUBLISHER_LOGO"
-                 empty-image="assets/images/no-image.png" sql-type="OTHER"
-                 auto-fit="no" show-controls="no" read-only="no"></o-image>
+        <o-row>
+          <o-image id="publisher_logo" attr="publisher_logo" label="PUBLISHER_LOGO"
+                   empty-image="assets/images/no-image.png" sql-type="OTHER"
+                   auto-fit="no" show-controls="no" read-only="no" height="200px" width="200px"></o-image>
+        </o-row>
+        <o-row title="{{ 'AVG_RATING_SHORT' | oTranslate }}">
+          <app-star-rating *ngIf="ratingElement.value" [fluid]="true" [rating]="ratingElement.value.value"
+                           [ratings]="ratingsElement.value.value"></app-star-rating>
+        </o-row>
+        <o-row>
+          <o-text-input #ratingElement class="col-padding" attr="avg_rating" label="AVG_RATING" read-only="yes"
+                        class="display-none"></o-text-input>
+        </o-row>
+        <o-row>
+          <o-text-input #ratingsElement class="input-padding" attr="ratings" label="RATINGS" read-only="yes"
+                        class="display-none"></o-text-input>
+        </o-row>
       </o-column>
       <o-column title="{{ 'PUBLISHER_INFORMATION' | oTranslate }}" fxFlex="80">
         <o-row>
