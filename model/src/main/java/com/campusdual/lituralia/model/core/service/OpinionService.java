@@ -56,4 +56,11 @@ public class OpinionService implements IOpinionService {
         return this.daoHelper.query(this.opinionDao, keysValues, attributes, OpinionDao.QUERY_V_PUBLISHER_OPINIONS);
     }
 
+    // ---- BOOK OPINIONS VIEW ----
+
+    @Override
+    public EntityResult vBookOpinionsQuery(Map<String, Object> keysValues, List<String> attributes) throws OntimizeJEERuntimeException {
+        return this.daoHelper.query(this.opinionDao, keysValues, attributes, OpinionDao.QUERY_V_BOOK_OPINIONS);
+    }
+
 }
