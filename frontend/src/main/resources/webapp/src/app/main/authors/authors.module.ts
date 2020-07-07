@@ -10,6 +10,8 @@ import {OpinionsModule} from "../opinions/opinions.module";
 import { AuthorCardComponent } from './author-card/author-card.component';
 import { AuthorGridComponent } from './authors-home/author-grid/author-grid.component';
 import { AuthorTableComponent } from './authors-home/author-table/author-table.component';
+import { AuthorCardMediumComponent } from './cards/author-card-medium/author-card-medium.component';
+import { AuthorCardSmallComponent } from './cards/author-card-small/author-card-small.component';
 
 @NgModule({
   imports: [
@@ -24,7 +26,9 @@ import { AuthorTableComponent } from './authors-home/author-table/author-table.c
     AuthorsDetailComponent,
     AuthorCardComponent,
     AuthorGridComponent,
-    AuthorTableComponent
+    AuthorTableComponent,
+    AuthorCardMediumComponent,
+    AuthorCardSmallComponent
   ]
 })
 export class AuthorsModule {

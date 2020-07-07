@@ -18,7 +18,7 @@ export class AuthorTableComponent implements OnInit {
       this.switchMode.emit(true)
     });
   }
-  
+
   constructor() { }
 
   ngOnInit() {

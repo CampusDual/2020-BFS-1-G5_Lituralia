@@ -6,6 +6,7 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
     styleUrls: ['./author-grid.component.scss']
 })
 export class AuthorGridComponent implements OnInit {
+
     @Output() switchMode = new EventEmitter<boolean>();
 
     constructor() {
