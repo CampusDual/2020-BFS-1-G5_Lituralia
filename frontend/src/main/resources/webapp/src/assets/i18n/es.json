@@ -7,6 +7,7 @@
   "EXAMPLE_LOGIN_INFO": "Usuario y contraseña de ejemplo",
   "USERNAME": "Usuario",
   "USER": "Usuario",
+  "WELCOME": "Bienvenido",
   "PASSWORD": "Contraseña",
   "LOGIN": "Entrar",
   "LOGOUT": "Salir",
@@ -80,5 +81,11 @@
   "AVG_RATING_SHORT": "Media",
   "RATINGS_SHORT": "Total",
   "TABLE_VIEW": "Ver Tabla",
-  "GRID_VIEW": "Ver Grid"
+  "GRID_VIEW": "Ver Grid",
+
+  "USER_MENU": "Usuario",
+  "PROFILE": "Perfil",
+  "TIMELINE": "Historial",
+  "YOUR_TIMELINE": "Tu Historial",
+  "TIMELINE_LOGIN_WARN": "Debes iniciar sesión para ver tu historial"
 }

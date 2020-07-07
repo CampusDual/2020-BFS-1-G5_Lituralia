@@ -12,6 +12,11 @@ export const MENU_CONFIG: MenuRootItem[] = [
       {id: 'lang_en', name: 'LOCALE_en', icon: 'language', locale: 'en'}
     ]
   },
-  // {id: 'login', name: 'LOGIN',route: '/login', icon: 'power_settings_new', confirm: 'no'},
+  { id: 'user', name: 'USER_MENU', icon: 'account_circle', opened: false,
+    items: [
+      { id: 'profile', name: 'PROFILE', route: '/main/user/profile', icon: 'perm_contact_calendar' },
+      { id: 'timeline', name: 'TIMELINE', route: '/main/user/timeline', icon: 'timeline' }
+    ]
+  },
   // {id: 'logout', name: 'LOGOUT', route: '/login', icon: 'power_settings_new', confirm: 'yes'}
 ];

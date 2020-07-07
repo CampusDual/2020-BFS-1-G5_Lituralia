@@ -2,7 +2,6 @@ import {Injectable, Injector} from '@angular/core';
 import {Observable, OntimizeEEService} from "ontimize-web-ngx";
 import {OntimizeResponse} from "./ontimizeResponse";
 import {Opinion} from "../../main/opinions/opinion";
-import {tap} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -30,7 +29,7 @@ export class OpinionService extends OntimizeEEService {
       "user_"
     ];
     return this.query(filter, columns, 'opinion').pipe(
-      tap(x => console.log(x))
+      // tap(x => console.log(x))
     )
   }
 
@@ -49,7 +48,25 @@ export class OpinionService extends OntimizeEEService {
       "user_"
     ];
     return this.query(filter, columns, 'vAuthorOpinions').pipe(
-      tap(x => console.log(x))
+      // tap(x => console.log(x))
+    )
+  }
+
+  getUserOpinions(user_: string): Observable<OntimizeResponse<Opinion>> {
+    const filter = {
+      'user_': user_
+    };
+    const columns = [
+      "book_id",
+      "title",
+      "opinion_id",
+      "rating",
+      "review",
+      "opinion_create",
+      "user_"
+    ];
+    return this.query(filter, columns, 'vBookOpinions').pipe(
+      // tap(x => console.log(x))
     )
   }
 
@@ -133,7 +150,7 @@ export class OpinionService extends OntimizeEEService {
       "user_"
     ];
     return this.query(filter, columns, 'vPublisherOpinions').pipe(
-      tap(x => console.log(x))
+      // tap(x => console.log(x))
     )
   }
 }

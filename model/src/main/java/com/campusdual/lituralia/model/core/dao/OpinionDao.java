@@ -22,4 +22,6 @@ public class OpinionDao extends OntimizeJdbcDaoSupport {
     public static final String QUERY_V_AUTHOR_OPINIONS = "AUTHOR_OPINIONS";
 
     public static final String QUERY_V_PUBLISHER_OPINIONS = "PUBLISHER_OPINIONS";
+
+    public static final String QUERY_V_BOOK_OPINIONS = "BOOK_OPINIONS";
 }

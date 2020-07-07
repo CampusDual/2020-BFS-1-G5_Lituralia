@@ -7,6 +7,7 @@
   "EXAMPLE_LOGIN_INFO": "Use this user and password for login",
   "USERNAME": "Username",
   "USER": "User",
+  "WELCOME": "Welcome",
   "PASSWORD": "Password",
   "LOGIN": "Login",
   "LOGOUT": "Logout",
@@ -76,8 +77,15 @@
   "DELETE_REVIEW": "Delete",
   "USER_REVIEW": "User Reviews",
   "ALL_REVIEWS": "All Review",
+
   "AVG_RATING_SHORT": "Avg.",
   "RATINGS_SHORT": "Total",
   "TABLE_VIEW": "View Table",
-  "GRID_VIEW": "View Grid"
+  "GRID_VIEW": "View Grid",
+
+  "USER_MENU": "User",
+  "PROFILE": "Profile",
+  "TIMELINE": "Timeline",
+  "YOUR_TIMELINE": "Your Timeline",
+  "TIMELINE_LOGIN_WARN": "You must login to view your timeline"
 }

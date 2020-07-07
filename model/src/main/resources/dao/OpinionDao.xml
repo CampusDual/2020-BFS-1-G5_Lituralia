@@ -50,6 +50,22 @@
             ]]>
       </Sentence>
     </Query>
+    <Query id="BOOK_OPINIONS">
+      <AmbiguousColumns>
+        <AmbiguousColumn name="book_id" prefix="b" databaseName="book_id" />
+      </AmbiguousColumns>
+      <Sentence>
+        <![CDATA[
+               SELECT
+                  #COLUMNS#
+               FROM
+                  ${mainschema}.opinions o
+                                  LEFT OUTER JOIN ${mainschema}.books b on o.book_id = b.book_id
+               #WHERE#
+               #ORDER#
+            ]]>
+      </Sentence>
+    </Query>
   </Queries>
 </JdbcEntitySetup>
 

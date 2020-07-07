@@ -1,4 +1,4 @@
-import {NgModule, ViewChild} from '@angular/core';
+import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 
 import {MainComponent} from './main.component';
@@ -7,6 +7,7 @@ import {BooksModule} from "./books/books.module";
 import {AuthorsModule} from "./authors/authors.module";
 import {GenresModule} from "./genres/genres.module";
 import {PublishersModule} from "./publishers/publishers.module";
+import {UserModule} from "./user/user.module";
 
 
 export function loadHomeModule() {
@@ -29,11 +30,14 @@ export function loadPublishersModule() {
     return PublishersModule;
 }
 
+export function loadUserModule() {
+    return UserModule;
+}
+
 export const routes: Routes = [
     {
         path: '',
         component: MainComponent,
-        // canActivate: [AuthGuardService],
         children: [
             {path: '', redirectTo: 'home', pathMatch: 'full'},
             {
@@ -55,6 +59,11 @@ export const routes: Routes = [
             {
                 path: 'publishers',
                 loadChildren: loadPublishersModule
+            },
+            {
+                path: 'user',
+                // canActivate: [AuthGuardService],
+                loadChildren: loadUserModule
             }
         ]
     }
