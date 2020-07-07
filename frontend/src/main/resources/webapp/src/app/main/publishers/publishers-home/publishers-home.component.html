@@ -1,28 +1,48 @@
-<div fxFlex>
-  <o-table fxFlex
-           attr="publishersTable"
-           service="publishers"
-           entity="publisher"
-           keys="publisher_id"
-           columns="publisher_id;publisher_name;publisher_desc;publisher_logo"
-           visible-columns="publisher_logo;publisher_name;publisher_desc"
-           query-rows="20"
-           show-filter-option="no"
-           show-configuration-option="no"
-           refresh-button="no"
-           export-button="no"
-           delete-button="no"
-           insert-button="no"
-           fixed-header="yes">
-<!--    <o-table-column attr="publisher_id" title="PUBLISHER_ID" type="integer"></o-table-column>-->
-    <o-table-column attr="publisher_logo" title="PUBLISHER_LOGO" width="64px" orderable="no" searchable="no"
-                    image-type="base64"
-                    type="image">
-      <o-table-cell-renderer-image image-type="base64" empty-image="assets/images/no-image.png"
-                                   avatar="yes"></o-table-cell-renderer-image>
-    </o-table-column>
-    <o-table-column attr="publisher_name" title="PUBLISHER_NAME"></o-table-column>
-    <o-table-column attr="publisher_desc" title="PUBLISHER_DESCRIPTION"></o-table-column>
+<!--<div fxFlex>-->
+<!--  <o-table fxFlex-->
+<!--           attr="publishersTable"-->
+<!--           service="publishers"-->
+<!--           entity="publisher"-->
+<!--           keys="publisher_id"-->
+<!--           columns="publisher_id;publisher_name;publisher_desc;publisher_logo"-->
+<!--           visible-columns="publisher_logo;publisher_name;publisher_desc"-->
+<!--           query-rows="20"-->
+<!--           show-filter-option="no"-->
+<!--           show-configuration-option="no"-->
+<!--           refresh-button="no"-->
+<!--           export-button="no"-->
+<!--           delete-button="no"-->
+<!--           insert-button="no"-->
+<!--           fixed-header="yes">-->
+<!--&lt;!&ndash;    <o-table-column attr="publisher_id" title="PUBLISHER_ID" type="integer"></o-table-column>&ndash;&gt;-->
+<!--    <o-table-column attr="publisher_logo" title="PUBLISHER_LOGO" width="64px" orderable="no" searchable="no"-->
+<!--                    image-type="base64"-->
+<!--                    type="image">-->
+<!--      <o-table-cell-renderer-image image-type="base64" empty-image="assets/images/no-image.png"-->
+<!--                                   avatar="yes"></o-table-cell-renderer-image>-->
+<!--    </o-table-column>-->
+<!--    <o-table-column attr="publisher_name" title="PUBLISHER_NAME"></o-table-column>-->
+<!--    <o-table-column attr="publisher_desc" title="PUBLISHER_DESCRIPTION"></o-table-column>-->
 
-  </o-table>
-</div>
+<!--  </o-table>-->
+<!--</div>-->
+<o-grid #publishers
+        class="grid-container"
+        attr="publishersGrid"
+        service="publishers"
+        entity="publisher"
+        columns="publisher_id;publisher_name;publisher_desc;publisher_logo"
+        orderable="yes"
+        quick-filter="yes"
+        grid-item-height="350"
+        gutter-size="8px"
+        sort-column="publisher_name"
+        sortable-columns="title"
+        keys="publisher_id"
+        pageable="no"
+        query-rows="16"
+        detail-mode="no">
+    <o-grid-item *ngFor="let publisher of publishers.dataArray" class="">
+        <app-book-card-medium [publisher]="publisher"></app-book-card-medium>
+    </o-grid-item>
+</o-grid>

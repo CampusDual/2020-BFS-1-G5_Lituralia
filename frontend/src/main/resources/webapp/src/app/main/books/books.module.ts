@@ -20,7 +20,8 @@ import {BookGridComponent} from './books-home/book-grid/book-grid.component';
         SharedModule
     ],
     exports: [
-        BookCardSmallComponent
+        BookCardSmallComponent,
+        BookCardMediumComponent
     ],
     declarations: [
         BooksHomeComponent,
