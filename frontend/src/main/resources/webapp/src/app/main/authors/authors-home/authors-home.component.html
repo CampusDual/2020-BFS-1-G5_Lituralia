@@ -1,6 +1,6 @@
 <div fxFlex>
   <app-author-table *ngIf="tableMode;else gridMode" (switchMode)="switchMode()"></app-author-table>
   <ng-template #gridMode>
-    <app-authors-grid (switchMode)="switchMode()"></app-authors-grid>
+    <app-author-grid (switchMode)="switchMode()"></app-author-grid>
   </ng-template>
 </div>

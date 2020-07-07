@@ -1,3 +1,25 @@
-<p>
-  author-card-medium works!
-</p>
+<div *ngIf="this.author">
+  <mat-card>
+    <mat-card-content>
+      <o-row>
+        <o-column fxFlex="30" class="mr-2">
+          <o-image class=" cursor-pointer" [routerLink]="['/main','authors', author.author_id]"
+                   height="200px" id="" attr="cover" label="COVER"
+                   [data]="getImageSrc(author.author_portrait)" auto-fit="yes" enabled="true"
+                   read-only="true" show-controls="false"
+                   full-screen-button="false"></o-image>
+        </o-column>
+        <o-column fxFlex="70">
+          <mat-card-title class=" cursor-pointer" [routerLink]="['/main','authors', author.author_id]">
+            <div class="txt-wrap">
+              {{author.author_name}}
+            </div>
+          </mat-card-title>
+
+
+        </o-column>
+
+      </o-row>
+    </mat-card-content>
+  </mat-card>
+</div>
