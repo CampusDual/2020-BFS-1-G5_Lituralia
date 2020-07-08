@@ -15,9 +15,9 @@
            delete-button="no"
            insert-button="no"
            fixed-header="yes">
-    <o-table-button #switchBtn attr="genre_top" label="GRID_VIEW" icon="view_module"></o-table-button>
     <o-table-columns-filter columns="avg_rating" ></o-table-columns-filter>
-<!--    <o-table-column attr="publisher_id" title="PUBLISHER_ID" type="integer"></o-table-column>-->
+    <o-table-button #switchBtn attr="grid_view" label="GRID_VIEW" icon="view_module"></o-table-button>
+    <!--    <o-table-column attr="publisher_id" title="PUBLISHER_ID" type="integer"></o-table-column>-->
     <o-table-column attr="publisher_logo" title="PUBLISHER_LOGO" width="64px" orderable="no" searchable="no">
       <o-table-cell-renderer-image image-type="base64" empty-image="assets/images/no-image.png"
                                    avatar="yes"></o-table-cell-renderer-image>

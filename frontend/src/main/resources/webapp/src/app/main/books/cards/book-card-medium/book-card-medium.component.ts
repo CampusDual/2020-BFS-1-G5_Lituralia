@@ -15,9 +15,7 @@ export class BookCardMediumComponent implements OnInit {
   ngOnInit() {
   }
   
-  getImageSrc(cover: any) {
-    return 'data:image/png;base64,' + cover;
-  }
+
 
   addToMyList(book_id: number) {
 

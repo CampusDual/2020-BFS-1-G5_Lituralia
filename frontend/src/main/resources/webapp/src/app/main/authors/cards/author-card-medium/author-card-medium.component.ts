@@ -16,10 +16,6 @@ export class AuthorCardMediumComponent implements OnInit {
     ngOnInit() {
     }
 
-    getImageSrc(author_portrait: any) {
-        return 'data:image/png;base64,' + author_portrait;
-    }
-
     addToMyList(author_id: number) {
 
     }

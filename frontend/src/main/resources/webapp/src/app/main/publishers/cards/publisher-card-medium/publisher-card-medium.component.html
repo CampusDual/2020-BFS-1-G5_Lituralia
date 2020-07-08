@@ -4,7 +4,7 @@
       <o-row>
         <o-column fxFlex="30" class="mr-2">
           <o-image height="100px" id="publisher_logo" attr="logo" label="LOGO"
-                   [data]="getImageSrc(publisher.publisher_logo)" auto-fit="yes" enabled="true"
+                   [data]="publisher.publisher_logo | base64" auto-fit="yes" enabled="true"
                    read-only="true" show-controls="false"
                    full-screen-button="false"></o-image>
         </o-column>

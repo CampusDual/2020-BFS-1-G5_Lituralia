@@ -15,9 +15,6 @@ export class PublisherCardMediumComponent implements OnInit {
   ngOnInit() {
   }
   
-  getImageSrc(logo: any) {
-    return 'data:image/png;base64,' + logo;
-  }
 
   addToMyList(publisher_id: number) {
 

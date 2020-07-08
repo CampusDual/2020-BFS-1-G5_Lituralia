@@ -8,10 +8,11 @@ import {OntimizeWebModule} from 'ontimize-web-ngx';
 import {SharedModule} from "../../shared/shared.module";
 import {OpinionsModule} from "../opinions/opinions.module";
 
-import { AuthorTableComponent } from './authors-home/author-table/author-table.component';
-import { AuthorCardMediumComponent } from './cards/author-card-medium/author-card-medium.component';
-import { AuthorCardSmallComponent } from './cards/author-card-small/author-card-small.component';
-import { AuthorGridComponent } from './authors-home/author-grid/author-grid.component';
+import {AuthorTableComponent} from './authors-home/author-table/author-table.component';
+import {AuthorCardMediumComponent} from './cards/author-card-medium/author-card-medium.component';
+import {AuthorCardSmallComponent} from './cards/author-card-small/author-card-small.component';
+import {AuthorGridComponent} from './authors-home/author-grid/author-grid.component';
+import {AuthorCardMiniComponent} from './cards/author-card-mini/author-card-mini.component';
 
 
 @NgModule({
@@ -22,6 +23,9 @@ import { AuthorGridComponent } from './authors-home/author-grid/author-grid.comp
     SharedModule,
     OpinionsModule
   ],
+  exports: [
+    AuthorCardMiniComponent
+  ],
   declarations: [
     AuthorsHomeComponent,
     AuthorsDetailComponent,
@@ -29,6 +33,7 @@ import { AuthorGridComponent } from './authors-home/author-grid/author-grid.comp
     AuthorTableComponent,
     AuthorCardMediumComponent,
     AuthorCardSmallComponent,
+    AuthorCardMiniComponent,
 
   ]
 })

@@ -1,5 +1,5 @@
 <div fxFlex>
-  <o-form  #bookForm fxFlex
+  <o-form #bookForm fxFlex
           service="books"
           entity="vBookRatings"
           keys="book_id"
@@ -62,13 +62,8 @@
                     parent-keys="book_id"
                     columns="author_name,author_portrait"
                     controls="no">
-              <mat-card *ngFor="let author of authorList.dataArray" [o-list-item]="author" class="user-opinion"
-                        [routerLink]="['/main', 'authors', author.author_id]">
-                <mat-card-header>
-                  <mat-card-title>{{author.author_name}}</mat-card-title>
-                  <img mat-card-avatar src="{{getImageSrc(author.author_portrait)}}">
-                </mat-card-header>
-              </mat-card>
+              <app-author-card-mini *ngFor="let author of authorList.dataArray"
+                                    [author]="author"></app-author-card-mini>
             </o-list>
 
           </o-column>

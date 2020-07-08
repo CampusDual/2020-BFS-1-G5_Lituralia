@@ -13,6 +13,7 @@ import {BookTableComponent} from './books-home/book-table/book-table.component';
 import {BookGridComponent} from './books-home/book-grid/book-grid.component';
 import {OpinionsModule} from "../opinions/opinions.module";
 import {BookCardWideComponent} from './cards/book-card-wide/book-card-wide.component';
+import {AuthorsModule} from "../authors/authors.module";
 
 @NgModule({
   imports: [
@@ -20,7 +21,8 @@ import {BookCardWideComponent} from './cards/book-card-wide/book-card-wide.compo
     OntimizeWebModule,
     BooksRoutingModule,
     SharedModule,
-    OpinionsModule
+    OpinionsModule,
+    AuthorsModule
   ],
     exports: [
         BookCardSmallComponent,

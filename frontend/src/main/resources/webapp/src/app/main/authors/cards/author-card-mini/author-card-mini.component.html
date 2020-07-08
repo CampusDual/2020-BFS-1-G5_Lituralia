@@ -1,0 +1,7 @@
+<mat-card class="user-opinion cursor-pointer"
+          [routerLink]="['/main', 'authors', author.author_id]" [o-list-item]="author">
+  <mat-card-header>
+    <mat-card-title>{{author.author_name}}</mat-card-title>
+    <img mat-card-avatar src="{{author.author_portrait | base64}}">
+  </mat-card-header>
+</mat-card>

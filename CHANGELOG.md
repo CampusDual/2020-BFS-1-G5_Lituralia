@@ -16,6 +16,8 @@ Front:
 	- Extract Opinion display to its own component
 	- Sort reviews by rating (book detail)
     - Publishers Home design
+    - Publishers grid-table switch
+    - Genres top_grid - table switch
 	- Author Detail: Display all reviews of author's books
 	- Publisher Detail: Display all reviews of publisher's books
 	- Refresh Book Detail on Review Submit-Mod-Remove
@@ -24,6 +26,10 @@ Front:
 	- User My Books List:
 		- Remove book from my list
 		- Display personal Book List
+	- Base64 pipe for images
+	- StarImage Component fix width and height
+	- Author Card Mini (on book detail)
+	- Fix Book Card Small (vertical)
 Back: 
 	- Publishers Rating Service
 	- Opinion Service: 
