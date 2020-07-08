@@ -174,8 +174,8 @@ create table lituralia.opinions
     opinion_id     integer generated always as identity,
     rating         integer,
     review         varchar,
-    opinion_create date default now() not null,
-    opinion_update date,
+    opinion_create timestamp with time zone default now() not null,
+    opinion_update timestamp with time zone default now(),
     book_id        integer,
     user_          varchar,
     constraint opinions_pkey
@@ -217,10 +217,10 @@ create table lituralia.lists
 (
     list_id     integer generated always as identity,
     list_name   varchar,
-    list_public boolean default true,
-    list_desc   varchar default '',
-    list_create date default now(),
-    list_update date,
+    list_public boolean                  default false,
+    list_desc   varchar                  default '',
+    list_create timestamp with time zone default now(),
+    list_update timestamp with time zone default now(),
     user_       varchar,
     constraint lists_pkey
         primary key (list_id),

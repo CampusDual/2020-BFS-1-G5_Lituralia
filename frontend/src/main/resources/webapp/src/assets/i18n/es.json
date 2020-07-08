@@ -94,5 +94,9 @@
   "LIST_DELETING_BOOK_ERROR": "Error",
   "LIST_DELETING_BOOK_OK":  "Success",
   "LIST_INIT_TITLE": "Inicialiazación",
-  "LIST_INIT_ERROR":  "Error"
+  "LIST_INIT_ERROR":  "Error",
+  "MY_LIST_NOT_INIT_WARN": "List no inicializada",
+  "LIST_CREATED": "Creada",
+  "LIST_UPDATED": "Ultima Actualización",
+  "EMPTY_LIST": "Esta lista esta vacía"
 }

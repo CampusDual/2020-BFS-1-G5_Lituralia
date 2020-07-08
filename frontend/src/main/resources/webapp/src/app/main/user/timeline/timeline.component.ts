@@ -12,14 +12,12 @@ import {map, tap} from "rxjs/operators";
 export class TimelineComponent implements OnInit {
 
   opinions: Observable<Opinion[]>
-  private user: string;
 
-  constructor(private loginService: LoginService,
+  constructor(public loginService: LoginService,
               private opinionService: OpinionService) { }
 
   ngOnInit() {
-    this.user = this.loginService.getSessionInfo().user
-    this.opinions = this.opinionService.getUserOpinions(this.user).pipe(
+    this.opinions = this.opinionService.getUserOpinions().pipe(
       map(response => response.data),
       tap(x => x.sort((a, b) => (a.opinion_update?a.opinion_update:a.opinion_create)>(b.opinion_update?b.opinion_update:b.opinion_create) ? -1 : 1 )),
     )

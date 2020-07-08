@@ -10,7 +10,7 @@
       <app-star-rating [rating]="book.avg_rating" [ratings]="book.ratings" height="25"
                        [fluid]="false"></app-star-rating>
     </div>
-    <div *ngIf="canRemove" class="float-right m-4" (click)="removeAction(book)">
+    <div *ngIf="canRemove" class="float-right m-4 cursor-pointer" (click)="removeAction(book)">
       <mat-icon class="mat-icon material-icons" aria-hidden="true">delete</mat-icon>
     </div>
   </div>
