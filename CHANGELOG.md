@@ -1,7 +1,48 @@
-#### v 1.0.0-RC     	====	17/07/2020
+#### v 1.0.0-FINAL     	====	24/07/2020
+
+
+#### v 1.0.0-RC.1     	====	17/07/2020
+
 
 #### v 0.0.7-SNAPSHOT	====	10/07/2020
 
+Front:
+	- Sort and filter books by avg_rating
+	- Revamp OTableCellRendererStarRating Component
+	- Sort and filter authors by avg_rating
+	- Sort and filter publishers by avg_rating
+	- Show publisher`s avg rating on list and detail
+	- Create Opinion module
+	- Extract Opinion display to its own component
+	- Sort reviews by rating (book detail)
+    - Publishers Home design
+	- Author Detail: Display all reviews of author's books
+	- Publisher Detail: Display all reviews of publisher's books
+	- Refresh Book Detail on Review Submit-Mod-Remove
+	- UserModule Init
+	- User/Timeline (list of all user's reviews)
+	- User My Books List:
+		- Remove book from my list
+		- Display personal Book List
+Back: 
+	- Publishers Rating Service
+	- Opinion Service: 
+		- vAuthorOpinionsQuery,
+		- vPublisherOpinionsQuery,
+		- vBookOpinionsQuery
+SQL: 
+	- Publishers Rating View
+	- SQL views optimizations
+	- My private list initialization trigger on user sign up
+	- Mod table opinion: change dates to timestamps
+	- Mod table lists: change dates to timestamps
+	- Triggers:
+		- Auto update modification date on opinions UPDATES
+		- Auto update modification date on lists UPDATES
+		- Auto update modification date on list_books CREATE, UPDATE, DELETE
+		- Auto initialize personal list on user creation
+		
+		
 #### v 0.0.6-SNAPSHOT	====	03/07/2020
 
 - Front: 
@@ -18,12 +59,12 @@
     - Fix all site navigation
     - Lituralia logo on login
     - Remove al C_UD operations from tables and forms
-    - Publishers Home design
 - Back:
     - genre-book service
     - replace credentials with environment variables
 - SQL:
     - Default value for opinion creation date
+
 
 #### v 0.0.5-SNAPSHOT	====	26/06/2020
 

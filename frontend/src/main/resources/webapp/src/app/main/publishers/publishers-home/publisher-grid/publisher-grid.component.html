@@ -1,0 +1,24 @@
+<button mat-stroked-button label="TABLE_VIEW" (click)="switchToTable()">
+  <mat-icon>table_rows</mat-icon>
+  {{"TABLE_VIEW" |oTranslate}}
+</button>
+<o-grid #publishers
+        class="grid-container"
+        attr="publishersGrid"
+        service="publishers"
+        entity="publisher"
+        columns="publisher_id;publisher_name;publisher_desc;publisher_logo"
+        orderable="yes"
+        quick-filter="yes"
+        grid-item-height="350"
+        gutter-size="8px"
+        sort-column="publisher_name"
+        sortable-columns="title"
+        keys="publisher_id"
+        pageable="no"
+        query-rows="16"
+        detail-mode="no">
+  <o-grid-item *ngFor="let publisher of publishers.dataArray" class="">
+    <app-book-card-medium [publisher]="publisher"></app-book-card-medium>
+  </o-grid-item>
+</o-grid>

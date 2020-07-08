@@ -1,12 +1,12 @@
-import {AfterViewInit, Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 import {OTableButtonComponent} from "ontimize-web-ngx";
 
 @Component({
-  selector: 'app-book-table',
-  templateUrl: './book-table.component.html',
-  styleUrls: ['./book-table.component.scss']
+  selector: 'app-publisher-table',
+  templateUrl: './publisher-table.component.html',
+  styleUrls: ['./publisher-table.component.scss']
 })
-export class BookTableComponent implements OnInit, AfterViewInit{
+export class PublisherTableComponent implements OnInit {
 
   @Output() switchMode = new EventEmitter<any>();
 
@@ -23,6 +23,5 @@ export class BookTableComponent implements OnInit, AfterViewInit{
 
   ngOnInit() {
   }
-
 
 }

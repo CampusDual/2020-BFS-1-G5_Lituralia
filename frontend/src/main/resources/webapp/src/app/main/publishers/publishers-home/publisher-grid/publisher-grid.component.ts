@@ -1,11 +1,11 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 
 @Component({
-  selector: 'app-book-grid',
-  templateUrl: './book-grid.component.html',
-  styleUrls: ['./book-grid.component.scss']
+  selector: 'app-publisher-grid',
+  templateUrl: './publisher-grid.component.html',
+  styleUrls: ['./publisher-grid.component.scss']
 })
-export class BookGridComponent implements OnInit {
+export class PublisherGridComponent implements OnInit {
 
   @Output() switchMode = new EventEmitter();
 
@@ -17,4 +17,5 @@ export class BookGridComponent implements OnInit {
   switchToTable(){
     this.switchMode.emit()
   }
+
 }
