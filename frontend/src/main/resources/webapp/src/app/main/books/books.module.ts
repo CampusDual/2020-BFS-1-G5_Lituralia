@@ -22,9 +22,10 @@ import {BookCardWideComponent} from './cards/book-card-wide/book-card-wide.compo
     SharedModule,
     OpinionsModule
   ],
-  exports: [
-    BookCardSmallComponent,
-    BookCardWideComponent
+    exports: [
+        BookCardSmallComponent,
+        BookCardMediumComponent,
+        BookCardWideComponent
   ],
     declarations: [
         BooksHomeComponent,

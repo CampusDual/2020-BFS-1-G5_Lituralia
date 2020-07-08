@@ -2,8 +2,6 @@
   height: 300px;
 }
 
-
-
 .text {
   position: relative;
   font-size: 14px;
@@ -30,46 +28,11 @@
 }
 
 
-.content {
-  padding: 16px;
-}
-
-.content > mat-card {
-  width: 550px;
-  height: 300px;
-  border-style: round(15);
-  margin: 10px;
+.date {
+text-align: end;
 }
 
 
-
-.dates{
-  margin-top: 10px;
-  margin-left: 20px;
-}
-.cover {
-  padding: 10px;
-}
-
-
-.title{
-  font-size:large;
-  font-weight: bold;
-}
-.authors{
-  font-size: medium;
-  font-weight: bolder;
-  color:#2d2d2d;
-}
-.search{
-  margin-left: 20px;
-
-}
-.buttonsGroup{
-  position: absolute;
-  right: 20px;
-  float: right;
-}
 .pie {
   text-align: right;
 
