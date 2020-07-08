@@ -6,7 +6,7 @@
         attr="authorsTable"
         service="authors"
         entity="vAuthorDetails"
-        columns="author_id;author_portrait;author_name;author_birth;author_death;books;ratings;avg_rating"
+        columns="author_id;author_portrait;author_name;author_bio;author_birth;author_death;books;ratings;avg_rating"
         orderable="yes"
         quick-filter="yes"
         grid-item-height="350"
@@ -19,7 +19,7 @@
         query-rows="16"
         detail-mode="no">
   <o-grid-item *ngFor="let author of authors.dataArray" class="">
-    <!--    <app-author-card-medium [author]="author"></app-author-card-medium>-->
-    {{author.author_name}}
+        <app-author-card-medium [author]="author"></app-author-card-medium>
+
   </o-grid-item>
 </o-grid>
