@@ -16,6 +16,16 @@ public class BookGenreDao extends OntimizeJdbcDaoSupport {
 
     public static final String QUERY_VBOOKGENRE = "BOOKGENRE";
 
+    public static final String QUERY_VBOOKDETAILSGENRE = "BOOKDETAILSGENRE";
+
+    public static final String QUERY_VBOOKDETAILSGENRE_ATTR_PUBLISHER_NAME = "publisher_name";
+    public static final String QUERY_VBOOKDETAILSGENRE_ATTR_GENRE_IDS = "genre_ids";
+    public static final String QUERY_VBOOKDETAILSGENRE_ATTR_GENRE_NAMES = "genre_names";
+    public static final String QUERY_VBOOKDETAILSGENRE_ATTR_AUTHOR_IDS = "author_ids";
+    public static final String QUERY_VBOOKDETAILSGENRE_ATTR_AUTHOR_NAMES = "author_names";
+    public static final String QUERY_VBOOKDETAILSGENRE_ATTR_AVG_RATING = "avg_rating";
+    public static final String QUERY_VBOOKDETAILSGENRE_ATTR_RATINGS = "ratings";
+
     public BookGenreDao() {
         super();
     }

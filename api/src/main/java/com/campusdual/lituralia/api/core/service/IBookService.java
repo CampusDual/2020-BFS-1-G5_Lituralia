@@ -60,10 +60,4 @@ public interface IBookService {
 
     EntityResult vBookRatingsDelete(Map<?, ?> keyMap);
 
-    // ---- BOOK OPINIONS VIEW ----
-    EntityResult vBookOpinionsQuery(Map<String, Object> keysValues, List<String> attributes) throws OntimizeJEERuntimeException;
-
-    EntityResult vBookOpinionsUpdate(Map<?, ?> attrMap, Map<?, ?> keyMap);
-
-    EntityResult vBookOpinionsDelete(Map<?, ?> keyMap);
 }

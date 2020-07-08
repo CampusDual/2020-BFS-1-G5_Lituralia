@@ -1,0 +1,40 @@
+<div *ngIf="this.book">
+  <mat-card>
+    <mat-card-content>
+      <o-row>
+        <o-column fxFlex="30" class="mr-2">
+          <o-image class=" cursor-pointer" [routerLink]="['/main','books', book.book_id]"
+                   height="200px" id="book_cover" attr="cover" label="COVER"
+                   [data]="getImageSrc(book.cover)" auto-fit="yes" enabled="true"
+                   read-only="true" show-controls="false"
+                   full-screen-button="false"></o-image>
+        </o-column>
+        <o-column fxFlex="70">
+          <mat-card-title class=" cursor-pointer" [routerLink]="['/main','books', book.book_id]">
+            <div class="txt-wrap">
+              {{book.title}}
+            </div>
+          </mat-card-title>
+          <mat-card-subtitle class=""><p>{{book.author_names}}</p></mat-card-subtitle>
+          <div class="sypnosis"><p>{{book.synopsis}}</p></div>
+          <o-row>
+            <o-column fxFlex>
+              <div>
+                <app-star-rating [rating]="book.avg_rating" [ratings]="book.ratings"></app-star-rating>
+              </div>
+            </o-column>
+            <o-column fxFlex>
+              <o-row>
+                <o-button-toggle attr="toggle1" value="list" icon="bookmark_border"
+                                 (click)="addToMyList(book.book_id)"></o-button-toggle>
+                <o-button-toggle attr="toggle2" value="review" icon="comment"
+                                 (click)="reviewPopup(book.book_id)"></o-button-toggle>
+                <!--                <o-button attr="icon" type="ICON" icon="more" (click)="onClick($event)"></o-button>-->
+              </o-row>
+            </o-column>
+          </o-row>
+        </o-column>
+      </o-row>
+    </mat-card-content>
+  </mat-card>
+</div>

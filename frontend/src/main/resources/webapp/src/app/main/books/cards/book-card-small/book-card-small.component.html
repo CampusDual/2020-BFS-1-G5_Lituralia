@@ -1,0 +1,12 @@
+<div *ngIf="this.book" class="card cursor-pointer" [routerLink]="['/main', 'books', book.book_id]">
+  <div class="card-horizontal">
+    <div class="img-square-wrapper">
+      <img class="" height="150px" src="{{'data:image/jpg;base64,' +book.cover}}" alt="Card image cap">
+    </div>
+    <div class="card-body">
+      <h6 class="card-title">{{book.title}}</h6>
+      <p class="card-text">{{book.author_names}}</p>
+      <app-star-rating [rating]="book.avg_rating" [ratings]="book.ratings"></app-star-rating>
+    </div>
+  </div>
+</div>

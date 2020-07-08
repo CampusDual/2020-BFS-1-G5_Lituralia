@@ -2,23 +2,24 @@
   <o-form service="authors"
           entity="vAuthorRatings"
           keys="author_id"
-          header-actions="I;R;U;D"
-          show-header-navigation="yes">
-    <o-integer-input attr="author_id" sql-type="INTEGER" label="Id" enabled="no" class="display-none"></o-integer-input>
+          header-actions="R"
+          show-header="no">
+    <o-integer-input attr="author_id" sql-type="INTEGER" label="Id" enabled="no" class="display-none"
+                     read-only="yes"></o-integer-input>
     <o-row fxFlex>
       <o-column fxFlex="20" class="col-padding">
         <o-image id="author_portrait" attr="author_portrait" label="AUTHOR_PORTRAIT"
                  empty-image="assets/images/no-image.png" sql-type="OTHER"
-                 auto-fit="no"></o-image>
+                 auto-fit="no" show-controls="no"></o-image>
       </o-column>
       <o-column title="{{ 'AUTHOR_INFORMATION' | oTranslate }}" fxFlex="80">
         <o-row>
           <o-text-input class="input-padding" attr="author_name" label="AUTHOR_NAME" fxFlex
-                        required="yes"></o-text-input>
+                        required="no" read-only="yes"></o-text-input>
         </o-row>
         <o-row>
-          <o-date-input attr="author_birth" label="AUTHOR_BIRTH" fxFlex="50"></o-date-input>
-          <o-date-input attr="author_death" label="AUTHOR_DEATH" fxFlex="50"></o-date-input>
+          <o-date-input attr="author_birth" label="AUTHOR_BIRTH" fxFlex="50" read-only="yes"></o-date-input>
+          <o-date-input attr="author_death" label="AUTHOR_DEATH" fxFlex="50" read-only="yes"></o-date-input>
         </o-row>
         <o-row>
           <img *ngIf="rating.value" height="35" src="{{rating.value.value | starRating}}">
@@ -27,7 +28,7 @@
           <o-text-input class="input-padding" attr="ratings" label="RATINGS" read-only="yes"></o-text-input>
         </o-row>
         <o-row>
-          <o-textarea-input attr="author_bio" label="BIOGRAPHY" fxFlex></o-textarea-input>
+          <o-textarea-input attr="author_bio" label="BIOGRAPHY" fxFlex read-only="yes"></o-textarea-input>
         </o-row>
       </o-column>
     </o-row>
@@ -39,14 +40,20 @@
                  parent-keys="author_id"
                  keys="author_id"
                  columns="book_id;isbn;cover;title;publish_date;publisher_name;author_names;genre_names;avg_rating;ratings"
-                 visible-columns="book_id;isbn;cover;title;publish_date;publisher_name;author_names;genre_names;avg_rating;ratings"
+                 visible-columns="isbn;cover;title;publish_date;publisher_name;author_names;genre_names;avg_rating"
                  query-rows="10"
+                 detail-form-route="/main/books/"
+                 show-filter-option="yes"
+                 quick-filter="yes"
+                 show-configuration-option="no"
+                 refresh-button="no"
+                 export-button="no"
+                 delete-button="no"
                  insert-button="no"
-                 detail-mode="none">
-          <!--          //TODO:insert genre            insert-form-route="genre/new"           -->
-
-          <o-table-column attr="book_id" title="ID" type="integer"></o-table-column>
-          <o-table-column attr="isbn" title="ISBN"></o-table-column>
+                 fixed-header="yes">
+          <o-table-columns-filter columns="avg_rating" ></o-table-columns-filter>
+          <!--          <o-table-column attr="book_id" title="ID" type="integer"></o-table-column>-->
+          <o-table-column attr="isbn" title="ISBN" width="128px"></o-table-column>
           <o-table-column attr="cover" title="COVER" width="64px" orderable="no" searchable="no" image-type="base64"
                           type="image">
             <o-table-cell-renderer-image image-type="base64" empty-image="assets/images/no-image.png"
@@ -57,13 +64,15 @@
           <o-table-column attr="publisher_name" title="PUBLISHER_NAME"></o-table-column>
           <o-table-column attr="author_names" title="AUTHOR_NAMES"></o-table-column>
           <o-table-column attr="genre_names" title="GENRE_NAMES"></o-table-column>
-          <o-table-column attr="avg_rating" title="AVG_RATING" width="150px"
-                          orderable="no" searchable="no" type="image">
-            <o-table-column-renderer-star-rating image-type="base64" empty-image="assets/images/no-image.png"
-                                                 avatar="yes"></o-table-column-renderer-star-rating>
+          <o-table-column attr="avg_rating" title="AVG_RATING" class="o-table-column-centered">
+            <o-table-cell-renderer-star-rating></o-table-cell-renderer-star-rating>
           </o-table-column>
-          <o-table-column attr="ratings" title="RATINGS" type="integer" width="50px"></o-table-column>
         </o-table>
+      </o-column>
+    </o-row>
+    <o-row>
+      <o-column fxFlex="80" title="{{ 'ALL_REVIEWS' | oTranslate }}">
+        <app-opinion-display *ngFor="let opinion of opinions | async" [opinion]="opinion"></app-opinion-display>
       </o-column>
     </o-row>
   </o-form>

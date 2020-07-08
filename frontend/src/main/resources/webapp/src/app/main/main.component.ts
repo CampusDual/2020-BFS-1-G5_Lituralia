@@ -14,7 +14,6 @@ export class MainComponent implements OnInit {
     }
 
     ngOnInit() {
-        console.log(this.loginService.getSessionInfo())
         this.user = this.loginService.getSessionInfo().user
     }
 

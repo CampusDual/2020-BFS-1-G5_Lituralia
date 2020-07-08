@@ -1,0 +1,55 @@
+<div *ngIf="this.author">
+    <mat-card class="tarjeta">
+        <mat-card-content>
+            <o-row>
+                <o-column fxFlex="30" class="mr-2">
+                    <o-image class=" cursor-pointer" [routerLink]="['/main','authors', author.author_id]"
+                             height="200px" id="author_portrait" attr="author_portrait" label="AUTHOR_PORTRAIT"
+                             [data]="getImageSrc(author.author_portrait)" auto-fit="yes" enabled="true"
+                             read-only="true" show-controls="false"
+                             full-screen-button="false"></o-image>
+                    <!--                    <img class="" height="150px" src="{{'data:image/jpg;base64,' +author.author_portrait}}" >-->
+                </o-column>
+                <o-column fxFlex="70" >
+
+                    <mat-card-title class=" cursor-pointer" [routerLink]="['/main','authors', author.author_id]">
+                        <div class="txt-wrap">
+                            {{author.author_name}}
+                        </div>
+                    </mat-card-title>
+                    <mat-card-subtitle >
+                        <div class="text ellipsis">
+                            <span class="text-concat">{{author.author_bio}}</span>
+                        </div>
+<!--                        <p>{{ (author.author_bio.length > 100) ? (author.author_bio | slice:0:100) + '...' : (author.author_bio) }}</p>-->
+
+                    </mat-card-subtitle>
+                    <mat-card-subtitle class="date"><p>{{author.author_birth| date}}
+                        - {{(author.author_death ? (author.author_death|date) : ('AUTHOR_ALIVE'| oTranslate))}}</p>
+                    </mat-card-subtitle>
+
+                </o-column>
+            </o-row>
+        </mat-card-content>
+        <mat-card-footer class="pie">
+
+                <o-column fxFlex="30" style="">
+
+                    <div>
+                        <app-star-rating [rating]="author.avg_rating"
+                                         [ratings]="author.ratings"></app-star-rating>
+                    </div>
+                </o-column>
+                <o-column fxFlex class="boton">
+                    <div fxFlex style="justify-content: flex-end;">
+                        <o-button-toggle attr="toggle1" value="list" icon="bookmark_border"
+                                         (click)="addToMyList( author.author_id)"></o-button-toggle>
+                        <o-button-toggle attr="toggle2" value="review" icon="comment"
+                                         (click)="reviewPopup( author.author_id)"></o-button-toggle>
+
+                    </div>
+                </o-column>
+
+        </mat-card-footer>
+    </mat-card>
+</div>

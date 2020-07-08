@@ -1,0 +1,35 @@
+<div fxFlex class="row">
+  <o-table fxFlex
+           attr="authorsTable"
+           service="authors"
+           entity="vAuthorDetails"
+           keys="author_id"
+           columns="author_id;author_portrait;author_name;author_birth;author_death;books;ratings;avg_rating"
+           visible-columns="author_portrait;author_name;author_birth;author_death;books;avg_rating"
+           query-rows="20"
+           show-filter-option="yes"
+           quick-filter="yes"
+           show-configuration-option="no"
+           refresh-button="no"
+           export-button="no"
+           delete-button="no"
+           insert-button="no"
+           fixed-header="yes">
+    <o-table-columns-filter columns="avg_rating" ></o-table-columns-filter>
+    <o-table-button #switchBtn attr="genre_top" label="GRID_VIEW" icon="style"></o-table-button>
+    <!--    <o-table-column attr="author_id" title="ID" type="integer" width="50"></o-table-column>-->
+    <o-table-column attr="author_portrait" title="AUTHOR_PORTRAIT" width="64px" orderable="no" searchable="no">
+      <o-table-cell-renderer-image image-type="base64" empty-image="assets/images/no-image.png"
+                                   avatar="yes"></o-table-cell-renderer-image>
+    </o-table-column>
+    <o-table-column attr="author_name" title="AUTHOR_NAME"></o-table-column>
+    <o-table-column attr="author_birth" title="AUTHOR_BIRTH" type="date" format="MM/DD/YYYY"
+                    width="200px"></o-table-column>
+    <o-table-column attr="author_death" title="AUTHOR_DEATH" type="date" format="MM/DD/YYYY"
+                    width="200px"></o-table-column>
+    <o-table-column attr="books" title="BOOKS" type="integer" width="50px"></o-table-column>
+    <o-table-column attr="avg_rating" title="AVG_RATING" class="o-table-column-centered">
+      <o-table-cell-renderer-star-rating></o-table-cell-renderer-star-rating>
+    </o-table-column>
+  </o-table>
+</div>

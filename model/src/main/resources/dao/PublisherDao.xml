@@ -12,4 +12,22 @@
         <Column>publisher_id</Column>
     </UpdateKeys>
     <GeneratedKey>publisher_id</GeneratedKey>
+    <Queries>
+        <Query id="PUBLISHERRATINGS">
+            <AmbiguousColumns>
+                <AmbiguousColumn name="publisher_id" prefix="p" databaseName="publisher_id" />
+            </AmbiguousColumns>
+            <Sentence>
+                <![CDATA[
+               SELECT
+                  #COLUMNS#
+               FROM
+                  ${mainschema}.publishers AS p
+                  LEFT OUTER JOIN ${mainschema}.v_publisher_ratings AS r ON p.publisher_id = r.publisher_id
+               #WHERE#
+               #ORDER#
+            ]]>
+            </Sentence>
+        </Query>
+    </Queries>
 </JdbcEntitySetup>

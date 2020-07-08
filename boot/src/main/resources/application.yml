@@ -27,7 +27,7 @@ ontimize:
          upperLike: true
    security:
       mode: default
-      ignorePaths: /api/books/**, /api/authors/**, /api/genres/**, /api/publishers/**, /api/opinion/**
+      ignorePaths: /*, /assets/**, index.html, /api/bundle/**, /api/books/**, /api/authors/**, /api/genres/**, /api/publishers/**, /api/opinions/**
       roleInformationService:
          roleRepository: UserRoleDao
          roleNameColumn: ROLENAME
@@ -67,9 +67,9 @@ spring:
    datasource:
       platform: postgres
       driver-class-name: org.postgresql.Driver
-      jdbcUrl: jdbc:postgresql://45.84.210.174:65432/cd05
-      username: cd05
-      password: cd05_P4$!
+      jdbcUrl: jdbc:postgresql://45.84.210.174:65432/${PG_USER}
+      username: ${PG_USER}
+      password: ${PG_PASS}
       initialSize: 10
       testOnBorrow: true
    main:
