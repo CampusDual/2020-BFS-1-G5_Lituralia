@@ -1,21 +1,35 @@
-.txt-wrap {
-  width: 300px;
-  overflow:hidden;
-  white-space:nowrap;
-  text-overflow: ellipsis;
+.tarjeta {
+  height: 300px;
 }
 
 
-o-table-column {
-  height: 50px;
+
+.text {
+  position: relative;
+  font-size: 14px;
+  color: black;
+  font-family: sans-serif;
+  width: 90%; /* Could be anything you like. */
 }
 
-.grid-container {
-  //display: grid;
-  //grid-row-gap: 50px;
-  //margin-block: 50px 50px;
-
+.text-concat {
+  position: relative;
+  display: inline-block;
+  word-wrap: break-word;
+  overflow: hidden;
+  max-height: 3.6em; /* (Number of lines you want visible) * (line-height) */
+  line-height: 1.2em;
+  //text-align:justify;
 }
+
+.text.ellipsis::after {
+  content: "...";
+  position: absolute;
+  right: -12px;
+  bottom: 5px;
+}
+
+
 .content {
   padding: 16px;
 }
@@ -27,20 +41,16 @@ o-table-column {
   margin: 10px;
 }
 
+
+
 .dates{
   margin-top: 10px;
   margin-left: 20px;
 }
 .cover {
   padding: 10px;
-  //quitar scroll
-  //overflow:hidden;
 }
 
-//.cover > img{
-//  max-width:100%;
-//  max-height:100%;
-//}
 
 .title{
   font-size:large;
@@ -58,8 +68,9 @@ o-table-column {
 .buttonsGroup{
   position: absolute;
   right: 20px;
-
-
   float: right;
-  // padding: 10px;
+}
+.pie {
+  text-align: right;
+
 }

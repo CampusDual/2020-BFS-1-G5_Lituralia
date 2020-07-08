@@ -8,10 +8,8 @@
                              [data]="getImageSrc(author.author_portrait)" auto-fit="yes" enabled="true"
                              read-only="true" show-controls="false"
                              full-screen-button="false"></o-image>
-                    <!--                    <img class="" height="150px" src="{{'data:image/jpg;base64,' +author.author_portrait}}" >-->
                 </o-column>
                 <o-column fxFlex="70" >
-
                     <mat-card-title class=" cursor-pointer" [routerLink]="['/main','authors', author.author_id]">
                         <div class="txt-wrap">
                             {{author.author_name}}
