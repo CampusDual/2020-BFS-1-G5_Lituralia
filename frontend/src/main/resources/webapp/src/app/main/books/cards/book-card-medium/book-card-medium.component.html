@@ -1,5 +1,5 @@
 <div *ngIf="this.book">
-  <mat-card>
+  <mat-card class="tarjeta">
     <mat-card-content>
       <o-row>
         <o-column fxFlex="30" class="mr-2">
@@ -12,29 +12,43 @@
         <o-column fxFlex="70">
           <mat-card-title class=" cursor-pointer" [routerLink]="['/main','books', book.book_id]">
             <div class="txt-wrap">
-              {{book.title}}
+<!--              {{book.title}}-->
+              {{ (book.title.length > 15) ? (book.title | slice:0:15) + '...' : (book.title) }}
             </div>
           </mat-card-title>
-          <mat-card-subtitle class=""><p>{{book.author_names}}</p></mat-card-subtitle>
-          <div class="sypnosis"><p>{{book.synopsis}}</p></div>
-          <o-row>
-            <o-column fxFlex>
-              <div>
-                <app-star-rating [rating]="book.avg_rating" [ratings]="book.ratings"></app-star-rating>
-              </div>
-            </o-column>
-            <o-column fxFlex>
-              <o-row>
-                <o-button-toggle attr="toggle1" value="list" icon="bookmark_border"
-                                 (click)="addToMyList(book.book_id)"></o-button-toggle>
-                <o-button-toggle attr="toggle2" value="review" icon="comment"
-                                 (click)="reviewPopup(book.book_id)"></o-button-toggle>
-                <!--                <o-button attr="icon" type="ICON" icon="more" (click)="onClick($event)"></o-button>-->
-              </o-row>
-            </o-column>
-          </o-row>
+          <mat-card-subtitle>
+<!--            <p>{{book.author_names}}</p>-->
+
+            {{ (book.author_names.length > 20) ? (book.author_names | slice:0:20) + '...' : (book.author_names) }}
+
+          </mat-card-subtitle>
+          <mat-card-subtitle >
+            <div class="text ellipsis">
+              <span class="text-concat">{{book.synopsis}}</span>
+            </div>
+          </mat-card-subtitle>
         </o-column>
       </o-row>
+
     </mat-card-content>
+
+    <mat-card-footer class="pie">
+
+      <o-column fxFlex="30" style="">
+
+        <div>
+          <app-star-rating [rating]="book.avg_rating"
+                           [ratings]="book.ratings"></app-star-rating>
+        </div>
+      </o-column>
+      <o-column fxFlex class="boton">
+        <div fxFlex style="justify-content: flex-end;">
+          <o-button-toggle attr="toggle1" value="list" icon="bookmark_border"
+                           (click)="addToMyList(book.book_id)"></o-button-toggle>
+          <o-button-toggle attr="toggle2" value="review" icon="comment"
+                           (click)="reviewPopup(book.book_id)"></o-button-toggle>
+        </div>
+      </o-column>
+    </mat-card-footer>
   </mat-card>
 </div>
