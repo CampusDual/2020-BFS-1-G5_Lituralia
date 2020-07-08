@@ -6,7 +6,7 @@
 
 #### v 0.0.7-SNAPSHOT	====	10/07/2020
 
-Front:
+- Front:
 	- Sort and filter books by avg_rating
 	- Revamp OTableCellRendererStarRating Component
 	- Sort and filter authors by avg_rating
@@ -30,13 +30,13 @@ Front:
 	- StarImage Component fix width and height
 	- Author Card Mini (on book detail)
 	- Fix Book Card Small (vertical)
-Back: 
+- Back: 
 	- Publishers Rating Service
 	- Opinion Service: 
 		- vAuthorOpinionsQuery,
 		- vPublisherOpinionsQuery,
 		- vBookOpinionsQuery
-SQL: 
+ -SQL: 
 	- Publishers Rating View
 	- SQL views optimizations
 	- My private list initialization trigger on user sign up

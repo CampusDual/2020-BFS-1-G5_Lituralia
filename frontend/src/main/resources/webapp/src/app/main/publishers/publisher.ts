@@ -2,5 +2,8 @@ export interface Publisher {
     publisher_id: number,
     publisher_name: string,
     publisher_logo?:string,
-    publisher_desc:string,
+    publisher_desc?:string,
+
+    avg_rating?:number,
+    ratings?:number
 }
