@@ -16,9 +16,9 @@ export class MyListComponent implements OnInit {
   public isListInitialized: boolean = false;
 
 
-  public static readonly LIST_DELETING_OPINION: string = "LIST_DELETING_OPINION";
-  public static readonly LIST_DELETING_OPINION_ERROR: string = "LIST_DELETING_OPINION_ERROR";
-  public static readonly LIST_DELETING_OPINION_OK: string = "LIST_DELETING_OPINION_OK";
+  public static readonly LIST_DELETING_BOOK: string = "LIST_DELETING_BOOK";
+  public static readonly LIST_DELETING_BOOK_ERROR: string = "LIST_DELETING_BOOK_ERROR";
+  public static readonly LIST_DELETING_BOOK_OK: string = "LIST_DELETING_BOOK_OK";
   private static LIST_INIT_TITLE: string ="LIST_INIT_TITLE";
   private static LIST_INIT_ERROR: string ="LIST_INIT_ERROR";
 
@@ -55,8 +55,8 @@ export class MyListComponent implements OnInit {
 
   removeBookFromList(book: Book) {
     this.listService.removeBookFromList(book.list_book_id, book.book_id, book.list_id).subscribe(
-      value => this.dialogService.info(this.translate.get(MyListComponent.LIST_DELETING_OPINION), this.translate.get(MyListComponent.LIST_DELETING_OPINION_OK)),
-      error => this.dialogService.error(this.translate.get(MyListComponent.LIST_DELETING_OPINION), this.translate.get(MyListComponent.LIST_DELETING_OPINION_ERROR)),
+      value => this.dialogService.info(this.translate.get(MyListComponent.LIST_DELETING_BOOK), this.translate.get(MyListComponent.LIST_DELETING_BOOK_OK)),
+      error => this.dialogService.error(this.translate.get(MyListComponent.LIST_DELETING_BOOK), this.translate.get(MyListComponent.LIST_DELETING_BOOK_ERROR)),
       () => this.fetchMyList()
     )
   }

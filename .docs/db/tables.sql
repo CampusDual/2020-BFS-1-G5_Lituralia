@@ -217,7 +217,7 @@ create table lituralia.lists
 (
     list_id     integer generated always as identity,
     list_name   varchar,
-    list_public boolean default false,
+    list_public boolean default true,
     list_desc   varchar default '',
     list_create date default now(),
     list_update date,

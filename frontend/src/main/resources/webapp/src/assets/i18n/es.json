@@ -87,5 +87,12 @@
   "PROFILE": "Perfil",
   "TIMELINE": "Historial",
   "YOUR_TIMELINE": "Tu Historial",
-  "TIMELINE_LOGIN_WARN": "Debes iniciar sesión para ver tu historial"
+  "TIMELINE_LOGIN_WARN": "Debes iniciar sesión para ver tu historial",
+
+  "MY_LIST": "Tus Libros",
+  "LIST_DELETING_BOOK": "Quitando Book",
+  "LIST_DELETING_BOOK_ERROR": "Error",
+  "LIST_DELETING_BOOK_OK":  "Success",
+  "LIST_INIT_TITLE": "Inicialiazación",
+  "LIST_INIT_ERROR":  "Error"
 }

@@ -1,10 +1,12 @@
 <div *ngIf="this.book" class="card m-3">
   <div class="card-horizontal">
     <div class="img-square-wrapper cursor-pointer" [routerLink]="['/main', 'books', book.book_id]">
-      <img class="" height="100px" src="{{'data:image/jpg;base64,' +book.cover}}" alt="">
+      <img class="" width="100px" height="150px" src="{{'data:image/jpg;base64,' +book.cover}}" alt=""
+           onerror="this.src='assets/images/no-image.png'">
     </div>
     <div class="card-body">
       <h6 class="card-title cursor-pointer w-100" [routerLink]="['/main', 'books', book.book_id]">{{book.title}}</h6>
+      <div class="card-subtitle">{{book.author_names}}</div>
       <app-star-rating [rating]="book.avg_rating" [ratings]="book.ratings" height="25"
                        [fluid]="false"></app-star-rating>
     </div>

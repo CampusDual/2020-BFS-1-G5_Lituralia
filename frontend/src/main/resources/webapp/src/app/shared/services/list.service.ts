@@ -75,7 +75,8 @@ export class ListService extends OntimizeEEService {
     const columns = [
       "book_id", "isbn", "cover", "title", "synopsis",
       "publish_date", "publisher_id",
-      "list_id", "list_book_id"
+      "publisher_name", "author_names", "author_ids","genre_names", "genre_ids", "avg_rating", "ratings",
+      "list_id", "list_book_id",
     ];
     return this.query(filter, columns, 'vListBook').pipe(
       tap(x => console.log(x))
