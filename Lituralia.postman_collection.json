@@ -981,6 +981,48 @@
 					"response": []
 				},
 				{
+					"name": "genre-books-details -R",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "demouser",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "demo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:33333/api/genres/vGenreBookDetails?columns=book_genre_id,genre_id,genre_name,genre_desc,book_id,isbn,cover,title,synopsis,publisher_id,publisher_name,author_names,author_ids,genre_names,genre_ids,avg_rating,ratings",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"api",
+								"genres",
+								"vGenreBookDetails"
+							],
+							"query": [
+								{
+									"key": "columns",
+									"value": "book_genre_id,genre_id,genre_name,genre_desc,book_id,isbn,cover,title,synopsis,publisher_id,publisher_name,author_names,author_ids,genre_names,genre_ids,avg_rating,ratings"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "genres -R (complex)",
 					"request": {
 						"auth": {
@@ -1020,6 +1062,52 @@
 								"api",
 								"genres",
 								"genre",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "genre-books-details -R (complex)",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "demouser",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "demo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"filter\": {\n    \t\"genre_id\": 5\n    },\n    \"columns\": [\n        \"book_genre_id\",\n        \"genre_id\",\"genre_name\",\"genre_desc\",\n        \"book_id\",\"isbn\",\"cover\",\"title\",\"synopsis\",\"publisher_id\",\"publisher_name\",\"author_names\",\"author_ids\",\"genre_names\",\"genre_ids\",\"avg_rating\",\"ratings\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:33333/api/genres/vGenreBookDetails/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"api",
+								"genres",
+								"vGenreBookDetails",
 								"search"
 							]
 						}
@@ -1309,6 +1397,301 @@
 					"listen": "test",
 					"script": {
 						"id": "e08c042b-7734-448d-b566-4d307e0913f9",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Lists",
+			"item": [
+				{
+					"name": "lists -C",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n            \"list_name\": \"MYLIST2\",\n            \"list_create\": 1594072800000,\n            \"list_desc\": \"\",\n            \"list_public\": false,\n            \"user_\": \"demo\"\n        \n    },\n    \"sqltypes\": {\n        \"list_name\": 12,\n        \"list_create\": 91,\n        \"list_desc\": 12,\n        \"list_public\": -7,\n        \"user_\": 12,\n        \"list_update\": 91,\n        \"list_id\": 4\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:33333/api/lists/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"api",
+								"lists",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "lists -R",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "demouser",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "demo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:33333/api/lists/list?columns=list_id,list_name,list_desc,list_public,list_create,list_update,user_",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"api",
+								"lists",
+								"list"
+							],
+							"query": [
+								{
+									"key": "columns",
+									"value": "list_id,list_name,list_desc,list_public,list_create,list_update,user_"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list-books -R",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "demouser",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "demo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:33333/api/lists/vListBook?columns=list_id,list_name,list_desc,list_public,list_create,list_update,user_,book_id,title",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"api",
+								"lists",
+								"vListBook"
+							],
+							"query": [
+								{
+									"key": "columns",
+									"value": "list_id,list_name,list_desc,list_public,list_create,list_update,user_,book_id,title"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "lists -R (complex)",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "demouser",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "demo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"filter\": {\n    \t\"list_id\": 1\n    },\n    \"columns\": [\n        \"list_id\",\n        \"list_name\",\n        \"list_desc\",\n        \"list_public\",\n        \"list_create\",\n        \"list_update\",\n        \"user_\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:33333/api/lists/list/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"api",
+								"lists",
+								"list",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list-books -R (complex)",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "demouser",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "demo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"filter\": {\n    \t\"list_id\": 1\n    },\n    \"columns\": [\n        \"list_id\",\n        \"list_name\",\n        \"list_desc\",\n        \"list_public\",\n        \"list_create\",\n        \"list_update\",\n        \"user_\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:33333/api/lists/vListBook/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"api",
+								"lists",
+								"vListBook",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "lists -U",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"filter\": {\n\t\t\"list_id\": 2\n\t},\n    \"data\": {\n            \"list_name\": \"MYLIST22\",\n            \"list_create\": 1594072800000,\n            \"list_desc\": \"\",\n            \"list_public\": false,\n            \"user_\": \"demo\"\n        \n    },\n    \"sqltypes\": {\n        \"list_name\": 12,\n        \"list_create\": 91,\n        \"list_desc\": 12,\n        \"list_public\": -7,\n        \"user_\": 12,\n        \"list_update\": 91,\n        \"list_id\": 4\n    }\n}\n\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:33333/api/lists/list/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"api",
+								"lists",
+								"list",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "lists -D",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"filter\" :{\n\t\t\"list_id\": 2\n\t}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:33333/api/lists/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33333",
+							"path": [
+								"api",
+								"lists",
+								"list"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "6c76f389-4686-4471-9364-b7c698cd3166",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "5747d202-5338-4203-96db-437c2368e6c1",
 						"type": "text/javascript",
 						"exec": [
 							""

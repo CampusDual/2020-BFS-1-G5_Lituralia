@@ -66,3 +66,8 @@ from opinions o
         LEFT OUTER JOIN book_authors ba on b.book_id = ba.book_id
         LEFT OUTER JOIN authors a on ba.author_id = a.author_id
 where a.author_id = 10
+
+SELECT *
+FROM lists l
+    LEFT OUTER JOIN list_books lb on l.list_id = lb.list_id
+    LEFT OUTER JOIN books b on lb.book_id = b.book_id
