@@ -12,6 +12,7 @@ import {BookCardSmallComponent} from "./cards/book-card-small/book-card-small.co
 import {BookTableComponent} from './books-home/book-table/book-table.component';
 import {BookGridComponent} from './books-home/book-grid/book-grid.component';
 import {OpinionsModule} from "../opinions/opinions.module";
+import {BookCardWideComponent} from './cards/book-card-wide/book-card-wide.component';
 
 @NgModule({
   imports: [
@@ -21,9 +22,10 @@ import {OpinionsModule} from "../opinions/opinions.module";
     SharedModule,
     OpinionsModule
   ],
-    exports: [
-        BookCardSmallComponent
-    ],
+  exports: [
+    BookCardSmallComponent,
+    BookCardWideComponent
+  ],
     declarations: [
         BooksHomeComponent,
         BooksDetailComponent,
@@ -31,7 +33,8 @@ import {OpinionsModule} from "../opinions/opinions.module";
         BookCardSmallComponent,
         BookCardMediumComponent,
         BookTableComponent,
-        BookGridComponent
+        BookGridComponent,
+        BookCardWideComponent
     ]
 })
 export class BooksModule {

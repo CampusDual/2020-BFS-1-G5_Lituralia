@@ -1,0 +1,15 @@
+<div *ngIf="!isListInitialized; else myListElement">
+  <button class="btn btn-primary" (click)="initMyList()">{{'INIT_MY_LIST_BTN' | oTranslate}}</button>
+  <div>
+    <p>{{'MY_LIST_NOT_INIT_WARN' | oTranslate}}</p>
+  </div>
+</div>
+<ng-template #myListElement>
+  <o-column title="{{ 'MY_LIST' | oTranslate }}" fxFlex="80">
+    <ul>
+      <li *ngFor="let book of myBookList.books | async">
+        <app-book-card-wide [book]="book" [canRemove]="true" (onRemoveAction)="removeBookFromList($event)"></app-book-card-wide>
+      </li>
+    </ul>
+  </o-column>
+</ng-template>
