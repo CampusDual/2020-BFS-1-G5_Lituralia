@@ -1,0 +1,11 @@
+<div *ngIf="this.publisher" class="card cursor-pointer"  [routerLink]="['/main', 'publishers', publisher.publisher_id]">
+  <div class="card-horizontal">
+    <div class="img-square-wrapper">
+      <img class="" height="150px" src="{{'data:image/jpg;base64,' +publisher.publisher_logo}}" alt="Card image cap">
+    </div>
+    <div class="card-body">
+      <h6 class="card-title">{{publisher.publisher_name}}</h6>
+      <p class="card-text">{{publisher.publisher_desc}}</p>
+    </div>
+  </div>
+</div>

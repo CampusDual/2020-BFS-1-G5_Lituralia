@@ -22,7 +22,8 @@ import {OpinionsModule} from "../opinions/opinions.module";
     OpinionsModule
   ],
     exports: [
-        BookCardSmallComponent
+        BookCardSmallComponent,
+        BookCardMediumComponent
     ],
     declarations: [
         BooksHomeComponent,
