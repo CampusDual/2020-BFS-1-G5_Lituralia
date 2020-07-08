@@ -18,6 +18,7 @@
     - Fix all site navigation
     - Lituralia logo on login
     - Remove al C_UD operations from tables and forms
+    - Publisher Home design
 - Back:
     - genre-book service
     - replace credentials with environment variables
