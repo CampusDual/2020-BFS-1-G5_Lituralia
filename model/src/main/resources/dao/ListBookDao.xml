@@ -24,8 +24,8 @@
                   #COLUMNS#
                FROM
                   ${mainschema}.lists AS l
-                        LEFT OUTER JOIN ${mainschema}.list_books lb on l.list_id = lb.list_id
-                        LEFT OUTER JOIN ${mainschema}.v_book_details b on lb.book_id = b.book_id
+                        INNER JOIN ${mainschema}.list_books lb on l.list_id = lb.list_id
+                        INNER JOIN ${mainschema}.v_book_details b on lb.book_id = b.book_id
                #WHERE#
                #ORDER#
             ]]>

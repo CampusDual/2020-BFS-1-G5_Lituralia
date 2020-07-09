@@ -69,6 +69,7 @@ export class ListService extends OntimizeEEService {
   }
 
   getListBooks(list_id: number): Observable<OntimizeResponse<Book>> {
+
     const filter = {
       'list_id': list_id
     };

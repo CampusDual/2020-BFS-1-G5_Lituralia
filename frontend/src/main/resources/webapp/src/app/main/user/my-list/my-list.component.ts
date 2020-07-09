@@ -19,8 +19,8 @@ export class MyListComponent implements OnInit {
   public static readonly LIST_DELETING_BOOK: string = "LIST_DELETING_BOOK";
   public static readonly LIST_DELETING_BOOK_ERROR: string = "LIST_DELETING_BOOK_ERROR";
   public static readonly LIST_DELETING_BOOK_OK: string = "LIST_DELETING_BOOK_OK";
-  private static LIST_INIT_TITLE: string ="LIST_INIT_TITLE";
-  private static LIST_INIT_ERROR: string ="LIST_INIT_ERROR";
+  private static LIST_INIT_TITLE: string = "LIST_INIT_TITLE";
+  private static LIST_INIT_ERROR: string = "LIST_INIT_ERROR";
 
 
   constructor(private listService: ListService,
@@ -33,13 +33,14 @@ export class MyListComponent implements OnInit {
   }
 
   private fetchMyList() {
-     this.listService.getPrivateUserList().pipe(
+    this.listService.getPrivateUserList().pipe(
       filter(response => response.data.length > 0),
       tap(response => {
         this.isListInitialized = true
         this.myBookList = response.data[0]
         this.myBookList.books = this.listService.getListBooks(this.myBookList.list_id).pipe(
-            map(resp => resp.data),
+          filter(response => response.data.length > 0),
+          map(resp => resp.data),
         )
       })
     ).subscribe()

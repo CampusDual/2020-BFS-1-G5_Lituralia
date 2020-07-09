@@ -8,11 +8,16 @@
   <o-column title="{{ 'MY_LIST' | oTranslate }}" fxFlex="80">
     <div>{{'LIST_CREATED'| oTranslate }} - {{myBookList.list_create|date:'medium'}}</div>
     <div>{{'LIST_UPDATED'| oTranslate }} - {{myBookList.list_update|date:'medium'}}</div>
-    <ul class="list-unstyled" *ngIf="myBookList.books.length>0 ; else noBooks">
-      <li *ngFor="let book of myBookList.books | async">
-        <app-book-card-wide [book]="book" [canRemove]="true" (onRemoveAction)="removeBookFromList($event)"></app-book-card-wide>
-      </li>
-    </ul>
-    <ng-template #noBooks><div>{{'EMPTY_LIST' | oTranslate}}</div></ng-template>
+    <div *ngIf="(myBookList.books |async) as bookz; else noBooks">
+      <ul class="list-unstyled">
+        <li *ngFor="let book of bookz ">
+          <app-book-card-wide [book]="book" [canRemove]="true"
+                              (onRemoveAction)="removeBookFromList($event)"></app-book-card-wide>
+        </li>
+      </ul>
+    </div>
+    <ng-template #noBooks>
+      <div>{{'EMPTY_LIST' | oTranslate}}</div>
+    </ng-template>
   </o-column>
 </ng-template>
