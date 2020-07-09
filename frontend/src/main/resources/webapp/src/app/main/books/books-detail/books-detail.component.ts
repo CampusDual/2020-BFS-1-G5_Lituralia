@@ -14,6 +14,7 @@ import {filter, map, tap} from "rxjs/operators";
 import {BookList} from "../../user/book-list";
 import {ListService} from "../../../shared/services/list.service";
 import {MyListComponent} from "../../user/my-list/my-list.component";
+import {Book} from "../book";
 
 @Component({
   selector: 'app-books-detail',
@@ -60,6 +61,7 @@ export class BooksDetailComponent implements OnInit {
   public reloadBook() {
     this.bookForm._reloadAction(true)
     this.fetchBookOpinions()
+    this.fetchMyList();
   }
 
   public isLoggedIn() {
@@ -79,6 +81,7 @@ export class BooksDetailComponent implements OnInit {
 
 
   myBookList: BookList
+  myBooks: Book[] = []
   public isListInitialized: boolean = false;
 
   private fetchMyList() {
@@ -93,27 +96,31 @@ export class BooksDetailComponent implements OnInit {
             filter(response => response.data.length > 0),
             map(resp => resp.data),
           ).subscribe(value => {
-            this.myBookList.books = value
+            this.myBooks = value
           })
         })
     }
   }
 
   isBookOnMyList() {
-    return this.myBookList && this.myBookList.books && this.myBookList.books.length > 0 && this.myBookList.books.findIndex(value => value.book_id === this.id) !== -1
+    return this.myBooks.length > 0 && this.myBooks.findIndex(value => value.book_id === this.id) !== -1
   }
 
   toggleBookInMyList() {
     if (this.isBookOnMyList()) {
-      let book_list_id: number =this.myBookList.books.find(value => value.book_id === this.id).list_book_id
+      let book_list_id: number =this.myBooks.find(value => value.book_id === this.id).list_book_id
       this.listService.removeBookFromList(book_list_id, this.id, this.myBookList.list_id).subscribe(
-        value => this.dialogService.info(this.translate.get(MyListComponent.LIST_DELETING_BOOK), this.translate.get(MyListComponent.LIST_DELETING_BOOK_OK)),
+        value => {
+          // this.dialogService.info(this.translate.get(MyListComponent.LIST_DELETING_BOOK), this.translate.get(MyListComponent.LIST_DELETING_BOOK_OK))
+        },
         error => this.dialogService.error(this.translate.get(MyListComponent.LIST_DELETING_BOOK), this.translate.get(MyListComponent.LIST_DELETING_BOOK_ERROR)),
         () => this.fetchMyList()
       )
     } else {
       this.listService.addBookToUserList(this.id, this.myBookList.list_id).subscribe(
-        value => this.dialogService.info(this.translate.get(MyListComponent.LIST_ADDING_BOOK), this.translate.get(MyListComponent.LIST_ADDING_BOOK_OK)),
+        value => {
+          // this.dialogService.info(this.translate.get(MyListComponent.LIST_ADDING_BOOK), this.translate.get(MyListComponent.LIST_ADDING_BOOK_OK))
+        },
         error => this.dialogService.error(this.translate.get(MyListComponent.LIST_ADDING_BOOK), this.translate.get(MyListComponent.LIST_ADDING_BOOK_ERROR)),
         () => this.fetchMyList()
       )

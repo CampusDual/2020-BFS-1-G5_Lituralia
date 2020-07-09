@@ -24,7 +24,7 @@
         </o-row>
         <o-row>
           <o-column *ngIf="isLoggedIn()" fxFlex="100" title="{{ 'MY_BOOKS_LIST_SECTION'|oTranslate}}">
-            <app-add-to-my-list-button [isInList]="isBookOnMyList()" (switchMode)="this.toggleBookInMyList()"></app-add-to-my-list-button>
+            <app-add-to-my-list-button [isInList]="isBookOnMyList()" (toggle)="this.toggleBookInMyList()"></app-add-to-my-list-button>
           </o-column>
         </o-row>
       </o-column>

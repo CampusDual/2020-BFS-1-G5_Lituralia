@@ -20,6 +20,6 @@
         query-rows="16"
         detail-mode="no">
   <o-grid-item *ngFor="let book of books.dataArray" class="">
-    <app-publisher-card-medium [book]="book"></app-publisher-card-medium>
+    <app-publisher-card-medium [book]="book" [isInList]="isBookInMyList(book.book_id)" (toggle)="toggleBookInMyList(book.book_id)"></app-publisher-card-medium>
   </o-grid-item>
 </o-grid>

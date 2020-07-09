@@ -37,12 +37,13 @@
                            [ratings]="book.ratings" [fluid]="true"></app-star-rating>
         </div>
       </o-column>
-      <o-column fxFlex class="boton">
-        <div fxFlex style="justify-content: flex-end;">
-          <o-button-toggle attr="toggle1" value="list" icon="bookmark_border"
-                           (click)="addToMyList(book.book_id)"></o-button-toggle>
-          <o-button-toggle attr="toggle2" value="review" icon="comment"
-                           (click)="reviewPopup(book.book_id)"></o-button-toggle>
+      <o-column fxFlex class="boton"  *ngIf="this.isLoggedIn()">
+        <div fxFlex class="m-1" style="justify-content: flex-end;">
+            <app-add-to-my-list-button [isInList]="isInList" (toggle)="this.toggleBookInMyList()"></app-add-to-my-list-button>
+<!--          <o-button-toggle attr="toggle1" value="list" icon="bookmark_border"-->
+<!--                           (click)="addToMyList(book.book_id)"></o-button-toggle>-->
+<!--          <o-button-toggle attr="toggle2" value="review" icon="comment"-->
+<!--                           (click)="reviewPopup(book.book_id)"></o-button-toggle>-->
         </div>
       </o-column>
     </mat-card-footer>

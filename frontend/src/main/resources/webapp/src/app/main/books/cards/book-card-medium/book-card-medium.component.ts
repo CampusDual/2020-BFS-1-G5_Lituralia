@@ -1,5 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Book} from "../../book";
+import {LoginService} from "ontimize-web-ngx";
 
 @Component({
   selector: 'app-publisher-card-medium',
@@ -9,19 +10,26 @@ import {Book} from "../../book";
 export class BookCardMediumComponent implements OnInit {
 
   @Input() book: Book
+
+  @Output() toggle = new EventEmitter();
+  @Input() isInList = false
   
-  constructor() { }
+  constructor(private loginService: LoginService) { }
 
   ngOnInit() {
   }
-  
 
 
-  addToMyList(book_id: number) {
-
+  public isLoggedIn() {
+    return this.loginService.isLoggedIn()
   }
+
 
   reviewPopup(book_id: number) {
 
+  }
+
+  toggleBookInMyList() {
+    this.toggle.emit()
   }
 }

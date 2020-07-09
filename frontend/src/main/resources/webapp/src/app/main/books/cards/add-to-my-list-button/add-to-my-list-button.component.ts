@@ -14,9 +14,9 @@ export class AddToMyListButtonComponent implements OnInit {
 
   @Input() isInList: boolean;
 
-  @Output() switchMode = new EventEmitter();
+  @Output() toggle = new EventEmitter();
 
   toggleBookOnMyList(){
-    this.switchMode.emit()
+    this.toggle.emit()
   }
 }
