@@ -1,0 +1,10 @@
+<button mat-raised-button value="isInMyList" class="p-1 m-1" (click)="this.toggleBookOnMyList()">
+  <div *ngIf="isInList ; else notInList">
+    <mat-icon>turned_in</mat-icon>{{'REMOVE_FROM_MY_LIST' |oTranslate}}
+  </div>
+  <ng-template #notInList>
+    <div>
+      <mat-icon>turned_in_not</mat-icon>{{'ADD_TO_MY_LIST' |oTranslate}}
+    </div>
+  </ng-template>
+</button>

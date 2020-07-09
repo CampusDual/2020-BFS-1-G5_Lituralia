@@ -14,6 +14,7 @@ import {BookGridComponent} from './books-home/book-grid/book-grid.component';
 import {OpinionsModule} from "../opinions/opinions.module";
 import {BookCardWideComponent} from './cards/book-card-wide/book-card-wide.component';
 import {AuthorsModule} from "../authors/authors.module";
+import {AddToMyListButtonComponent} from './cards/add-to-my-list-button/add-to-my-list-button.component';
 
 @NgModule({
   imports: [
@@ -37,7 +38,8 @@ import {AuthorsModule} from "../authors/authors.module";
         BookCardMediumComponent,
         BookTableComponent,
         BookGridComponent,
-        BookCardWideComponent
+        BookCardWideComponent,
+        AddToMyListButtonComponent
     ]
 })
 export class BooksModule {
