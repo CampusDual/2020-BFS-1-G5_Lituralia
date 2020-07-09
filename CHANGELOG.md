@@ -7,6 +7,7 @@
 #### v 0.0.7-SNAPSHOT	====	10/07/2020
 
 - Front:
+    - Simple Login Guard for User Section
 	- Sort and filter books by avg_rating
 	- Revamp OTableCellRendererStarRating Component
 	- Sort and filter authors by avg_rating
