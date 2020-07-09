@@ -1,5 +1,5 @@
 <div fxFlex>
-  <o-form  #bookForm fxFlex
+  <o-form #bookForm fxFlex
           service="books"
           entity="vBookRatings"
           keys="book_id"
@@ -17,12 +17,24 @@
                            [ratings]="ratingsElement.value.value"></app-star-rating>
         </o-row>
         <o-row>
-          <o-text-input #ratingElement class="col-padding" attr="avg_rating" label="AVG_RATING" read-only="yes"
-                        class=""></o-text-input>
+          <o-text-input #ratingElement class="col-padding display-none" attr="avg_rating" label="AVG_RATING" read-only="yes"></o-text-input>
         </o-row>
         <o-row>
-          <o-text-input #ratingsElement class="input-padding" attr="ratings" label="RATINGS" read-only="yes"
-                        class=""></o-text-input>
+          <o-text-input #ratingsElement class="input-padding display-none" attr="ratings" label="RATINGS" read-only="yes"></o-text-input>
+        </o-row>
+        <o-row>
+          <o-column *ngIf="isLoggedIn()" fxFlex="100" title="{{ 'MY_BOOKS_LIST_SECTION'|oTranslate}}">
+            <button mat-raised-button value="isInMyList" class="p-1 m-1" (click)="this.toggleBookInMyList()">
+              <div *ngIf="isBookOnMyList() ; else notInList">
+                <mat-icon>turned_in</mat-icon>{{'REMOVE_FROM_MY_LIST' |oTranslate}}
+              </div>
+              <ng-template #notInList>
+                <div>
+                  <mat-icon>turned_in_not</mat-icon>{{'ADD_TO_MY_LIST' |oTranslate}}
+                </div>
+              </ng-template>
+            </button>
+          </o-column>
         </o-row>
       </o-column>
       <o-column title="{{ 'BOOK_INFORMATION' | oTranslate }}" fxFlex="80">
@@ -62,13 +74,8 @@
                     parent-keys="book_id"
                     columns="author_name,author_portrait"
                     controls="no">
-              <mat-card *ngFor="let author of authorList.dataArray" [o-list-item]="author" class="user-opinion"
-                        [routerLink]="['/main', 'authors', author.author_id]">
-                <mat-card-header>
-                  <mat-card-title>{{author.author_name}}</mat-card-title>
-                  <img mat-card-avatar src="{{getImageSrc(author.author_portrait)}}">
-                </mat-card-header>
-              </mat-card>
+              <app-author-card-mini *ngFor="let author of authorList.dataArray"
+                                    [author]="author"></app-author-card-mini>
             </o-list>
 
           </o-column>

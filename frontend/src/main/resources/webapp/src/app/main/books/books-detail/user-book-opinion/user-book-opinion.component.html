@@ -2,8 +2,9 @@
   <mat-card-header>
     <mat-card-title>{{(editMode ? 'YOUR_REVIEW' : 'REVIEW_THIS_BOOK') | oTranslate}}</mat-card-title>
     <mat-card-subtitle  *ngIf="editMode">
-      <div *ngIf="opinion" class="opinion-create">{{'OPINION_CREATED_DATE' |oTranslate}} {{opinion.opinion_create | date}}</div>
-      <div *ngIf="isUpdated()" class="opinion-update">{{'OPINION_UPDATED_DATE' |oTranslate}} {{opinion.opinion_update | date}}</div></mat-card-subtitle>
+      <div *ngIf="opinion" class="opinion-create">{{'OPINION_CREATED_DATE' |oTranslate}} {{opinion.opinion_create | date:'medium'}}</div>
+      <div *ngIf="opinion" class="opinion-update">{{'OPINION_UPDATED_DATE' |oTranslate}} {{opinion.opinion_update | date:'medium'}}</div>
+    </mat-card-subtitle>
 <!--    <img mat-card-avatar> TODO star image rating-->
   </mat-card-header>
   <mat-card-content>

@@ -7,7 +7,7 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 })
 export class BookGridComponent implements OnInit {
 
-  @Output() switchMode = new EventEmitter<boolean>();
+  @Output() switchMode = new EventEmitter();
 
   constructor() { }
 
@@ -15,6 +15,6 @@ export class BookGridComponent implements OnInit {
   }
 
   switchToTable(){
-    this.switchMode.emit(true)
+    this.switchMode.emit()
   }
 }

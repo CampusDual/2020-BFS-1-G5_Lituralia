@@ -17,4 +17,7 @@ export interface Book {
 
   avg_rating?:number,
   ratings?:number
+
+  list_id?:number;
+  list_book_id?:number
 }

@@ -15,7 +15,8 @@ export const MENU_CONFIG: MenuRootItem[] = [
   { id: 'user', name: 'USER_MENU', icon: 'account_circle', opened: false,
     items: [
       { id: 'profile', name: 'PROFILE', route: '/main/user/profile', icon: 'perm_contact_calendar' },
-      { id: 'timeline', name: 'TIMELINE', route: '/main/user/timeline', icon: 'timeline' }
+      { id: 'timeline', name: 'TIMELINE', route: '/main/user/timeline', icon: 'timeline' },
+      { id: 'mylist', name: 'MY_LIST', route: '/main/user/mylist', icon: 'favorites' }
     ]
   },
   // {id: 'logout', name: 'LOGOUT', route: '/login', icon: 'power_settings_new', confirm: 'yes'}

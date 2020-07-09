@@ -88,5 +88,26 @@
   "PROFILE": "Perfil",
   "TIMELINE": "Historial",
   "YOUR_TIMELINE": "Tu Historial",
-  "TIMELINE_LOGIN_WARN": "Debes iniciar sesión para ver tu historial"
+  "TIMELINE_LOGIN_WARN": "Debes iniciar sesión para ver tu historial",
+
+  "MY_LIST": "Tus Libros",
+  "LIST_DELETING_BOOK": "Quitando Book",
+  "LIST_DELETING_BOOK_ERROR": "Error",
+  "LIST_DELETING_BOOK_OK":  "Success",
+  "LIST_INIT_TITLE": "Inicialiazación",
+  "LIST_INIT_ERROR":  "Error",
+  "MY_LIST_NOT_INIT_WARN": "List no inicializada",
+  "LIST_CREATED": "Creada",
+  "LIST_UPDATED": "Ultima Actualización",
+  "EMPTY_LIST": "Esta lista esta vacía",
+
+  "YOUR_BOOK_LIST": "Tu Lista de Libros",
+  "INIT_MY_LIST_BTN": "Inicializar Lista",
+  "MY_LIST_LOGIN_WARN": "Debes iniciar sesión para ver tu lista",
+  "LIST_ADDING_BOOK": "Agregando Book",
+  "LIST_ADDING_BOOK_ERROR": "Error",
+  "LIST_ADDING_BOOK_OK": "OK",
+  "MY_BOOKS_LIST_SECTION": "Tu Lista de Libros",
+  "ADD_TO_MY_LIST": "Agregar",
+  "REMOVE_FROM_MY_LIST": "Quitar"
 }

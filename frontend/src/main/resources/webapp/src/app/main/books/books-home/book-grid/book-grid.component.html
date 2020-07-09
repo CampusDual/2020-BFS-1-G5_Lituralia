@@ -1,4 +1,5 @@
-<button mat-stroked-button label="TABLE_VIEW" icon="style" (click)="switchToTable()">
+<button mat-stroked-button label="TABLE_VIEW" (click)="switchToTable()">
+  <mat-icon>table_rows</mat-icon>
   {{"TABLE_VIEW" |oTranslate}}
 </button>
 <o-grid #books
@@ -19,6 +20,6 @@
         query-rows="16"
         detail-mode="no">
   <o-grid-item *ngFor="let book of books.dataArray" class="">
-    <app-book-card-medium [book]="book"></app-book-card-medium>
+    <app-publisher-card-medium [book]="book"></app-publisher-card-medium>
   </o-grid-item>
 </o-grid>

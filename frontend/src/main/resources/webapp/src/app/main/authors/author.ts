@@ -5,6 +5,7 @@ export interface Author {
     author_birth?: Date,
     author_death?: Date,
     author_bio?: string,
+
     avg_rating?:number,
     ratings?:number
 }

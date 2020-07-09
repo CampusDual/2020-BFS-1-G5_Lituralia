@@ -1,7 +1,10 @@
 import {Injectable, Injector} from '@angular/core';
-import {Observable, OntimizeEEService} from "ontimize-web-ngx";
+import {LoginService, Observable, OntimizeEEService} from "ontimize-web-ngx";
 import {OntimizeResponse} from "./ontimizeResponse";
 import {Opinion} from "../../main/opinions/opinion";
+import {of, throwError} from "rxjs";
+import {ListService} from "./list.service";
+import {catchError} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +12,8 @@ import {Opinion} from "../../main/opinions/opinion";
 export class OpinionService extends OntimizeEEService {
 
 
-  constructor(protected injector: Injector) {
+  constructor(protected injector: Injector,
+              private loginService: LoginService) {
     super(injector);
     const conf = this.getDefaultServiceConfiguration();
     conf['path'] = '/opinions';
@@ -26,10 +30,12 @@ export class OpinionService extends OntimizeEEService {
       "rating",
       "review",
       "opinion_create",
+      "opinion_update",
       "user_"
     ];
     return this.query(filter, columns, 'opinion').pipe(
-      // tap(x => console.log(x))
+      // tap(x => console.log(x)),
+      catchError(this.handleError(''))
     )
   }
 
@@ -45,16 +51,20 @@ export class OpinionService extends OntimizeEEService {
       "rating",
       "review",
       "opinion_create",
+      "opinion_update",
       "user_"
     ];
     return this.query(filter, columns, 'vAuthorOpinions').pipe(
-      // tap(x => console.log(x))
+      // tap(x => console.log(x)),
+      catchError(this.handleError(''))
     )
   }
 
-  getUserOpinions(user_: string): Observable<OntimizeResponse<Opinion>> {
+  getUserOpinions(): Observable<OntimizeResponse<Opinion>> {
+    if (!this.loginService.getSessionInfo().user)
+      return throwError(new Error(ListService.NOT_LOGGED_IN))
     const filter = {
-      'user_': user_
+      'user_': this.loginService.getSessionInfo().user
     };
     const columns = [
       "book_id",
@@ -63,16 +73,20 @@ export class OpinionService extends OntimizeEEService {
       "rating",
       "review",
       "opinion_create",
+      "opinion_update",
       "user_"
     ];
     return this.query(filter, columns, 'vBookOpinions').pipe(
-      // tap(x => console.log(x))
+      // tap(x => console.log(x)),
+      catchError(this.handleError(''))
     )
   }
 
-  getUserOpinion(user_: string, book_id: number) {
+  getUserOpinion(book_id: number) {
+    if (!this.loginService.getSessionInfo().user)
+      return throwError(new Error(ListService.NOT_LOGGED_IN))
     const filter = {
-      'user_': user_,
+      'user_': this.loginService.getSessionInfo().user,
       'book_id': book_id
     };
     const columns = [
@@ -81,28 +95,31 @@ export class OpinionService extends OntimizeEEService {
       "rating",
       "review",
       "opinion_create",
+      "opinion_update",
       "user_"
     ];
     return this.query(filter, columns, 'opinion').pipe(
-      // tap(x => console.log(x))
+      // tap(x => console.log(x)),
+      catchError(this.handleError(''))
     )
   }
 
-  createUserOpinion(user_:string, book_id:number, rating: number, review: string){
+  createUserOpinion(book_id: number, rating: number, review: string) {
     const data = {
       "book_id": book_id,
       "rating": parseInt(String(rating)),
       "review": review,
-      "user_":user_
+      'user_': this.loginService.getSessionInfo().user
     };
     const sqlTypes = {
-      "book_id":4,
-      "rating":4,
-      "review":12,
-      "user_":12
+      "book_id": 4,
+      "rating": 4,
+      "review": 12,
+      "user_": 12
     };
     return this.insert(data, 'opinion', sqlTypes).pipe(
-      // tap(x => console.log(x))
+      // tap(x => console.log(x)),
+      catchError(this.handleError(''))
     )
   }
 
@@ -112,16 +129,15 @@ export class OpinionService extends OntimizeEEService {
     };
     const data = {
       "rating": parseInt(String(rating)),
-      "review": review,
-      "opinion_update": new Date().getTime()
+      "review": review
     };
     const sqlTypes = {
       "rating": 4,
-      "review": 12,
-      "opinion_update": 91
+      "review": 12
     };
     return this.update(filter, data, 'opinion', sqlTypes).pipe(
-      // tap(x => console.log(x))
+      // tap(x => console.log(x)),
+      catchError(this.handleError(''))
     )
   }
 
@@ -130,7 +146,8 @@ export class OpinionService extends OntimizeEEService {
       'opinion_id': opinion_id
     };
     return this.delete(filter, 'opinion').pipe(
-      // tap(x => console.log(x))
+      // tap(x => console.log(x)),
+      catchError(this.handleError(''))
     )
   }
 
@@ -147,10 +164,22 @@ export class OpinionService extends OntimizeEEService {
       "rating",
       "review",
       "opinion_create",
+      "opinion_update",
       "user_"
     ];
     return this.query(filter, columns, 'vPublisherOpinions').pipe(
-      // tap(x => console.log(x))
+      // tap(x => console.log(x)),
+      catchError(this.handleError(''))
     )
   }
+
+
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      // console.error(error); // log to console instead
+      console.log(`${operation} failed: ${error.message}`);
+      return of(result as T);
+    };
+  }
+
 }

@@ -4,7 +4,7 @@
       <o-row>
         <o-column fxFlex="30" class="mr-2">
           <o-image height="100px" id="publisher_logo" attr="logo" label="LOGO"
-                   [data]="getImageSrc(publisher.publisher_logo)" auto-fit="yes" enabled="true"
+                   [data]="publisher.publisher_logo | base64" auto-fit="yes" enabled="true"
                    read-only="true" show-controls="false"
                    full-screen-button="false"></o-image>
         </o-column>
@@ -15,13 +15,13 @@
             </div>
           </mat-card-title>
 
-<!--          <o-row>-->
-<!--            <o-column fxFlex>-->
-<!--              <div>-->
-<!--              <img  class="img-fluid" src="{{book.avg_rating | starRating}}" alt=""-->
-<!--                      title="{{('AVG_RATING_SHORT'|oTranslate) +': '+ book.avg_rating + ' ' + ('RATINGS_SHORT'|oTranslate) +': '+ book.ratings}}">-->
-<!--              </div>-->
-<!--            </o-column>-->
+          <o-row>
+            <o-column fxFlex="30" style="">
+              <div>
+                <app-star-rating [rating]="publisher.avg_rating"
+                                 [ratings]="publisher.ratings" [fluid]="true"></app-star-rating>
+              </div>
+            </o-column>
 <!--            <o-column fxFlex>-->
 <!--              <o-row >-->
 <!--                <o-button-toggle attr="toggle1" value="list" icon="bookmark_border" (click)="addToMyList(book.book_id)"></o-button-toggle>-->
@@ -29,7 +29,7 @@
 <!--&lt;!&ndash;                <o-button attr="icon" type="ICON" icon="more" (click)="onClick($event)"></o-button>&ndash;&gt;-->
 <!--              </o-row>-->
 <!--            </o-column>-->
-<!--          </o-row>-->
+          </o-row>
         </o-column>
       </o-row>
         <o-row><p>{{publisher.publisher_desc}}</p></o-row>

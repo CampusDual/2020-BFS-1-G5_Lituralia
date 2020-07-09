@@ -4,6 +4,7 @@ import {CommonModule} from '@angular/common';
 import {StarRatingPipe} from "./star-rating/star-rating.pipe";
 import {StarRatingComponent} from './star-rating/star-rating.component';
 import {OTableCellRendererStarRatingComponent} from './star-rating/o-table-cell-renderer-star-rating/o-table-cell-renderer-star-rating.component';
+import {Base64Pipe} from './pipes/base64.pipe';
 
 
 @NgModule({
@@ -13,12 +14,14 @@ import {OTableCellRendererStarRatingComponent} from './star-rating/o-table-cell-
     declarations: [
         StarRatingPipe,
         StarRatingComponent,
-        OTableCellRendererStarRatingComponent],
+        OTableCellRendererStarRatingComponent,
+        Base64Pipe],
     exports: [
         CommonModule,
         StarRatingPipe,
         OTableCellRendererStarRatingComponent,
-        StarRatingComponent
+        StarRatingComponent,
+        Base64Pipe
     ]
 })
 export class SharedModule {
