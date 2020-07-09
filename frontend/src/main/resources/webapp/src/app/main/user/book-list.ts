@@ -10,5 +10,7 @@ export interface BookList {
   list_update: Date;
   user_: string;
 
-  books: Book[] | Promise<Book[]> | Observable<Book[]>
+  books$:  Promise<Book[]> | Observable<Book[]>
+
+  books: Book[]
 }

@@ -1,9 +1,10 @@
 import {Injectable, Injector} from '@angular/core';
 import {Observable, OntimizeEEService} from "ontimize-web-ngx";
-import {tap} from "rxjs/operators";
+import {catchError} from "rxjs/operators";
 import {Genre} from "../../main/genres/genre";
 import {OntimizeResponse} from "./ontimizeResponse";
 import {Book} from "../../main/books/book";
+import {of} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +24,8 @@ export class GenreService extends OntimizeEEService {
       "genre_id", "genre_name", "genre_desc"
     ];
     return this.query(filter, columns, 'genre').pipe(
-      tap(x => console.log(x))
+      // tap(x => console.log(x)),
+      catchError(this.handleError(''))
     )
   }
 
@@ -33,14 +35,23 @@ export class GenreService extends OntimizeEEService {
     };
     const columns = [
       "book_id", "isbn", "cover", "title", "synopsis",
-      "publish_date","publisher_id", "publisher_name", "author_names",
-      "author_ids","genre_names", "genre_ids", "avg_rating", "ratings"
+      "publish_date", "publisher_id", "publisher_name", "author_names",
+      "author_ids", "genre_names", "genre_ids", "avg_rating", "ratings"
     ];
     return this.query(filter, columns, 'vGenreBookDetails').pipe(
-      tap(x => console.log(x))
+      // tap(x => console.log(x)),
+      catchError(this.handleError(''))
     )
   }
 
+
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      // console.error(error); // log to console instead
+      console.log(`${operation} failed: ${error.message}`);
+      return of(result as T);
+    };
+  }
 
 
 }

@@ -1,23 +1,31 @@
-<div *ngIf="!isListInitialized; else myListElement">
-  <button class="btn btn-primary" (click)="initMyList()">{{'INIT_MY_LIST_BTN' | oTranslate}}</button>
-  <div>
-    <p>{{'MY_LIST_NOT_INIT_WARN' | oTranslate}}</p>
-  </div>
-</div>
-<ng-template #myListElement>
-  <o-column title="{{ 'MY_LIST' | oTranslate }}" fxFlex="80">
-    <div>{{'LIST_CREATED'| oTranslate }} - {{myBookList.list_create|date:'medium'}}</div>
-    <div>{{'LIST_UPDATED'| oTranslate }} - {{myBookList.list_update|date:'medium'}}</div>
-    <div *ngIf="(myBookList.books |async) as bookz; else noBooks">
-      <ul class="list-unstyled">
-        <li *ngFor="let book of bookz ">
-          <app-book-card-wide [book]="book" [canRemove]="true"
-                              (onRemoveAction)="removeBookFromList($event)"></app-book-card-wide>
-        </li>
-      </ul>
-    </div>
-    <ng-template #noBooks>
-      <div>{{'EMPTY_LIST' | oTranslate}}</div>
-    </ng-template>
-  </o-column>
-</ng-template>
+<o-column fxFlex="80" title="{{ 'YOUR_BOOK_LIST' | oTranslate }}">
+ <div *ngIf="this.isLoggedIn(); else loggedOut" >
+   <div *ngIf="!isListInitialized; else myListElement">
+     <button class="btn btn-primary" (click)="initMyList()">{{'INIT_MY_LIST_BTN' | oTranslate}}</button>
+     <div>
+       <p>{{'MY_LIST_NOT_INIT_WARN' | oTranslate}}</p>
+     </div>
+   </div>
+   <ng-template #myListElement>
+     <o-column title="{{ 'MY_LIST' | oTranslate }}" fxFlex="80">
+       <div>{{'LIST_CREATED'| oTranslate }} - {{myBookList.list_create|date:'medium'}}</div>
+       <div>{{'LIST_UPDATED'| oTranslate }} - {{myBookList.list_update|date:'medium'}}</div>
+       <div *ngIf="(myBookList.books$ |async) as bookz; else noBooks">
+         <ul class="list-unstyled">
+           <li *ngFor="let book of bookz ">
+             <app-book-card-wide [book]="book" [canRemove]="true"
+                                 (onRemoveAction)="removeBookFromList($event)"></app-book-card-wide>
+           </li>
+         </ul>
+       </div>
+       <ng-template #noBooks>
+         <div>{{'EMPTY_LIST' | oTranslate}}</div>
+       </ng-template>
+     </o-column>
+   </ng-template>
+ </div>
+  <ng-template #loggedOut>
+    <div class="loggedOut">{{ 'MY_LIST_LOGIN_WARN' | oTranslate}}</div>
+  </ng-template>
+</o-column>
+

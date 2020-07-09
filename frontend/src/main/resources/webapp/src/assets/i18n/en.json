@@ -99,5 +99,15 @@
   "MY_LIST_NOT_INIT_WARN": "List Not Initialized",
   "LIST_CREATED": "List Created",
   "LIST_UPDATED": "List Updated",
-  "EMPTY_LIST": "This list is Empty"
+  "EMPTY_LIST": "This list is Empty",
+
+  "YOUR_BOOK_LIST": "Your Book List",
+  "INIT_MY_LIST_BTN": "Initialize List",
+  "MY_LIST_LOGIN_WARN": "You must login to view your book list",
+  "LIST_ADDING_BOOK": "Adding Book",
+  "LIST_ADDING_BOOK_ERROR": "Error",
+  "LIST_ADDING_BOOK_OK": "Success",
+  "MY_BOOKS_LIST_SECTION": "Your Book List",
+  "ADD_TO_MY_LIST": "Add",
+  "REMOVE_FROM_MY_LIST": "Remove"
 }

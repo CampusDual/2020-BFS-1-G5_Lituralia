@@ -26,6 +26,8 @@
 	- User My Books List:
 		- Remove book from my list
 		- Display personal Book List
+	- Book detail:
+	    - Add and remove books to/from my list
 	- Base64 pipe for images
 	- StarImage Component fix width and height
 	- Author Card Mini (on book detail)

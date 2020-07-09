@@ -24,4 +24,7 @@ export class TimelineComponent implements OnInit {
     )
   }
 
+  public isLoggedIn() {
+    return this.loginService.isLoggedIn()
+  }
 }

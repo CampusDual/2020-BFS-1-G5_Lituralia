@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ListService} from "../../../shared/services/list.service";
-import {DialogService, OTranslateService} from "ontimize-web-ngx";
+import {DialogService, LoginService, OTranslateService} from "ontimize-web-ngx";
 import {BookList} from "../book-list";
 import {filter, map, tap} from "rxjs/operators";
 import {Book} from "../../books/book";
@@ -19,13 +19,17 @@ export class MyListComponent implements OnInit {
   public static readonly LIST_DELETING_BOOK: string = "LIST_DELETING_BOOK";
   public static readonly LIST_DELETING_BOOK_ERROR: string = "LIST_DELETING_BOOK_ERROR";
   public static readonly LIST_DELETING_BOOK_OK: string = "LIST_DELETING_BOOK_OK";
-  private static LIST_INIT_TITLE: string = "LIST_INIT_TITLE";
-  private static LIST_INIT_ERROR: string = "LIST_INIT_ERROR";
+  public static readonly LIST_ADDING_BOOK: string = "LIST_ADDING_BOOK";
+  public static readonly LIST_ADDING_BOOK_ERROR: string = "LIST_ADDING_BOOK_ERROR";
+  public static readonly LIST_ADDING_BOOK_OK: string = "LIST_ADDING_BOOK_OK";
+  private static readonly LIST_INIT_TITLE: string = "LIST_INIT_TITLE";
+  private static readonly LIST_INIT_ERROR: string = "LIST_INIT_ERROR";
 
 
   constructor(private listService: ListService,
               private dialogService: DialogService,
-              private translate: OTranslateService) {
+              private translate: OTranslateService,
+              private loginService: LoginService) {
   }
 
   ngOnInit() {
@@ -38,7 +42,7 @@ export class MyListComponent implements OnInit {
       tap(response => {
         this.isListInitialized = true
         this.myBookList = response.data[0]
-        this.myBookList.books = this.listService.getListBooks(this.myBookList.list_id).pipe(
+        this.myBookList.books$ = this.listService.getListBooks(this.myBookList.list_id).pipe(
           filter(response => response.data.length > 0),
           map(resp => resp.data),
         )
@@ -60,5 +64,10 @@ export class MyListComponent implements OnInit {
       error => this.dialogService.error(this.translate.get(MyListComponent.LIST_DELETING_BOOK), this.translate.get(MyListComponent.LIST_DELETING_BOOK_ERROR)),
       () => this.fetchMyList()
     )
+  }
+
+
+  public isLoggedIn() {
+    return this.loginService.isLoggedIn()
   }
 }
