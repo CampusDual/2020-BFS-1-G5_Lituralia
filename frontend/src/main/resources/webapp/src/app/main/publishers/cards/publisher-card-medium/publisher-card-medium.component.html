@@ -1,5 +1,5 @@
 <div *ngIf="this.publisher">
-  <mat-card>
+  <mat-card class="tarjeta">
     <mat-card-content>
       <o-row>
         <o-column fxFlex="30" class="mr-2">
@@ -15,25 +15,23 @@
             </div>
           </mat-card-title>
 
-          <o-row>
-            <o-column fxFlex="30" style="">
+
+            <o-column fxFlex="50">
               <div>
                 <app-star-rating [rating]="publisher.avg_rating"
                                  [ratings]="publisher.ratings" [fluid]="true"></app-star-rating>
               </div>
             </o-column>
-<!--            <o-column fxFlex>-->
-<!--              <o-row >-->
-<!--                <o-button-toggle attr="toggle1" value="list" icon="bookmark_border" (click)="addToMyList(book.book_id)"></o-button-toggle>-->
-<!--                <o-button-toggle attr="toggle2" value="review" icon="comment" (click)="reviewPopup(book.book_id)"></o-button-toggle>-->
-<!--&lt;!&ndash;                <o-button attr="icon" type="ICON" icon="more" (click)="onClick($event)"></o-button>&ndash;&gt;-->
-<!--              </o-row>-->
-<!--            </o-column>-->
-          </o-row>
+
         </o-column>
       </o-row>
-        <o-row><p>{{publisher.publisher_desc}}</p></o-row>
+
     </mat-card-content>
+    <mat-card-footer class="pie">
+      <div class="text ellipsis">
+        <span class="text-concat">{{publisher.publisher_desc}}</span>
+      </div>
+    </mat-card-footer>
   </mat-card>
 </div>
 
