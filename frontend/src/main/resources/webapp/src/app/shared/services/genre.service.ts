@@ -1,10 +1,9 @@
 import {Injectable, Injector} from '@angular/core';
 import {Observable, OntimizeEEService} from "ontimize-web-ngx";
 import {catchError} from "rxjs/operators";
-import {Genre} from "../../main/genres/genre";
-import {OntimizeResponse} from "./ontimizeResponse";
-import {Book} from "../../main/books/book";
-import {of} from "rxjs";
+import {Genre} from "../domain/genre";
+import {OntimizeResponse, tapError} from "./ontimizeResponse";
+import {Book} from "../domain/book";
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +24,7 @@ export class GenreService extends OntimizeEEService {
     ];
     return this.query(filter, columns, 'genre').pipe(
       // tap(x => console.log(x)),
-      catchError(this.handleError(''))
+      catchError(tapError(''))
     )
   }
 
@@ -40,18 +39,10 @@ export class GenreService extends OntimizeEEService {
     ];
     return this.query(filter, columns, 'vGenreBookDetails').pipe(
       // tap(x => console.log(x)),
-      catchError(this.handleError(''))
+      catchError(tapError('getGenreBooks'))
     )
   }
 
-
-  private handleError<T>(operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-      // console.error(error); // log to console instead
-      console.log(`${operation} failed: ${error.message}`);
-      return of(result as T);
-    };
-  }
 
 
 }

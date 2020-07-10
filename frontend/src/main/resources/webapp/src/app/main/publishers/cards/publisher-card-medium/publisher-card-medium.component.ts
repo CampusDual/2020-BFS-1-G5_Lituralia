@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Publisher} from "../../publisher";
+import {Publisher} from "../../../../shared/domain/publisher";
 
 @Component({
   selector: 'app-publisher-card-medium',

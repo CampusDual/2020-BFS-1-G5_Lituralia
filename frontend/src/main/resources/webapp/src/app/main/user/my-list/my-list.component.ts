@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {ListService} from "../../../shared/services/list.service";
 import {DialogService, LoginService, OTranslateService} from "ontimize-web-ngx";
-import {BookList} from "../book-list";
+import {BookList} from "../../../shared/domain/book-list";
 import {filter, map, tap} from "rxjs/operators";
-import {Book} from "../../books/book";
+import {Book} from "../../../shared/domain/book";
 
 @Component({
   selector: 'app-my-list',
@@ -52,7 +52,11 @@ export class MyListComponent implements OnInit {
 
   initMyList() {
     return this.listService.initPrivateList().subscribe(
-      value => this.fetchMyList(),
+      success => {
+        if (success)
+          this.fetchMyList()
+        else this.dialogService.error(MyListComponent.LIST_INIT_TITLE, MyListComponent.LIST_INIT_ERROR)
+      },
       error => this.dialogService.error(MyListComponent.LIST_INIT_TITLE, MyListComponent.LIST_INIT_ERROR)
     )
   }

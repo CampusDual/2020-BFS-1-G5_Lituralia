@@ -1,19 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
-//.input-padding{
-//  padding-right: 6px;
-//}
-//.col-padding{
-//  padding-right: 15px;
-//}
-//
-//
-//.cursor-pointer{cursor: pointer;}
-//.cursor-croshair{cursor: crosshair;}
-//.cursor-eresize{cursor: e-resize;}
-//.cursor-move{cursor: move;}
-//
-//.card-horizontal {
-//  display: flex;
-//  flex: 1 1 auto;
-//}
+.input-padding{
+  padding-right: 6px;
+}
+.col-padding{
+  padding-right: 15px;
+}
 
+
+.cursor-pointer{cursor: pointer;}
+.cursor-croshair{cursor: crosshair;}
+.cursor-eresize{cursor: e-resize;}
+.cursor-move{cursor: move;}
+
+.card-horizontal {
+  display: flex;
+  flex: 1 1 auto;
+}
+
+.menu-item-anchor:hover { color: yellow; }
+
+.o-menu-item {
+  flex-direction: row;
+  box-sizing: border-box;
+  display: flex;
+  max-height: 100%;
+  place-content: center flex-start;
+  align-items: center
+}

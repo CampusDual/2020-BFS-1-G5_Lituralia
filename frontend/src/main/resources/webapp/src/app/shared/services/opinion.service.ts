@@ -1,8 +1,8 @@
 import {Injectable, Injector} from '@angular/core';
 import {LoginService, Observable, OntimizeEEService} from "ontimize-web-ngx";
-import {OntimizeResponse} from "./ontimizeResponse";
-import {Opinion} from "../../main/opinions/opinion";
-import {of, throwError} from "rxjs";
+import {OntimizeResponse, tapError} from "./ontimizeResponse";
+import {Opinion} from "../domain/opinion";
+import {throwError} from "rxjs";
 import {ListService} from "./list.service";
 import {catchError} from "rxjs/operators";
 
@@ -35,7 +35,7 @@ export class OpinionService extends OntimizeEEService {
     ];
     return this.query(filter, columns, 'opinion').pipe(
       // tap(x => console.log(x)),
-      catchError(this.handleError(''))
+      catchError(tapError('getBookOpinions'))
     )
   }
 
@@ -47,6 +47,7 @@ export class OpinionService extends OntimizeEEService {
       "author_id",
       "book_id",
       "title",
+      "cover",
       "opinion_id",
       "rating",
       "review",
@@ -56,7 +57,7 @@ export class OpinionService extends OntimizeEEService {
     ];
     return this.query(filter, columns, 'vAuthorOpinions').pipe(
       // tap(x => console.log(x)),
-      catchError(this.handleError(''))
+      catchError(tapError('getAuthorOpinions'))
     )
   }
 
@@ -78,7 +79,7 @@ export class OpinionService extends OntimizeEEService {
     ];
     return this.query(filter, columns, 'vBookOpinions').pipe(
       // tap(x => console.log(x)),
-      catchError(this.handleError(''))
+      catchError(tapError('getUserOpinions'))
     )
   }
 
@@ -100,7 +101,7 @@ export class OpinionService extends OntimizeEEService {
     ];
     return this.query(filter, columns, 'opinion').pipe(
       // tap(x => console.log(x)),
-      catchError(this.handleError(''))
+      catchError(tapError('getUserOpinion'))
     )
   }
 
@@ -119,7 +120,7 @@ export class OpinionService extends OntimizeEEService {
     };
     return this.insert(data, 'opinion', sqlTypes).pipe(
       // tap(x => console.log(x)),
-      catchError(this.handleError(''))
+      catchError(tapError('createUserOpinion'))
     )
   }
 
@@ -137,7 +138,7 @@ export class OpinionService extends OntimizeEEService {
     };
     return this.update(filter, data, 'opinion', sqlTypes).pipe(
       // tap(x => console.log(x)),
-      catchError(this.handleError(''))
+      catchError(tapError('updateUserOpinion'))
     )
   }
 
@@ -147,7 +148,7 @@ export class OpinionService extends OntimizeEEService {
     };
     return this.delete(filter, 'opinion').pipe(
       // tap(x => console.log(x)),
-      catchError(this.handleError(''))
+      catchError(tapError('deleteUserOpinion'))
     )
   }
 
@@ -160,6 +161,7 @@ export class OpinionService extends OntimizeEEService {
       "publisher_id",
       "book_id",
       "title",
+      "cover",
       "opinion_id",
       "rating",
       "review",
@@ -169,17 +171,7 @@ export class OpinionService extends OntimizeEEService {
     ];
     return this.query(filter, columns, 'vPublisherOpinions').pipe(
       // tap(x => console.log(x)),
-      catchError(this.handleError(''))
+      catchError(tapError('getPublisherOpinions'))
     )
   }
-
-
-  private handleError<T>(operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-      // console.error(error); // log to console instead
-      console.log(`${operation} failed: ${error.message}`);
-      return of(result as T);
-    };
-  }
-
 }

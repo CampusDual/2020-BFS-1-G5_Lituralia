@@ -27,32 +27,32 @@ ontimize:
          upperLike: true
    security:
       mode: default
-      ignorePaths: /*, /assets/**, index.html, /api/bundle/**, /api/books/**, /api/authors/**, /api/genres/**, /api/publishers/**, /api/opinions/**, /api/lists/**
+      ignorePaths: /*, /assets/**, index.html, /api/bundle/**, /api/books/**, /api/authors/**, /api/genres/**, /api/publishers/**, /api/opinions/**, /api/lists/**, /api/signin/**
       roleInformationService:
          roleRepository: UserRoleDao
-         roleNameColumn: ROLENAME
+         roleNameColumn: rolename
          serverPermissionQueryId: serverPermissions
          serverPermissionNameColumn: PERMISSION_NAME
          clientPermissionQueryId: clientPermissions
          clientPermissionColumn: XMLCLIENTPERMISSION
       userInformationService:
          userRepository: UserDao
-         userLoginColumn: USER_
-         userPasswordColumn: PASSWORD
+         userLoginColumn: user_
+         userPasswordColumn: password
          queryId: login
          otherData:
-            - NAME
-            - SURNAME
-            - EMAIL
-            - NIF
-            - USERBLOCKED
-            - LASTPASSWORDUPDATE
-            - FIRSTLOGIN
+            - name
+            - surname
+            - email
+            - niv
+            - userblocked
+            - lastpasswordupdate
+            - firstlogin
       userRoleInformationService:
          userRoleRepository: UserRoleDao
          queryId: userRole
-         roleLoginColumn: USER_
-         roleNameColumn: ROLENAME
+         roleLoginColumn: user_
+         roleNameColumn: rolename
 server:
    port: ${PORT:33333}
    tomcat:

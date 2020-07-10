@@ -1,103 +1,54 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {DialogService, LoginService, Observable, OTranslateService} from "ontimize-web-ngx";
-import {Genre} from "../../genre";
+import {Observable} from "ontimize-web-ngx";
+import {Genre} from "../../../../shared/domain/genre";
 import {GenreService} from "../../../../shared/services/genre.service";
-import {filter, map, tap} from "rxjs/operators";
-import {ListService} from "../../../../shared/services/list.service";
-import {BookList} from "../../../user/book-list";
-import {Book} from "../../../books/book";
-import {MyListComponent} from "../../../user/my-list/my-list.component";
+import {map, tap} from "rxjs/operators";
+import {MyListService} from "../../../../shared/services/my-list.service";
 
 @Component({
-    selector: 'app-genre-grid',
-    templateUrl: './genre-grid.component.html',
-    styleUrls: ['./genre-grid.component.scss']
+  selector: 'app-genre-grid',
+  templateUrl: './genre-grid.component.html',
+  styleUrls: ['./genre-grid.component.scss']
 })
 export class GenreGridComponent implements OnInit {
 
-    genres: Observable<Genre[]>
-    public TOP_N_BOOKS: number = 5
+  @Output() switchMode = new EventEmitter();
 
-    constructor(private genreService: GenreService, private loginService: LoginService,
-                private listService: ListService,
-                private dialogService: DialogService,
-                private translate: OTranslateService) {
-    }
+  genres: Observable<Genre[]>
+  public TOP_N_BOOKS: number = 5
 
-    ngOnInit() {
-        this.genres = this.genreService.getGenres().pipe(
-            map(value => {
-                const genres: Genre[] = value.data
-                for (const genre of genres) {
-                    genre.books = this.genreService.getGenreBooks(genre.genre_id).pipe(
-                        map(response => response.data),
-                        map(data => data.filter(book => book.avg_rating)),
-                        tap(x => x.sort((a, b) => a.avg_rating > b.avg_rating ? -1 : 1)),
-                        map(books => books.slice(0, this.TOP_N_BOOKS))
-                    )
-                }
-                return genres
-            })
-        )
-        this.fetchMyList();
-    }
+  constructor(private genreService: GenreService,
+              private myListService: MyListService) {
+  }
 
-
-    @Output() switchMode = new EventEmitter();
-
-    switchToTable() {
-        this.switchMode.emit()
-    }
-
-    public isLoggedIn() {
-        return this.loginService.isLoggedIn()
-    }
-
-    myBookList: BookList
-    myList: Book[] = []
-    public isListInitialized: boolean = false;
-
-    private fetchMyList() {
-        if (this.isLoggedIn()) {
-            this.listService.getPrivateUserList().pipe(
-                filter(response => response.data.length > 0)
-            ).subscribe(
-                response => {
-                    this.isListInitialized = true
-                    this.myBookList = response.data[0]
-                    this.listService.getListBooksIds(this.myBookList.list_id).pipe(
-                        filter(response => response.data.length > 0),
-                        map(resp => resp.data),
-                    ).subscribe(value => {
-                        this.myList = value
-                    })
-                })
+  ngOnInit() {
+    this.genres = this.genreService.getGenres().pipe(
+      map(value => {
+        const genres: Genre[] = value.data
+        for (const genre of genres) {
+          genre.books = this.genreService.getGenreBooks(genre.genre_id).pipe(
+            map(response => response.data),
+            map(data => data.filter(book => book.avg_rating)),
+            tap(x => x.sort((a, b) => a.avg_rating > b.avg_rating ? -1 : 1)),
+            map(books => books.slice(0, this.TOP_N_BOOKS))
+          )
         }
-    }
+        return genres
+      })
+    )
+    this.myListService.fetchMyList();
+  }
 
-    isBookInMyList(book_id: number) {
-        return this.myList.length > 0 && this.myList.findIndex(value => value.book_id === book_id) !== -1
-    }
 
-    toggleBookInMyList(book_id: number) {
-        if (this.isBookInMyList(book_id)) {
-            let book_list_id: number = this.myList.find(value => value.book_id === book_id).list_book_id
-            this.listService.removeBookFromList(book_list_id, book_id, this.myBookList.list_id).subscribe(
-                value => {
-                    // this.dialogService.info(this.translate.get(MyListComponent.LIST_DELETING_BOOK), this.translate.get(MyListComponent.LIST_DELETING_BOOK_OK))
-                },
-                error => this.dialogService.error(this.translate.get(MyListComponent.LIST_DELETING_BOOK), this.translate.get(MyListComponent.LIST_DELETING_BOOK_ERROR)),
-                () => this.fetchMyList()
-            )
-        } else {
-            this.listService.addBookToUserList(book_id, this.myBookList.list_id).subscribe(
-                value => {
-                    // this.dialogService.info(this.translate.get(MyListComponent.LIST_ADDING_BOOK), this.translate.get(MyListComponent.LIST_ADDING_BOOK_OK))
-                },
-                error => this.dialogService.error(this.translate.get(MyListComponent.LIST_ADDING_BOOK), this.translate.get(MyListComponent.LIST_ADDING_BOOK_ERROR)),
-                () => this.fetchMyList()
-            )
-        }
-    }
+  switchToTable() {
+    this.switchMode.emit()
+  }
 
+  isBookInMyList(book_id: number) {
+    return this.myListService.isBookInMyList(book_id)
+  }
+
+  toggleBookInMyList(book_id: number) {
+    return this.myListService.toggleBookInMyList(book_id)
+  }
 }

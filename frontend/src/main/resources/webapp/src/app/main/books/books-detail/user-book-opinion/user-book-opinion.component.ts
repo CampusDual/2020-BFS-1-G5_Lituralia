@@ -2,7 +2,7 @@ import {Component, ElementRef, EventEmitter, OnInit, Output, Renderer2, ViewChil
 import {OpinionService} from "../../../../shared/services/opinion.service";
 import {ActivatedRoute} from "@angular/router";
 import {DialogService, OTranslateService} from "ontimize-web-ngx";
-import {Opinion} from "../../../opinions/opinion";
+import {Opinion} from "../../../../shared/domain/opinion";
 
 @Component({
   selector: 'app-user-book-opinion',
