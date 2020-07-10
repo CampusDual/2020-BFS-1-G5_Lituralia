@@ -38,16 +38,16 @@
                      full-screen-button="false"></o-image>
         </mat-card-content>
         <mat-card-footer>
-            <o-column fxFlex="40" class="star">
+            <o-column fxFlex="50" class="star">
 
                 <div>
                     <app-star-rating [rating]="book.avg_rating"
                                      [ratings]="book.ratings" [fluid]="true"></app-star-rating>
                 </div>
             </o-column>
-            <o-column fxFlex="50" class="boton" *ngIf="this.isLoggedIn()">
+            <o-column fxFlex="50"  *ngIf="this.isLoggedIn()">
                 <div fxFlex="50" class="m-1" style="justify-content: flex-end;">
-                    <app-add-to-my-list-button [isInList]="isInList"
+                    <app-add-to-my-list-button class="boton" [isInList]="isInList"
                                                (toggle)="this.toggleBookInMyList()"></app-add-to-my-list-button>
                 </div>
             </o-column>
