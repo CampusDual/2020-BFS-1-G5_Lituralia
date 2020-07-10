@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
         private zone: NgZone,
         router: Router,
         @Inject(NavigationService) public navigation: NavigationService,
-        @Inject(LoginService) private loginService: LoginService,
+        @Inject(LoginService) public loginService: LoginService,
         public injector: Injector) {
 
         this.router = router;

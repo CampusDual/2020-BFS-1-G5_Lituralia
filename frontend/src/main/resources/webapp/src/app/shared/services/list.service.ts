@@ -1,6 +1,6 @@
 import {Injectable, Injector} from '@angular/core';
 import {LoginService, Observable, OntimizeEEService} from "ontimize-web-ngx";
-import {catchError, tap} from "rxjs/operators";
+import {catchError, map, tap} from "rxjs/operators";
 import {OntimizeResponse, tapError} from "./ontimizeResponse";
 import {Book} from "../domain/book";
 import {BookList} from "../domain/book-list";
@@ -49,7 +49,7 @@ export class ListService extends OntimizeEEService {
   }
 
 
-  initPrivateList(): Observable<OntimizeResponse<BookList>> {
+  initPrivateList(): Observable<boolean> {
     if (!this.loginService.getSessionInfo().user)
       return throwError(new Error(ListService.NOT_LOGGED_IN))
     const data = {
@@ -60,7 +60,8 @@ export class ListService extends OntimizeEEService {
     };
     return this.insert(data, 'list').pipe(
       // tap(x => console.log(x)),
-      catchError(tapError('initPrivateList'))
+      catchError(tapError('initPrivateList')),
+      map(response => response.code === 0)
     )
   }
 
@@ -94,7 +95,7 @@ export class ListService extends OntimizeEEService {
     )
   }
 
-  removeBookFromList(list_book_id: number, book_id: number, list_id: number) {
+  removeBookFromList(list_book_id: number, book_id: number, list_id: number): Observable<boolean> {
     if (!this.loginService.getSessionInfo().user)
       return throwError(new Error(ListService.NOT_LOGGED_IN))
     const filter = {
@@ -104,12 +105,13 @@ export class ListService extends OntimizeEEService {
     };
     return this.delete(filter, 'listBook').pipe(
       // tap(x => console.log(x)),
-      catchError(tapError('removeBookFromList'))
+      catchError(tapError('removeBookFromList')),
+      map(response => response.code === 0)
     )
   }
 
 
-  addBookToUserList(book_id: number, list_id: number) {
+  addBookToUserList(book_id: number, list_id: number): Observable<boolean> {
     if (!this.loginService.getSessionInfo().user)
       return throwError(new Error(ListService.NOT_LOGGED_IN))
     const data = {
@@ -118,7 +120,8 @@ export class ListService extends OntimizeEEService {
     };
     return this.insert(data, 'listBook').pipe(
       // tap(x => console.log(x)),
-      catchError(tapError('addBookToUserList'))
+      catchError(tapError('addBookToUserList')),
+      map(response => response.code === 0)
     )
   }
 }

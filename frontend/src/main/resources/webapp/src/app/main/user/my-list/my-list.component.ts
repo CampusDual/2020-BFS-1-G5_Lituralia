@@ -52,7 +52,11 @@ export class MyListComponent implements OnInit {
 
   initMyList() {
     return this.listService.initPrivateList().subscribe(
-      value => this.fetchMyList(),
+      success => {
+        if (success)
+          this.fetchMyList()
+        else this.dialogService.error(MyListComponent.LIST_INIT_TITLE, MyListComponent.LIST_INIT_ERROR)
+      },
       error => this.dialogService.error(MyListComponent.LIST_INIT_TITLE, MyListComponent.LIST_INIT_ERROR)
     )
   }

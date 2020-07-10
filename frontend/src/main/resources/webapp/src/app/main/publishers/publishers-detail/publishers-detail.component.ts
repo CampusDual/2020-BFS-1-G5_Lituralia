@@ -25,7 +25,7 @@ export class PublishersDetailComponent implements OnInit {
         this.id = +params['publisher_id'];
         this.opinions = this.opinionService.getPublisherOpinions(this.id).pipe(
           map(response => response.data),
-          tap(x => x.sort((a, b) => a.rating>b.rating ? -1 : 1 )),
+          tap(x => x.sort((a, b) => (a.opinion_update?a.opinion_update:a.opinion_create)>(b.opinion_update?b.opinion_update:b.opinion_create) ? -1 : 1 )),
         )
       }
     )

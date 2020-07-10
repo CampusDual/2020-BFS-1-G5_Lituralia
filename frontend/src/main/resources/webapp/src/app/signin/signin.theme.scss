@@ -1,0 +1,25 @@
+@import 'node_modules/@angular/material/theming';
+
+@mixin signin-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  .signin-outer-container {
+    background-color: mat-color($background, background);
+
+    .signin-inner-container {
+      background-color: mat-color($background, dialog);
+
+      .logo-container {
+        background-color: mat-color($background, dialog);
+      }
+
+      .session-expired {
+        color: #f44336;
+      }
+    }
+  }
+}
