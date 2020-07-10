@@ -2,7 +2,7 @@
   <mat-card class="tarjeta">
     <mat-card-content>
       <o-row>
-        <o-column fxFlex="30" class="mr-2">
+        <o-column fxFlex="35" class="mr-2">
           <o-image class="cursor-pointer" [routerLink]="['/main','books', book.book_id]"
                    height="200px" id="book_cover" attr="cover" label="COVER"
                    [data]="book.cover | base64" auto-fit="yes" enabled="true"
@@ -30,7 +30,7 @@
 
     <mat-card-footer class="pie">
 
-      <o-column fxFlex="30" style="">
+      <o-column fxFlex="35" class="stars" >
 
         <div>
           <app-star-rating [rating]="book.avg_rating"
