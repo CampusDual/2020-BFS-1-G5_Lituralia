@@ -1,7 +1,6 @@
 package com.campusdual.lituralia.model.core.service;
 
 import com.campusdual.lituralia.api.core.service.IPublisherService;
-import com.campusdual.lituralia.model.core.dao.BookGenreDao;
 import com.campusdual.lituralia.model.core.dao.PublisherDao;
 import com.ontimize.db.EntityResult;
 import com.ontimize.jee.common.exceptions.OntimizeJEERuntimeException;
@@ -22,7 +21,6 @@ public class PublisherService implements IPublisherService {
 
     @Autowired
     private DefaultOntimizeDaoHelper daoHelper;
-
 
 
     @Override
@@ -46,5 +44,22 @@ public class PublisherService implements IPublisherService {
     }
 
 
+    // ---- PUBLISHER RATINGS VIEW ----
+
+
+    @Override
+    public EntityResult vPublisherRatingsQuery(Map<String, Object> keysValues, List<String> attributes) throws OntimizeJEERuntimeException {
+        return this.daoHelper.query(this.publisherDao, keysValues, attributes, PublisherDao.QUERY_VPUBLISHERRATINGS);
+    }
+
+    @Override
+    public EntityResult vPublisherRatingsUpdate(Map<?, ?> attrMap, Map<?, ?> keyMap) {
+        return this.daoHelper.update(publisherDao, attrMap, keyMap);
+    }
+
+    @Override
+    public EntityResult vPublisherRatingsDelete(Map<?, ?> keyMap) {
+        return this.daoHelper.delete(this.publisherDao, keyMap);
+    }
 
 }

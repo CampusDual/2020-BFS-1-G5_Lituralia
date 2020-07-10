@@ -1,4 +1,5 @@
-<button mat-stroked-button label="TABLE_VIEW" icon="style" (click)="switchToTable()">
+<button mat-stroked-button label="TABLE_VIEW" (click)="switchToTable()">
+  <mat-icon>table_rows</mat-icon>
   {{"TABLE_VIEW" |oTranslate}}
 </button>
 <o-grid #books
@@ -12,12 +13,13 @@
         grid-item-height="350"
         gutter-size="8px"
         sort-column="title"
-        sortable-columns="title;avg_rating:desc;ratings:desc"
+        sortable-columns="title;avg_rating:desc;avg_rating:asc;ratings:desc;ratings:asc"
+        sort-columns="avg_rating:desc"
         keys="book_id"
         pageable="no"
         query-rows="16"
         detail-mode="no">
   <o-grid-item *ngFor="let book of books.dataArray" class="">
-    <app-book-card-medium [book]="book"></app-book-card-medium>
+    <app-publisher-card-medium [book]="book" [isInList]="isBookInMyList(book.book_id)" (toggle)="toggleBookInMyList(book.book_id)"></app-publisher-card-medium>
   </o-grid-item>
 </o-grid>

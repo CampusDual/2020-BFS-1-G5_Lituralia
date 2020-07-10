@@ -1,0 +1,39 @@
+.tarjeta {
+  height: 220px;
+}
+
+.text {
+  position: relative;
+  font-size: 14px;
+  color: black;
+  font-family: sans-serif;
+  width: 90%; /* Could be anything you like. */
+}
+
+.text-concat {
+  position: relative;
+  display: inline-block;
+  word-wrap: break-word;
+  overflow: hidden;
+  max-height: 3.6em; /* (Number of lines you want visible) * (line-height) */
+  line-height: 1.2em;
+  text-align:justify;
+}
+
+.text.ellipsis::after {
+  content: "...";
+  position: absolute;
+  right: -12px;
+  bottom: 5px;
+}
+
+
+.date {
+  text-align: end;
+}
+
+
+.pie {
+  text-align: right;
+
+}

@@ -1,10 +1,10 @@
 <div fxFlex>
-  <o-form fxFlex
-      service="books"
-      entity="vBookRatings"
-      keys="book_id"
-      header-actions="R"
-      show-header="no">
+  <o-form #bookForm fxFlex
+          service="books"
+          entity="vBookRatings"
+          keys="book_id"
+          header-actions="R"
+          show-header="no">
     <o-integer-input attr="book_id" sql-type="INTEGER" label="Id" enabled="no" class="display-none"></o-integer-input>
     <o-row fxFlex>
       <o-column fxFlex="20" class="col-padding">
@@ -13,17 +13,19 @@
                    auto-fit="no" show-controls="no" read-only="yes"></o-image>
         </o-row>
         <o-row title="{{ 'AVG_RATING_SHORT' | oTranslate }}">
-          <img *ngIf="rating.value" class="img-fluid" src="{{rating.value.value | starRating}}" alt=""
-               title="{{('AVG_RATING_SHORT'|oTranslate) +': '+ rating.value.value + ' ' + ('RATINGS_SHORT'|oTranslate) +': '+ ratingsEl.value.value}}">
-
+          <app-star-rating *ngIf="ratingElement.value" [fluid]="true" [rating]="ratingElement.value.value"
+                           [ratings]="ratingsElement.value.value"></app-star-rating>
         </o-row>
-        <o-row >
-          <o-text-input #rating class="col-padding" attr="avg_rating" label="AVG_RATING" read-only="yes"
-                        class=""></o-text-input>
+        <o-row>
+          <o-text-input #ratingElement class="col-padding display-none" attr="avg_rating" label="AVG_RATING" read-only="yes"></o-text-input>
         </o-row>
-        <o-row >
-          <o-text-input #ratingsEl class="input-padding" attr="ratings" label="RATINGS" read-only="yes"
-                        class=""></o-text-input>
+        <o-row>
+          <o-text-input #ratingsElement class="input-padding display-none" attr="ratings" label="RATINGS" read-only="yes"></o-text-input>
+        </o-row>
+        <o-row>
+          <o-column *ngIf="isLoggedIn()" fxFlex="100" title="{{ 'MY_BOOKS_LIST_SECTION'|oTranslate}}">
+            <app-add-to-my-list-button [isInList]="isBookOnMyList()" (toggle)="this.toggleBookInMyList()"></app-add-to-my-list-button>
+          </o-column>
         </o-row>
       </o-column>
       <o-column title="{{ 'BOOK_INFORMATION' | oTranslate }}" fxFlex="80">
@@ -31,7 +33,8 @@
           <o-text-input class="input-padding" attr="title" label="TITLE" fxFlex read-only="yes"></o-text-input>
         </o-row>
         <o-row>
-          <o-text-input class="input-padding" attr="isbn" label="ISBN" fxFlex="33" required="no" read-only="yes"></o-text-input>
+          <o-text-input class="input-padding" attr="isbn" label="ISBN" fxFlex="33" required="no"
+                        read-only="yes"></o-text-input>
           <o-combo #combo fxFlex="33"
                    attr="publisher_id"
                    class="input-padding"
@@ -45,7 +48,8 @@
                    null-selection="no"
                    read-only="yes"
                    (click)="onPublisherClick(combo)"></o-combo>
-          <o-date-input attr="publish_date" label="PUBLISH_DATE" fxFlex="33" class="input-padding" read-only="yes"></o-date-input>
+          <o-date-input attr="publish_date" label="PUBLISH_DATE" fxFlex="33" class="input-padding"
+                        read-only="yes"></o-date-input>
         </o-row>
         <o-row>
           <o-textarea-input attr="synopsis" label="SYNOPSIS" fxFlex read-only="yes"></o-textarea-input>
@@ -61,13 +65,8 @@
                     parent-keys="book_id"
                     columns="author_name,author_portrait"
                     controls="no">
-              <mat-card *ngFor="let author of authorList.dataArray" [o-list-item]="author" class="user-opinion"
-                        [routerLink]="['/main', 'authors', author.author_id]">
-                <mat-card-header>
-                  <mat-card-title>{{author.author_name}}</mat-card-title>
-                  <img mat-card-avatar src="{{getImageSrc(author.author_portrait)}}">
-                </mat-card-header>
-              </mat-card>
+              <app-author-card-mini *ngFor="let author of authorList.dataArray"
+                                    [author]="author"></app-author-card-mini>
             </o-list>
 
           </o-column>
@@ -93,7 +92,7 @@
     <o-row>
       <o-column fxFlex="80" title="{{ 'USER_REVIEW' | oTranslate }}">
         <div *ngIf="isLoggedIn(); else loggedOut" class="user-opinion">
-          <app-user-book-opinion class="user-opinion"></app-user-book-opinion>
+          <app-user-book-opinion class="user-opinion" (reloadBook)="this.reloadBook()"></app-user-book-opinion>
         </div>
         <ng-template #loggedOut>
           <div class="loggedOut">{{ 'OPINION_LOGIN_WARN' | oTranslate}}</div>
@@ -102,28 +101,7 @@
     </o-row>
     <o-row>
       <o-column fxFlex="80" title="{{ 'ALL_REVIEWS' | oTranslate }}">
-        <o-list #opinions
-                attr="opinionsList"
-                title="{{ 'OPINIONS' | oTranslate }}"
-                service="books"
-                entity="vBookOpinions"
-                parent-keys="book_id"
-                keys="opinion_id"
-                columns="opinion_id;rating;review;opinion_create;opinion_update;book_id;user_"
-                controls="no"
-                detail-mode="none">
-          <mat-card class="user-opinion" *ngFor="let opinion of opinions.dataArray" [o-list-item]="opinion"
-                    class="user-opinion">
-            <img width="120px" src="{{opinion.rating | starRating}}">
-            <mat-card-header>
-              <mat-card-title>{{opinion.user_}}</mat-card-title>
-            </mat-card-header>
-            <mat-card-subtitle>{{opinion.opinion_create | date}}</mat-card-subtitle>
-            <mat-card-content>
-              <p>{{opinion.review}}</p>
-            </mat-card-content>
-          </mat-card>
-        </o-list>
+        <app-opinion-display *ngFor="let opinion of opinions | async" [opinion]="opinion"></app-opinion-display>
       </o-column>
     </o-row>
   </o-form>

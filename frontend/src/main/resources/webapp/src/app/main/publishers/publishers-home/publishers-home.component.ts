@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-publishers-home',
@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PublishersHomeComponent implements OnInit {
 
-  constructor() { }
+  tableMode:boolean = false;
+
+  constructor() {
+  }
 
   ngOnInit() {
   }
 
+  switchMode() {
+    this.tableMode = !this.tableMode;
+  }
 }

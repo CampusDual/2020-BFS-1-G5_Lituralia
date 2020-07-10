@@ -1,0 +1,26 @@
+<button mat-stroked-button label="TABLE_VIEW" (click)="switchToTable()">
+  <mat-icon>table_rows</mat-icon>
+  {{"TABLE_VIEW" |oTranslate}}
+</button>
+<o-grid #authors
+        class="grid-container"
+        attr="authorsTable"
+        service="authors"
+        entity="vAuthorDetails"
+        columns="author_id;author_portrait;author_name;author_bio;author_birth;author_death;books;ratings;avg_rating"
+        orderable="yes"
+        quick-filter="yes"
+        grid-item-height="350"
+        gutter-size="8px"
+        sort-column="author_name"
+        sortable-columns="author_name;avg_rating:desc;avg_rating:asc;ratings:desc;ratings:asc"
+        sort-columns="avg_rating:desc"
+        keys="author_id"
+        pageable="no"
+        query-rows="16"
+        detail-mode="no">
+  <o-grid-item *ngFor="let author of authors.dataArray" class="">
+        <app-author-card-medium [author]="author"></app-author-card-medium>
+
+  </o-grid-item>
+</o-grid>

@@ -1,0 +1,34 @@
+<mat-card class="user-opinion">
+  <o-row>
+    <o-column fxFlex="10" *ngIf="opinion.cover" class="mr-3">
+      <o-image class="cursor-pointer" [routerLink]="['/main','books', opinion.book_id]"
+               height="200px"
+               id="book_cover"
+               label="COVER"
+               [data]="opinion.cover | base64"
+               auto-fit="yes"
+               enabled="true"
+               read-only="true"
+               show-controls="false"
+               full-screen-button="false"></o-image>
+    </o-column>
+
+    <o-column fxFlex="auto" >
+      <mat-card-title *ngIf="opinion.title" [routerLink]="['/main','books', opinion.book_id]"
+                      class="cursor-pointer">{{opinion.title}}</mat-card-title>
+      <app-star-rating [rating]="opinion.rating" [ratings]="1" height="25" [fluid]="false"></app-star-rating>
+      <mat-card-header>
+        <mat-card-title>{{opinion.user_}}</mat-card-title>
+      </mat-card-header>
+      <mat-card-subtitle>
+        <div *ngIf="opinion.opinion_create">{{'OPINION_CREATED_DATE' |oTranslate}} {{opinion.opinion_create | date:'medium'}}</div>
+        <div *ngIf="opinion.opinion_update">{{'OPINION_UPDATED_DATE' |oTranslate}} {{opinion.opinion_update | date:'medium'}}</div>
+      </mat-card-subtitle>
+      <mat-card-content>
+        <p>{{opinion.review}}</p>
+      </mat-card-content>
+    </o-column>
+
+  </o-row>
+
+</mat-card>

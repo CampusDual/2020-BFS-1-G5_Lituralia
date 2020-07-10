@@ -22,3 +22,6 @@
 // Propagate theme to screen styles definition.
 @import '../../app/login/login.theme.scss';
 @include login-theme($theme);
+
+@import '../../app/signin/signin.theme.scss';
+@include signin-theme($theme);

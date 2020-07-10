@@ -11,17 +11,25 @@ import {BookCardMediumComponent} from './cards/book-card-medium/book-card-medium
 import {BookCardSmallComponent} from "./cards/book-card-small/book-card-small.component";
 import {BookTableComponent} from './books-home/book-table/book-table.component';
 import {BookGridComponent} from './books-home/book-grid/book-grid.component';
+import {OpinionsModule} from "../opinions/opinions.module";
+import {BookCardWideComponent} from './cards/book-card-wide/book-card-wide.component';
+import {AuthorsModule} from "../authors/authors.module";
+import {AddToMyListButtonComponent} from './cards/add-to-my-list-button/add-to-my-list-button.component';
 
 @NgModule({
-    imports: [
-        CommonModule,
-        OntimizeWebModule,
-        BooksRoutingModule,
-        SharedModule
-    ],
+  imports: [
+    CommonModule,
+    OntimizeWebModule,
+    BooksRoutingModule,
+    SharedModule,
+    OpinionsModule,
+    AuthorsModule
+  ],
     exports: [
-        BookCardSmallComponent
-    ],
+        BookCardSmallComponent,
+        BookCardMediumComponent,
+        BookCardWideComponent
+  ],
     declarations: [
         BooksHomeComponent,
         BooksDetailComponent,
@@ -29,7 +37,9 @@ import {BookGridComponent} from './books-home/book-grid/book-grid.component';
         BookCardSmallComponent,
         BookCardMediumComponent,
         BookTableComponent,
-        BookGridComponent
+        BookGridComponent,
+        BookCardWideComponent,
+        AddToMyListButtonComponent
     ]
 })
 export class BooksModule {

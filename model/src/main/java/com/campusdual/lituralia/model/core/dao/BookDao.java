@@ -33,5 +33,4 @@ public class BookDao extends OntimizeJdbcDaoSupport {
     public static final String QUERY_VBOOKRATINGS_ATTR_AVG_RATING = "avg_rating";
     public static final String QUERY_VBOOKRATINGS_ATTR_RATINGS = "ratings";
 
-    public static final String QUERY_VBOOKOPINIONS = "BOOKOPINIONS";
 }

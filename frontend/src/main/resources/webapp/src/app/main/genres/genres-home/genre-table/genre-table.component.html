@@ -1,0 +1,23 @@
+<div fxFlex class="row">
+  <o-table fxFlex
+           attr="genresTable"
+           service="genres"
+           entity="genre"
+           keys="genre_id"
+           columns="genre_id;genre_name;genre_desc"
+           visible-columns="genre_name;genre_desc"
+           query-rows="20"
+           show-filter-option="no"
+           show-configuration-option="no"
+           refresh-button="no"
+           export-button="no"
+           delete-button="no"
+           insert-button="no"
+           fixed-header="yes">
+    <o-table-button #switchBtn attr="grid_view" label="GRID_VIEW" icon="view_module"></o-table-button>
+    <!--    <o-table-column attr="genre_id" title="GENRE_ID"></o-table-column>-->
+    <o-table-column attr="genre_id" title="GENRE_ID"></o-table-column>
+    <o-table-column attr="genre_name" title="GENRE_NAME"></o-table-column>
+    <o-table-column attr="genre_desc" title="GENRE_DESC"></o-table-column>
+  </o-table>
+</div>

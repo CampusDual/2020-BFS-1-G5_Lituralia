@@ -1,4 +1,4 @@
--- BD Lituralia V-0.0.6
+-- BD Lituralia V-0.0.7
 
 drop schema lituralia cascade;
 create schema lituralia;
@@ -174,8 +174,8 @@ create table lituralia.opinions
     opinion_id     integer generated always as identity,
     rating         integer,
     review         varchar,
-    opinion_create date default now() not null,
-    opinion_update date,
+    opinion_create timestamp with time zone default now() not null,
+    opinion_update timestamp with time zone default now(),
     book_id        integer,
     user_          varchar,
     constraint opinions_pkey
@@ -212,14 +212,15 @@ create table lituralia.book_authors
         foreign key (author_id) references lituralia.authors
 );
 
+-- drop table lituralia.lists, lituralia.list_books;
 create table lituralia.lists
 (
     list_id     integer generated always as identity,
     list_name   varchar,
-    list_public boolean default false,
-    list_desc   date,
-    list_create date,
-    list_update integer,
+    list_public boolean                  default false,
+    list_desc   varchar                  default '',
+    list_create timestamp with time zone default now(),
+    list_update timestamp with time zone default now(),
     user_       varchar,
     constraint lists_pkey
         primary key (list_id),
@@ -285,82 +286,96 @@ create table lituralia.user_book_statuses
 );
 
 
+CREATE OR REPLACE VIEW lituralia.v_book_authors as
+(
+select b.book_id,
+       string_agg(cast(a.author_id as text), ',') as author_ids,
+       string_agg(a.author_name, ',')             as author_names
+from lituralia.books b
+         LEFT JOIN lituralia.book_authors ba on b.book_id = ba.book_id
+         LEFT JOIN lituralia.authors a on ba.author_id = a.author_id
+GROUP BY b.book_id);
+
+
+
+CREATE OR REPLACE VIEW lituralia.v_book_genres as
+(
+select b.book_id,
+       string_agg(cast(g.genre_id as text), ',') as genre_ids,
+       string_agg(g.genre_name, ',')             as genre_names
+from lituralia.books b
+         LEFT JOIN lituralia.book_genres bg on b.book_id = bg.book_id
+         LEFT JOIN lituralia.genres g on bg.genre_id = g.genre_id
+GROUP BY b.book_id);
+
 
 CREATE OR REPLACE VIEW lituralia.v_book_ratings AS
 (
 SELECT book_id,
        ROUND(AVG(o.rating), 2) as avg_rating,
        COUNT(*)                as ratings
-FROM opinions o
+FROM lituralia.opinions o
 GROUP BY book_id
     );
 
 
-
-CREATE OR REPLACE VIEW v_author_ratings AS
+CREATE OR REPLACE VIEW lituralia.v_author_ratings AS
 (
 SELECT ba.author_id,
        ROUND(AVG(rating), 2) avg_rating,
        COUNT(*)              ratings
-FROM opinions o
-         LEFT OUTER JOIN book_authors ba on ba.book_id = o.book_id
+FROM lituralia.opinions o
+         LEFT OUTER JOIN lituralia.book_authors ba on ba.book_id = o.book_id
 GROUP BY ba.author_id
     );
 
+CREATE OR REPLACE VIEW lituralia.v_author_book_count AS
+(
+select authors.author_id,
+       count(*) books
+from lituralia.authors
+         left outer join lituralia.book_authors ba on authors.author_id = ba.author_id
+group by authors.author_id
+    );
+
+
+drop view if exists lituralia.v_publisher_ratings;
+CREATE OR REPLACE VIEW lituralia.v_publisher_ratings AS
+(
+SELECT b.publisher_id,
+       ROUND(AVG(rating), 2) avg_rating,
+       COUNT(*)              ratings
+FROM lituralia.opinions o
+         LEFT OUTER JOIN lituralia.books AS b on o.book_id = b.book_id
+GROUP BY b.publisher_id
+    );
 
 
 CREATE OR REPLACE VIEW lituralia.v_book_details AS
 (
 select b.*,
        p.publisher_name,
-       gn.genre_ids,
-       gn.genre_names,
-       an.author_ids,
-       an.author_names,
+       vbg.genre_ids,
+       vbg.genre_names,
+       vba.author_ids,
+       vba.author_names,
        v.avg_rating,
        v.ratings
-from books b
-         LEFT OUTER JOIN
-     v_book_ratings as v on v.book_id = b.book_id,
-     publishers p,
-     (select b.book_id,
-             string_agg(cast(a.author_id as text), ',') as author_ids,
-             string_agg(a.author_name, ',')             as author_names
-      from books b
-               LEFT JOIN book_authors ba
-                         on b.book_id = ba.book_id
-               LEFT JOIN authors a
-                         on ba.author_id = a.author_id
-      GROUP BY b.book_id) as an,
-     (select b.book_id,
-             string_agg(cast(g.genre_id as text), ',') as genre_ids,
-             string_agg(g.genre_name, ',')             as genre_names
-      from books b
-               LEFT JOIN book_genres bg
-                         on b.book_id = bg.book_id
-               LEFT JOIN genres g
-                         on bg.genre_id = g.genre_id
-      GROUP BY b.book_id) as gn
-where b.publisher_id = p.publisher_id
-  and b.book_id = an.book_id
-  and b.book_id = gn.book_id
+from lituralia.books b
+         LEFT OUTER JOIN lituralia.v_book_ratings as v on v.book_id = b.book_id
+         LEFT OUTER JOIN lituralia.publishers as p on b.publisher_id = p.publisher_id
+         LEFT OUTER JOIN lituralia.v_book_genres vbg on b.book_id = vbg.book_id
+         LEFT OUTER JOIN lituralia.v_book_authors vba on b.book_id = vba.book_id
     );
 
 
 CREATE OR REPLACE VIEW v_author_details AS
 (
 select a.*,
-       bc.books,
-       o.ratings,
-       o.avg_rating
-from authors a,
-     (select authors.author_id,
-             count(*) books
-      from authors
-               left outer join book_authors ba on authors.author_id = ba.author_id
-      group by authors.author_id) bc,
-     v_author_ratings o
-where a.author_id = bc.author_id
-  and a.author_id = o.author_id
-order by a.author_id
+       vabc.books,
+       var.ratings,
+       var.avg_rating
+from lituralia.authors a
+         LEFT OUTER JOIN lituralia.v_author_ratings var on a.author_id = var.author_id
+         LEFT OUTER JOIN lituralia.v_author_book_count vabc on var.author_id = vabc.author_id
     );

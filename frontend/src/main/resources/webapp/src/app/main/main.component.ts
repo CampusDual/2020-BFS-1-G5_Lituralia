@@ -8,17 +8,9 @@ import {LoginService} from "ontimize-web-ngx";
 })
 export class MainComponent implements OnInit {
 
-    user = "USERNAME";
-
     constructor(public loginService: LoginService) {
     }
 
     ngOnInit() {
-        this.user = this.loginService.getSessionInfo().user
-    }
-
-
-    logout() {
-        this.loginService.logoutWithConfirmationAndRedirect()
     }
 }

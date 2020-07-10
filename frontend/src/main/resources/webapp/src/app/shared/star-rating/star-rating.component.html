@@ -1,0 +1,6 @@
+<img id="starImg"
+     [ngClass]="{'img-fluid':fluid}"
+     [attr.height]="height?height:null"
+     [attr.width]="width?width:null"
+          src="{{rating | starRating}}" alt=""
+     title="{{('AVG_RATING_SHORT'|oTranslate) +': '+ rating + ' ' + ('RATINGS_SHORT'|oTranslate) +': '+ ratings}}">

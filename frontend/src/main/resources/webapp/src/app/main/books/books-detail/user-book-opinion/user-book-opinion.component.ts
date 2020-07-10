@@ -1,8 +1,8 @@
-import {Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
-import {UserOpinionService} from "../../../../shared/services/user-opinion.service";
+import {Component, ElementRef, EventEmitter, OnInit, Output, Renderer2, ViewChild} from '@angular/core';
+import {OpinionService} from "../../../../shared/services/opinion.service";
 import {ActivatedRoute} from "@angular/router";
-import {DialogService, LoginService, OTranslateService} from "ontimize-web-ngx";
-import {Opinion} from "../../../opinions/opinion";
+import {DialogService, OTranslateService} from "ontimize-web-ngx";
+import {Opinion} from "../../../../shared/domain/opinion";
 
 @Component({
   selector: 'app-user-book-opinion',
@@ -11,11 +11,11 @@ import {Opinion} from "../../../opinions/opinion";
 })
 export class UserBookOpinionComponent implements OnInit {
 
+  @Output() reloadBook = new EventEmitter<any>();
 
   @ViewChild("activeReview") aReview: ElementRef;
   @ViewChild("activeRating") aRating: ElementRef;
 
-  user: string = "";
 
   opinion: Opinion = null;
   private book_id: number;
@@ -25,9 +25,10 @@ export class UserBookOpinionComponent implements OnInit {
 
   editMode: boolean = false;
 
+  ratingValues: Array<Object>;
 
-  constructor(private loginService: LoginService,
-              private userOpinionService: UserOpinionService,
+  constructor(
+              private opinionService: OpinionService,
               private route: ActivatedRoute,
               private renderer: Renderer2,
               private dialogService: DialogService,
@@ -37,13 +38,13 @@ export class UserBookOpinionComponent implements OnInit {
 
 
   ngOnInit() {
-    this.user = this.loginService.getSessionInfo().user
     this.book_id = +this.route.snapshot.paramMap.get('book_id');
     this.getUserOpinion();
+    this.ratingValues = this.genRatingValues()
   }
 
   private getUserOpinion() {
-    this.userOpinionService.getUserOpinion(this.user, +this.book_id).subscribe(value => {
+    this.opinionService.getUserOpinion(+this.book_id).subscribe(value => {
       this.opinion = value.data[0]
       this.editMode = this.hasOpinion()
       if (this.editMode) {
@@ -83,11 +84,14 @@ export class UserBookOpinionComponent implements OnInit {
     const review: string = reviewElement.value.value
     const ratingElement: any = this.aRating
     const rating: string = ratingElement.value.value
-    this.userOpinionService.updateUserOpinion(this.opinion.opinion_id, +rating, review)
+    this.opinionService.updateUserOpinion(this.opinion.opinion_id, +rating, review)
     .subscribe(
       value => this.dialogService.info(this.translate.get(this.UPDATING_OPINION), this.translate.get(this.UPDATING_OPINION_OK)),
       error => this.dialogService.error(this.translate.get(this.UPDATING_OPINION), this.translate.get(this.UPDATING_OPINION_ERROR)),
-      () => this.getUserOpinion()
+      () =>{
+        this.getUserOpinion()
+        this.reloadBook.emit()
+      }
     )
   }
 
@@ -96,25 +100,31 @@ export class UserBookOpinionComponent implements OnInit {
     const review: string = reviewElement.value.value
     const ratingElement: any = this.aRating
     const rating: string = ratingElement.value.value
-    this.userOpinionService.createUserOpinion(this.loginService.getSessionInfo().user, this.book_id, +rating, review)
+    this.opinionService.createUserOpinion(this.book_id, +rating, review)
     .subscribe(
       value => this.dialogService.info(this.translate.get(this.CREATING_OPINION), this.translate.get(this.CREATING_OPINION_OK)),
       error => this.dialogService.error(this.translate.get(this.CREATING_OPINION), this.translate.get(this.CREATING_OPINION_ERROR)),
-      () => this.getUserOpinion()
+      () => {
+        this.getUserOpinion()
+        this.reloadBook.emit()
+      }
     )
   }
 
   deleteOpinion() {
-    this.userOpinionService.deleteUserOpinion(this.opinion.opinion_id)
+    this.opinionService.deleteUserOpinion(this.opinion.opinion_id)
     .subscribe(
       value => this.dialogService.info(this.translate.get(this.DELETING_OPINION), this.translate.get(this.DELETING_OPINION_OK)),
       error => this.dialogService.error(this.translate.get(this.DELETING_OPINION), this.translate.get(this.DELETING_OPINION_ERROR)),
-      () => this.getUserOpinion()
+      () => {
+        this.getUserOpinion()
+        this.reloadBook.emit()
+      }
     )
   }
 
 
-  getRatingValues() {
+  genRatingValues() {
     const array: Array<Object> = [];
     array.push({
       'rating': 0

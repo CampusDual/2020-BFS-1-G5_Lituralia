@@ -1,0 +1,101 @@
+<o-app-layout>
+
+  <o-app-layout-sidenav *ngIf="loginService.isLoggedIn(); else loggedOut" position="end">
+    <ul>
+      <li class="o-app-sidenav-menuitem o-app-sidenav-item">
+        <a mat-button class="mat-button menu-item-anchor" (click)="this.loginService.logoutWithConfirmationAndRedirect()">
+          <div class="mat-button-wrapper">
+            <div fxLayout="row" fxLayoutAlign="start center" class="o-menu-item">
+              <mat-icon class="mat-icon material-icons" role="img" aria-hidden="true" style="margin-right: 15px">
+                exit_to_app
+              </mat-icon>
+              {{'LOGOUT' | oTranslate}}
+            </div>
+          </div>
+          <div class="mat-button-ripple mat-ripple" matRipple ></div>
+          <div class="mat-button-focus-overlay"></div>
+        </a>
+      </li>
+    </ul>
+  </o-app-layout-sidenav>
+
+  <ng-template #loggedOut>
+    <o-app-layout-sidenav position="end">
+      <ul>
+        <li class="o-app-sidenav-menuitem o-app-sidenav-item">
+          <a mat-button class="mat-button menu-item-anchor" routerLink="/login">
+            <div class="mat-button-wrapper">
+              <div fxLayout="row" fxLayoutAlign="start center" class="o-menu-item">
+                <mat-icon class="mat-icon material-icons" role="img" aria-hidden="true" style="margin-right: 15px">
+                  login
+                </mat-icon>
+                {{'LOGIN' | oTranslate}}
+              </div>
+            </div>
+            <div class="mat-button-ripple mat-ripple" matRipple ></div>
+            <div class="mat-button-focus-overlay"></div>
+          </a>
+        </li>
+        <li class="o-app-sidenav-menuitem o-app-sidenav-item">
+          <a mat-button class="mat-button menu-item-anchor" routerLink="/signin">
+            <div class="mat-button-wrapper">
+              <div fxLayout="row" fxLayoutAlign="start center" class="o-menu-item">
+                <mat-icon class="mat-icon material-icons" role="img" aria-hidden="true" style="margin-right: 15px">
+                  how_to_reg
+                </mat-icon>
+                {{'SIGNIN' | oTranslate}}
+              </div>
+            </div>
+            <div class="mat-button-ripple mat-ripple" matRipple ></div>
+            <div class="mat-button-focus-overlay"></div>
+          </a>
+        </li>
+      </ul>
+    </o-app-layout-sidenav>
+  </ng-template>
+
+
+  <div fxLayout="row" fxFill fxLayoutAlign="center center" class="signin-outer-container">
+    <div fxLayout="column" fxLayoutAlign="center" class="signin-inner-container mat-elevation-z1">
+      <form [formGroup]="signinForm" (ngSubmit)="signin()">
+        <div fxLayout="column" fxLayoutAlign="center center" class="logo-container mat-elevation-z4">
+          <img src="./assets/images/lituralia/lituralia-logo.png">
+        </div>
+<!--        <div layout-padding class="w-100 h-auto">-->
+<!--          <span class="text-danger" *ngIf="signinForm.controls['username'].hasError('passwordNotMatch')">-->
+<!--            {{'PASSWORDS_MISSMATCH' |oTranslate}}</span>-->
+<!--        </div>-->
+        <mat-form-field style="width:100%;">
+          <input matInput class="mat-input" #user placeholder="{{ 'USERNAME' | oTranslate }}" id="username"
+                 formControlName="username">
+        </mat-form-field>
+        <mat-form-field style="width:100%;">
+          <input matInput class="mat-input" #email placeholder="{{ 'EMAIL' | oTranslate }}" id="email"
+                 type="email" formControlName="email" >
+        </mat-form-field>
+        <mat-form-field style="width:100%;">
+          <input matInput class="mat-input" #name placeholder="{{ 'NAME' | oTranslate }}" id="name"
+                 type="text" formControlName="name">
+        </mat-form-field>
+        <mat-form-field style="width:100%;">
+          <input matInput class="mat-input" #surname placeholder="{{ 'SURNAME' | oTranslate }}" id="surname"
+                 type="text" formControlName="surname">
+        </mat-form-field>
+        <mat-form-field style="width:100%;">
+          <input matInput class="mat-input" #password placeholder="{{ 'PASSWORD' | oTranslate }}" id="password"
+                 type="password" formControlName="password">
+        </mat-form-field>
+        <mat-form-field style="width:100%;">
+          <input matInput class="mat-input" #password2 placeholder="{{ 'PASSWORD2' | oTranslate }}" id="password2"
+                 type="password" formControlName="password2">
+        </mat-form-field>
+        <div layout-padding class="w-100 h-auto">
+          <span class="text-danger" *ngIf="signinForm.controls['password2'].hasError('passwordNotMatch')">
+            {{'PASSWORDS_MISSMATCH' |oTranslate}}</span>
+        </div>
+        <button mat-raised-button color="primary" type="submit">{{ 'SIGNIN' | oTranslate }}</button>
+        <div layout-padding></div>
+      </form>
+    </div>
+  </div>
+</o-app-layout>
