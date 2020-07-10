@@ -5,6 +5,7 @@ export interface Opinion {
   opinion_create: Date;
   opinion_update?: Date;
   book_id: number;
-  title?: string
+  title?: string;
+  cover?: string;
   user_: string;
 }

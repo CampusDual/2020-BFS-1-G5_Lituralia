@@ -1,4 +1,4 @@
-import {Book} from "../books/book";
+import {Book} from "./book";
 import {Observable} from "rxjs";
 
 export interface BookList {

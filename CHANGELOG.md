@@ -33,12 +33,16 @@
 	- StarImage Component fix width and height
 	- Author Card Mini (on book detail)
 	- Fix Book Card Small (vertical)
+	- Front end shared/domain
+    - Book Cover on Author and Publisher reviews 
+    - Add "Bookmark" Button to Book Card mini (genres top) 
 - Back: 
 	- Publishers Rating Service
 	- Opinion Service: 
 		- vAuthorOpinionsQuery,
 		- vPublisherOpinionsQuery,
 		- vBookOpinionsQuery
+	- User Sign In Service
  -SQL: 
 	- Publishers Rating View
 	- SQL views optimizations

@@ -1,10 +1,10 @@
 import {Injectable, Injector} from '@angular/core';
 import {LoginService, Observable, OntimizeEEService} from "ontimize-web-ngx";
 import {catchError, tap} from "rxjs/operators";
-import {OntimizeResponse} from "./ontimizeResponse";
-import {Book} from "../../main/books/book";
-import {BookList} from "../../main/user/book-list";
-import {of, throwError} from "rxjs";
+import {OntimizeResponse, tapError} from "./ontimizeResponse";
+import {Book} from "../domain/book";
+import {BookList} from "../domain/book-list";
+import {throwError} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -26,7 +26,7 @@ export class ListService extends OntimizeEEService {
     ];
     return this.query(filter, columns, 'list').pipe(
       tap(x => console.log(x)),
-      catchError(this.handleError('getLists'))
+      catchError(tapError('getLists'))
     )
   }
 
@@ -44,7 +44,7 @@ export class ListService extends OntimizeEEService {
     ];
     return this.query(filter, columns, 'list').pipe(
       // tap(x => console.log(x)),
-      catchError(this.handleError('getPrivateUserList'))
+      catchError(tapError('getPrivateUserList'))
     )
   }
 
@@ -60,7 +60,7 @@ export class ListService extends OntimizeEEService {
     };
     return this.insert(data, 'list').pipe(
       // tap(x => console.log(x)),
-      catchError(this.handleError('initPrivateList'))
+      catchError(tapError('initPrivateList'))
     )
   }
 
@@ -76,7 +76,7 @@ export class ListService extends OntimizeEEService {
     ];
     return this.query(filter, columns, 'vListBook').pipe(
       // tap(x => console.log(x)),
-      catchError(this.handleError('getListBooks'))
+      catchError(tapError('getListBooks'))
     )
   }
 
@@ -90,7 +90,7 @@ export class ListService extends OntimizeEEService {
     ];
     return this.query(filter, columns, 'vListBook').pipe(
       // tap(x => console.log(x)),
-      catchError(this.handleError('getListBooksIds'))
+      catchError(tapError('getListBooksIds'))
     )
   }
 
@@ -104,7 +104,7 @@ export class ListService extends OntimizeEEService {
     };
     return this.delete(filter, 'listBook').pipe(
       // tap(x => console.log(x)),
-      catchError(this.handleError('removeBookFromList'))
+      catchError(tapError('removeBookFromList'))
     )
   }
 
@@ -118,16 +118,7 @@ export class ListService extends OntimizeEEService {
     };
     return this.insert(data, 'listBook').pipe(
       // tap(x => console.log(x)),
-      catchError(this.handleError(''))
+      catchError(tapError('addBookToUserList'))
     )
   }
-
-  private handleError<T>(operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-      // console.error(error); // log to console instead
-      console.log(`${operation} failed: ${error.message}`);
-      return of(result as T);
-    };
-  }
-
 }

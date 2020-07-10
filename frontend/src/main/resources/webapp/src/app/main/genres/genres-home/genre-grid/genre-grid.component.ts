@@ -1,12 +1,12 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {DialogService, LoginService, Observable, OTranslateService} from "ontimize-web-ngx";
-import {Genre} from "../../genre";
+import {Genre} from "../../../../shared/domain/genre";
 import {GenreService} from "../../../../shared/services/genre.service";
 import {filter, map, tap} from "rxjs/operators";
 import {ListService} from "../../../../shared/services/list.service";
-import {BookList} from "../../../user/book-list";
-import {Book} from "../../../books/book";
 import {MyListComponent} from "../../../user/my-list/my-list.component";
+import {Book} from "../../../../shared/domain/book";
+import {BookList} from "../../../../shared/domain/book-list";
 
 @Component({
     selector: 'app-genre-grid',

@@ -1,10 +1,10 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {BookList} from "../../../user/book-list";
+import {BookList} from "../../../../shared/domain/book-list";
 import {filter, map} from "rxjs/operators";
 import {DialogService, LoginService, OTranslateService} from "ontimize-web-ngx";
 import {ListService} from "../../../../shared/services/list.service";
 import {MyListComponent} from "../../../user/my-list/my-list.component";
-import {Book} from "../../book";
+import {Book} from "../../../../shared/domain/book";
 
 @Component({
   selector: 'app-book-grid',

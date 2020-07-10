@@ -8,13 +8,13 @@ import {
   OTranslateService
 } from "ontimize-web-ngx";
 import {ActivatedRoute, Params, Router} from "@angular/router";
-import {Opinion} from "../../opinions/opinion";
+import {Opinion} from "../../../shared/domain/opinion";
 import {OpinionService} from "../../../shared/services/opinion.service";
 import {filter, map, tap} from "rxjs/operators";
-import {BookList} from "../../user/book-list";
+import {BookList} from "../../../shared/domain/book-list";
 import {ListService} from "../../../shared/services/list.service";
 import {MyListComponent} from "../../user/my-list/my-list.component";
-import {Book} from "../book";
+import {Book} from "../../../shared/domain/book";
 
 @Component({
   selector: 'app-books-detail',
@@ -53,9 +53,6 @@ export class BooksDetailComponent implements OnInit {
       map(response => response.data),
       tap(x => x.sort((a, b) => a.rating > b.rating ? -1 : 1)),
     )
-  }
-
-  void() {
   }
 
   public reloadBook() {

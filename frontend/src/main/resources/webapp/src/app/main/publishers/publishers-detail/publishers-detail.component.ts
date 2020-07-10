@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable} from "ontimize-web-ngx";
-import {Opinion} from "../../opinions/opinion";
+import {Opinion} from "../../../shared/domain/opinion";
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {OpinionService} from "../../../shared/services/opinion.service";
 import {map, tap} from "rxjs/operators";

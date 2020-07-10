@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Book} from "../../book";
+import {Book} from "../../../../shared/domain/book";
 
 @Component({
   selector: 'app-book-card-wide',

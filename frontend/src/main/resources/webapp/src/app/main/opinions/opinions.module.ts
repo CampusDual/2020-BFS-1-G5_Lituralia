@@ -5,7 +5,7 @@ import {OpinionsRoutingModule} from './opinions-routing.module';
 import {OpinionDisplayComponent} from "./opinion-display/opinion-display.component";
 import {SharedModule} from "../../shared/shared.module";
 import {MatCardModule} from "@angular/material/card";
-import {OTranslateModule} from "ontimize-web-ngx";
+import {OntimizeWebModule, OTranslateModule} from "ontimize-web-ngx";
 
 @NgModule({
   imports: [
@@ -13,7 +13,8 @@ import {OTranslateModule} from "ontimize-web-ngx";
     OpinionsRoutingModule,
     SharedModule,
     MatCardModule,
-    OTranslateModule
+    OTranslateModule,
+    OntimizeWebModule
   ],
   declarations: [
     OpinionDisplayComponent

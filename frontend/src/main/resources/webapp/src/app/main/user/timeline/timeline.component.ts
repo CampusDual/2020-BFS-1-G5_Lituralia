@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {LoginService, Observable} from "ontimize-web-ngx";
 import {OpinionService} from "../../../shared/services/opinion.service";
-import {Opinion} from "../../opinions/opinion";
+import {Opinion} from "../../../shared/domain/opinion";
 import {filter, map, tap} from "rxjs/operators";
 
 @Component({

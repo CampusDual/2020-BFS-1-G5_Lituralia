@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Book} from "../../book";
 import {LoginService} from "ontimize-web-ngx";
+import {Book} from "../../../../shared/domain/book";
 
 @Component({
   selector: 'app-book-card-small',
