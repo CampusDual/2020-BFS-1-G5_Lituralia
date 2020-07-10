@@ -109,5 +109,12 @@
   "LIST_ADDING_BOOK_OK": "Success",
   "MY_BOOKS_LIST_SECTION": "Your Book List",
   "ADD_TO_MY_LIST": "Add",
-  "REMOVE_FROM_MY_LIST": "Remove"
+  "REMOVE_FROM_MY_LIST": "Remove",
+
+  "SIGNIN": "Sign In",
+  "EMAIL": "Email",
+  "NAME": "Name",
+  "SURNAME": "Surname",
+  "PASSWORD2": "Password Confirmation",
+  "PASSWORDS_MISSMATCH": "Passwords don't match"
 }

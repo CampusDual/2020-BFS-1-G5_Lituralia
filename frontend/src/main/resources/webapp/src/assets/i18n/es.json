@@ -109,5 +109,12 @@
   "LIST_ADDING_BOOK_OK": "OK",
   "MY_BOOKS_LIST_SECTION": "Tu Lista de Libros",
   "ADD_TO_MY_LIST": "Agregar",
-  "REMOVE_FROM_MY_LIST": "Quitar"
+  "REMOVE_FROM_MY_LIST": "Quitar",
+
+  "SIGNIN": "Registro",
+  "EMAIL": "Email",
+  "NAME": "Nombre",
+  "SURNAME": "Apellido",
+  "PASSWORD2": "Confirma la Contraseña",
+  "PASSWORDS_MISSMATCH": "Las contraseñas no coinciden"
 }
