@@ -6,8 +6,9 @@ import {GenresHomeComponent} from './genres-home/genres-home.component';
 import {OntimizeWebModule} from "ontimize-web-ngx";
 import {GenresDetailComponent} from './genres-detail/genres-detail.component';
 import {SharedModule} from "../../shared/shared.module";
-import {GenresTopComponent} from "./genres-top/genres-top.component";
 import {BooksModule} from "../books/books.module";
+import {GenreTableComponent} from './genres-home/genre-table/genre-table.component';
+import {GenreGridComponent} from './genres-home/genre-grid/genre-grid.component';
 
 @NgModule({
   imports: [
@@ -20,7 +21,8 @@ import {BooksModule} from "../books/books.module";
   declarations: [
       GenresHomeComponent,
       GenresDetailComponent,
-      GenresTopComponent
+      GenreTableComponent,
+      GenreGridComponent
   ]
 })
 export class GenresModule { }

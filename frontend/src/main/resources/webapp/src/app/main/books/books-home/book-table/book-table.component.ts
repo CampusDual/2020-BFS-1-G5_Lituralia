@@ -8,14 +8,14 @@ import {OTableButtonComponent} from "ontimize-web-ngx";
 })
 export class BookTableComponent implements OnInit, AfterViewInit{
 
-  @Output() switchMode = new EventEmitter<boolean>();
+  @Output() switchMode = new EventEmitter<any>();
 
   @ViewChild('switchBtn')
   protected switchBtn: OTableButtonComponent;
 
   ngAfterViewInit() {
     this.switchBtn.onClick.subscribe(event => {
-      this.switchMode.emit(true)
+      this.switchMode.emit()
     });
   }
 

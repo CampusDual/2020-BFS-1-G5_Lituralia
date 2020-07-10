@@ -8,6 +8,7 @@ import {AuthorsModule} from "./authors/authors.module";
 import {GenresModule} from "./genres/genres.module";
 import {PublishersModule} from "./publishers/publishers.module";
 import {UserModule} from "./user/user.module";
+import {LoginGuard} from "../shared/services/login.guard";
 
 
 export function loadHomeModule() {
@@ -62,7 +63,7 @@ export const routes: Routes = [
             },
             {
                 path: 'user',
-                // canActivate: [AuthGuardService],
+                canActivate: [LoginGuard],
                 loadChildren: loadUserModule
             }
         ]

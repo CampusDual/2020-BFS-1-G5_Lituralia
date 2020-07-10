@@ -1,11 +1,14 @@
-<mat-card class="user-opinion" >
-  <mat-card-title *ngIf="opinion.title" [routerLink]="['/main','books', opinion.book_id]" class="cursor-pointer">{{opinion.title}}</mat-card-title>
-  <app-star-rating [rating]="opinion.rating" [ratings]="1"  height="25" [fluid]="false"></app-star-rating>
+<mat-card class="user-opinion">
+  <mat-card-title *ngIf="opinion.title" [routerLink]="['/main','books', opinion.book_id]"
+                  class="cursor-pointer">{{opinion.title}}</mat-card-title>
+  <app-star-rating [rating]="opinion.rating" [ratings]="1" height="25" [fluid]="false"></app-star-rating>
   <mat-card-header>
     <mat-card-title>{{opinion.user_}}</mat-card-title>
   </mat-card-header>
-  <mat-card-subtitle>{{opinion.opinion_create | date}}
-  <div *ngIf="opinion.opinion_update">{{'UPDATE_DATE' | oTranslate}} {{opinion.opinion_update | date}}</div> </mat-card-subtitle>
+  <mat-card-subtitle>
+    <div *ngIf="opinion.opinion_create">{{'OPINION_CREATED_DATE' |oTranslate}} {{opinion.opinion_create | date:'medium'}}</div>
+    <div *ngIf="opinion.opinion_update">{{'OPINION_UPDATED_DATE' |oTranslate}} {{opinion.opinion_update | date:'medium'}}</div>
+  </mat-card-subtitle>
   <mat-card-content>
     <p>{{opinion.review}}</p>
   </mat-card-content>

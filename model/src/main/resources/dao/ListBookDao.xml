@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JdbcEntitySetup
+  xmlns="http://www.ontimize.com/schema/jdbc"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.ontimize.com/schema/jdbc http://www.ontimize.com/schema/jdbc/ontimize-jdbc-dao.xsd"
+  catalog="" schema="${mainschema}" table="list_books"
+  datasource="mainDataSource" sqlhandler="dbSQLStatementHandler">
+  <DeleteKeys>
+    <Column>list_book_id</Column>
+  </DeleteKeys>
+  <UpdateKeys>
+    <Column>list_book_id</Column>
+  </UpdateKeys>
+  <GeneratedKey>list_book_id</GeneratedKey>
+  <Queries>
+    <Query id="LIST_BOOKS">
+      <AmbiguousColumns>
+        <AmbiguousColumn name="list_id" prefix="l" databaseName="list_id" />
+        <AmbiguousColumn name="book_id" prefix="lb" databaseName="book_id" />
+      </AmbiguousColumns>
+      <Sentence>
+        <![CDATA[
+               SELECT
+                  #COLUMNS#
+               FROM
+                  ${mainschema}.lists AS l
+                        INNER JOIN ${mainschema}.list_books lb on l.list_id = lb.list_id
+                        INNER JOIN ${mainschema}.v_book_details b on lb.book_id = b.book_id
+               #WHERE#
+               #ORDER#
+            ]]>
+      </Sentence>
+    </Query>
+  </Queries>
+</JdbcEntitySetup>

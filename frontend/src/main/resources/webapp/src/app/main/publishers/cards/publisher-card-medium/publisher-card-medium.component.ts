@@ -2,7 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Publisher} from "../../publisher";
 
 @Component({
-  selector: 'app-book-card-medium',
+  selector: 'app-publisher-card-medium',
   templateUrl: './publisher-card-medium.component.html',
   styleUrls: ['./publisher-card-medium.component.scss']
 })
@@ -15,9 +15,6 @@ export class PublisherCardMediumComponent implements OnInit {
   ngOnInit() {
   }
   
-  getImageSrc(logo: any) {
-    return 'data:image/png;base64,' + logo;
-  }
 
   addToMyList(publisher_id: number) {
 

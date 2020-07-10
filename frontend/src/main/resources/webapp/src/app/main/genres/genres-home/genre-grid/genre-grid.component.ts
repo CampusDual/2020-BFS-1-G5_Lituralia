@@ -1,15 +1,15 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Observable} from "ontimize-web-ngx";
-import {GenreService} from "../../../shared/services/genre.service";
-import {Genre} from "../genre";
+import {Genre} from "../../genre";
+import {GenreService} from "../../../../shared/services/genre.service";
 import {map, tap} from "rxjs/operators";
 
 @Component({
-  selector: 'app-genres-top',
-  templateUrl: './genres-top.component.html',
-  styleUrls: ['./genres-top.component.scss']
+  selector: 'app-genre-grid',
+  templateUrl: './genre-grid.component.html',
+  styleUrls: ['./genre-grid.component.scss']
 })
-export class GenresTopComponent implements OnInit {
+export class GenreGridComponent implements OnInit {
 
   genres: Observable<Genre[]>
   public TOP_N_BOOKS: number = 5
@@ -33,4 +33,12 @@ export class GenresTopComponent implements OnInit {
       })
     )
   }
+
+
+  @Output() switchMode = new EventEmitter();
+
+  switchToTable(){
+    this.switchMode.emit()
+  }
+
 }

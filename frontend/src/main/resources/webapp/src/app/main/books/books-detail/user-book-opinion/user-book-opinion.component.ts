@@ -1,7 +1,7 @@
 import {Component, ElementRef, EventEmitter, OnInit, Output, Renderer2, ViewChild} from '@angular/core';
 import {OpinionService} from "../../../../shared/services/opinion.service";
 import {ActivatedRoute} from "@angular/router";
-import {DialogService, LoginService, OTranslateService} from "ontimize-web-ngx";
+import {DialogService, OTranslateService} from "ontimize-web-ngx";
 import {Opinion} from "../../../opinions/opinion";
 
 @Component({
@@ -16,7 +16,6 @@ export class UserBookOpinionComponent implements OnInit {
   @ViewChild("activeReview") aReview: ElementRef;
   @ViewChild("activeRating") aRating: ElementRef;
 
-  user: string = "";
 
   opinion: Opinion = null;
   private book_id: number;
@@ -28,7 +27,7 @@ export class UserBookOpinionComponent implements OnInit {
 
   ratingValues: Array<Object>;
 
-  constructor(private loginService: LoginService,
+  constructor(
               private opinionService: OpinionService,
               private route: ActivatedRoute,
               private renderer: Renderer2,
@@ -39,14 +38,13 @@ export class UserBookOpinionComponent implements OnInit {
 
 
   ngOnInit() {
-    this.user = this.loginService.getSessionInfo().user
     this.book_id = +this.route.snapshot.paramMap.get('book_id');
     this.getUserOpinion();
     this.ratingValues = this.genRatingValues()
   }
 
   private getUserOpinion() {
-    this.opinionService.getUserOpinion(this.user, +this.book_id).subscribe(value => {
+    this.opinionService.getUserOpinion(+this.book_id).subscribe(value => {
       this.opinion = value.data[0]
       this.editMode = this.hasOpinion()
       if (this.editMode) {
@@ -102,7 +100,7 @@ export class UserBookOpinionComponent implements OnInit {
     const review: string = reviewElement.value.value
     const ratingElement: any = this.aRating
     const rating: string = ratingElement.value.value
-    this.opinionService.createUserOpinion(this.loginService.getSessionInfo().user, this.book_id, +rating, review)
+    this.opinionService.createUserOpinion(this.book_id, +rating, review)
     .subscribe(
       value => this.dialogService.info(this.translate.get(this.CREATING_OPINION), this.translate.get(this.CREATING_OPINION_OK)),
       error => this.dialogService.error(this.translate.get(this.CREATING_OPINION), this.translate.get(this.CREATING_OPINION_ERROR)),

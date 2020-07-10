@@ -1,23 +1,6 @@
-<div fxFlex class="row">
-  <o-table fxFlex
-           attr="genresTable"
-           service="genres"
-           entity="genre"
-           keys="genre_id"
-           columns="genre_id;genre_name;genre_desc"
-           visible-columns="genre_name;genre_desc"
-           query-rows="20"
-           show-filter-option="no"
-           show-configuration-option="no"
-           refresh-button="no"
-           export-button="no"
-           delete-button="no"
-           insert-button="no"
-           fixed-header="yes">
-    <o-table-button #genre_top attr="genre_top" label="TOP" icon="style"></o-table-button>
-    <!--    <o-table-column attr="genre_id" title="GENRE_ID"></o-table-column>-->
-    <o-table-column attr="genre_id" title="GENRE_ID"></o-table-column>
-    <o-table-column attr="genre_name" title="GENRE_NAME"></o-table-column>
-    <o-table-column attr="genre_desc" title="GENRE_DESC"></o-table-column>
-  </o-table>
+<div fxFlex>
+  <app-genre-table *ngIf="tableMode;else gridMode" (switchMode)="switchMode()"></app-genre-table>
+  <ng-template #gridMode>
+    <app-genre-grid (switchMode)="switchMode()"></app-genre-grid>
+  </ng-template>
 </div>
