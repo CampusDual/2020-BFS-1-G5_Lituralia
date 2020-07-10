@@ -22,7 +22,7 @@ Java 8
 
 Descarga el ejecutable (jar) en: [Releases](https://github.com/CampusDual/lituralia-2020/releases)
 
-Ultima Version: [0.0.6-SNAPSHOT](https://github.com/CampusDual/lituralia-2020/releases/tag/0.0.6)
+Ultima Version: [0.0.7-SNAPSHOT](https://github.com/CampusDual/lituralia-2020/releases/tag/0.0.7)
 
 ## Ejecución 🚀
    
@@ -33,12 +33,12 @@ PG_USER= usuario de postgres
 PG_PASS= contraseña postgres 
 ```
    
-_Ejecutamos el siguiente comando en la ruta del archivo: lituralia-0.0.6-SNAPSHOT.jar_
+_Ejecutamos el siguiente comando en la ruta del archivo: lituralia-0.0.7-SNAPSHOT.jar_
 
 Ejemplo:
 
 ```
-java -jar lituralia-0.0.6-SNAPSHOT.jar
+java -jar lituralia-0.0.7-SNAPSHOT.jar
 ```
 
 Este ejecutable despliega el backend y el frontend en el puerto 33333
@@ -84,7 +84,7 @@ mvn clean install
 El ejecutable estará en la ruta: 
 
 ```
-lituralia-2020/boot/target/lituralia-0.0.6-SNAPSHOT.jar
+lituralia-2020/boot/target/lituralia-0.0.7-SNAPSHOT.jar
 ```
 
 El directorio static del frontend lo encontraremos en:

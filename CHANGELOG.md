@@ -36,6 +36,11 @@
 	- Front end shared/domain
     - Book Cover on Author and Publisher reviews 
     - Add "Bookmark" Button to Book Card mini (genres top) 
+    - Sign In Feature-Module
+    - Logged-out Guard
+    - Sort reviews by date
+    - Decouple my-lists into my-list.service.ts
+    - Cleanup menu login and logout buttons
 - Back: 
 	- Publishers Rating Service
 	- Opinion Service: 
