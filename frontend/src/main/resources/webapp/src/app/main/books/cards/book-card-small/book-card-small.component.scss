@@ -1,0 +1,37 @@
+.tarjeta {
+  width: 210px;
+  height: 355px;
+}
+.cabecera{
+  height: 50px;
+}
+
+.text {
+  position: relative;
+  font-size: 16px;
+  color: black;
+  font-family: sans-serif;
+  font-weight: bolder;
+  width: 100%; /* Could be anything you like. */
+  margin-bottom: 10px;
+}
+
+.text-concat {
+  position: relative;
+  display: inline-block;
+  word-wrap: break-word;
+  overflow: hidden;
+  max-height: 2.4em; /* (Number of lines you want visible) * (line-height) */
+  line-height: 1.2em;
+  //text-align:justify;
+}
+
+.text.ellipsis::after {
+  content: "...";
+  position: absolute;
+  right: -12px;
+  bottom: 5px;
+}
+.star{
+  margin-left: 25px;
+}
