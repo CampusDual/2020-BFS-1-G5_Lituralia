@@ -1,6 +1,14 @@
-<img id="starImg"
-     [ngClass]="{'img-fluid':fluid}"
-     [attr.height]="height?height:null"
-     [attr.width]="width?width:null"
-          src="{{rating | starRating}}" alt=""
-     title="{{('AVG_RATING_SHORT'|oTranslate) +': '+ rating + ' ' + ('RATINGS_SHORT'|oTranslate) +': '+ ratings}}">
+<div class="tooltips text-nowrap">
+  <star-rating
+      [value]="rating"
+      [totalstars]="totalstars"
+      [checkedcolor]="checkedColor"
+      [uncheckedcolor]="uncheckedcolor"
+      size="{{height}}px"
+      [readonly]="readonly"
+      (rate)="onRate($event)">
+  </star-rating>
+  <div class="tooltip-text" *ngIf="ratings>1">{{('AVG_RATING_SHORT'|oTranslate) +': '+ rating + ' ' + ('RATINGS_SHORT'|oTranslate) +': '+ ratings}}</div>
+  <div class="tooltip-text" *ngIf="ratings===1">{{('RATING'|oTranslate) +': '+ rating}}</div>
+  <div class="tooltip-text" *ngIf="ratings===0">{{('NO_RATING'|oTranslate)}}</div>
+</div>

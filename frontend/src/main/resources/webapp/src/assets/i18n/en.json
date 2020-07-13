@@ -31,6 +31,8 @@
   "GENRE_NAMES": "Genres",
   "AVG_RATING": "Average Rating",
   "RATINGS": "Number of Ratings",
+  "RATING": "Rating",
+  "NO_RATING": "No Rating",
   "BOOK_INFORMATION": "Book Information",
   "SYNOPSIS": "Synopsis",
 

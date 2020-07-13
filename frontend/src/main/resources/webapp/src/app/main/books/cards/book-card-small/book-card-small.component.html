@@ -1,56 +1,36 @@
-<!--<div *ngIf="this.book" class="card cursor-pointer" [routerLink]="['/main', 'books', book.book_id]" style="width: 175px;" >-->
-<!--  <img class="card-img-top" height="100%" src="{{'data:image/jpg;base64,' +book.cover}}" alt="Card image cap">-->
-
-<!--  <div class="card-body">-->
-<!--    <h6 class="card-title" class="text ellipsis">-->
-
-<!--        <span class="text-concat">{{book.title}}}</span>-->
-
-<!--      </h6>-->
-<!--  </div>-->
-
-<!--  <div class="card-footer">-->
-<!--    <app-star-rating [rating]="book.avg_rating" [ratings]="book.ratings" width="100"></app-star-rating>-->
-<!--  </div>-->
-<!--</div>-->
-
 <div *ngIf="this.book">
-    <mat-card class="tarjeta">
+  <mat-card class="tarjeta">
 
-        <mat-card-header class="cabecera">
-            <mat-card-title class="card cursor-pointer" [routerLink]="['/main', 'books', book.book_id]">
-                <div class="text ellipsis">
-                    <span class="text-concat">{{book.title}}</span>
-                </div>
-            </mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-            <o-image class="cursor-pointer" [routerLink]="['/main','books', book.book_id]"
-                     height="200px"
-                     id="book_cover"
-                     attr="cover"
-                     label="COVER"
-                     [data]="book.cover | base64"
-                     auto-fit="yes"
-                     enabled="true"
-                     read-only="true"
-                     show-controls="false"
-                     full-screen-button="false"></o-image>
-        </mat-card-content>
-        <mat-card-footer>
-            <o-column fxFlex="60" class="star">
-
-                <div>
-                    <app-star-rating [rating]="book.avg_rating"
-                                     [ratings]="book.ratings" ></app-star-rating>
-                </div>
-            </o-column>
-            <o-column fxFlex="50"  *ngIf="this.isLoggedIn()">
-                <div fxFlex="50" class="m-1" style="justify-content: flex-end;">
-                    <app-add-to-my-list-button class="boton" [isInList]="isInList"
-                                               (toggle)="this.toggleBookInMyList()"></app-add-to-my-list-button>
-                </div>
-            </o-column>
-        </mat-card-footer>
-    </mat-card>
+    <mat-card-header class="cabecera">
+      <mat-card-title class="card cursor-pointer" [routerLink]="['/main', 'books', book.book_id]">
+        <div class="text ellipsis">
+          <span class="text-concat">{{book.title}}</span>
+        </div>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <o-image class="cursor-pointer" [routerLink]="['/main','books', book.book_id]"
+               height="200px"
+               id="book_cover"
+               attr="cover"
+               label="COVER"
+               [data]="book.cover | base64"
+               auto-fit="yes"
+               enabled="true"
+               read-only="true"
+               show-controls="false"
+               full-screen-button="false"></o-image>
+    </mat-card-content>
+    <mat-card-footer>
+      <o-row fxFlex>
+        <o-column fxFlex>
+          <app-star-rating [rating]="book.avg_rating" [ratings]="book.ratings" size="8"></app-star-rating>
+        </o-column>
+        <o-column fxFlex *ngIf="this.isLoggedIn()">
+          <app-add-to-my-list-button class="boton" [isInList]="isInList"
+                                     (toggle)="this.toggleBookInMyList()"></app-add-to-my-list-button>
+        </o-column>
+      </o-row>
+    </mat-card-footer>
+  </mat-card>
 </div>
