@@ -11,7 +11,7 @@ export class StarRatingComponent implements OnInit {
   @Input() ratings: number = 0;
   @Input() height;
   @Input() width;
-  @Input() fluid: boolean = false
+  @Input() fluid: boolean = true
 
   constructor() {
   }

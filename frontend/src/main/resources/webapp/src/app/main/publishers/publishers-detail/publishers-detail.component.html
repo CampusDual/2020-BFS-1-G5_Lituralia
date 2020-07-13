@@ -15,7 +15,7 @@
                    auto-fit="no" show-controls="no" read-only="no" height="200px" width="200px"></o-image>
         </o-row>
         <o-row title="{{ 'AVG_RATING_SHORT' | oTranslate }}">
-          <app-star-rating *ngIf="ratingElement.value" [fluid]="true" [rating]="ratingElement.value.value"
+          <app-star-rating *ngIf="ratingElement.value" [rating]="ratingElement.value.value"
                            [ratings]="ratingsElement.value.value"></app-star-rating>
         </o-row>
         <o-row>

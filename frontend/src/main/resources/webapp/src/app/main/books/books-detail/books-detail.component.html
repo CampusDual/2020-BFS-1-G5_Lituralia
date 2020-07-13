@@ -13,7 +13,7 @@
                    auto-fit="no" show-controls="no" read-only="yes"></o-image>
         </o-row>
         <o-row title="{{ 'AVG_RATING_SHORT' | oTranslate }}">
-          <app-star-rating *ngIf="ratingElement.value" [fluid]="true" [rating]="ratingElement.value.value"
+          <app-star-rating *ngIf="ratingElement.value"  [rating]="ratingElement.value.value"
                            [ratings]="ratingsElement.value.value"></app-star-rating>
         </o-row>
         <o-row>
@@ -92,7 +92,7 @@
     <o-row>
       <o-column fxFlex="80" title="{{ 'USER_REVIEW' | oTranslate }}">
         <div *ngIf="isLoggedIn(); else loggedOut" class="user-opinion">
-          <app-user-book-opinion class="user-opinion" (reloadBook)="this.reloadBook()"></app-user-book-opinion>
+          <app-opinion-edit class="user-opinion" (reloadBook)="this.reloadBook()" [book_id]="this.id"></app-opinion-edit>
         </div>
         <ng-template #loggedOut>
           <div class="loggedOut">{{ 'OPINION_LOGIN_WARN' | oTranslate}}</div>
