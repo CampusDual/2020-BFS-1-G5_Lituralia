@@ -12,8 +12,8 @@ export class StarRatingComponent implements OnInit {
   // @Input() width;
   // @Input() fluid: boolean = false
 
-  @Input() rating = 0
-  @Input() ratings = 0;
+  @Input() rating: any = 0
+  @Input() ratings: number = 0;
   @Input() height = 25;
   @Input() checkedColor = 'gold'
   @Input() uncheckedcolor = 'black'
@@ -30,5 +30,9 @@ export class StarRatingComponent implements OnInit {
 
   onRate($event: { oldValue: number; newValue: number }) {
     this.rate.emit($event)
+  }
+
+  getRating(): number{
+    return parseFloat(this.rating)
   }
 }

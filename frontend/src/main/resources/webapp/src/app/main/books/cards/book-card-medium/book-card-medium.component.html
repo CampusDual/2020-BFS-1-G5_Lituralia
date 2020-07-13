@@ -18,33 +18,26 @@
           <mat-card-subtitle>
             {{ (book.author_names.length > 20) ? (book.author_names | slice:0:20) + '...' : (book.author_names) }}
           </mat-card-subtitle>
-          <mat-card-subtitle >
+          <mat-card-subtitle>
             <div class="text ellipsis">
               <span class="text-concat">{{book.synopsis}}</span>
             </div>
           </mat-card-subtitle>
         </o-column>
       </o-row>
-
     </mat-card-content>
 
     <mat-card-footer class="pie">
-
-      <o-column fxFlex="35" class="stars" >
-
-        <div>
-          <app-star-rating [rating]="book.avg_rating"
-                           [ratings]="book.ratings" ></app-star-rating>
-        </div>
-      </o-column>
-      <o-column fxFlex class="boton"  *ngIf="this.isLoggedIn()">
-        <div fxFlex class="m-1" style="justify-content: flex-end;">
-            <app-add-to-my-list-button [isInList]="isInList" (toggle)="this.toggleBookInMyList()"></app-add-to-my-list-button>
-<!--          <o-button-toggle attr="toggle1" value="list" icon="bookmark_border"-->
-<!--                           (click)="addToMyList(book.book_id)"></o-button-toggle>-->
-<!--          <o-button-toggle attr="toggle2" value="review" icon="comment"-->
-<!--                           (click)="reviewPopup(book.book_id)"></o-button-toggle>-->
-        </div>
-      </o-column>
+      <o-row>
+        <o-column fxFlex="60" class="stars">
+          <app-star-rating [rating]="book.avg_rating" [ratings]="book.ratings"></app-star-rating>
+        </o-column>
+        <o-column fxFlex class="boton" *ngIf="this.isLoggedIn()">
+          <div fxFlex class="m-1" style="justify-content: flex-end;">
+            <app-add-to-my-list-button [isInList]="isInList"
+                                       (toggle)="this.toggleBookInMyList()"></app-add-to-my-list-button>
+          </div>
+        </o-column>
+      </o-row>
     </mat-card-footer>
   </mat-card>

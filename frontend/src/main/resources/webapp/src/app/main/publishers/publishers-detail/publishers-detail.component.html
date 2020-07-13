@@ -1,7 +1,7 @@
 <div fxFlex>
   <o-form
       service="publishers"
-      entity="vPublisherRatings"
+      entity="publisher"
       keys="publisher_id"
       header-actions="R"
       show-header="no">
@@ -15,16 +15,8 @@
                    auto-fit="no" show-controls="no" read-only="no" height="200px" width="200px"></o-image>
         </o-row>
         <o-row title="{{ 'AVG_RATING_SHORT' | oTranslate }}">
-          <app-star-rating *ngIf="ratingElement.value" [rating]="ratingElement.value.value"
-                           [ratings]="ratingsElement.value.value"></app-star-rating>
-        </o-row>
-        <o-row>
-          <o-text-input #ratingElement class="col-padding" attr="avg_rating" label="AVG_RATING" read-only="yes"
-                        class="display-none"></o-text-input>
-        </o-row>
-        <o-row>
-          <o-text-input #ratingsElement class="input-padding" attr="ratings" label="RATINGS" read-only="yes"
-                        class="display-none"></o-text-input>
+          <app-star-rating *ngIf="rating && rating.avg_rating"  [rating]="rating.avg_rating"
+                           [ratings]="rating.ratings"></app-star-rating>
         </o-row>
       </o-column>
       <o-column title="{{ 'PUBLISHER_INFORMATION' | oTranslate }}" fxFlex="80">
