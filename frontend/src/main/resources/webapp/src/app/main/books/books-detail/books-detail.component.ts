@@ -9,7 +9,8 @@ import {MyListService} from "../../../shared/services/my-list.service";
 @Component({
   selector: 'app-books-detail',
   templateUrl: './books-detail.component.html',
-  styleUrls: ['./books-detail.component.scss']
+  styleUrls: ['./books-detail.component.scss'],
+  providers: [MyListService]
 })
 export class BooksDetailComponent implements OnInit {
 
