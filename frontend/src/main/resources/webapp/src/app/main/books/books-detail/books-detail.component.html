@@ -1,108 +1,121 @@
 <div fxFlex>
-  <o-form #bookForm fxFlex
-          service="books"
-          entity="vBookRatings"
-          keys="book_id"
-          header-actions="R"
-          show-header="no">
-    <o-integer-input attr="book_id" sql-type="INTEGER" label="Id" enabled="no" class="display-none"></o-integer-input>
-    <o-row fxFlex>
-      <o-column fxFlex="20" class="col-padding">
-        <o-row>
-          <o-image id="book_cover" attr="cover" label="COVER" empty-image="assets/images/no-image.png" sql-type="OTHER"
-                   auto-fit="no" show-controls="no" read-only="yes"></o-image>
-        </o-row>
-        <o-row title="{{ 'AVG_RATING_SHORT' | oTranslate }}">
-          <app-star-rating *ngIf="ratingElement.value" [fluid]="true" [rating]="ratingElement.value.value"
-                           [ratings]="ratingsElement.value.value"></app-star-rating>
-        </o-row>
-        <o-row>
-          <o-text-input #ratingElement class="col-padding display-none" attr="avg_rating" label="AVG_RATING" read-only="yes"></o-text-input>
-        </o-row>
-        <o-row>
-          <o-text-input #ratingsElement class="input-padding display-none" attr="ratings" label="RATINGS" read-only="yes"></o-text-input>
-        </o-row>
-        <o-row>
-          <o-column *ngIf="isLoggedIn()" fxFlex="100" title="{{ 'MY_BOOKS_LIST_SECTION'|oTranslate}}">
-            <app-add-to-my-list-button [isInList]="isBookOnMyList()" (toggle)="this.toggleBookInMyList()"></app-add-to-my-list-button>
-          </o-column>
-        </o-row>
-      </o-column>
-      <o-column title="{{ 'BOOK_INFORMATION' | oTranslate }}" fxFlex="80">
-        <o-row>
-          <o-text-input class="input-padding" attr="title" label="TITLE" fxFlex read-only="yes"></o-text-input>
-        </o-row>
-        <o-row>
-          <o-text-input class="input-padding" attr="isbn" label="ISBN" fxFlex="33" required="no"
-                        read-only="yes"></o-text-input>
-          <o-combo #combo fxFlex="33"
-                   attr="publisher_id"
-                   class="input-padding"
-                   label="PUBLISHER_NAME"
-                   service="books"
-                   entity="bookPublisher"
-                   keys="publisher_id"
-                   columns="publisher_id;publisher_name"
-                   visible-columns="publisher_name"
-                   value-column="publisher_id"
-                   null-selection="no"
-                   read-only="yes"
-                   (click)="onPublisherClick(combo)"></o-combo>
-          <o-date-input attr="publish_date" label="PUBLISH_DATE" fxFlex="33" class="input-padding"
-                        read-only="yes"></o-date-input>
-        </o-row>
-        <o-row>
-          <o-textarea-input attr="synopsis" label="SYNOPSIS" fxFlex read-only="yes"></o-textarea-input>
-        </o-row>
-        <o-row>
-          <o-column fxFlex="45" title="{{ 'AUTHOR_NAMES' | oTranslate }}">
-            <o-list #authorList
-                    attr="authors"
-                    title="AUTHORS"
-                    service="books"
-                    entity="vBookAuthor"
-                    keys="author_id"
-                    parent-keys="book_id"
-                    columns="author_name,author_portrait"
-                    controls="no">
-              <app-author-card-mini *ngFor="let author of authorList.dataArray"
-                                    [author]="author"></app-author-card-mini>
-            </o-list>
+    <o-form #bookForm fxFlex
+            service="books"
+            entity="vBookRatings"
+            keys="book_id"
+            header-actions="R"
+            show-header="no">
+        <o-integer-input attr="book_id" sql-type="INTEGER" label="Id" enabled="no"
+                         class="display-none"></o-integer-input>
+        <o-row fxFlex>
+            <o-column fxFlex="25" class="col-padding">
+                <o-row>
+                    <o-image id="book_cover" attr="cover" label="COVER" empty-image="assets/images/no-image.png"
+                             sql-type="OTHER"
+                             auto-fit="no" show-controls="no" read-only="yes"></o-image>
+                </o-row>
+<!--                botones debajo de la portada del libro<-->
+                <o-row class="bajoCover">
+                    <app-star-rating *ngIf="ratingElement.value" [fluid]="true" [rating]="ratingElement.value.value"
+                                     [ratings]="ratingsElement.value.value"></app-star-rating>
 
-          </o-column>
-          <o-column fxFlex="45" title="{{ 'GENRE_NAMES' | oTranslate }}">
-            <o-list #genreList
-                    attr="genres"
-                    title="GENRES"
-                    service="books"
-                    entity="vBookGenre"
-                    keys="genre_id"
-                    parent-keys="book_id"
-                    columns="genre_name"
-                    controls="no">
-              <mat-card *ngFor="let genres of genreList.dataArray" [o-list-item]="genres" class="user-opinion"
-                        [routerLink]="['/main', 'genres', genres.genre_id]">
-                <mat-card-content>{{genres.genre_name}}</mat-card-content>
-              </mat-card>
-            </o-list>
-          </o-column>
+                    <o-column fxFlex="">
+                        <o-text-input #ratingElement class="col-padding display-none" attr="avg_rating"
+                                      label="AVG_RATING" read-only="yes"></o-text-input>
+                    </o-column>
+                    <o-column>
+                        <o-text-input #ratingsElement class="input-padding display-none" attr="ratings" label="RATINGS"
+                                      read-only="yes"></o-text-input>
+                    </o-column>
+
+                    <o-column *ngIf="isLoggedIn()" fxFlex="60" class="miList">
+                        <app-add-to-my-list-button [isInList]="isBookOnMyList()"
+                                                   (toggle)="this.toggleBookInMyList()"></app-add-to-my-list-button>
+                    </o-column>
+<!--                    columna de elementos del libro-->
+                </o-row>
+            </o-column>
+            <o-column  fxFlex="80">
+                <o-row>
+                    <o-text-input class="input-padding" attr="title" label="TITLE" fxFlex
+                                  read-only="yes" ></o-text-input>
+                    <div>
+
+                    </div>
+                </o-row>
+                <o-row>
+                    <o-text-input class="input-padding" attr="isbn" label="ISBN" fxFlex="33" required="no"
+                                  read-only="yes"></o-text-input>
+                    <o-combo #combo fxFlex="33"
+                             attr="publisher_id"
+                             class="input-padding"
+                             label="PUBLISHER_NAME"
+                             service="books"
+                             entity="bookPublisher"
+                             keys="publisher_id"
+                             columns="publisher_id;publisher_name"
+                             visible-columns="publisher_name"
+                             value-column="publisher_id"
+                             null-selection="no"
+                             read-only="yes"
+                             (click)="onPublisherClick(combo)"></o-combo>
+                    <o-date-input attr="publish_date" label="PUBLISH_DATE" fxFlex="33" class="input-padding"
+                                  read-only="yes"></o-date-input>
+                </o-row>
+                <o-row>
+                    <o-textarea-input attr="synopsis" label="SYNOPSIS" fxFlex read-only="yes"></o-textarea-input>
+                </o-row>
+                <o-row>
+                    <o-column fxFlex="45" title="{{ 'AUTHOR_NAMES' | oTranslate }}">
+                        <o-list #authorList
+                                attr="authors"
+                                title="AUTHORS"
+                                service="books"
+                                entity="vBookAuthor"
+                                keys="author_id"
+                                parent-keys="book_id"
+                                columns="author_name,author_portrait"
+                                controls="no">
+                            <app-author-card-mini *ngFor="let author of authorList.dataArray"
+                                                  [author]="author"></app-author-card-mini>
+                        </o-list>
+
+                    </o-column>
+                    <o-column fxFlex="45" title="{{ 'GENRE_NAMES' | oTranslate }}">
+                        <o-list #genreList
+                                attr="genres"
+                                title="GENRES"
+                                service="books"
+                                entity="vBookGenre"
+                                keys="genre_id"
+                                parent-keys="book_id"
+                                columns="genre_name"
+                                controls="no">
+                            <mat-card *ngFor="let genres of genreList.dataArray" [o-list-item]="genres"
+                                      class="user-opinion"
+                                      [routerLink]="['/main', 'genres', genres.genre_id]">
+                                <mat-card-content>{{genres.genre_name}}</mat-card-content>
+                            </mat-card>
+                        </o-list>
+                    </o-column>
+                </o-row>
+            </o-column>
         </o-row>
-      </o-column>
-    </o-row>
-    <o-row>
-      <o-column fxFlex="80" title="{{ 'USER_REVIEW' | oTranslate }}">
-        <div *ngIf="isLoggedIn(); else loggedOut" class="user-opinion">
-          <app-user-book-opinion class="user-opinion" (reloadBook)="this.reloadBook()"></app-user-book-opinion>
-        </div>
-        <ng-template #loggedOut>
-          <div class="loggedOut">{{ 'OPINION_LOGIN_WARN' | oTranslate}}</div>
-        </ng-template>
-      </o-column>
-    </o-row>
-    <o-row>
-      <o-column fxFlex="80" title="{{ 'ALL_REVIEWS' | oTranslate }}">
-        <app-opinion-display *ngFor="let opinion of opinions | async" [opinion]="opinion"></app-opinion-display>
-      </o-column>
-    </o-row>
-  </o-form>
+        <o-row>
+            <o-column fxFlex="80" title="{{ 'USER_REVIEW' | oTranslate }}">
+                <div *ngIf="isLoggedIn(); else loggedOut" class="user-opinion">
+                    <app-user-book-opinion class="user-opinion"
+                                           (reloadBook)="this.reloadBook()"></app-user-book-opinion>
+                </div>
+                <ng-template #loggedOut>
+                    <div class="loggedOut">{{ 'OPINION_LOGIN_WARN' | oTranslate}}</div>
+                </ng-template>
+            </o-column>
+        </o-row>
+        <o-row>
+            <o-column fxFlex="80" title="{{ 'ALL_REVIEWS' | oTranslate }}">
+                <app-opinion-display *ngFor="let opinion of opinions | async" [opinion]="opinion"></app-opinion-display>
+            </o-column>
+        </o-row>
+    </o-form>
 </div>

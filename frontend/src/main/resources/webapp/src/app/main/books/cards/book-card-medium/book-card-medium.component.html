@@ -10,7 +10,7 @@
                    full-screen-button="false"></o-image>
         </o-column>
         <o-column fxFlex="70">
-          <mat-card-title class=" cursor-pointer" [routerLink]="['/main','books', book.book_id]">
+          <mat-card-title class=" cursor-pointer" class="title" [routerLink]="['/main','books', book.book_id]">
             <div class="txt-wrap">
               {{ (book.title.length > 15) ? (book.title | slice:0:15) + '...' : (book.title) }}
             </div>
@@ -18,7 +18,7 @@
           <mat-card-subtitle>
             {{ (book.author_names.length > 20) ? (book.author_names | slice:0:20) + '...' : (book.author_names) }}
           </mat-card-subtitle>
-          <mat-card-subtitle >
+          <mat-card-subtitle class="stars">
             <div class="text ellipsis">
               <span class="text-concat">{{book.synopsis}}</span>
             </div>
