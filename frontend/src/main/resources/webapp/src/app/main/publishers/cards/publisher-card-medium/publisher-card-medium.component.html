@@ -9,7 +9,7 @@
                    full-screen-button="false"></o-image>
         </o-column>
         <o-column fxFlex="70">
-          <mat-card-title class=" cursor-pointer" [routerLink]="['/main','publishers', publisher.publisher_id]">
+          <mat-card-title class=" cursor-pointer" class="title" [routerLink]="['/main','publishers', publisher.publisher_id]">
             <div class="txt-wrap">
               {{publisher.publisher_name}}
             </div>
@@ -17,7 +17,7 @@
 
 
             <o-column fxFlex="50">
-              <div>
+              <div class="stars">
                 <app-star-rating [rating]="publisher.avg_rating"
                                  [ratings]="publisher.ratings" [fluid]="true"></app-star-rating>
               </div>
