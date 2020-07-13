@@ -72,6 +72,7 @@ export class OpinionService extends OntimizeEEService {
       "title",
       "opinion_id",
       "rating",
+      "cover",
       "review",
       "opinion_create",
       "opinion_update",

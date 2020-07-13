@@ -118,5 +118,10 @@
   "NAME": "Name",
   "SURNAME": "Surname",
   "PASSWORD2": "Password Confirmation",
-  "PASSWORDS_MISSMATCH": "Passwords don't match"
+  "PASSWORDS_MISSMATCH": "Passwords don't match",
+
+  "SIGNIN_ERROR_TITLE": "Sign In Error",
+  "SIGNIN_ERROR": "Sign In Error",
+  "SIGNIN_SUCCESS_TITLE": "Sign In",
+  "SIGNIN_SUCCESS": "Welcome"
 }

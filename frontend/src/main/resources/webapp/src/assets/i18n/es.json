@@ -118,5 +118,10 @@
   "NAME": "Nombre",
   "SURNAME": "Apellido",
   "PASSWORD2": "Confirma la Contraseña",
-  "PASSWORDS_MISSMATCH": "Las contraseñas no coinciden"
+  "PASSWORDS_MISSMATCH": "Las contraseñas no coinciden",
+
+  "SIGNIN_ERROR_TITLE": "Registro",
+  "SIGNIN_ERROR": "Error",
+  "SIGNIN_SUCCESS_TITLE": "Registro",
+  "SIGNIN_SUCCESS": "Bienvenido"
 }
