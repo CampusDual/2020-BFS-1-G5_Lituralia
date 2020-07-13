@@ -3,6 +3,10 @@
 
 #### v 1.0.0-RC.1     	====	17/07/2020
 
+- Front:
+    - Book, Author and Publisher Services
+    - Rate books clicking on stars (remove dropdown)
+    - Deprecated png-based star rating pipe    
 
 #### v 0.0.7-SNAPSHOT	====	10/07/2020
 

@@ -1,20 +1,20 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import {UserBookOpinionComponent} from './user-book-opinion.component';
+import {OpinionEditComponent} from './opinion-edit.component';
 
-describe('UserBookOpinionComponent', () => {
-  let component: UserBookOpinionComponent;
-  let fixture: ComponentFixture<UserBookOpinionComponent>;
+describe('OpinionEditComponent', () => {
+  let component: OpinionEditComponent;
+  let fixture: ComponentFixture<OpinionEditComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UserBookOpinionComponent ]
+      declarations: [ OpinionEditComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(UserBookOpinionComponent);
+    fixture = TestBed.createComponent(OpinionEditComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

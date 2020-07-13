@@ -4,7 +4,8 @@ import {MyListService} from "../../../../shared/services/my-list.service";
 @Component({
   selector: 'app-book-grid',
   templateUrl: './book-grid.component.html',
-  styleUrls: ['./book-grid.component.scss']
+  styleUrls: ['./book-grid.component.scss'],
+  providers: [MyListService]
 })
 export class BookGridComponent implements OnInit {
 

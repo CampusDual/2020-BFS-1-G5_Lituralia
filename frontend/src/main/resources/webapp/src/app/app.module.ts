@@ -5,6 +5,7 @@ import {APP_CONFIG, ONTIMIZE_MODULES, ONTIMIZE_PROVIDERS, OntimizeWebModule} fro
 import {CONFIG} from './app.config';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
+import {RatingModule} from 'ng-starrating';
 
 // Standard providers...
 // Defining custom providers (if needed)...
@@ -14,7 +15,8 @@ export const customProviders: any = [];
     imports: [
         ONTIMIZE_MODULES,
         OntimizeWebModule,
-        AppRoutingModule
+        AppRoutingModule,
+        RatingModule
     ],
     declarations: [
         AppComponent

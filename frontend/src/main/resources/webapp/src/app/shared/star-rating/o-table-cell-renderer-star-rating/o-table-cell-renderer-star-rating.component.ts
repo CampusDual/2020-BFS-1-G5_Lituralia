@@ -5,7 +5,7 @@ import {OTableCellRendererRealComponent} from "ontimize-web-ngx";
   selector: 'o-table-cell-renderer-star-rating',
   template: `
     <ng-template #templateref let-cellvalue=\"cellvalue\" let-rowvalue=\"rowvalue\">
-      <app-star-rating [rating]="getRating(rowvalue)" [ratings]="getRatings(rowvalue)" [fluid]="false" [height]="25" ></app-star-rating>
+      <app-star-rating [rating]="getRating(rowvalue)" [ratings]="getRatings(rowvalue)" [height]="25" ></app-star-rating>
     </ng-template>
   `,
   styleUrls: []

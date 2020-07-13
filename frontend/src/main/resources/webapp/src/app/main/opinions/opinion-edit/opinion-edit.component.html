@@ -1,0 +1,46 @@
+<mat-card class="opinion-card">
+  <mat-card-header>
+    <mat-card-title>{{(editMode ? 'YOUR_REVIEW' : 'REVIEW_THIS_BOOK') | oTranslate}}</mat-card-title>
+
+    <!--    <img mat-card-avatar> TODO star image rating-->
+  </mat-card-header>
+  <mat-card-content>
+    <o-row>
+      <o-column>
+        <star-rating #activeRating [value]="activeEditRating" totalstars="5" size="48px" checkedcolor="gold"
+                     uncheckedcolor="black" (rate)="onRate()"></star-rating>
+      </o-column>
+      <!--      <o-column *ngIf="opinion && opinion.cover && showCover">-->
+      <!--        <o-image class="cursor-pointer" [routerLink]="['/main','books', opinion.book_id]"-->
+      <!--                 height="200px"-->
+      <!--                 id="book_cover"-->
+      <!--                 label="COVER"-->
+      <!--                 [data]="opinion.cover | base64"-->
+      <!--                 auto-fit="yes"-->
+      <!--                 enabled="true"-->
+      <!--                 read-only="true"-->
+      <!--                 show-controls="false"-->
+      <!--                 full-screen-button="false"></o-image>-->
+      <!--      </o-column>-->
+    </o-row>
+
+    <o-form editable-detail="no" show-header="no">
+      <o-textarea-input #activeReview attr="review" label="BOOK_REVIEW" fxFlex [data]="activeEditReview" required="no"
+                        read-only="no"></o-textarea-input>
+    </o-form>
+  </mat-card-content>
+  <mat-card-subtitle *ngIf="editMode">
+    <div *ngIf="opinion"
+         class="opinion-update">{{'OPINION_UPDATED_DATE' |oTranslate}} {{(opinion.opinion_update?opinion.opinion_update:opinion.opinion_create) | date:'medium'}}</div>
+  </mat-card-subtitle>
+  <mat-card-actions>
+    <button mat-stroked-button (click)="editMode ? updateOpinion() : createOpinion()" class="opinion-btn mx-4 mb-4">
+      <mat-icon>update</mat-icon>
+      <span>{{(editMode ? 'UPDATE_REVIEW' : 'CREATE_REVIEW') | oTranslate}}</span>
+    </button>
+    <button *ngIf="editMode" mat-stroked-button (click)="deleteOpinion()" class="opinion-btn">
+      <mat-icon>delete</mat-icon>
+      <span>{{'DELETE_REVIEW' |oTranslate}}</span>
+    </button>
+  </mat-card-actions>
+</mat-card>

@@ -72,6 +72,7 @@ export class OpinionService extends OntimizeEEService {
       "title",
       "opinion_id",
       "rating",
+      "cover",
       "review",
       "opinion_create",
       "opinion_update",
@@ -94,12 +95,13 @@ export class OpinionService extends OntimizeEEService {
       "book_id",
       "opinion_id",
       "rating",
+      "cover",
       "review",
       "opinion_create",
       "opinion_update",
       "user_"
     ];
-    return this.query(filter, columns, 'opinion').pipe(
+    return this.query(filter, columns, 'vBookOpinions').pipe(
       // tap(x => console.log(x)),
       catchError(tapError('getUserOpinion'))
     )

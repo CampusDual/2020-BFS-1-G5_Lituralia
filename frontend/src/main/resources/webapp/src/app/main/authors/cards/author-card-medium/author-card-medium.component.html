@@ -29,20 +29,13 @@
             </o-row>
         </mat-card-content>
         <mat-card-footer class="pie">
-                <o-column fxFlex="30" style="">
+                <o-column fxFlex>
                     <div>
                         <app-star-rating [rating]="author.avg_rating"
-                                         [ratings]="author.ratings" [fluid]="true"></app-star-rating>
+                                         [ratings]="author.ratings" ></app-star-rating>
                     </div>
                 </o-column>
                 <o-column fxFlex class="boton">
-<!--                    <div fxFlex style="justify-content: flex-end;">-->
-<!--                        <o-button-toggle attr="toggle1" value="list" icon="bookmark_border"-->
-<!--                                         (click)="addToMyList( author.author_id)"></o-button-toggle>-->
-<!--                        <o-button-toggle attr="toggle2" value="review" icon="comment"-->
-<!--                                         (click)="reviewPopup( author.author_id)"></o-button-toggle>-->
-
-<!--                    </div>-->
                 </o-column>
         </mat-card-footer>
     </mat-card>
