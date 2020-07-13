@@ -1,7 +1,7 @@
 <div fxFlex>
   <o-form #bookForm fxFlex
           service="books"
-          entity="vBookRatings"
+          entity="book"
           keys="book_id"
           header-actions="R"
           show-header="no">
@@ -13,14 +13,8 @@
                    auto-fit="no" show-controls="no" read-only="yes"></o-image>
         </o-row>
         <o-row title="{{ 'AVG_RATING_SHORT' | oTranslate }}">
-          <app-star-rating *ngIf="ratingElement.value" [fluid]="true" [rating]="ratingElement.value.value"
-                           [ratings]="ratingsElement.value.value"></app-star-rating>
-        </o-row>
-        <o-row>
-          <o-text-input #ratingElement class="col-padding display-none" attr="avg_rating" label="AVG_RATING" read-only="yes"></o-text-input>
-        </o-row>
-        <o-row>
-          <o-text-input #ratingsElement class="input-padding display-none" attr="ratings" label="RATINGS" read-only="yes"></o-text-input>
+          <app-star-rating *ngIf="rating && rating.avg_rating"  [rating]="rating.avg_rating"
+                           [ratings]="rating.ratings"></app-star-rating>
         </o-row>
         <o-row>
           <o-column *ngIf="isLoggedIn()" fxFlex="100" title="{{ 'MY_BOOKS_LIST_SECTION'|oTranslate}}">
@@ -92,7 +86,7 @@
     <o-row>
       <o-column fxFlex="80" title="{{ 'USER_REVIEW' | oTranslate }}">
         <div *ngIf="isLoggedIn(); else loggedOut" class="user-opinion">
-          <app-user-book-opinion class="user-opinion" (reloadBook)="this.reloadBook()"></app-user-book-opinion>
+          <app-opinion-edit class="user-opinion" (reloadBook)="this.reloadBook()" [book_id]="this.id"></app-opinion-edit>
         </div>
         <ng-template #loggedOut>
           <div class="loggedOut">{{ 'OPINION_LOGIN_WARN' | oTranslate}}</div>

@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-star-rating',
@@ -7,11 +7,20 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class StarRatingComponent implements OnInit {
 
-  @Input() rating: number = 0;
+  // @Input() rating: number = 0;
+  // @Input() height;
+  // @Input() width;
+  // @Input() fluid: boolean = false
+
+  @Input() rating: any = 0
   @Input() ratings: number = 0;
-  @Input() height;
-  @Input() width;
-  @Input() fluid: boolean = false
+  @Input() height = 25;
+  @Input() checkedColor = 'gold'
+  @Input() uncheckedcolor = 'black'
+  @Input() totalstars = 5
+  @Input() readonly =true
+
+  @Output() rate = new EventEmitter<{ oldValue: number; newValue: number }>()
 
   constructor() {
   }
@@ -19,4 +28,11 @@ export class StarRatingComponent implements OnInit {
   ngOnInit() {
   }
 
+  onRate($event: { oldValue: number; newValue: number }) {
+    this.rate.emit($event)
+  }
+
+  getRating(): number{
+    return parseFloat(this.rating)
+  }
 }

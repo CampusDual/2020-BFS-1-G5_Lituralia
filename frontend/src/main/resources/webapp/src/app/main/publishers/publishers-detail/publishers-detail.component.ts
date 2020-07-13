@@ -4,6 +4,7 @@ import {Opinion} from "../../../shared/domain/opinion";
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {OpinionService} from "../../../shared/services/opinion.service";
 import {map, tap} from "rxjs/operators";
+import {PublisherService} from "../../../shared/services/publisher.service";
 
 @Component({
   selector: 'app-publishers-detail',
@@ -15,9 +16,12 @@ export class PublishersDetailComponent implements OnInit {
   id: number;
   opinions: Observable<Opinion[]>
 
+  rating:{avg_rating:number, ratings:number}
+
   constructor(private router: Router,
               private route: ActivatedRoute,
-              private opinionService: OpinionService) { }
+              private opinionService: OpinionService,
+              private publisherService: PublisherService) { }
 
   ngOnInit() {
     this.route.params.subscribe(
@@ -29,6 +33,10 @@ export class PublishersDetailComponent implements OnInit {
         )
       }
     )
+    this.fetchRating()
   }
 
+  private fetchRating() {
+    this.publisherService.getPublisherRating(this.id).subscribe(value => this.rating=value)
+  }
 }

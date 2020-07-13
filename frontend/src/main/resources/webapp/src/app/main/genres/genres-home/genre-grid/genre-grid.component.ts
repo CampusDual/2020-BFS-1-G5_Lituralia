@@ -8,7 +8,8 @@ import {MyListService} from "../../../../shared/services/my-list.service";
 @Component({
   selector: 'app-genre-grid',
   templateUrl: './genre-grid.component.html',
-  styleUrls: ['./genre-grid.component.scss']
+  styleUrls: ['./genre-grid.component.scss'],
+  providers: [MyListService]
 })
 export class GenreGridComponent implements OnInit {
 

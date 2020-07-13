@@ -5,16 +5,20 @@ import {Opinion} from "../../../shared/domain/opinion";
 import {OpinionService} from "../../../shared/services/opinion.service";
 import {map, tap} from "rxjs/operators";
 import {MyListService} from "../../../shared/services/my-list.service";
+import {BookService} from "../../../shared/services/book.service";
 
 @Component({
   selector: 'app-books-detail',
   templateUrl: './books-detail.component.html',
-  styleUrls: ['./books-detail.component.scss']
+  styleUrls: ['./books-detail.component.scss'],
+  providers: [MyListService]
 })
 export class BooksDetailComponent implements OnInit {
 
   id: number;
   opinions: Observable<Opinion[]>
+
+  rating:{avg_rating:number, ratings:number}
 
   @ViewChild('bookForm', {read: OFormComponent}) public bookForm: OFormComponent;
 
@@ -22,13 +26,15 @@ export class BooksDetailComponent implements OnInit {
   constructor(private router: Router,
               private route: ActivatedRoute,
               private opinionService: OpinionService,
-              private myListService: MyListService) {
+              private myListService: MyListService,
+              private bookService: BookService) {
   }
 
   ngOnInit() {
     this.route.params.subscribe(
       (params: Params) => {
         this.id = +params['book_id'];
+        this.fetchRating()
         this.fetchBookOpinions();
         this.myListService.fetchMyList();
       })
@@ -38,13 +44,14 @@ export class BooksDetailComponent implements OnInit {
   private fetchBookOpinions() {
     this.opinions = this.opinionService.getBookOpinions(this.id).pipe(
       map(response => response.data),
-      tap(x => x.sort((a, b) => (a.opinion_update?a.opinion_update:a.opinion_create)>(b.opinion_update?b.opinion_update:b.opinion_create) ? -1 : 1 )),
+      tap(x => x.sort((a, b) => (a.opinion_update ? a.opinion_update : a.opinion_create) > (b.opinion_update ? b.opinion_update : b.opinion_create) ? -1 : 1)),
     )
   }
 
   public reloadBook() {
-    this.bookForm._reloadAction(true)
+    // this.bookForm._reloadAction(true)
     this.fetchBookOpinions()
+    this.fetchRating()
     this.myListService.fetchMyList();
   }
 
@@ -68,4 +75,8 @@ export class BooksDetailComponent implements OnInit {
     return this.myListService.toggleBookInMyList(this.id)
   }
 
+
+  private fetchRating() {
+    this.bookService.getBookRating(this.id).subscribe(value => this.rating=value)
+  }
 }

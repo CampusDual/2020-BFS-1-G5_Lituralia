@@ -31,10 +31,12 @@
   "GENRE_NAMES": "Géneros",
   "AVG_RATING": "Valoración Media",
   "RATINGS": "Valoraciones",
+  "RATING": "Valoración",
+  "NO_RATING": "No Hay Valoración",
   "BOOK_INFORMATION": "Detalles del Libro",
   "SYNOPSIS": "Sinopsis",
 
-  "AUTHOR_INFORMATION" : "Detales del Autor",
+  "AUTHOR_INFORMATION" : "Detalles del Autor",
   "AUTHORS": "Autores",
   "AUTHOR_NAME": "Autor",
   "AUTHOR_BIRTH": "Fecha de Nacimiento",
@@ -44,7 +46,7 @@
   "AUTHOR_ALIVE": "Presente",
 
   "GENRE_INFORMATION" : "Detalles del Genero",
-  "GENRES": "Generos",
+  "GENRES": "Géneros",
   "GENRE_ID": "Genero ID",
   "GENRE_NAME": "Genero",
   "GENRE_DESC": "Descripción",
@@ -75,7 +77,7 @@
   "CREATING_OPINION_ERROR": "Creación Error",
   "OPINION_CREATED_DATE": "Creada: ",
   "OPINION_UPDATED_DATE": "Ultima modificación: ",
-  "DELETE_REVIEW": "Delete",
+  "DELETE_REVIEW": "Eliminar",
   "USER_REVIEW": "Tu valoración",
   "ALL_REVIEWS": "Todas las valoraciones",
 
@@ -101,13 +103,13 @@
   "LIST_UPDATED": "Ultima Actualización",
   "EMPTY_LIST": "Esta lista esta vacía",
 
-  "YOUR_BOOK_LIST": "Tu Lista de Libros",
+  "YOUR_BOOK_LIST": "Tus Libros",
   "INIT_MY_LIST_BTN": "Inicializar Lista",
   "MY_LIST_LOGIN_WARN": "Debes iniciar sesión para ver tu lista",
   "LIST_ADDING_BOOK": "Agregando Book",
   "LIST_ADDING_BOOK_ERROR": "Error",
   "LIST_ADDING_BOOK_OK": "OK",
-  "MY_BOOKS_LIST_SECTION": "Tu Lista de Libros",
+  "MY_BOOKS_LIST_SECTION": "Tus Libros",
   "ADD_TO_MY_LIST": "Agregar",
   "REMOVE_FROM_MY_LIST": "Quitar",
 
@@ -116,5 +118,10 @@
   "NAME": "Nombre",
   "SURNAME": "Apellido",
   "PASSWORD2": "Confirma la Contraseña",
-  "PASSWORDS_MISSMATCH": "Las contraseñas no coinciden"
+  "PASSWORDS_MISSMATCH": "Las contraseñas no coinciden",
+
+  "SIGNIN_ERROR_TITLE": "Registro",
+  "SIGNIN_ERROR": "Error",
+  "SIGNIN_SUCCESS_TITLE": "Registro",
+  "SIGNIN_SUCCESS": "Bienvenido"
 }

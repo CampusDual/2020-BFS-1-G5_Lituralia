@@ -32,6 +32,7 @@
     "bootstrap": "^4.5.0",
     "core-js": "2.5.7",
     "jquery": "^3.5.1",
+    "ng-starrating": "1.0.11",
     "ontimize-web-ngx": "4.0.7",
     "ontimize-web-ngx-theming": "4.0.2",
     "reflect-metadata": "0.1.12",
