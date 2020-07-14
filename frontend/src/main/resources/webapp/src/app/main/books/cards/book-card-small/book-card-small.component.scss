@@ -1,5 +1,5 @@
 .tarjeta {
-  width: 210px;
+  width: 220px;
   height: 355px;
 }
 .cabecera{
@@ -32,12 +32,20 @@
   right: -12px;
   bottom: 5px;
 }
-.star{
+
+.pie{
+  text-align: right;
+  margin-bottom: 10px;
+
+}
+.stars{
   margin-top: 15px;
-  margin-left: 25px;
+  margin-left: 35px;
 }
 
-.boton>app-add-to-my-list-button{
+.boton{
   outline: none;
   border-radius:10px;
+  align-self: end;
+  margin-top: 30px;
 }

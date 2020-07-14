@@ -21,14 +21,16 @@
                show-controls="false"
                full-screen-button="false"></o-image>
     </mat-card-content>
-    <mat-card-footer>
-      <o-row fxFlex>
-        <o-column fxFlex>
-          <app-star-rating [rating]="book.avg_rating" [ratings]="book.ratings" ></app-star-rating>
+    <mat-card-footer class="pie">
+      <o-row>
+        <o-column fxFlex="100" class="stars">
+          <app-star-rating [rating]="book.avg_rating" [ratings]="book.ratings"></app-star-rating>
         </o-column>
-        <o-column fxFlex *ngIf="this.isLoggedIn()">
-          <app-add-to-my-list-button class="boton" [isInList]="isInList"
+        <o-column fxFlex class="boton" *ngIf="this.isLoggedIn()">
+
+          <app-add-to-my-list-button [isInList]="isInList"
                                      (toggle)="this.toggleBookInMyList()"></app-add-to-my-list-button>
+
         </o-column>
       </o-row>
     </mat-card-footer>
