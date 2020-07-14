@@ -9,7 +9,9 @@
       </mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <o-image class="cursor-pointer" [routerLink]="['/main','books', book.book_id]"
+      <o-image class="cursor-pointer"
+               empty-image="assets/images/no-image.png"
+               [routerLink]="['/main','books', book.book_id]"
                height="200px"
                id="book_cover"
                attr="cover"

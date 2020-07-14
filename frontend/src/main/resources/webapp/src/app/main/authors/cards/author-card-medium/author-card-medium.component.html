@@ -3,10 +3,18 @@
         <mat-card-content>
             <o-row>
                 <o-column fxFlex="30" class="mr-2">
-                    <o-image class=" cursor-pointer" [routerLink]="['/main','authors', author.author_id]"
-                             height="200px" id="author_portrait" attr="author_portrait" label="AUTHOR_PORTRAIT"
-                             [data]="author.author_portrait | base64" auto-fit="yes" enabled="true"
-                             read-only="true" show-controls="false"
+                    <o-image class=" cursor-pointer"
+                             empty-image="assets/images/no-image.png"
+                             [routerLink]="['/main','authors', author.author_id]"
+                             height="200px"
+                             id="author_portrait"
+                             attr="author_portrait"
+                             label="AUTHOR_PORTRAIT"
+                             [data]="author.author_portrait | base64"
+                             auto-fit="yes"
+                             enabled="true"
+                             read-only="true"
+                             show-controls="false"
                              full-screen-button="false"></o-image>
                 </o-column>
                 <o-column fxFlex="70" >

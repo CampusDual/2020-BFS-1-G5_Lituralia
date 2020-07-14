@@ -10,9 +10,13 @@
     <o-row fxFlex>
       <o-column fxFlex="20" class="col-padding">
         <o-row>
-          <o-image id="author_portrait" attr="author_portrait" label="AUTHOR_PORTRAIT"
-                   empty-image="assets/images/no-image.png" sql-type="OTHER"
-                   auto-fit="no" show-controls="no"></o-image>
+          <o-image id="author_portrait"
+                   attr="author_portrait"
+                   label="AUTHOR_PORTRAIT"
+                   empty-image="assets/images/no-image.png"
+                   sql-type="OTHER"
+                   auto-fit="no"
+                   show-controls="no"></o-image>
         </o-row>
         <o-row title="{{ 'AVG_RATING_SHORT' | oTranslate }}">
           <app-star-rating *ngIf="rating && rating.avg_rating"  [rating]="rating.avg_rating"

@@ -16,7 +16,7 @@
 
 <div *ngFor="let genre of genres | async" layout="row" layout-align="between center">
     <mat-card class="tarjeta">
-        <mat-card-header class="encabezado">
+        <mat-card-header class="encabezado cursor-pointer">
             <p class="title" [routerLink]="['/main', 'genres', genre.genre_id]">{{genre.genre_name}}</p>
         </mat-card-header>
         <mat-card-content class="content">
