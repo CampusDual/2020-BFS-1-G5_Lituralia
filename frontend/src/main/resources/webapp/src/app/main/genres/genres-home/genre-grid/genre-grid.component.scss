@@ -1,0 +1,25 @@
+.tarjeta{
+  padding: 0;
+  margin-top: 30px;
+  height: 500px;
+  width: 1400px;
+}
+.encabezado {
+  background: rgba(107, 107, 107, 0.42);
+  border-bottom: #2d2d2d 1px solid;
+  margin: 0;
+  padding: 0;
+}
+
+.title {
+  font-size: large;
+  font-weight: bolder;
+
+}
+
+.content {
+  margin: 15px;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+}

@@ -1,7 +1,7 @@
-<div *ngIf="this.book">
-  <mat-card class="tarjeta">
-
-    <mat-card-header class="cabecera">
+<div *ngIf="this.book"  flex="30%">
+  <mat-card  class="tarjeta">
+<!--<mat-card flex>-->
+    <mat-card-header class="cabecera" >
       <mat-card-title class="card cursor-pointer" [routerLink]="['/main', 'books', book.book_id]">
         <div class="text ellipsis">
           <span class="text-concat">{{book.title}}</span>
@@ -21,14 +21,16 @@
                show-controls="false"
                full-screen-button="false"></o-image>
     </mat-card-content>
-    <mat-card-footer>
-      <o-row fxFlex>
-        <o-column fxFlex>
-          <app-star-rating [rating]="book.avg_rating" [ratings]="book.ratings" size="8"></app-star-rating>
+    <mat-card-footer class="pie">
+      <o-row>
+        <o-column fxFlex="100" class="stars">
+          <app-star-rating [rating]="book.avg_rating" [ratings]="book.ratings"></app-star-rating>
         </o-column>
-        <o-column fxFlex *ngIf="this.isLoggedIn()">
-          <app-add-to-my-list-button class="boton" [isInList]="isInList"
+        <o-column fxFlex class="boton" *ngIf="this.isLoggedIn()">
+
+          <app-add-to-my-list-button [isInList]="isInList"
                                      (toggle)="this.toggleBookInMyList()"></app-add-to-my-list-button>
+
         </o-column>
       </o-row>
     </mat-card-footer>
