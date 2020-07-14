@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {LoginService} from "ontimize-web-ngx";
 
 @Component({
     selector: 'o-app',
@@ -7,7 +8,7 @@ import {Component, OnInit} from '@angular/core';
 })
 export class AppComponent implements OnInit {
 
-    constructor() {
+    constructor(public loginService: LoginService) {
     }
 
     ngOnInit() {

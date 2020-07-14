@@ -7,22 +7,23 @@
           show-header="no">
     <o-integer-input attr="book_id" sql-type="INTEGER" label="Id" enabled="no" class="display-none"></o-integer-input>
     <o-row fxFlex>
-      <o-column fxFlex="20" class="col-padding">
+      <o-column fxFlex="30" class="col-padding">
         <o-row>
           <o-image id="book_cover" attr="cover" label="COVER" empty-image="assets/images/no-image.png" sql-type="OTHER"
                    auto-fit="no" show-controls="no" read-only="yes"></o-image>
         </o-row>
         <o-row title="{{ 'AVG_RATING_SHORT' | oTranslate }}">
-          <app-star-rating *ngIf="rating && rating.avg_rating"  [rating]="rating.avg_rating"
+          <app-star-rating *ngIf="rating && rating.avg_rating" [rating]="rating.avg_rating"
                            [ratings]="rating.ratings"></app-star-rating>
         </o-row>
         <o-row>
           <o-column *ngIf="isLoggedIn()" fxFlex="100" title="{{ 'MY_BOOKS_LIST_SECTION'|oTranslate}}">
-            <app-add-to-my-list-button [isInList]="isBookOnMyList()" (toggle)="this.toggleBookInMyList()"></app-add-to-my-list-button>
+            <app-add-to-my-list-button [isInList]="isBookOnMyList()"
+                                       (toggle)="this.toggleBookInMyList()"></app-add-to-my-list-button>
           </o-column>
         </o-row>
       </o-column>
-      <o-column title="{{ 'BOOK_INFORMATION' | oTranslate }}" fxFlex="80">
+      <o-column title="{{ 'BOOK_INFORMATION' | oTranslate }}" fxFlex="70">
         <o-row>
           <o-text-input class="input-padding" attr="title" label="TITLE" fxFlex read-only="yes"></o-text-input>
         </o-row>
@@ -86,10 +87,16 @@
     <o-row>
       <o-column fxFlex="80" title="{{ 'USER_REVIEW' | oTranslate }}">
         <div *ngIf="isLoggedIn(); else loggedOut" class="user-opinion">
-          <app-opinion-edit class="user-opinion" (reloadBook)="this.reloadBook()" [book_id]="this.id"></app-opinion-edit>
+          <app-opinion-edit class="user-opinion" (reloadBook)="this.reloadBook()"
+                            [book_id]="this.id"></app-opinion-edit>
         </div>
         <ng-template #loggedOut>
-          <div class="loggedOut">{{ 'OPINION_LOGIN_WARN' | oTranslate}}</div>
+          <div class="loggedOut">{{ 'OPINION_LOGIN_WARN' | oTranslate}}
+            <button mat-stroked-button class="horizontal-margin-4"
+                    [routerLink]="['/login']">{{'LOGIN'|oTranslate}}</button>
+            <button mat-stroked-button color="primary" class="input-padding"
+                    [routerLink]="['/signin']">{{'SIGNIN' | oTranslate}}</button>
+          </div>
         </ng-template>
       </o-column>
     </o-row>
