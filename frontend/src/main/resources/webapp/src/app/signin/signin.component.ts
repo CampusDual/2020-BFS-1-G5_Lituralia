@@ -18,10 +18,10 @@ export class SigninComponent implements OnInit {
   surname: FormControl;
   password: FormControl;
   password2: FormControl;
-  private static SIGNIN_ERROR_TITLE: string= "SIGNIN_ERROR_TITLE";
-  private static SIGNIN_ERROR: string= "SIGNIN_ERROR";
-  private static SIGNIN_SUCCESS_TITLE: string= "SIGNIN_SUCCESS_TITLE";
-  private static SIGNIN_SUCCESS: string= "SIGNIN_SUCCESS";
+  private static SIGNIN_ERROR_TITLE: string = "SIGNIN_ERROR_TITLE";
+  private static SIGNIN_ERROR: string = "SIGNIN_ERROR";
+  private static SIGNIN_SUCCESS_TITLE: string = "SIGNIN_SUCCESS_TITLE";
+  private static SIGNIN_SUCCESS: string = "SIGNIN_SUCCESS";
 
 
   constructor(private actRoute: ActivatedRoute,
@@ -78,19 +78,18 @@ export class SigninComponent implements OnInit {
             },
             error => this.router.navigate(['../login'], {relativeTo: this.actRoute}),
           )
-        }else {
-              //
-            this.handleError()
+        } else {
+          this.dialogService.error(this.translate.get(SigninComponent.SIGNIN_ERROR_TITLE), this.translate.get(SigninComponent.SIGNIN_ERROR))
         }
       },
-      this.handleError
+      error => this.dialogService.error(this.translate.get(SigninComponent.SIGNIN_ERROR_TITLE), this.translate.get(SigninComponent.SIGNIN_ERROR))
     )
   }
 
 
   handleError(error?) {
     this.dialogService.error(this.translate.get(SigninComponent.SIGNIN_ERROR_TITLE), this.translate.get(SigninComponent.SIGNIN_ERROR))
-    if(error)
+    if (error)
       console.error(error)
   }
 

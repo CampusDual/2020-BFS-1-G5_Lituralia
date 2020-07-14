@@ -1,30 +1,22 @@
 <button mat-stroked-button label="TABLE_VIEW" (click)="switchToTable()">
-    <mat-icon>table_rows</mat-icon>
-    {{"TABLE_VIEW" |oTranslate}}
+  <mat-icon>table_rows</mat-icon>
+  {{"TABLE_VIEW" |oTranslate}}
 </button>
+<o-column title="{{'GENRE_TOPS' | oTranslate}}">
 
-<!--<div flex-direction="row" *ngFor="let genre of genres | async">-->
-<!--            <p class="title" [routerLink]="['/main', 'genres', genre.genre_id]">{{genre.genre_name}}</p>-->
-
-<!--            <div flex>-->
-<!--                <app-book-card-small *ngFor="let book of genre.books | async " [book]="book"-->
-<!--                                     [isInList]="isBookInMyList(book.book_id)"-->
-<!--                                     (toggle)="toggleBookInMyList(book.book_id)"></app-book-card-small>-->
-<!--            </div>-->
-
-<!--</div>-->
-
-<div *ngFor="let genre of genres | async" layout="row" layout-align="between center">
+  <div *ngFor="let genre of genres | async" layout="row" layout-align="between center">
     <mat-card class="tarjeta">
-        <mat-card-header class="encabezado cursor-pointer">
-            <p class="title" [routerLink]="['/main', 'genres', genre.genre_id]">{{genre.genre_name}}</p>
-        </mat-card-header>
-        <mat-card-content class="content">
+      <mat-card-header class="encabezado cursor-pointer">
+        <p class="title" [routerLink]="['/main', 'genres', genre.genre_id]">{{genre.genre_name}}</p>
+      </mat-card-header>
+      <mat-card-content class="content">
 
-                <app-book-card-small *ngFor="let book of genre.books | async " [book]="book"
-                                     [isInList]="isBookInMyList(book.book_id)"
-                                     (toggle)="toggleBookInMyList(book.book_id)"></app-book-card-small>
+        <app-book-card-small *ngFor="let book of genre.books | async " [book]="book"
+                             [isInList]="isBookInMyList(book.book_id)"
+                             (toggle)="toggleBookInMyList(book.book_id)"></app-book-card-small>
 
-        </mat-card-content>
+      </mat-card-content>
     </mat-card>
-</div>
+  </div>
+
+</o-column>

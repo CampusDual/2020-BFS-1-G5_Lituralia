@@ -8,7 +8,7 @@
     <o-integer-input attr="author_id" sql-type="INTEGER" label="Id" enabled="no" class="display-none"
                      read-only="yes"></o-integer-input>
     <o-row fxFlex>
-      <o-column fxFlex="20" class="col-padding">
+      <o-column fxFlex="25" class="col-padding">
         <o-row>
           <o-image id="author_portrait"
                    attr="author_portrait"
@@ -23,7 +23,7 @@
                            [ratings]="rating.ratings"></app-star-rating>
         </o-row>
       </o-column>
-      <o-column title="{{ 'AUTHOR_INFORMATION' | oTranslate }}" fxFlex="80">
+      <o-column title="{{ 'AUTHOR_INFORMATION' | oTranslate }}" fxFlex="75">
         <o-row>
           <o-text-input class="input-padding" attr="author_name" label="AUTHOR_NAME" fxFlex
                         required="no" read-only="yes"></o-text-input>

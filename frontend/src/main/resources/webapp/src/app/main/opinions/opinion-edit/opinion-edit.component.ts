@@ -46,7 +46,7 @@ export class OpinionEditComponent implements OnInit {
 
   private getUserOpinion() {
     this.opinionService.getUserOpinion(this.book_id).subscribe(value => {
-      this.opinion = value.data[0]
+      this.opinion = value
       this.editMode = this.hasOpinion()
       if (this.editMode) {
         this.activeEditReview = this.opinion.review
@@ -86,6 +86,8 @@ export class OpinionEditComponent implements OnInit {
     this.opinionService.updateUserOpinion(this.opinion.opinion_id, rating, review)
     .subscribe(
       value => {
+        if(!value)
+          this.dialogService.error(this.translate.get(this.UPDATING_OPINION), this.translate.get(this.UPDATING_OPINION_ERROR))
         // this.dialogService.info(this.translate.get(this.UPDATING_OPINION), this.translate.get(this.UPDATING_OPINION_OK))
       },
       error => this.dialogService.error(this.translate.get(this.UPDATING_OPINION), this.translate.get(this.UPDATING_OPINION_ERROR)),
@@ -102,6 +104,8 @@ export class OpinionEditComponent implements OnInit {
     this.opinionService.createUserOpinion(this.book_id, rating, review)
     .subscribe(
       value => {
+        if(!value)
+          this.dialogService.error(this.translate.get(this.CREATING_OPINION), this.translate.get(this.CREATING_OPINION_ERROR))
         // this.dialogService.info(this.translate.get(this.CREATING_OPINION), this.translate.get(this.CREATING_OPINION_OK))
       },
       error => this.dialogService.error(this.translate.get(this.CREATING_OPINION), this.translate.get(this.CREATING_OPINION_ERROR)),
@@ -115,7 +119,12 @@ export class OpinionEditComponent implements OnInit {
   deleteOpinion() {
     this.opinionService.deleteUserOpinion(this.opinion.opinion_id)
     .subscribe(
-      value => this.dialogService.info(this.translate.get(this.DELETING_OPINION), this.translate.get(this.DELETING_OPINION_OK)),
+      value => {
+        if (value)
+          this.dialogService.info(this.translate.get(this.DELETING_OPINION), this.translate.get(this.DELETING_OPINION_OK))
+        else
+          this.dialogService.error(this.translate.get(this.DELETING_OPINION), this.translate.get(this.DELETING_OPINION_ERROR))
+          },
       error => this.dialogService.error(this.translate.get(this.DELETING_OPINION), this.translate.get(this.DELETING_OPINION_ERROR)),
       () => {
         this.getUserOpinion()

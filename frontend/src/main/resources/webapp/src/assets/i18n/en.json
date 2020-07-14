@@ -57,6 +57,7 @@
   "GENRE_ID": "Genre iD",
   "GENRE_NAME": "Genre",
   "GENRE_DESC": "Description",
+  "GENRE_TOPS": "Top Rated Books by Genre",
 
   "PUBLISHER_DESCRIPTION": "Description",
   "PUBLISHER_LOGO": "Logo",

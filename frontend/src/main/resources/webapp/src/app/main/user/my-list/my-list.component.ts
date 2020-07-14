@@ -65,6 +65,8 @@ export class MyListComponent implements OnInit {
   removeBookFromList(book: Book) {
     this.listService.removeBookFromList(book.list_book_id, book.book_id, book.list_id).subscribe(
       value => {
+        if(!value)
+          this.dialogService.error(this.translate.get(MyListComponent.LIST_DELETING_BOOK), this.translate.get(MyListComponent.LIST_DELETING_BOOK_ERROR))
         // this.dialogService.info(this.translate.get(MyListComponent.LIST_DELETING_BOOK), this.translate.get(MyListComponent.LIST_DELETING_BOOK_OK))
       },
       error => this.dialogService.error(this.translate.get(MyListComponent.LIST_DELETING_BOOK), this.translate.get(MyListComponent.LIST_DELETING_BOOK_ERROR)),
