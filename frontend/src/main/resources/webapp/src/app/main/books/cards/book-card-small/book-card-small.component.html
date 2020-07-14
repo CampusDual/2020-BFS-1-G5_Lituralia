@@ -1,7 +1,7 @@
-<div *ngIf="this.book">
-  <mat-card class="tarjeta">
-
-    <mat-card-header class="cabecera">
+<div *ngIf="this.book"  flex="30%">
+  <mat-card  class="tarjeta">
+<!--<mat-card flex>-->
+    <mat-card-header class="cabecera" >
       <mat-card-title class="card cursor-pointer" [routerLink]="['/main', 'books', book.book_id]">
         <div class="text ellipsis">
           <span class="text-concat">{{book.title}}</span>
