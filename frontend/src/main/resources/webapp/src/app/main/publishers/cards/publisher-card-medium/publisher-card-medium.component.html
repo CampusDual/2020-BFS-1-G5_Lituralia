@@ -15,10 +15,13 @@
                             {{publisher.publisher_name}}
                         </div>
                     </mat-card-title>
-                    <app-star-rating [rating]="publisher.avg_rating"
-                                     [ratings]="publisher.ratings" ></app-star-rating>
                 </o-column>
             </o-row>
+                <div class="col-xs-1 center-block" style="text-align:center;">
+                <app-star-rating [rating]="publisher.avg_rating"
+                [ratings]="publisher.ratings" ></app-star-rating>
+                </div>
+
 
         </mat-card-content>
         <mat-card-footer class="pie">
