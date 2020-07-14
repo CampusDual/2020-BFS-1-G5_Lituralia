@@ -26,14 +26,11 @@
               "src/favicon.ico"
             ],
             "styles": [
-              "node_modules/bootstrap/dist/css/bootstrap.css",
               "node_modules/ontimize-web-ngx/ontimize.scss",
               "src/assets/css/app.scss",
               "src/styles.scss"
             ],
             "scripts": [
-              "node_modules/jquery/dist/jquery.js",
-              "node_modules/bootstrap/dist/js/bootstrap.js",
               "src/assets/js/domchange.js",
               "src/assets/js/keyboard.js"
             ]
