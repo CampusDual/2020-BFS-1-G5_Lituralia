@@ -1,6 +1,6 @@
 <mat-card class="user-opinion">
-  <o-row>
-    <o-column fxFlex="10" *ngIf="opinion.cover" class="mr-3">
+
+    <o-column fxFlex="40" *ngIf="opinion.cover" class="image">
       <o-image class="cursor-pointer" [routerLink]="['/main','books', opinion.book_id]"
                height="200px"
                id="book_cover"
@@ -18,7 +18,7 @@
                       class="cursor-pointer">{{opinion.title}}</mat-card-title>
       <app-star-rating [rating]="opinion.rating" [ratings]="1" height="25" ></app-star-rating>
       <mat-card-header>
-        <mat-card-title>{{opinion.user_}}</mat-card-title>
+        <mat-card-title><h3>{{opinion.user_}}</h3></mat-card-title>
       </mat-card-header>
       <mat-card-subtitle>
         <div *ngIf="opinion.opinion_create">{{'OPINION_CREATED_DATE' |oTranslate}} {{opinion.opinion_create | date:'medium'}}</div>
@@ -29,6 +29,6 @@
       </mat-card-content>
     </o-column>
 
-  </o-row>
+
 
 </mat-card>

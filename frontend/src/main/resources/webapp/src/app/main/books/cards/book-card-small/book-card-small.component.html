@@ -24,7 +24,7 @@
     <mat-card-footer>
       <o-row fxFlex>
         <o-column fxFlex>
-          <app-star-rating [rating]="book.avg_rating" [ratings]="book.ratings" size="8"></app-star-rating>
+          <app-star-rating [rating]="book.avg_rating" [ratings]="book.ratings" ></app-star-rating>
         </o-column>
         <o-column fxFlex *ngIf="this.isLoggedIn()">
           <app-add-to-my-list-button class="boton" [isInList]="isInList"
