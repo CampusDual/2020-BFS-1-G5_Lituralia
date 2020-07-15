@@ -1,6 +1,6 @@
 {
   "name": "lituralia-frontend",
-  "version": "0.0.6",
+  "version": "1.0.0",
   "license": "MIT",
   "angular-cli": {},
   "scripts": {
@@ -29,9 +29,8 @@
     "@angular/upgrade": "6.1.10",
     "@ngx-translate/core": "10.0.2",
     "@ngx-translate/http-loader": "3.0.1",
-    "bootstrap": "^4.5.0",
     "core-js": "2.5.7",
-    "jquery": "^3.5.1",
+    "ng-starrating": "1.0.11",
     "ontimize-web-ngx": "4.0.7",
     "ontimize-web-ngx-theming": "4.0.2",
     "reflect-metadata": "0.1.12",

@@ -1,78 +1,82 @@
 <div fxFlex>
-  <o-form
-      service="publishers"
-      entity="vPublisherRatings"
-      keys="publisher_id"
-      header-actions="R"
-      show-header="no">
-    <o-integer-input attr="publisher_id" sql-type="INTEGER" label="Id" enabled="no"
-                     class="display-none" read-only="yes"></o-integer-input>
-    <o-row fxFlex>
-      <o-column fxFlex="20" class="col-padding">
-        <o-row>
-          <o-image id="publisher_logo" attr="publisher_logo" label="PUBLISHER_LOGO"
-                   empty-image="assets/images/no-image.png" sql-type="OTHER"
-                   auto-fit="no" show-controls="no" read-only="no" height="200px" width="200px"></o-image>
+  <o-row>
+    <o-column>
+      <o-form fxFlex
+              service="publishers"
+              entity="publisher"
+              keys="publisher_id"
+              header-actions="R"
+              show-header="no">
+        <o-integer-input attr="publisher_id" sql-type="INTEGER" label="Id" enabled="no"
+                         class="display-none" read-only="yes"></o-integer-input>
+        <o-row fxFlex>
+          <o-column fxFlex="20" class="col-padding">
+            <o-row>
+              <o-image id="publisher_logo"
+                       attr="publisher_logo"
+                       label="PUBLISHER_LOGO"
+                       empty-image="assets/images/no-image.png"
+                       sql-type="OTHER"
+                       auto-fit="no"
+                       show-controls="no"
+                       read-only="no"
+                       height="200px"
+                       width="200px"></o-image>
+            </o-row>
+            <o-row title="{{ 'AVG_RATING_SHORT' | oTranslate }}">
+              <app-star-rating *ngIf="rating && rating.avg_rating" [rating]="rating.avg_rating"
+                               [ratings]="rating.ratings"></app-star-rating>
+            </o-row>
+          </o-column>
+          <o-column title="{{ 'PUBLISHER_INFORMATION' | oTranslate }}" fxFlex="80">
+            <o-row>
+              <o-text-input class="input-padding" attr="publisher_name" label="PUBLISHER_NAME" fxFlex
+                            required="yes" read-only="yes"></o-text-input>
+            </o-row>
+            <o-row>
+              <o-textarea-input attr="publisher_desc" label="PUBLISHER_DESC" fxFlex read-only="yes"></o-textarea-input>
+            </o-row>
+          </o-column>
         </o-row>
-        <o-row title="{{ 'AVG_RATING_SHORT' | oTranslate }}">
-          <app-star-rating *ngIf="ratingElement.value" [fluid]="true" [rating]="ratingElement.value.value"
-                           [ratings]="ratingsElement.value.value"></app-star-rating>
+        <o-row fxFlex>
+          <o-column fxFlex title="{{ 'PUBLISHERS_BOOKS' | oTranslate }}">
+            <o-table attr="booksTable" service="books" entity="vBookDetails"
+                     parent-keys="publisher_id" keys="book_id"
+                     columns="isbn;cover;title;publish_date;publisher_id;author_names;genre_names;avg_rating;ratings"
+                     visible-columns="isbn;cover;title;publish_date;author_names;genre_names;avg_rating"
+                     query-rows="10"
+                     detail-form-route="/main/books/"
+                     show-filter-option="yes"
+                     quick-filter="yes"
+                     show-configuration-option="no"
+                     refresh-button="no"
+                     export-button="no"
+                     delete-button="no"
+                     insert-button="no"
+                     fixed-header="yes">
+              <o-table-columns-filter columns="avg_rating"></o-table-columns-filter>
+              <o-table-column attr="isbn" title="ISBN" width="128px"></o-table-column>
+              <o-table-column attr="cover" title="COVER" width="64px" orderable="no" searchable="no">
+                <o-table-cell-renderer-image image-type="base64" empty-image="assets/images/no-image.png"
+                                             avatar="yes"></o-table-cell-renderer-image>
+              </o-table-column>
+              <o-table-column attr="title" title="TITLE"></o-table-column>
+              <o-table-column attr="publish_date" title="PUBLISH_DATE" type="date" format="MM/DD/YYYY"></o-table-column>
+              <o-table-column attr="author_names" title="AUTHOR_NAMES"></o-table-column>
+              <o-table-column attr="genre_names" title="GENRE_NAMES"></o-table-column>
+              <o-table-column attr="avg_rating" title="AVG_RATING" class="o-table-column-centered" width="256px">
+                <o-table-cell-renderer-star-rating></o-table-cell-renderer-star-rating>
+              </o-table-column>
+            </o-table>
+          </o-column>
         </o-row>
-        <o-row>
-          <o-text-input #ratingElement class="col-padding" attr="avg_rating" label="AVG_RATING" read-only="yes"
-                        class="display-none"></o-text-input>
-        </o-row>
-        <o-row>
-          <o-text-input #ratingsElement class="input-padding" attr="ratings" label="RATINGS" read-only="yes"
-                        class="display-none"></o-text-input>
-        </o-row>
-      </o-column>
-      <o-column title="{{ 'PUBLISHER_INFORMATION' | oTranslate }}" fxFlex="80">
-        <o-row>
-          <o-text-input class="input-padding" attr="publisher_name" label="PUBLISHER_NAME" fxFlex
-                        required="yes" read-only="yes"></o-text-input>
-        </o-row>
-        <o-row>
-          <o-textarea-input attr="publisher_desc" label="PUBLISHER_DESC" fxFlex read-only="yes"></o-textarea-input>
-        </o-row>
-      </o-column>
-    </o-row>
-    <o-row fxFlex>
-      <o-column fxFlex title="{{ 'PUBLISHERS_BOOKS' | oTranslate }}">
-        <o-table attr="booksTable" service="books" entity="vBookDetails"
-                 parent-keys="publisher_id" keys="book_id"
-                 columns="isbn;cover;title;publish_date;publisher_id;author_names;genre_names;avg_rating;ratings"
-                 visible-columns="isbn;cover;title;publish_date;author_names;genre_names;avg_rating"
-                 query-rows="10"
-                 detail-form-route="/main/books/"
-                 show-filter-option="yes"
-                 quick-filter="yes"
-                 show-configuration-option="no"
-                 refresh-button="no"
-                 export-button="no"
-                 delete-button="no"
-                 insert-button="no"
-                 fixed-header="yes">
-          <o-table-columns-filter columns="avg_rating" ></o-table-columns-filter>
-          <o-table-column attr="isbn" title="ISBN" width="128px"></o-table-column>
-          <o-table-column attr="cover" title="COVER" width="64px" orderable="no" searchable="no">
-            <o-table-cell-renderer-image image-type="base64" empty-image="assets/images/no-image.png"
-                                         avatar="yes"></o-table-cell-renderer-image>
-          </o-table-column>
-          <o-table-column attr="title" title="TITLE"></o-table-column>
-          <o-table-column attr="publish_date" title="PUBLISH_DATE" type="date" format="MM/DD/YYYY"></o-table-column>
-          <o-table-column attr="author_names" title="AUTHOR_NAMES"></o-table-column>
-          <o-table-column attr="genre_names" title="GENRE_NAMES"></o-table-column>
-          <o-table-column attr="avg_rating" title="AVG_RATING" class="o-table-column-centered" width="256px">
-            <o-table-cell-renderer-star-rating></o-table-cell-renderer-star-rating>
-          </o-table-column>
-        </o-table>
-      </o-column>
-    </o-row>
-    <o-row>
-      <o-column fxFlex="80" title="{{ 'ALL_REVIEWS' | oTranslate }}">
-        <app-opinion-display *ngFor="let opinion of opinions | async" [opinion]="opinion"></app-opinion-display>
-      </o-column>
-    </o-row>
-  </o-form>
+
+      </o-form>
+    </o-column>
+  </o-row>
+  <o-row>
+    <o-column fxFlex title="{{ 'ALL_REVIEWS' | oTranslate }}">
+      <app-opinion-display *ngFor="let opinion of opinions | async" [opinion]="opinion"></app-opinion-display>
+    </o-column>
+  </o-row>
 </div>

@@ -1,18 +1,29 @@
 <div fxFlex>
-  <o-form service="authors"
-          entity="vAuthorRatings"
+  <o-form fxFlex
+          service="authors"
+          entity="author"
           keys="author_id"
           header-actions="R"
           show-header="no">
     <o-integer-input attr="author_id" sql-type="INTEGER" label="Id" enabled="no" class="display-none"
                      read-only="yes"></o-integer-input>
     <o-row fxFlex>
-      <o-column fxFlex="20" class="col-padding">
-        <o-image id="author_portrait" attr="author_portrait" label="AUTHOR_PORTRAIT"
-                 empty-image="assets/images/no-image.png" sql-type="OTHER"
-                 auto-fit="no" show-controls="no"></o-image>
+      <o-column fxFlex="25" class="col-padding">
+        <o-row>
+          <o-image id="author_portrait"
+                   attr="author_portrait"
+                   label="AUTHOR_PORTRAIT"
+                   empty-image="assets/images/no-image.png"
+                   sql-type="OTHER"
+                   auto-fit="no"
+                   show-controls="no"></o-image>
+        </o-row>
+        <o-row title="{{ 'AVG_RATING_SHORT' | oTranslate }}">
+          <app-star-rating *ngIf="rating && rating.avg_rating"  [rating]="rating.avg_rating"
+                           [ratings]="rating.ratings"></app-star-rating>
+        </o-row>
       </o-column>
-      <o-column title="{{ 'AUTHOR_INFORMATION' | oTranslate }}" fxFlex="80">
+      <o-column title="{{ 'AUTHOR_INFORMATION' | oTranslate }}" fxFlex="75">
         <o-row>
           <o-text-input class="input-padding" attr="author_name" label="AUTHOR_NAME" fxFlex
                         required="no" read-only="yes"></o-text-input>
@@ -20,12 +31,6 @@
         <o-row>
           <o-date-input attr="author_birth" label="AUTHOR_BIRTH" fxFlex="50" read-only="yes"></o-date-input>
           <o-date-input attr="author_death" label="AUTHOR_DEATH" fxFlex="50" read-only="yes"></o-date-input>
-        </o-row>
-        <o-row>
-          <img *ngIf="rating.value" height="35" src="{{rating.value.value | starRating}}">
-          <o-text-input #rating class="col-padding" attr="avg_rating" label="AVG_RATING"
-                        read-only="yes"></o-text-input>
-          <o-text-input class="input-padding" attr="ratings" label="RATINGS" read-only="yes"></o-text-input>
         </o-row>
         <o-row>
           <o-textarea-input attr="author_bio" label="BIOGRAPHY" fxFlex read-only="yes"></o-textarea-input>

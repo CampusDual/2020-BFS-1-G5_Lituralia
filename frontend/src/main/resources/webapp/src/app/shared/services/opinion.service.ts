@@ -4,7 +4,7 @@ import {OntimizeResponse, tapError} from "./ontimizeResponse";
 import {Opinion} from "../domain/opinion";
 import {throwError} from "rxjs";
 import {ListService} from "./list.service";
-import {catchError} from "rxjs/operators";
+import {catchError, map} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -72,6 +72,7 @@ export class OpinionService extends OntimizeEEService {
       "title",
       "opinion_id",
       "rating",
+      "cover",
       "review",
       "opinion_create",
       "opinion_update",
@@ -83,7 +84,7 @@ export class OpinionService extends OntimizeEEService {
     )
   }
 
-  getUserOpinion(book_id: number) {
+  getUserOpinion(book_id: number): Observable<Opinion>{
     if (!this.loginService.getSessionInfo().user)
       return throwError(new Error(ListService.NOT_LOGGED_IN))
     const filter = {
@@ -94,18 +95,22 @@ export class OpinionService extends OntimizeEEService {
       "book_id",
       "opinion_id",
       "rating",
+      "cover",
       "review",
       "opinion_create",
       "opinion_update",
       "user_"
     ];
-    return this.query(filter, columns, 'opinion').pipe(
+    return this.query(filter, columns, 'vBookOpinions').pipe(
+      map(value => value.data[0]),
       // tap(x => console.log(x)),
       catchError(tapError('getUserOpinion'))
     )
   }
 
-  createUserOpinion(book_id: number, rating: number, review: string) {
+  createUserOpinion(book_id: number, rating: number, review: string): Observable<boolean> {
+    if (!this.loginService.getSessionInfo().user)
+      return throwError(new Error(ListService.NOT_LOGGED_IN))
     const data = {
       "book_id": book_id,
       "rating": parseInt(String(rating)),
@@ -120,11 +125,14 @@ export class OpinionService extends OntimizeEEService {
     };
     return this.insert(data, 'opinion', sqlTypes).pipe(
       // tap(x => console.log(x)),
-      catchError(tapError('createUserOpinion'))
+      catchError(tapError('createUserOpinion')),
+      map(response => response.code === 0)
     )
   }
 
-  updateUserOpinion(opinion_id: number, rating: number, review: string) {
+  updateUserOpinion(opinion_id: number, rating: number, review: string): Observable<boolean>  {
+    if (!this.loginService.getSessionInfo().user)
+      return throwError(new Error(ListService.NOT_LOGGED_IN))
     const filter = {
       'opinion_id': opinion_id
     };
@@ -138,17 +146,19 @@ export class OpinionService extends OntimizeEEService {
     };
     return this.update(filter, data, 'opinion', sqlTypes).pipe(
       // tap(x => console.log(x)),
-      catchError(tapError('updateUserOpinion'))
+      catchError(tapError('updateUserOpinion')),
+      map(response => response.code === 0)
     )
   }
 
-  deleteUserOpinion(opinion_id: number) {
+  deleteUserOpinion(opinion_id: number): Observable<boolean>  {
     const filter = {
       'opinion_id': opinion_id
     };
     return this.delete(filter, 'opinion').pipe(
       // tap(x => console.log(x)),
-      catchError(tapError('deleteUserOpinion'))
+      catchError(tapError('deleteUserOpinion')),
+      map(response => response.code === 0)
     )
   }
 

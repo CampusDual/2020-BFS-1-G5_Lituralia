@@ -53,6 +53,8 @@ export class MyListService {
       let book_list_id: number =this.myList.find(value => value.book_id === book_id).list_book_id
       this.listService.removeBookFromList(book_list_id, book_id, this.myBookList.list_id).subscribe(
         value => {
+          if(!value)
+            this.dialogService.error(this.translate.get(MyListComponent.LIST_DELETING_BOOK), this.translate.get(MyListComponent.LIST_DELETING_BOOK_ERROR))
           // this.dialogService.info(this.translate.get(MyListComponent.LIST_DELETING_BOOK), this.translate.get(MyListComponent.LIST_DELETING_BOOK_OK))
         },
         error => this.dialogService.error(this.translate.get(MyListComponent.LIST_DELETING_BOOK), this.translate.get(MyListComponent.LIST_DELETING_BOOK_ERROR)),
@@ -61,6 +63,8 @@ export class MyListService {
     } else {
       this.listService.addBookToUserList(book_id, this.myBookList.list_id).subscribe(
         value => {
+          if(!value)
+            this.dialogService.error(this.translate.get(MyListComponent.LIST_ADDING_BOOK), this.translate.get(MyListComponent.LIST_ADDING_BOOK_ERROR))
           // this.dialogService.info(this.translate.get(MyListComponent.LIST_ADDING_BOOK), this.translate.get(MyListComponent.LIST_ADDING_BOOK_OK))
         },
         error => this.dialogService.error(this.translate.get(MyListComponent.LIST_ADDING_BOOK), this.translate.get(MyListComponent.LIST_ADDING_BOOK_ERROR)),

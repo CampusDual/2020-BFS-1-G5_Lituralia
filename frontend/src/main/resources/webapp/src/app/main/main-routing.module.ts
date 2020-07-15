@@ -40,10 +40,14 @@ export const routes: Routes = [
         path: '',
         component: MainComponent,
         children: [
-            {path: '', redirectTo: 'home', pathMatch: 'full'},
+            {
+                path: '',
+                redirectTo: 'home',
+                pathMatch: 'full'
+            },
             {
                 path: 'home',
-                loadChildren: loadHomeModule
+                loadChildren: loadBooksModule
             },
             {
                 path: 'books',

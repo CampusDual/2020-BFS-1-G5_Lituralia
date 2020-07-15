@@ -1,7 +1,6 @@
 .tarjeta {
-  height: 300px;
+  height: 250px;
 }
-
 
 
 .text {
@@ -29,52 +28,56 @@
   bottom: 5px;
 }
 
-
 .content {
   padding: 16px;
 }
 
 .content > mat-card {
   width: 550px;
-  height: 300px;
+  height: 200px;
   border-style: round(15);
   margin: 10px;
 }
 
 
-
-.dates{
+.dates {
   margin-top: 10px;
   margin-left: 20px;
 }
+
 .cover {
   padding: 10px;
 }
 
 
-.title{
-  font-size:large;
+.title {
+  font-size: large;
   font-weight: bold;
 }
-.authors{
+
+.authors {
   font-size: medium;
   font-weight: bolder;
-  color:#2d2d2d;
+  color: #2d2d2d;
 }
-.search{
+
+.search {
   margin-left: 20px;
 
 }
-//.buttonsGroup{
-//  position: absolute;
-//  right: 20px;
-//  float: right;
-//}
+
 .pie {
   text-align: right;
+  margin-bottom: 10px;
 
 }
-.stars{
-  margin-top: 15px;
-  margin-left:25px
+
+.stars {
+  text-align: left;
+  margin-top: 10px;
+  margin-left: 27px
+}
+
+.boton {
+  margin-top: 12px;
 }

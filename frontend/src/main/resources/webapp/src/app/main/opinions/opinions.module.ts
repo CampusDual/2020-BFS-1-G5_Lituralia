@@ -6,6 +6,8 @@ import {OpinionDisplayComponent} from "./opinion-display/opinion-display.compone
 import {SharedModule} from "../../shared/shared.module";
 import {MatCardModule} from "@angular/material/card";
 import {OntimizeWebModule, OTranslateModule} from "ontimize-web-ngx";
+import {OpinionEditComponent} from './opinion-edit/opinion-edit.component';
+import {RatingModule} from "ng-starrating";
 
 @NgModule({
   imports: [
@@ -14,13 +16,16 @@ import {OntimizeWebModule, OTranslateModule} from "ontimize-web-ngx";
     SharedModule,
     MatCardModule,
     OTranslateModule,
-    OntimizeWebModule
+    OntimizeWebModule,
+    RatingModule
   ],
   declarations: [
-    OpinionDisplayComponent
+    OpinionDisplayComponent,
+    OpinionEditComponent
   ],
-  exports:[
-    OpinionDisplayComponent
+  exports: [
+    OpinionDisplayComponent,
+    OpinionEditComponent
   ]
 })
 export class OpinionsModule { }

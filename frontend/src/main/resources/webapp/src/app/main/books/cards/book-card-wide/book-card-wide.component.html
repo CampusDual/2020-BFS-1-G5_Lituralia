@@ -1,17 +1,30 @@
-<div *ngIf="this.book" class="card m-3">
-  <div class="card-horizontal">
-    <div class="img-square-wrapper cursor-pointer" [routerLink]="['/main', 'books', book.book_id]">
-      <img class="" width="100px" height="150px" src="{{'data:image/jpg;base64,' +book.cover}}" alt=""
-           onerror="this.src='assets/images/no-image.png'">
-    </div>
-    <div class="card-body">
-      <h6 class="card-title cursor-pointer w-100" [routerLink]="['/main', 'books', book.book_id]">{{book.title}}</h6>
-      <div class="card-subtitle">{{book.author_names}}</div>
-      <app-star-rating [rating]="book.avg_rating" [ratings]="book.ratings" height="25"
-                       [fluid]="false"></app-star-rating>
-    </div>
-    <div *ngIf="canRemove" class="float-right m-4 cursor-pointer" (click)="removeAction(book)">
+<mat-card *ngIf="this.book" class="">
+  <o-row>
+    <o-column fxFlex="25">
+      <o-image class="cursor-pointer" [routerLink]="['/main','books', book.book_id]"
+               height="150px"
+               id="book_cover"
+               label="COVER"
+               [data]="book.cover"
+               auto-fit="yes"
+               enabled="true"
+               read-only="true"
+               show-controls="false"
+               full-screen-button="false"></o-image>
+    </o-column>
+    <o-column fxFlex="75">
+      <div class="">
+        <h3 class=" cursor-pointer " [routerLink]="['/main', 'books', book.book_id]">{{book.title}}</h3>
+        <div class="">{{book.author_names}}</div>
+        <app-star-rating [rating]="book.avg_rating" [ratings]="book.ratings" height="25"></app-star-rating>
+      </div>
+      <div *ngIf="canRemove" class=" cursor-pointer" (click)="removeAction(book)">
+
+        <button mat-stroked-button>{{'REMOVE_FROM_MY_LIST' | oTranslate}}
       <mat-icon class="mat-icon material-icons" aria-hidden="true">delete</mat-icon>
+        </button>
     </div>
-  </div>
-</div>
+    </o-column>
+
+  </o-row>
+</mat-card>

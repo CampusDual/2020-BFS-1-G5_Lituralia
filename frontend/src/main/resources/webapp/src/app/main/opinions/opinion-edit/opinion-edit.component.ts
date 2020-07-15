@@ -1,24 +1,27 @@
-import {Component, ElementRef, EventEmitter, OnInit, Output, Renderer2, ViewChild} from '@angular/core';
-import {OpinionService} from "../../../../shared/services/opinion.service";
+import {Component, EventEmitter, Input, OnInit, Output, Renderer2, ViewChild} from '@angular/core';
+import {StarRatingComponent} from "ng-starrating";
+import {Opinion} from "../../../shared/domain/opinion";
+import {OpinionService} from "../../../shared/services/opinion.service";
 import {ActivatedRoute} from "@angular/router";
 import {DialogService, OTranslateService} from "ontimize-web-ngx";
-import {Opinion} from "../../../../shared/domain/opinion";
 
 @Component({
-  selector: 'app-user-book-opinion',
-  templateUrl: './user-book-opinion.component.html',
-  styleUrls: ['./user-book-opinion.component.scss']
+  selector: 'app-opinion-edit',
+  templateUrl: './opinion-edit.component.html',
+  styleUrls: ['./opinion-edit.component.scss']
 })
-export class UserBookOpinionComponent implements OnInit {
+export class OpinionEditComponent implements OnInit {
+
+  @Input() public book_id: number;
+  @Input() public showCover: boolean = false;
 
   @Output() reloadBook = new EventEmitter<any>();
 
-  @ViewChild("activeReview") aReview: ElementRef;
-  @ViewChild("activeRating") aRating: ElementRef;
+  @ViewChild("activeReview") aReview: any;
+  @ViewChild("activeRating") aRating: StarRatingComponent;
 
 
   opinion: Opinion = null;
-  private book_id: number;
 
   public activeEditReview: string = ""
   public activeEditRating: number = 0
@@ -28,24 +31,22 @@ export class UserBookOpinionComponent implements OnInit {
   ratingValues: Array<Object>;
 
   constructor(
-              private opinionService: OpinionService,
-              private route: ActivatedRoute,
-              private renderer: Renderer2,
-              private dialogService: DialogService,
-              private translate: OTranslateService) {
+    private opinionService: OpinionService,
+    private route: ActivatedRoute,
+    private renderer: Renderer2,
+    private dialogService: DialogService,
+    private translate: OTranslateService) {
 
   }
 
 
   ngOnInit() {
-    this.book_id = +this.route.snapshot.paramMap.get('book_id');
     this.getUserOpinion();
-    this.ratingValues = this.genRatingValues()
   }
 
   private getUserOpinion() {
-    this.opinionService.getUserOpinion(+this.book_id).subscribe(value => {
-      this.opinion = value.data[0]
+    this.opinionService.getUserOpinion(this.book_id).subscribe(value => {
+      this.opinion = value
       this.editMode = this.hasOpinion()
       if (this.editMode) {
         this.activeEditReview = this.opinion.review
@@ -80,15 +81,17 @@ export class UserBookOpinionComponent implements OnInit {
   private readonly CREATING_OPINION_ERROR = "CREATING_OPINION_ERROR";
 
   updateOpinion() {
-    const reviewElement: any = this.aReview
-    const review: string = reviewElement.value.value
-    const ratingElement: any = this.aRating
-    const rating: string = ratingElement.value.value
-    this.opinionService.updateUserOpinion(this.opinion.opinion_id, +rating, review)
+    const review: string = this.aReview.value.value
+    const rating: number = this.aRating.value
+    this.opinionService.updateUserOpinion(this.opinion.opinion_id, rating, review)
     .subscribe(
-      value => this.dialogService.info(this.translate.get(this.UPDATING_OPINION), this.translate.get(this.UPDATING_OPINION_OK)),
+      value => {
+        if(!value)
+          this.dialogService.error(this.translate.get(this.UPDATING_OPINION), this.translate.get(this.UPDATING_OPINION_ERROR))
+        // this.dialogService.info(this.translate.get(this.UPDATING_OPINION), this.translate.get(this.UPDATING_OPINION_OK))
+      },
       error => this.dialogService.error(this.translate.get(this.UPDATING_OPINION), this.translate.get(this.UPDATING_OPINION_ERROR)),
-      () =>{
+      () => {
         this.getUserOpinion()
         this.reloadBook.emit()
       }
@@ -96,13 +99,15 @@ export class UserBookOpinionComponent implements OnInit {
   }
 
   createOpinion() {
-    const reviewElement: any = this.aReview
-    const review: string = reviewElement.value.value
-    const ratingElement: any = this.aRating
-    const rating: string = ratingElement.value.value
-    this.opinionService.createUserOpinion(this.book_id, +rating, review)
+    const review: string = this.aReview.value.value
+    const rating: number = this.aRating.value
+    this.opinionService.createUserOpinion(this.book_id, rating, review)
     .subscribe(
-      value => this.dialogService.info(this.translate.get(this.CREATING_OPINION), this.translate.get(this.CREATING_OPINION_OK)),
+      value => {
+        if(!value)
+          this.dialogService.error(this.translate.get(this.CREATING_OPINION), this.translate.get(this.CREATING_OPINION_ERROR))
+        // this.dialogService.info(this.translate.get(this.CREATING_OPINION), this.translate.get(this.CREATING_OPINION_OK))
+      },
       error => this.dialogService.error(this.translate.get(this.CREATING_OPINION), this.translate.get(this.CREATING_OPINION_ERROR)),
       () => {
         this.getUserOpinion()
@@ -114,7 +119,12 @@ export class UserBookOpinionComponent implements OnInit {
   deleteOpinion() {
     this.opinionService.deleteUserOpinion(this.opinion.opinion_id)
     .subscribe(
-      value => this.dialogService.info(this.translate.get(this.DELETING_OPINION), this.translate.get(this.DELETING_OPINION_OK)),
+      value => {
+        if (value)
+          this.dialogService.info(this.translate.get(this.DELETING_OPINION), this.translate.get(this.DELETING_OPINION_OK))
+        else
+          this.dialogService.error(this.translate.get(this.DELETING_OPINION), this.translate.get(this.DELETING_OPINION_ERROR))
+          },
       error => this.dialogService.error(this.translate.get(this.DELETING_OPINION), this.translate.get(this.DELETING_OPINION_ERROR)),
       () => {
         this.getUserOpinion()
@@ -124,26 +134,7 @@ export class UserBookOpinionComponent implements OnInit {
   }
 
 
-  genRatingValues() {
-    const array: Array<Object> = [];
-    array.push({
-      'rating': 0
-    });
-    array.push({
-      'rating': 1
-    });
-    array.push({
-      'rating': 2
-    });
-    array.push({
-      'rating': 3
-    });
-    array.push({
-      'rating': 4
-    });
-    array.push({
-      'rating': 5
-    });
-    return array;
+  onRate() {
+    this.editMode ? this.updateOpinion() : this.createOpinion()
   }
 }
