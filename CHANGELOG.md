@@ -1,12 +1,18 @@
 #### v 1.0.0-FINAL     	====	24/07/2020
 
 
-#### v 1.0.0-RC.1     	====	17/07/2020
+#### v 1.0.0-RC.1     	====	15/07/2020
 
 - Front:
     - Book, Author and Publisher Services
     - Rate books clicking on stars (remove dropdown)
     - Deprecated png-based star rating pipe    
+    - Logo on menu
+    - Book Grid Landing Page
+    - Dynamic Star Rating
+    - Optimize Card Layouts
+- SQL:
+    -Real-ish mock data
 
 #### v 0.0.7-SNAPSHOT	====	10/07/2020
 
