@@ -1,4 +1,4 @@
-#### v 1.0.0-FINAL     	====	24/07/2020
+#### v 1.0.0-RC.2     	====	16/07/2020
 
 - Small optimizations on Author and Publisher Card layout
 - Small optimizations on Book List and Review List

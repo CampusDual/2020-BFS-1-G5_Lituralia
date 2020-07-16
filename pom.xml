@@ -10,11 +10,11 @@
 
   <groupId>com.campusdual.lituralia</groupId>
   <artifactId>lituralia</artifactId>
-  <version>1.0.0-RC.1</version>
+  <version>1.0.0-RC.2</version>
   <packaging>pom</packaging>
 
   <properties>
-    <lituralia.version>1.0.0-RC.1</lituralia.version>
+    <lituralia.version>1.0.0-RC.2</lituralia.version>
     <ontimize.boot.version>2.1.1</ontimize.boot.version>
     <ontimize.jee.version>2.1.1</ontimize.jee.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
