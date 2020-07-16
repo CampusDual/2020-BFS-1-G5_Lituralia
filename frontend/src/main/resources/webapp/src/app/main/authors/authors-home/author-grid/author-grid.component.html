@@ -18,9 +18,9 @@
         keys="author_id"
         pageable="no"
         query-rows="16"
-        detail-mode="no">
+        detail-route="/main/authors/">
   <o-grid-item *ngFor="let author of authors.dataArray" class="">
-        <app-author-card-medium [author]="author"></app-author-card-medium>
+    <app-author-card-medium [author]="author"></app-author-card-medium>
 
   </o-grid-item>
 </o-grid>

@@ -1,30 +1,31 @@
-<mat-card *ngIf="this.book" class="">
+<mat-card *ngIf="this.book" class="book-card-wide">
   <o-row>
-    <o-column fxFlex="25">
+    <o-column fxFlex="20">
       <o-image class="cursor-pointer" [routerLink]="['/main','books', book.book_id]"
                height="150px"
                id="book_cover"
                label="COVER"
                [data]="book.cover"
-               auto-fit="yes"
                enabled="true"
                read-only="true"
                show-controls="false"
                full-screen-button="false"></o-image>
     </o-column>
-    <o-column fxFlex="75">
-      <div class="">
-        <h3 class=" cursor-pointer " [routerLink]="['/main', 'books', book.book_id]">{{book.title}}</h3>
+    <o-column fxFlex="50">
+      <div class="horizontal-margin-8">
+        <h3 class="cursor-pointer" [routerLink]="['/main', 'books', book.book_id]">{{book.title}}</h3>
         <div class="">{{book.author_names}}</div>
+      </div>
+    </o-column>
+    <o-column fxFlex="30">
+      <div class="text-right">
         <app-star-rating [rating]="book.avg_rating" [ratings]="book.ratings" height="25"></app-star-rating>
       </div>
-      <div *ngIf="canRemove" class=" cursor-pointer" (click)="removeAction(book)">
-
-        <button mat-stroked-button>{{'REMOVE_FROM_MY_LIST' | oTranslate}}
-      <mat-icon class="mat-icon material-icons" aria-hidden="true">delete</mat-icon>
+      <div *ngIf="canRemove" class="margin-top-auto cursor-pointer text-right">
+        <button mat-stroked-button (click)="removeAction(book)">{{'REMOVE_FROM_MY_LIST' | oTranslate}}
+          <mat-icon class="mat-icon material-icons" aria-hidden="true">delete</mat-icon>
         </button>
-    </div>
+      </div>
     </o-column>
-
   </o-row>
 </mat-card>

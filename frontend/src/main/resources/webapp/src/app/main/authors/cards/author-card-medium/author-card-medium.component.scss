@@ -7,7 +7,7 @@
   font-size: 14px;
   color: black;
   font-family: sans-serif;
-  width: 90%; /* Could be anything you like. */
+  //width: 90%; /* Could be anything you like. */
 }
 
 .text-concat {
@@ -21,12 +21,15 @@
 }
 
 .text.ellipsis::after {
-  content: "...";
-  position: absolute;
-  right: -12px;
-  bottom: 5px;
+  //content: "...";
+  //position: absolute;
+  //right: -12px;
+  //bottom: 5px;
 }
 
+.author-avatar{
+  margin-bottom: 10px;
+}
 
 .date {
 text-align: end;

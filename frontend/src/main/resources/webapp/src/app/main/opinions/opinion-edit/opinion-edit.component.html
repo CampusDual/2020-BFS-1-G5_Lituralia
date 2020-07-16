@@ -30,8 +30,7 @@
     </o-form>
   </mat-card-content>
   <mat-card-subtitle *ngIf="editMode">
-    <div *ngIf="opinion"
-         class="opinion-update">{{'OPINION_UPDATED_DATE' |oTranslate}} {{(opinion.opinion_update?opinion.opinion_update:opinion.opinion_create) | date:'medium'}}</div>
+    <div *ngIf="opinion">{{'OPINION_UPDATED_DATE' |oTranslate}} {{(opinion.opinion_update?opinion.opinion_update:opinion.opinion_create) | date:'medium'}}</div>
   </mat-card-subtitle>
   <mat-card-actions>
     <button mat-stroked-button (click)="editMode ? updateOpinion() : createOpinion()" class="opinion-btn mx-4 mb-4">

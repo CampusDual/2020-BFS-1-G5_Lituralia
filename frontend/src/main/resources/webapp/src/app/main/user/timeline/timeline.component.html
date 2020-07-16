@@ -1,6 +1,6 @@
 <o-column fxFlex="80" title="{{ 'YOUR_TIMELINE' | oTranslate }}">
   <div *ngIf="this.isLoggedIn(); else loggedOut" >
-  <app-opinion-display *ngFor="let opinion of opinions | async" [opinion]="opinion"></app-opinion-display>
+  <app-opinion-display *ngFor="let opinion of opinions | async" [opinion]="opinion" [showUser]="false"></app-opinion-display>
 
   </div>
   <ng-template #loggedOut>

@@ -1,40 +1,30 @@
-
 <div *ngIf="this.publisher">
-    <mat-card class="tarjeta">
-        <mat-card-content>
-            <o-row>
-                <o-column fxFlex="30" class="mr-2">
-                    <o-image height="100px"
-                             empty-image="assets/images/no-image.png"
-                             id="publisher_logo"
-                             attr="logo"
-                             label="LOGO"
-                             [data]="publisher.publisher_logo | base64"
-                             auto-fit="yes"
-                             enabled="true"
-                             read-only="true"
-                             show-controls="false"
-                             full-screen-button="false"></o-image>
-                </o-column>
-                <o-column fxFlex="70">
-                    <mat-card-title class=" cursor-pointer" [routerLink]="['/main','publishers', publisher.publisher_id]">
-                        <div class="txt-wrap">
-                            {{publisher.publisher_name}}
-                        </div>
-                    </mat-card-title>
-                </o-column>
-            </o-row>
-                <div class="col-xs-1 center-block" style="text-align:center;">
-                <app-star-rating [rating]="publisher.avg_rating"
-                [ratings]="publisher.ratings" ></app-star-rating>
-                </div>
+  <mat-card class="tarjeta">
+    <mat-card-content>
+      <o-image height="100px"
+               empty-image="assets/images/no-image.png"
+               id="publisher_logo"
+               attr="logo"
+               label="LOGO"
+               [data]="publisher.publisher_logo | base64"
+               auto-fit="yes"
+               enabled="true"
+               read-only="true"
+               show-controls="false"
+               full-screen-button="false"></o-image>
+
+      <mat-card-title class="text-center cursor-pointer" [routerLink]="['/main','publishers', publisher.publisher_id]">
+        <div class="txt-wrap">
+          {{publisher.publisher_name}}
+        </div>
+      </mat-card-title>
 
 
-        </mat-card-content>
-        <mat-card-footer class="pie">
-            <div class="text ellipsis">
-                <span class="text-concat">{{publisher.publisher_desc}}</span>
-            </div>
-        </mat-card-footer>
-    </mat-card>
+    </mat-card-content>
+    <mat-card-footer class="text-center">
+
+      <app-star-rating [rating]="publisher.avg_rating"
+                       [ratings]="publisher.ratings"></app-star-rating>
+    </mat-card-footer>
+  </mat-card>
 </div>
