@@ -19,8 +19,8 @@
                 </o-column>
                 <o-column fxFlex="70" class="dates">
                     <mat-card-title class=" cursor-pointer" [routerLink]="['/main','books', book.book_id]">
-                        <div title="{{book.title}}">
-                            {{ (book.title.length > 12) ? (book.title | slice:0:12) + '...' : (book.title) }}
+                        <div >
+                            {{ (book.title.length > 15) ? (book.title | slice:0:15) + '...' : (book.title) }}
                         </div>
                     </mat-card-title>
                     <mat-card-subtitle>
