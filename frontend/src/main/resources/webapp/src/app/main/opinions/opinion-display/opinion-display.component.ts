@@ -9,6 +9,7 @@ import {Opinion} from "../../../shared/domain/opinion";
 export class OpinionDisplayComponent implements OnInit {
 
   @Input() opinion: Opinion
+  @Input() showUser: boolean = true
 
   constructor() { }
 

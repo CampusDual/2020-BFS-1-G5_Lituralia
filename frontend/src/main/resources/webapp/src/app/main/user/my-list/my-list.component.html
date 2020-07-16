@@ -1,4 +1,4 @@
-<o-column fxFlex="80" title="{{ 'YOUR_BOOK_LIST' | oTranslate }}">
+<o-column fxFlex title="{{ 'YOUR_BOOK_LIST' | oTranslate }}">
  <div *ngIf="this.isLoggedIn(); else loggedOut" >
    <div *ngIf="!isListInitialized; else myListElement">
      <button class="btn btn-primary" (click)="initMyList()">{{'INIT_MY_LIST_BTN' | oTranslate}}</button>
@@ -10,12 +10,12 @@
 <!--       <div>{{'LIST_CREATED'| oTranslate }} - {{myBookList.list_create|date:'medium'}}</div>-->
        <div>{{'LIST_UPDATED'| oTranslate }} - {{myBookList.list_update|date:'medium'}}</div>
        <div *ngIf="(myBookList.books$ |async) as bookz; else noBooks">
-         <ul class="list-unstyled">
-           <li *ngFor="let book of bookz ">
+
+           <div *ngFor="let book of bookz ">
              <app-book-card-wide [book]="book" [canRemove]="true"
                                  (onRemoveAction)="removeBookFromList($event)"></app-book-card-wide>
-           </li>
-         </ul>
+           </div>
+
        </div>
        <ng-template #noBooks>
          <div>{{'EMPTY_LIST' | oTranslate}}</div>

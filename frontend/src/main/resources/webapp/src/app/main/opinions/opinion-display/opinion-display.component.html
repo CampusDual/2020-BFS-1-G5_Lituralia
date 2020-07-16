@@ -1,12 +1,10 @@
-<mat-card class="user-opinion">
+<mat-card class="user-opinion cursor-pointer" [routerLink]="['/main','books', opinion.book_id]" fragment="userRating">
 
-  <o-column fxFlex="25" *ngIf="opinion.cover" class="image">
-    <mat-card-title *ngIf="opinion.title" [routerLink]="['/main','books', opinion.book_id]"
-                    class="cursor-pointer">{{ (opinion.title.length > 15) ? (opinion.title | slice:0:15) + '...' : (opinion.title) }}</mat-card-title>
+  <o-column fxFlex="20" *ngIf="opinion.cover" class="image">
     <o-image class="cursor-pointer"
              empty-image="assets/images/no-image.png"
              [routerLink]="['/main','books', opinion.book_id]"
-             height="200px"
+             height="150px"
              id="book_cover"
              label="COVER"
              [data]="opinion.cover | base64"
@@ -17,18 +15,21 @@
              full-screen-button="false"></o-image>
   </o-column>
 
-  <o-column fxFlex="75">
+  <o-column fxFlex="80" class="horizontal-margin-8">
 
-    <app-star-rating [rating]="opinion.rating" [ratings]="1" height="25"></app-star-rating>
-    <mat-card-header>
-      <mat-card-title><h3>{{opinion.user_}}</h3></mat-card-title>
-    </mat-card-header>
-    <mat-card-subtitle>
-      <div *ngIf="opinion.opinion_create">{{'OPINION_CREATED_DATE' |oTranslate}} {{opinion.opinion_create | date:'medium'}}</div>
-      <div *ngIf="opinion.opinion_update">{{'OPINION_UPDATED_DATE' |oTranslate}} {{opinion.opinion_update | date:'medium'}}</div>
-    </mat-card-subtitle>
+
     <mat-card-content>
+      <h2  *ngIf="opinion.title" class="">{{opinion.title}}</h2>
+      <mat-card-title>
+        <app-star-rating [rating]="opinion.rating" [ratings]="1" height="25"></app-star-rating>
+      </mat-card-title>
+      <h3 *ngIf="showUser">{{opinion.user_}}</h3>
       <p>{{opinion.review}}</p>
+      <div *ngIf="opinion " class="margin-top-auto">
+        <h6>
+          {{'OPINION_UPDATED_DATE' |oTranslate}} {{(opinion.opinion_update ? opinion.opinion_update
+          : opinion.opinion_create) | date:'medium'}}</h6>
+      </div>
     </mat-card-content>
   </o-column>
 

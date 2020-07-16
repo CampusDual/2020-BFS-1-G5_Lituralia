@@ -91,8 +91,8 @@
       </o-column>
     </o-row>
     <o-row>
-      <o-column fxFlex="80" title="{{ 'USER_REVIEW' | oTranslate }}">
-        <div *ngIf="isLoggedIn(); else loggedOut" class="user-opinion">
+      <o-column fxFlex="80" title="{{ 'USER_REVIEW' | oTranslate }}" id="userRating">
+        <div *ngIf="isLoggedIn(); else loggedOut" class="user-opinion" >
           <app-opinion-edit class="user-opinion" (reloadBook)="this.reloadBook()"
                             [book_id]="this.id"></app-opinion-edit>
         </div>
