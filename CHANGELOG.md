@@ -1,3 +1,7 @@
+#### v 1.0.0-FINAL     	====	17/07/2020
+
+- RC.2 => FINAL (no changes)
+
 #### v 1.0.0-RC.2     	====	16/07/2020
 
 - Small optimizations on Author and Publisher Card layout
