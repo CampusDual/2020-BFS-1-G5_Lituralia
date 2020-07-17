@@ -2,7 +2,7 @@
 
 ### Campus Dual
 
-#### Proyecto en desarrollo
+#### Proyecto en Finalizado
 
 ## Comenzando 🔧
 
