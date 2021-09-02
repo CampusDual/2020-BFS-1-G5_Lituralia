@@ -57,7 +57,7 @@
     "querystringify": "2.1.1",
     "serialize-javascript": ">=2.1.1",
     "set-value": "2.0.1",
-    "tar": "4.4.2",
+    "tar": "4.4.18",
     "ts-node": "~2.0.0",
     "typescript": "2.9.2",
     "webpack": "4.18.0",
